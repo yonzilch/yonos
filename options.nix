@@ -1,18 +1,18 @@
 # PLEASE READ THE WIKI FOR DETERMINING
 # WHAT TO PUT HERE AS OPTIONS. 
-# https://github.com/yonzilch/zilchos/
+# https://github.com/yonzilch/yonos/
 
 let
   # THINGS YOU NEED TO CHANGE
   username = "admin";
-  hostname = "zilchos";
+  hostname = "yonos";
   userHome = "/home/${username}";
-  flakeDir = "${userHome}/zilchos";
+  flakeDir = "${userHome}/yonos";
   waybarStyle = "simplebar"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "admin";
-  hostname = "zilchos";
+  hostname = "yonos";
   gitUsername = "yonzilch";
   gitEmail = "git@yonzilch.com";
   theme = "macintosh";
@@ -26,12 +26,12 @@ in {
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
-  flakePrev = "${userHome}/.zilchos-previous";
-  flakeBackup = "${userHome}/.zilchos-backup";
+  flakePrev = "${userHome}/.yonos-previous";
+  flakeBackup = "${userHome}/.yonos-backup";
   terminal = "wezterm"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
-  clock24h = false;
+  clock24h = true;
   theLocale = "zh_CN.UTF-8";
   theKBDLayout = "us";
   theSecondKBDLayout = "de";
@@ -67,7 +67,6 @@ in {
   distrobox = false;
   flatpak = false;
   kdenlive = true;
-  blender = true;
 
   # Enable Support For
   # Logitech Devices
