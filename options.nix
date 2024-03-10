@@ -14,7 +14,7 @@ in {
   username = "admin";
   hostname = "yonos";
   gitUsername = "yonzilch";
-  gitEmail = "git@yonzilch.com";
+  gitEmail = "github@yonzilch.com";
   theme = "macintosh";
   slickbar = if waybarStyle == "slickbar" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
