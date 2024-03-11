@@ -1,6 +1,6 @@
 # PLEASE READ THE WIKI FOR DETERMINING
 # WHAT TO PUT HERE AS OPTIONS. 
-# https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
+# https://gitlab.com/yonzilch/yonos/
 
 let
   # THINGS YOU NEED TO CHANGE
@@ -21,13 +21,13 @@ in {
   bar-number = true; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
   browser = "firefox";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
+  wallpaperGit = "https://github.com/yonzilch/my-wallpapers.git"; # This will give you my wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
-  flakePrev = "${userHome}/.zaneyos-previous";
-  flakeBackup = "${userHome}/.zaneyos-backup";
+  flakePrev = "${userHome}/.yonos-previous";
+  flakeBackup = "${userHome}/.yonos-backup";
   terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
