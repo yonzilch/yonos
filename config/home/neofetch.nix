@@ -3,7 +3,7 @@
 {
     home.file.".config/neofetch/config.conf".text = ''
         print_info() {
-            prin "$(color 6)  ZilchOS "
+            prin "$(color 6)  YonOS "
             info underline
             info "$(color 7)  VER" kernel
             info "$(color 2)  UP " uptime
