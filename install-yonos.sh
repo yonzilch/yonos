@@ -84,9 +84,9 @@ sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./
 
 echo "-----"
 
-read -p "Enter Your New Hostname: [ hyprnix ] " hostName
+read -p "Enter Your New Hostname: [ yonos ] " hostName
 if [ -z "$hostName" ]; then
-  hostName="hyprnix"
+  hostName="yonos"
 fi
 sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./options.nix
 
@@ -108,9 +108,9 @@ sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./
 
 echo "-----"
 
-read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
+read -p "Enter Your Locale: [ zh_CN.UTF-8 ] " locale
 if [ -z "$locale" ]; then
-  locale="en_US.UTF-8"
+  locale="zh_CN.UTF-8"
 fi
 sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./options.nix
 
@@ -124,9 +124,9 @@ sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"
 
 echo "-----"
 
-read -p "Enter Your Timezone: [ America/New_York ] " timezone
+read -p "Enter Your Timezone: [ Asia/Shanghai ] " timezone
 if [ -z "$timezone" ]; then
-  timezone="America/New_York"
+  timezone="Asia/Shanghai"
 fi
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
 sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
@@ -246,7 +246,7 @@ sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" 
 echo "-----"
 
 echo "Valid options include amd, intel, and vm"
-read -p "Enter Your CPU Type: [ intel ] " cpuType
+read -p "Enter Your CPU Type: [ amd ] " cpuType
 user_input_lower=$(echo "$cpuType" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   amd)
@@ -259,9 +259,9 @@ case $user_input_lower in
     cpuType="vm"
     ;;
   *)
-    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
+    echo "Option Entered Not Available, Falling Back To [ amd ] Option."
     sleep 1
-    cpuType="intel"
+    cpuType="amd"
     ;;
 esac
 sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./options.nix
@@ -288,9 +288,9 @@ case $user_input_lower in
     gpuType="intel-nvidia"
     ;;
   *)
-    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
+    echo "Option Entered Not Available, Falling Back To [ amd ] Option."
     sleep 1
-    gpuType="intel"
+    gpuType="amd"
     ;;
 esac
 sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./options.nix
