@@ -55,7 +55,7 @@ sleep 2
 echo "-----"
 
 echo "Cloning & Entering YonOS Repository"
-git clone https://gitlab.com/yonzilch/yonos.git
+git clone https://github.com/yonzilch/yonos.git
 cd yonos
 
 echo "-----"
