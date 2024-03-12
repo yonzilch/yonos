@@ -1,13 +1,19 @@
-{ inputs, config, pkgs,
-  username, hostname, ... }:
+{ inputs
+, config
+, pkgs
+, username
+, hostname
+, ...
+}:
 
-let 
-  inherit (import ./options.nix) 
+let
+  inherit (import ./options.nix)
     theLocale theTimezone gitUsername
     theShell wallpaperDir wallpaperGit
     theLCVariables theKBDLayout flakeDir
     theme;
-in {
+in
+{
   imports =
     [
       ./hardware.nix
@@ -48,7 +54,7 @@ in {
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
   };
 
@@ -62,7 +68,7 @@ in {
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
+      substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
