@@ -108,9 +108,9 @@ sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./
 
 echo "-----"
 
-read -p "Enter Your Locale: [ zh_CN.UTF-8 ] " locale
+read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
 if [ -z "$locale" ]; then
-  locale="zh_CN.UTF-8"
+  locale="en_US.UTF-8"
 fi
 sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./options.nix
 
