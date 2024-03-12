@@ -9,7 +9,8 @@ let
   userHome = "/home/${username}";
   flakeDir = "${userHome}/yonos";
   waybarStyle = "simplebar"; # simplebar, slickbar, or default
-in {
+in
+{
   # User Variables
   username = "zaney";
   hostname = "hyprnix";
@@ -82,7 +83,7 @@ in {
 
   # Enable Python & PyCharm
   python = false;
-  
+
   # Enable SyncThing
   syncthing = false;
 
