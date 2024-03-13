@@ -1,18 +1,13 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, ... }:
 
-    i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons =
-    let
-      config.packageOverrides = pkgs: {
-        fcitx5-rime = pkgs.fcitx5-rime.override {rimeDataPkgs = [
-          ./rime-data-flypy
-        ];};
-      };
-    in
-    with pkgs; [
-        fcitx5-rime
-        fcitx5-configtool
-        fcitx5-chinese-addons
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+      fcitx5.addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
       ];
-};
+    };
+  };
