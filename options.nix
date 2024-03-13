@@ -1,6 +1,6 @@
 # PLEASE READ THE WIKI FOR DETERMINING
 # WHAT TO PUT HERE AS OPTIONS. 
-# https://gitlab.com/yonzilch/yonos/
+# https://github.com/yonzilch/yonos/
 
 let
   # THINGS YOU NEED TO CHANGE
@@ -9,14 +9,13 @@ let
   userHome = "/home/${username}";
   flakeDir = "${userHome}/yonos";
   waybarStyle = "simplebar"; # simplebar, slickbar, or default
-in
-{
+in {
   # User Variables
-  username = "zaney";
-  hostname = "hyprnix";
-  gitUsername = "Tyler Kelley";
-  gitEmail = "tylerzanekelley@gmail.com";
-  theme = "atelier-cave";
+  username = "admin";
+  hostname = "yonos";
+  gitUsername = "yonzilch";
+  gitEmail = "github@yonzilch.com";
+  theme = "macintosh";
   slickbar = if waybarStyle == "slickbar" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
   bar-number = true; # Enable / Disable Workspace Numbers In Waybar
@@ -29,29 +28,28 @@ in
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.yonos-previous";
   flakeBackup = "${userHome}/.yonos-backup";
-  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "wezterm"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
-  clock24h = false;
+  clock24h = true;
   theLocale = "en_US.UTF-8";
   theKBDLayout = "us";
   theSecondKBDLayout = "de";
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
-  theTimezone = "America/Chicago";
+  theTimezone = "Asia/Shanghai";
   theShell = "bash"; # Possible options: bash, zsh
-  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
+  theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
+  sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "intel";
+  cpuType = "amd";
   gpuType = "amd";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
   # SYSTEMS! 
-  intel-bus-id = "PCI:0:2:0";
-  nvidia-bus-id = "PCI:14:0:0";
+
 
   # Enable / Setup NFS
   nfs = false;
@@ -69,7 +67,6 @@ in
   distrobox = false;
   flatpak = false;
   kdenlive = true;
-  blender = true;
 
   # Enable Support For
   # Logitech Devices
@@ -78,12 +75,12 @@ in
   # Enable Terminals
   # If You Disable All You Get Kitty
   wezterm = true;
-  alacritty = false;
+  alacritty = true;
   kitty = true;
 
   # Enable Python & PyCharm
   python = false;
-
+  
   # Enable SyncThing
   syncthing = false;
 
