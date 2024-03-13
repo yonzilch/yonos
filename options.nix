@@ -15,7 +15,7 @@ in {
   hostname = "yonos";
   gitUsername = "yonzilch";
   gitEmail = "github@yonzilch.com";
-  theme = "macintosh";
+  theme = "tokyo-night-storm";
   slickbar = if waybarStyle == "slickbar" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
   bar-number = true; # Enable / Disable Workspace Numbers In Waybar

@@ -50,6 +50,11 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./home.nix;
+
+
+              nixpkgs.config.permittedInsecurePackages = [
+                "nix-2.16.2"
+              ];
             }
           ];
         };

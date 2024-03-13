@@ -9,6 +9,7 @@ in
   home.packages = with pkgs; [
     pkgs."${browser}"
     discord
+    fcitx5
     libvirt
     swww
     grim
