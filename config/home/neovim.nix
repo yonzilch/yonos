@@ -96,22 +96,6 @@ in {
 	enable = true;
 	nixGrammars = true;
       };
-      nvim-cmp = {
-	enable = true;
-	autoEnableSources = true;
-	sources = [
-	  { name = "nvim_lsp"; }
-	  { name = "path"; }
-	  { name = "buffer"; }
-	];
-	mapping = {
-	  "<CR>" = "cmp.mapping.confirm({ select = true })";
-	  "<Tab>" = {
-	    action = ''cmp.mapping.select_next_item()'';
-	    modes = [ "i" "s" ];
-	  };
-	};
-      };
     };
 
     extraPlugins = [ plugins.telescope-file-browser-nvim ];
