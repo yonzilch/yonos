@@ -33,7 +33,7 @@ in
     swayidle
     neovide
     element-desktop
-    schildichat-desktop-wayland
+    schildichat-desktop
     starship
     strawberry
     swaylock
