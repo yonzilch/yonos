@@ -34,6 +34,7 @@ in
     neovide
     element-desktop
     starship
+    strawberry-qt6
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
