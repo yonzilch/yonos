@@ -32,9 +32,8 @@ in
     spotify
     swayidle
     neovide
-    starship
-    strawberry
     element-desktop
+    starship
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
