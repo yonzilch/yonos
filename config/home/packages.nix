@@ -8,7 +8,7 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
-    discord
+    element-desktop
     fcitx5
     lapce
     libvirt
@@ -32,8 +32,6 @@ in
     spotify
     swayidle
     neovide
-    element-desktop
-    schildichat-desktop
     starship
     strawberry
     swaylock
