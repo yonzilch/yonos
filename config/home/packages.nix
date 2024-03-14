@@ -10,6 +10,7 @@ in
     pkgs."${browser}"
     discord
     fcitx5
+    lapce
     libvirt
     swww
     grim

@@ -28,7 +28,7 @@ in {
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.yonos-previous";
   flakeBackup = "${userHome}/.yonos-backup";
-  terminal = "wezterm"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
   clock24h = true;
