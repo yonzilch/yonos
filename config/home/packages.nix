@@ -33,9 +33,11 @@ in
     swayidle
     neovide
     element-desktop
+    schildichat-desktop-wayland
     starship
     strawberry
     swaylock
+    vscodium
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
