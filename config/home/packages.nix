@@ -8,6 +8,7 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
+    discord
     fcitx5
     lapce
     libvirt
@@ -31,9 +32,9 @@ in
     spotify
     swayidle
     neovide
-    element-desktop
     starship
     strawberry
+    element-desktop
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
