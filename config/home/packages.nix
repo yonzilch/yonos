@@ -10,7 +10,6 @@ in
     pkgs."${browser}"
     discord
     fcitx5
-    lapce
     libvirt
     swww
     grim
@@ -21,7 +20,6 @@ in
     imv
     transmission-gtk
     mpv
-    nushell
     gimp
     obs-studio
     rustup
@@ -33,7 +31,6 @@ in
     swayidle
     neovide
     element-desktop
-    starship
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
