@@ -9,7 +9,7 @@
     wget
     curl
     git
-    cmatrixBB
+    cmatrix
     lolcat
     neofetch
     htop
