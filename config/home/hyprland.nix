@@ -20,7 +20,8 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor=,preferred,auto,1
+      
+monitor=,highres,auto,2
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
       general {
@@ -47,6 +48,8 @@ in with lib; {
       env = NIXOS_OZONE_WL, 1
       env = NIXPKGS_ALLOW_UNFREE, 1
       env = XDG_CURRENT_DESKTOP, Hyprland
+      env = GDK_SCALE,2
+      env = XCURSOR_SIZE,32
       env = XDG_SESSION_TYPE, wayland
       env = XDG_SESSION_DESKTOP, Hyprland
       env = GDK_BACKEND, wayland
@@ -116,6 +119,7 @@ in with lib; {
       exec-once = wallsetter
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
+      exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
       dwindle {
         pseudotile = true
         preserve_split = true
