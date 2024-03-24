@@ -8,8 +8,6 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
-    discord
-    fcitx5
     libvirt
     swww
     grim
@@ -27,11 +25,13 @@ in
     pavucontrol
     tree
     font-awesome
-    spotify
     swayidle
     neovide
     element-desktop
+    rio
+    strawberry
     swaylock
+    vscodium
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })

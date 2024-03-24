@@ -21,7 +21,7 @@ in with lib; {
       modifier = "SUPER";
     in concatStrings [ ''
       
-monitor=,highres,auto,2
+monitor=,highres,auto,auto
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
       general {
@@ -77,7 +77,7 @@ monitor=,highres,auto,2
         key_press_enables_dpms = false
       }
       animations {
-        enabled = yes
+        enabled = no
         bezier = wind, 0.05, 0.9, 0.1, 1.05
         bezier = winIn, 0.1, 1.1, 0.1, 1.1
         bezier = winOut, 0.3, -0.3, 0, 1
@@ -128,22 +128,20 @@ monitor=,highres,auto,2
         new_is_master = true
       }
       bind = ${modifier},Return,exec,${terminal}
-      bind = ${modifier}SHIFT,Return,exec,rofi-launcher
+      bind = ALT,Space,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       ${if browser == "google-chrome" then ''
-	bind = ${modifier},W,exec,google-chrome-stable
+	bind = ${modifier},B,exec,google-chrome-stable
       '' else ''
-	bind = ${modifier},W,exec,${browser}
+	bind = ${modifier},B,exec,${browser}
       ''}
-      bind = ${modifier},E,exec,emopicker9000
+      bind = ${modifier}SHIFT,E,exec,emopicker9000
       bind = ${modifier},S,exec,screenshootin
-      bind = ${modifier},D,exec,discord
+      bind = ${modifier},C,exec,vscodium
       bind = ${modifier},O,exec,obs
-      bind = ${modifier},G,exec,gimp
-      bind = ${modifier}SHIFT,G,exec,godot4
-      bind = ${modifier},T,exec,thunar
-      bind = ${modifier},M,exec,spotify
+      bind = ${modifier},E,exec,thunar
+      bind = ${modifier},M,exec,strawberry
       bind = ${modifier},Q,killactive,
       bind = ${modifier},P,pseudo,
       bind = ${modifier}SHIFT,I,togglesplit,
