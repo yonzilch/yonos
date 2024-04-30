@@ -8,29 +8,46 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
-    libvirt
-    swww
-    grim
-    slurp
-    gnome.file-roller
-    swaynotificationcenter
-    rofi-wayland
-    imv
-    transmission-gtk
-    mpv
-    gimp
-    obs-studio
-    rustup
-    audacity
-    pavucontrol
-    tree
-    font-awesome
-    swayidle
-    neovide
+    anytype
+    autorestic
+    betterbird
+    clipcat
     element-desktop
+    firefox-devedition
+    floorp
+    font-awesome
+    geeqie
+    ghostwriter
+    gimp
+    gnome.file-roller
+    gopass
+    grim
+    helix
+    imv
+    joplin-desktop
+    keepassxc
+    lapce
+    libvirt
+    neovide
+    mindforger
+    mpv
+    mucommander
+    obs-studio
+    onlyoffice-bin_latest
+    pavucontrol
+    pot
     rio
+    rofi-wayland
+    rustup
+    swww
+    slurp
+    swaynotificationcenter
+    swayidle
     strawberry
     swaylock
+    syncthing
+    syncthingtray
+    tree
     vscodium
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
