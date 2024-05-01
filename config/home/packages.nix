@@ -30,6 +30,7 @@ in
     keepassxc
     lapce
     libvirt
+    nekoray
     neovide
     mindforger
     mpv
@@ -38,8 +39,12 @@ in
     onlyoffice-bin_latest
     pavucontrol
     pot
+    prs
+    remmina
     qalculate-gtk
+    qtpass
     rio
+    ripasso-cursive
     rofi-wayland
     rustup
     swww
