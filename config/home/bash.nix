@@ -13,13 +13,12 @@ lib.mkIf (theShell == "bash") {
       #fi
     '';
     initExtra = ''
-      neofetch
+      fastfetch
       if [ -f $HOME/.bashrc-personal ]; then
         source $HOME/.bashrc-personal
       fi
     '';
     sessionVariables = {
-      ZANEYOS = true;
       FLAKEBACKUP = "${flakeBackup}";
       FLAKEPREV = "${flakePrev}";
     };
@@ -34,7 +33,7 @@ lib.mkIf (theShell == "bash") {
       la="lsd -a";
       lal="lsd -al";
       ".."="cd ..";
-      neofetch="neofetch --ascii ~/.config/ascii-neofetch";
+      fastfetch="fastfetch -l  ~/.config/ascii-fastfetch";
     };
   };
 }

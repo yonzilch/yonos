@@ -175,34 +175,6 @@ sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport
 
 echo "-----"
 
-read -p "Install Kdenlive: [ false ] " kdenlive
-user_input_lower=$(echo "$kdenlive" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    kdenlive="true"
-    ;;
-  *)
-    kdenlive="false"
-    ;;
-esac
-sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./options.nix
-
-echo "-----"
-
-read -p "Install Syncthing: [ false ] " enableSyncthing
-user_input_lower=$(echo "$enableSyncthing" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    enableSyncthing="true"
-    ;;
-  *)
-    enableSyncthing="false"
-    ;;
-esac
-sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./options.nix
-
-echo "-----"
-
 read -p "Enable Printer Support: [ false ] " printers
 user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in

@@ -6,52 +6,55 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    wget
-    curl
-    git
-    cmatrix
-    lolcat
-    neofetch
-    htop
+    appimage-run
+    bat
+    bottom
+    brightnessctl
     btop
-    libvirt
-    polkit_gnome
-    lm_sensors
-    unzip
-    unrar
-    libnotify
+    curl
+    dust
     eza
-    v4l-utils
-    ydotool
-    wl-clipboard
-    socat
-    cowsay
+    fastfetch
+    fd
+    git
+    gitui
+    gnumake
+    go
+    htop
+    just
+    libnotify
+    libvirt
     lsd
     lshw
-    pkg-config
-    meson
-    hugo
-    gnumake
-    ninja
-    go
-    nodejs
-    symbola
-    noto-fonts-color-emoji
     material-icons
-    brightnessctl
-    toybox
-    virt-viewer
-    swappy
-    ripgrep
-    appimage-run
+    meson
+    neofetch
     networkmanagerapplet
-    yad
-    playerctl
+    nushellFull
     nh
+    ninja
+    nodejs
+    noto-fonts-color-emoji
+    playerctl
+    polkit_gnome
+    ripgrep
+    sd
+    socat
+    symbola
+    swappy
+    tealdeer
+    termscp
+    unzip
+    unrar
+    virt-viewer
+    wget
+    wl-clipboard
+    ydotool
+    zellij
+    zoxide
   ];
 
   programs = {
-    steam.gamescopeSession.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
     hyprland = {

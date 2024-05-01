@@ -38,8 +38,8 @@ in {
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "Asia/Shanghai";
-  theShell = "bash"; # Possible options: bash, zsh
-  theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
+  theShell = "nushell";
+  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
@@ -66,22 +66,15 @@ in {
   # Enable Flatpak & Larger Programs
   distrobox = false;
   flatpak = false;
-  kdenlive = true;
 
   # Enable Support For
   # Logitech Devices
   logitech = true;
 
   # Enable Terminals
-  # If You Disable All You Get Kitty
-  wezterm = true;
   alacritty = true;
-  kitty = true;
 
   # Enable Python & PyCharm
   python = false;
-  
-  # Enable SyncThing
-  syncthing = false;
 
 }

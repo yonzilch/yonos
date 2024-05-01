@@ -59,6 +59,9 @@ monitor=,highres,auto,auto
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
       env = MOZ_ENABLE_WAYLAND, 1
+      env = XMODIFIERS, @im=fcitx"
+      env = QT_IM_MODULE, fcitx"
+      env = SDL_IM_MODULE, fcitx"
       ${if cpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
         env = WLR_RENDERER_ALLOW_SOFTWARE,1
@@ -120,6 +123,13 @@ monitor=,highres,auto,auto
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+      exec-once = pot
+
+      # -- Fcitx5 input method
+      windowrule=pseudo,fcitx    # enable this will make fcitx5 works, but fcitx5-configtool will not work!
+      exec-once=fcitx5 -d --replace     # start fcitx5 daemon
+      bind=ALT,E,exec,pkill fcitx5 -9;sleep 1;fcitx5 -d --replace; sleep 1;fcitx5-remote -r
+
       dwindle {
         pseudotile = true
         preserve_split = true

@@ -91,10 +91,6 @@ in {
                         "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
                     },
                     {
-                        "label": "🎮",
-                        "command": "steam"
-                    },
-                    {
                         "label": "🌏",
                         "command": "firefox"
                     },
@@ -110,7 +106,7 @@ in {
 
   home.file.".config/swaync/style.css".text = ''
     * {
-        font-family: Ubuntu;
+        font-family: Source Han Serif;
         font-weight: bolder;
     }
 

@@ -8,7 +8,9 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
+    pkgs._64gram
     anytype
+    atuin
     autorestic
     betterbird
     clipcat
@@ -36,6 +38,7 @@ in
     onlyoffice-bin_latest
     pavucontrol
     pot
+    qalculate-gtk
     rio
     rofi-wayland
     rustup
@@ -49,6 +52,7 @@ in
     syncthingtray
     tree
     vscodium
+    zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
@@ -58,8 +62,6 @@ in
       inherit pkgs; inherit wallpaperDir;
       inherit username; inherit wallpaperGit;
     })
-    (import ./../scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
-    (import ./../scripts/theme-selector.nix { inherit pkgs; })
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ./../scripts/web-search.nix { inherit pkgs; })
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
