@@ -22,15 +22,13 @@ in
 	"Music"
 	"Documents"
 	"Pictures"
-        "Videos"
-        "zaneyos"
+  "Videos"
 	".local/share/sddm"
 	".mozilla"
 	".cache"
 	".ssh"
 	".config/discord"
 	".config/obs-studio"
-	".steam"
       ];
       files = [
       ];

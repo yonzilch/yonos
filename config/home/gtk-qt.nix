@@ -14,9 +14,9 @@
   gtk = {
     enable = true;
     font = {
-      name = "Ubuntu";
+      name = "Source Han Serif";
       size = 12;
-      package = pkgs.ubuntu_font_family;
+      package = pkgs.source-han-serif;
     };
     theme = {
       name = "${config.colorScheme.slug}";
@@ -37,7 +37,7 @@
   # Theme QT -> GTK
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme.name = "gtk";
     style = {
         name = "adwaita-dark";
         package = pkgs.adwaita-qt;

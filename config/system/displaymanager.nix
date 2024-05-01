@@ -9,6 +9,8 @@ theKBDLayout theSecondKBDLayout; in
       variant = "${theKBDVariant}";
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
     };
+  };
+  services = {
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
