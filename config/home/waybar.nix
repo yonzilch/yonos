@@ -13,9 +13,9 @@ in with lib; {
       layer = "top";
       position = "top";
 
-      modules-center = [ "hyprland/workspaces" ] ;
       modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory"];
-      modules-right = [ "custom/hyprbindings" "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "clock"  "tray" ];
+      modules-center = [ "hyprland/workspaces" ] ;
+      modules-right = [ "tray" "battery" "custom/notification" "clock" "custom/exit" ];
 
       "hyprland/workspaces" = {
       	format = if bar-number == true then "{name}" else "{icon}";
@@ -28,10 +28,10 @@ in with lib; {
       	on-scroll-down = "hyprctl dispatch workspace e-1";
       };
       "clock" = {
-	format = if clock24h == true then ''{: %H:%M}'' 
-	else ''{: %I:%M %p}'';
-      	tooltip = true;
-	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
+  format = if clock24h == true then '' {:L%H:%M}'' 
+  else '' {:L%I:%M %p}'';
+        tooltip = true;
+  tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
       };
       "hyprland/window" = {
       	max-length = 25;
@@ -79,11 +79,6 @@ in with lib; {
         };
         on-click = "sleep 0.1 && pavucontrol";
       };
-      "custom/themeselector" = {
-        tooltip = false;
-        format = "";
-        on-click = "sleep 0.1 && theme-selector";
-      };
       "custom/exit" = {
         tooltip = false;
         format = "";
@@ -92,13 +87,7 @@ in with lib; {
       "custom/startmenu" = {
         tooltip = false;
         format = " ";
-        # exec = "rofi -show drun";
-        on-click = "sleep 0.1 && rofi-launcher";
-      };
-      "custom/hyprbindings" = {
-        tooltip = false;
-        format = " Bindings";
-        on-click = "sleep 0.1 && list-hypr-bindings";
+        on-click = "sleep 0.1 && anyrun";
       };
       "idle_inhibitor" = {
         format = "{icon}";

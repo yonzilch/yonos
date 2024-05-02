@@ -9,16 +9,17 @@ in
   home.packages = with pkgs; [
     pkgs."${browser}"
     pkgs._64gram
+    anyrun
     anytype
     atuin
     autorestic
     betterbird
     clipcat
     element-desktop
+    eww
     firefox-devedition
     floorp
     font-awesome
-    geeqie
     ghostwriter
     gimp
     gnome.file-roller
@@ -45,8 +46,8 @@ in
     qtpass
     rio
     ripasso-cursive
-    rofi-wayland
     rustup
+    shotwell
     swww
     slurp
     swaynotificationcenter
@@ -60,7 +61,6 @@ in
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
-    (import ./../scripts/emopicker9000.nix { inherit pkgs; })
     (import ./../scripts/task-waybar.nix { inherit pkgs; })
     (import ./../scripts/squirtle.nix { inherit pkgs; })
     (import ./../scripts/wallsetter.nix {
@@ -68,8 +68,6 @@ in
       inherit username; inherit wallpaperGit;
     })
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
-    (import ./../scripts/web-search.nix { inherit pkgs; })
-    (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/screenshootin.nix { inherit pkgs; })
     (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
   ];

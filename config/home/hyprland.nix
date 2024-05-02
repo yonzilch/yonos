@@ -138,15 +138,13 @@ monitor=,highres,auto,auto
         new_is_master = true
       }
       bind = ${modifier},Return,exec,${terminal}
-      bind = ALT,Space,exec,rofi-launcher
-      bind = ${modifier}SHIFT,W,exec,web-search
+      bind = ALT,Space,exec,anyrun
       bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       ${if browser == "google-chrome" then ''
 	bind = ${modifier},B,exec,google-chrome-stable
       '' else ''
 	bind = ${modifier},B,exec,${browser}
       ''}
-      bind = ${modifier}SHIFT,E,exec,emopicker9000
       bind = ${modifier},S,exec,screenshootin
       bind = ${modifier},C,exec,vscodium
       bind = ${modifier},O,exec,obs

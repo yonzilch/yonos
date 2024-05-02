@@ -39,7 +39,7 @@ in {
   theLCVariables = "en_US.UTF-8";
   theTimezone = "Asia/Shanghai";
   theShell = "nushell";
-  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
+  theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType

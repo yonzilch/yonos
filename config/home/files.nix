@@ -6,7 +6,6 @@
   home.file.".config/ascii-fastfetch".source = ./files/ascii-fastfetch;
   home.file.".config/nushell/config.nu".source = ./files/config.nu;
   home.file.".config/nushell/env.nu".source = ./files/env.nu;
-  home.file.".config/rofi/rofi.jpg".source = ./files/rofi.jpg;
   home.file.".config/starship.toml".source = ./files/starship.toml;
   home.file.".config/swaylock-bg.jpg".source = ./files/media/swaylock-bg.jpg;
   home.file.".emoji".source = ./files/emoji;
@@ -14,6 +13,10 @@
   home.file.".face.icon".source = ./files/face.jpg; # For SDDM
   home.file.".local/share/atuin/init.nu".source = ./files/init.nu;
 
+  home.file.".config/anyrun" = {
+    source = ./files/anyrun;
+    recursive = true;
+  };
   home.file.".config/obs-studio" = {
     source = ./files/obs-studio;
     recursive = true;
