@@ -24,7 +24,6 @@ in
     gimp
     gnome.file-roller
     gopass
-    grim
     helix
     imv
     joplin-desktop
@@ -47,6 +46,7 @@ in
     rio
     ripasso-cursive
     rustup
+    satty
     shotwell
     swww
     slurp
@@ -57,19 +57,19 @@ in
     syncthing
     syncthingtray
     tree
+    virtualboxKvm
     vscodium
+    wayshot
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/task-waybar.nix { inherit pkgs; })
-    (import ./../scripts/squirtle.nix { inherit pkgs; })
     (import ./../scripts/wallsetter.nix {
       inherit pkgs; inherit wallpaperDir;
       inherit username; inherit wallpaperGit;
     })
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
-    (import ./../scripts/screenshootin.nix { inherit pkgs; })
-    (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
+    (import ./../scripts/screenshot.nix { inherit pkgs; })
   ];
 
   programs.gh.enable = true;

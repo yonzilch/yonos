@@ -16,11 +16,13 @@
     eza
     fastfetch
     fd
+    ffmpeg-full
     git
     gitui
     gnumake
     go
     htop
+    jq
     just
     libnotify
     libvirt
@@ -41,7 +43,6 @@
     sd
     socat
     symbola
-    swappy
     tealdeer
     termscp
     unzip
