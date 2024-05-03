@@ -21,7 +21,7 @@ in with lib; {
       modifier = "SUPER";
     in concatStrings [ ''
       
-monitor=,highres,auto,auto
+      monitor=,highres,auto,auto
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
       general {
@@ -55,13 +55,21 @@ monitor=,highres,auto,auto
       env = GDK_BACKEND, wayland
       env = CLUTTER_BACKEND, wayland
       env = SDL_VIDEODRIVER, ${sdl-videodriver}
-      env = QT_QPA_PLATFORM, wayland
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
       env = MOZ_ENABLE_WAYLAND, 1
-      env = XMODIFIERS, @im=fcitx"
-      env = QT_IM_MODULE, fcitx"
-      env = SDL_IM_MODULE, fcitx"
+      env = XMODIFIERS, @im=fcitx
+      env = QT_IM_MODULE, fcitx
+      env = SDL_IM_MODULE, fcitx
+      # misc
+      env = _JAVA_AWT_WM_NONREPARENTING, 1
+      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+      env = QT_QPA_PLATFORM, wayland;xcb
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+      env = QT_QPA_PLATFORMTHEME,qt5ct
+      env = SDL_VIDEODRIVER, wayland
+      env = GDK_BACKEND, wayland
+
       ${if cpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
         env = WLR_RENDERER_ALLOW_SOFTWARE,1
@@ -69,6 +77,9 @@ monitor=,highres,auto,auto
       ''}
       ${if gpuType == "nvidia" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
+        env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+        env = LIBVA_DRIVER_NAME,nvidia
+        env = WLR_DRM_NO_ATOMIC,1
       '' else ''
       ''}
       gestures {
@@ -115,7 +126,7 @@ monitor=,highres,auto,auto
       }
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
-      exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = swww init
       exec-once = waybar
       exec-once = swaync
@@ -123,6 +134,8 @@ monitor=,highres,auto,auto
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+
+      # StartUP BackGround Programs:
       exec-once = pot
 
       # -- Fcitx5 input method

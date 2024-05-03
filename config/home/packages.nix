@@ -16,7 +16,6 @@ in
     betterbird
     clipcat
     element-desktop
-    eww
     firefox-devedition
     floorp
     font-awesome
@@ -43,6 +42,7 @@ in
     remmina
     qalculate-gtk
     qtpass
+    qt5ct
     rio
     ripasso-cursive
     rustup
@@ -60,6 +60,7 @@ in
     virtualboxKvm
     vscodium
     wayshot
+    yazi
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
