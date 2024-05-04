@@ -39,7 +39,7 @@ in
     pavucontrol
     pot
     prs
-    remmina
+    restic
     qalculate-gtk
     qtpass
     qt5ct
