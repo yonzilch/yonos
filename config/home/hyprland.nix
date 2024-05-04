@@ -161,7 +161,7 @@ in with lib; {
       '' else ''
 	bind = ${modifier},B,exec,${browser}
       ''}
-      bind = ${modifier},E,exec,thunar
+      bind = ${modifier},E,exec,nemo
       bind = ${modifier},F,fullscreen,
       bind = ${modifier},Q,killactive,
       bind = ${modifier},P,pseudo,

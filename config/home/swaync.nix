@@ -76,7 +76,7 @@ in {
                     },
                     {
                         "label": "🗃️",
-                        "command": "thunar"
+                        "command": "nemo"
                     },
                     {
                         "label": "📸",
