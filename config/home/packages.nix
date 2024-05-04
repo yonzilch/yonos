@@ -25,6 +25,7 @@ in
     gimp
     gnome.file-roller
     gopass
+    grim
     helix
     imv
     joplin-desktop
@@ -61,7 +62,6 @@ in
     tree
     virtualboxKvm
     vscodium
-    wayshot
     yazi
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
