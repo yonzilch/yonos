@@ -138,7 +138,7 @@ in with lib; {
       # StartUP BackGround Programs:
       exec-once = anytype
       exec-once = copyq
-      exec-once = joplin
+      exec-once = joplin-desktop
       exec-once = pot
       exec-once = strawberry
 
