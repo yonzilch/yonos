@@ -15,6 +15,7 @@ in
     autorestic
     betterbird
     clipcat
+    copyq
     element-desktop
     firefox-devedition
     floorp

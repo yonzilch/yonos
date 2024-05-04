@@ -37,6 +37,7 @@
     ninja
     nodejs
     noto-fonts-color-emoji
+    ntfs3g
     playerctl
     polkit_gnome
     ripgrep

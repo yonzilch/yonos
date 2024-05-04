@@ -136,7 +136,12 @@ in with lib; {
       exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
       # StartUP BackGround Programs:
+      exec-once = anytype
+      exec-once = copyq
+      exec-once = joplin
       exec-once = pot
+      exec-once = strawberry
+
 
       # -- Fcitx5 input method
       windowrule=pseudo,fcitx    # enable this will make fcitx5 works, but fcitx5-configtool will not work!
@@ -151,32 +156,30 @@ in with lib; {
         new_is_master = true
       }
       bind = ${modifier},Return,exec,${terminal}
-      bind = ALT,Space,exec,anyrun
-      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       ${if browser == "google-chrome" then ''
 	bind = ${modifier},B,exec,google-chrome-stable
       '' else ''
 	bind = ${modifier},B,exec,${browser}
       ''}
-      bind = ${modifier},S,exec,screenshootin
-      bind = ${modifier},C,exec,vscodium
-      bind = ${modifier},O,exec,obs
       bind = ${modifier},E,exec,thunar
-      bind = ${modifier},M,exec,strawberry
+      bind = ${modifier},F,fullscreen,
       bind = ${modifier},Q,killactive,
       bind = ${modifier},P,pseudo,
-      bind = ${modifier}SHIFT,I,togglesplit,
-      bind = ${modifier},F,fullscreen,
-      bind = ${modifier}SHIFT,F,togglefloating,
+      bind = ${modifier},S,exec,screenshot
+      bind = ${modifier},T,exec,${terminal}
+      bind = ${modifier},V,exec,copyq toggle
       bind = ${modifier}SHIFT,C,exit,
+      bind = ${modifier}SHIFT,F,togglefloating,
       bind = ${modifier}SHIFT,left,movewindow,l
       bind = ${modifier}SHIFT,right,movewindow,r
       bind = ${modifier}SHIFT,up,movewindow,u
       bind = ${modifier}SHIFT,down,movewindow,d
-      bind = ${modifier}SHIFT,h,movewindow,l
-      bind = ${modifier}SHIFT,l,movewindow,r
-      bind = ${modifier}SHIFT,k,movewindow,u
-      bind = ${modifier}SHIFT,j,movewindow,d
+      bind = ${modifier}SHIFT,I,togglesplit,
+      bind = ${modifier}SHIFT,H,movewindow,l
+      bind = ${modifier}SHIFT,K,movewindow,u
+      bind = ${modifier}SHIFT,J,movewindow,d
+      bind = ${modifier}SHIFT,L,movewindow,r
+      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       bind = ${modifier},left,movefocus,l
       bind = ${modifier},right,movefocus,r
       bind = ${modifier},up,movefocus,u
@@ -213,6 +216,7 @@ in with lib; {
       bind = ${modifier},mouse_up,workspace, e-1
       bindm = ${modifier},mouse:272,movewindow
       bindm = ${modifier},mouse:273,resizewindow
+      bind = ALT,Space,exec,anyrun
       bind = ALT,Tab,cyclenext
       bind = ALT,Tab,bringactivetotop
       bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
