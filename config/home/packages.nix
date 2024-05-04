@@ -14,6 +14,7 @@ in
     atuin
     autorestic
     betterbird
+    cinnamon.nemo-with-extensions
     clipcat
     copyq
     element-desktop
