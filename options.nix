@@ -20,7 +20,6 @@ in {
   simplebar = if waybarStyle == "simplebar" then true else false;
   bar-number = true; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
-  browser = "brave";
   wallpaperGit = "https://github.com/yonzilch/my-wallpapers.git"; # This will give you my wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
@@ -50,6 +49,10 @@ in {
   # ONLY NEEDED FOR HYBRID
   # SYSTEMS! 
 
+  # Browser Settings:
+  browser-brave = "true";
+  browser-floorp = "true";
+  browser-firefox-dev = "true";
 
   # Enable / Setup NFS
   nfs = false;
@@ -67,9 +70,8 @@ in {
   distrobox = false;
   flatpak = false;
 
-  # Enable Support For
-  # Logitech Devices
-  logitech = true;
+  # Enable Support For Logitech Devices
+  logitech = false;
 
   # Enable Terminals
   alacritty = true;

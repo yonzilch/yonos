@@ -5,7 +5,9 @@
     # Enable &/ Configure Programs
     ./alacritty.nix
     ./bash.nix
-    ./fcitx5.nix
+    ./browser-brave.nix
+    ./browser-floorp.nix
+    ./browser-firefox-dev.nix
     ./gtk-qt.nix
     ./hyprland.nix
     ./neofetch.nix

@@ -4,6 +4,7 @@
   # Place Files Inside Home Directory
   home.file.".base16-themes".source = ./files/base16-themes;
   home.file.".config/ascii-fastfetch".source = ./files/ascii-fastfetch;
+  home.file.".config/qt5ct/qt5ct.conf".source = ./files/qt5ct/qt5ct.conf;
   home.file.".config/starship.toml".source = ./files/starship.toml;
   home.file.".config/swaylock-bg.jpg".source = ./files/media/swaylock-bg.jpg;
   home.file.".emoji".source = ./files/emoji;
