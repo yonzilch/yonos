@@ -58,6 +58,7 @@ in with lib; {
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
       env = MOZ_ENABLE_WAYLAND, 1
+      env = GTK_IM_MODULE, fcitx
       env = XMODIFIERS, @im=fcitx
       env = QT_IM_MODULE, fcitx
       env = SDL_IM_MODULE, fcitx
@@ -156,11 +157,6 @@ in with lib; {
         new_is_master = true
       }
       bind = ${modifier},Return,exec,${terminal}
-      ${if browser == "google-chrome" then ''
-	bind = ${modifier},B,exec,google-chrome-stable
-      '' else ''
-	bind = ${modifier},B,exec,${browser}
-      ''}
       bind = ${modifier},E,exec,nemo
       bind = ${modifier},F,fullscreen,
       bind = ${modifier},Q,killactive,

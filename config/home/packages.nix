@@ -7,7 +7,6 @@ in
 {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}"
     pkgs._64gram
     anyrun
     anytype
@@ -18,8 +17,6 @@ in
     clipcat
     copyq
     element-desktop
-    firefox-devedition
-    floorp
     font-awesome
     ghostwriter
     gimp
