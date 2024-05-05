@@ -3,7 +3,6 @@
 {
   imports = [
     # Enable &/ Configure Programs
-    ./alacritty.nix
     ./bash.nix
     ./browser-brave.nix
     ./browser-floorp.nix
@@ -14,6 +13,8 @@
     ./neovim.nix
     ./packages.nix
     ./starship.nix
+    ./terminal-emulator-alacritty.nix
+    ./terminal-emulator-rio.nix
     ./waybar.nix
     ./wlogout.nix
     ./swaylock.nix

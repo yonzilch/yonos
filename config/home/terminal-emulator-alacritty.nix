@@ -2,8 +2,8 @@
 
 let
   palette = config.colorScheme.palette;
-  inherit (import ../../options.nix) alacritty;
-in lib.mkIf (alacritty == true) {
+  inherit (import ../../options.nix) terminal-emulator-alacritty;
+in lib.mkIf (terminal-emulator-alacritty == true) {
   programs.alacritty = {
     enable = true;
     settings = {

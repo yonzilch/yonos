@@ -49,7 +49,7 @@ in {
   # ONLY NEEDED FOR HYBRID
   # SYSTEMS! 
 
-  # Browser Settings:
+  # Enable browsers
   browser-brave = "true";
   browser-floorp = "true";
   browser-firefox-dev = "true";
@@ -63,20 +63,22 @@ in {
   ntp = true;
   localHWClock = false;
 
-  # Enable Printer & Scanner Support
-  printer = false;
-
   # Enable Flatpak & Larger Programs
   distrobox = false;
   flatpak = false;
 
+  # Enable Printer & Scanner Support
+  printer = false;
+  
   # Enable Support For Logitech Devices
   logitech = false;
 
-  # Enable Terminals
-  alacritty = true;
-
   # Enable Python & PyCharm
   python = false;
+
+  # Enable terminal-emulators
+  terminal-emulator-alacritty = true;
+  terminal-emulator-rio = true;
+
 
 }
