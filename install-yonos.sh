@@ -100,9 +100,9 @@ sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\
 
 echo "-----"
 
-read -p "Enter Your New Git Email: [ johnsmith@gmail.com ] " gitEmail
+read -p "Enter Your New Git Email: [ johnsmith@example.com ] " gitEmail
 if [ -z "$gitEmail" ]; then
-  gitEmail="johnsmith@gmail.com"
+  gitEmail="johnsmith@example.com"
 fi
 sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./options.nix
 
@@ -116,34 +116,12 @@ sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./o
 
 echo "-----"
 
-read -p "Enter Your Keyboard Layout: [ us ] " kbdLayout
-if [ -z "$kbdLayout" ]; then
-  kbdLayout="us"
-fi
-sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./options.nix
-
-echo "-----"
-
 read -p "Enter Your Timezone: [ Asia/Shanghai ] " timezone
 if [ -z "$timezone" ]; then
   timezone="Asia/Shanghai"
 fi
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
 sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
-
-echo "-----"
-
-read -p "Set 24 Hour Clock: [ false ] " clockFormat
-user_input_lower=$(echo "$clockFormat" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    clockFormat="true"
-    ;;
-  *)
-    clockFormat="false"
-    ;;
-esac
-sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./options.nix
 
 echo "-----"
 
@@ -158,62 +136,6 @@ case $user_input_lower in
     ;;
 esac
 sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./options.nix
-
-echo "-----"
-
-read -p "Extra Logitech Device Support: [ false ] " logitechSupport
-user_input_lower=$(echo "$logitechSupport" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    logitechSupport="true"
-    ;;
-  *)
-    logitechSupport="false"
-    ;;
-esac
-sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./options.nix
-
-echo "-----"
-
-read -p "Enable Printer Support: [ false ] " printers
-user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    printers="true"
-    ;;
-  *)
-    printers="false"
-    ;;
-esac
-sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./options.nix
-
-echo "-----"
-
-read -p "Enable Flatpak Support: [ false ] " flatpaks
-user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    printers="true"
-    ;;
-  *)
-    printers="false"
-    ;;
-esac
-sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./options.nix
-
-echo "-----"
-
-read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
-user_input_lower=$(echo "$pythonEnable" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    pythonEnable="true"
-    ;;
-  *)
-    pythonEnable="false"
-    ;;
-esac
-sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./options.nix
 
 echo "-----"
 
