@@ -20,7 +20,6 @@ in
     font-awesome
     ghostwriter
     gimp
-    gnome.file-roller
     gopass
     grim
     helix
@@ -58,6 +57,7 @@ in
     syncthingtray
     tree
     virtualboxKvm
+    xarchiver
     yazi
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
