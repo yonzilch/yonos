@@ -7,6 +7,8 @@
     ./browser-brave.nix
     ./browser-floorp.nix
     ./browser-firefox-dev.nix
+    ./editor-vscodium.nix
+    ./fcitx5.nix
     ./gtk-qt.nix
     ./hyprland.nix
     ./neofetch.nix

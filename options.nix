@@ -76,6 +76,10 @@ in {
   # Enable Python & PyCharm
   python = false;
 
+
+  # Enable editors
+  editor-vscodium = true;
+
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
   terminal-emulator-rio = true;
