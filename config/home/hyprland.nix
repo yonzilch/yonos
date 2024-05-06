@@ -70,6 +70,8 @@ in with lib; {
       env = QT_QPA_PLATFORMTHEME,qt5ct
       env = SDL_VIDEODRIVER, wayland
       env = GDK_BACKEND, wayland
+      # electron
+      env = ELECTRON_OZONE_PLATFORM_HINT,wayland
 
       ${if cpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1

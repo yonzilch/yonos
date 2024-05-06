@@ -50,9 +50,9 @@ in {
   # SYSTEMS! 
 
   # Enable browsers
-  browser-brave = "true";
-  browser-floorp = "true";
-  browser-firefox-dev = "true";
+  browser-brave = true;
+  browser-floorp = true;
+  browser-firefox-dev = true;
 
   # Enable / Setup NFS
   nfs = false;
@@ -83,6 +83,5 @@ in {
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
   terminal-emulator-rio = true;
-
 
 }
