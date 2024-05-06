@@ -7,7 +7,7 @@
 }:
 let
   inherit (import ./options.nix)
-    gitUsername gitEmail theme browser
+    gitUsername gitEmail theme
     wallpaperDir wallpaperGit flakeDir
     waybarStyle;
 in

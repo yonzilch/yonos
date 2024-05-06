@@ -2,7 +2,7 @@
 
 let inherit (import ../../options.nix) flakeDir flakePrev 
 	     hostname flakeBackup browser-brave; in
-lib.mkIf (browser-brave == "true") {
+lib.mkIf (browser-brave == true) {
 
   programs.brave = {
     enable = true;
@@ -18,7 +18,7 @@ lib.mkIf (browser-brave == "true") {
         "--enable-wayland-ime"
 
         # enable hardware acceleration - vulkan api
-        "--enable-features=Vulkan"
+        #"--enable-features=Vulkan"
         
         # use the plain text store
         "--password-store=basic"

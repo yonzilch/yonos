@@ -2,7 +2,7 @@
 
 let
   inherit (import ../../options.nix)
-    browser wallpaperDir wallpaperGit flakeDir;
+    wallpaperDir wallpaperGit flakeDir;
 in
 {
   # Install Packages For The User
@@ -58,7 +58,6 @@ in
     syncthingtray
     tree
     virtualboxKvm
-    vscodium
     yazi
     zola
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

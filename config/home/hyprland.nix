@@ -4,7 +4,7 @@ let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../../options.nix) 
-    browser cpuType gpuType
+    cpuType gpuType
     wallpaperDir borderAnim
     theKBDLayout terminal
     theSecondKBDLayout
