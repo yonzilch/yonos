@@ -22,11 +22,9 @@ in
     gimp
     gopass
     grim
-    helix
     imv
     joplin-desktop
     keepassxc
-    lapce
     libvirt
     nekoray
     neovide

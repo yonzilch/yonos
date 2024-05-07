@@ -7,6 +7,8 @@
     ./browser-brave.nix
     ./browser-floorp.nix
     ./browser-firefox-dev.nix
+    ./editor-lapce.nix
+    ./editor-helix.nix
     ./editor-vscodium.nix
     ./editor-zed.nix
     ./fcitx5.nix
