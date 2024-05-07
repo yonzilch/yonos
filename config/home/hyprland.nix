@@ -3,7 +3,7 @@
 let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  inherit (import ../../options.nix) 
+  inherit (import ../../options.nix)
     cpuType gpuType
     wallpaperDir borderAnim
     theKBDLayout terminal
@@ -20,7 +20,7 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      
+
       monitor=,highres,auto,auto
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
@@ -58,7 +58,6 @@ in with lib; {
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
       env = MOZ_ENABLE_WAYLAND, 1
-      env = GTK_IM_MODULE, fcitx
       env = XMODIFIERS, @im=fcitx
       env = QT_IM_MODULE, fcitx
       env = SDL_IM_MODULE, fcitx
@@ -143,7 +142,6 @@ in with lib; {
       exec-once = copyq
       exec-once = joplin-desktop
       exec-once = pot
-      exec-once = strawberry
 
 
       # -- Fcitx5 input method
@@ -196,8 +194,8 @@ in with lib; {
       bind = ${modifier},8,workspace,8
       bind = ${modifier},9,workspace,9
       bind = ${modifier},0,workspace,10
-      bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
-      bind = ${modifier},SPACE,togglespecialworkspace
+      bind = ${modifier},Tab,togglespecialworkspace
+      bind = ${modifier}SHIFT,Tab,movetoworkspace,special
       bind = ${modifier}SHIFT,1,movetoworkspace,1
       bind = ${modifier}SHIFT,2,movetoworkspace,2
       bind = ${modifier}SHIFT,3,movetoworkspace,3

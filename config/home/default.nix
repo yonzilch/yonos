@@ -8,6 +8,7 @@
     ./browser-floorp.nix
     ./browser-firefox-dev.nix
     ./editor-vscodium.nix
+    ./editor-zed.nix
     ./fcitx5.nix
     ./gtk-qt.nix
     ./hyprland.nix
@@ -26,6 +27,3 @@
   ];
 
 }
-
-
-
