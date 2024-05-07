@@ -1,5 +1,5 @@
 # PLEASE READ THE WIKI FOR DETERMINING
-# WHAT TO PUT HERE AS OPTIONS. 
+# WHAT TO PUT HERE AS OPTIONS.
 # https://github.com/yonzilch/yonos/
 
 let
@@ -21,7 +21,7 @@ in {
   bar-number = true; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
   wallpaperGit = "https://github.com/yonzilch/my-wallpapers.git"; # This will give you my wallpapers
-  # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
+  # ^ (use as is or replace with your own repo - removing will break the wallsetter script)
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
@@ -47,7 +47,7 @@ in {
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
-  # SYSTEMS! 
+  # SYSTEMS!
 
   # Enable browsers
   browser-brave = true;
@@ -69,7 +69,7 @@ in {
 
   # Enable Printer & Scanner Support
   printer = false;
-  
+
   # Enable Support For Logitech Devices
   logitech = false;
 
@@ -78,6 +78,8 @@ in {
 
 
   # Enable editors
+  editor-helix = true;
+  editor-lapce = true;
   editor-vscodium = true;
   editor-zed = true;
 
