@@ -79,6 +79,7 @@ in {
 
   # Enable editors
   editor-vscodium = true;
+  editor-zed = true;
 
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
