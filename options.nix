@@ -84,6 +84,7 @@ in {
   editor-zed = true;
 
   # Enable notes
+  note-anytype = true;
   note-appflowy = true;
   note-joplin = true;
   note-trilium = true;

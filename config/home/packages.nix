@@ -9,7 +9,6 @@ in
   home.packages = with pkgs; [
     pkgs._64gram
     anyrun
-    anytype
     atuin
     autorestic
     betterbird
@@ -23,7 +22,6 @@ in
     gopass
     grim
     imv
-    joplin-desktop
     keepassxc
     libvirt
     nekoray
