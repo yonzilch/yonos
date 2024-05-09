@@ -16,6 +16,7 @@
     ./hyprland.nix
     ./neofetch.nix
     ./neovim.nix
+    ./note-anytype.nix
     ./note-appflowy.nix
     ./note-joplin.nix
     ./note-trilium.nix
