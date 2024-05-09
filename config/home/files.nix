@@ -16,6 +16,10 @@
     source = ./files/anyrun;
     recursive = true;
   };
+  home.file.".config/copyq" = {
+    source = ./files/copyq;
+    recursive = true;
+  };
   home.file.".config/nushell" = {
     source = ./files/nushell;
     recursive = true;
