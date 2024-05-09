@@ -138,7 +138,7 @@ in with lib; {
       exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
       # StartUP BackGround Programs:
-      exec-once = anytype
+      exec-once = anytype --enable-wayland-ime
       exec-once = copyq
       exec-once = joplin-desktop
       exec-once = pot
