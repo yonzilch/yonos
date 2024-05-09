@@ -83,6 +83,11 @@ in {
   editor-vscodium = true;
   editor-zed = true;
 
+  # Enable notes
+  note-appflowy = true;
+  note-joplin = true;
+  note-trilium = true;
+
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
   terminal-emulator-rio = true;
