@@ -16,6 +16,9 @@
     ./hyprland.nix
     ./neofetch.nix
     ./neovim.nix
+    ./note-appflowy.nix
+    ./note-joplin.nix
+    ./note-trilium.nix
     ./packages.nix
     ./starship.nix
     ./terminal-emulator-alacritty.nix

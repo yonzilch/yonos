@@ -37,5 +37,5 @@ gc:
   sudo nix-collect-garbage --delete-old
 
 switch input:
-  # garbage collect all unused nix store entries
-  sudo nixos-rebuild switch --flake .#{{input}} --show-trace
+  # let system totally upgrade
+  sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
