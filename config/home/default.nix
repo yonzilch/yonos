@@ -5,8 +5,9 @@
     # Enable &/ Configure Programs
     ./bash.nix
     ./browser-brave.nix
-    ./browser-floorp.nix
+    ./browser-firefox.nix
     ./browser-firefox-dev.nix
+    ./browser-floorp.nix
     ./editor-lapce.nix
     ./editor-helix.nix
     ./editor-vscodium.nix
