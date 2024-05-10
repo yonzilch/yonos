@@ -32,7 +32,7 @@ in {
       }
       {
         "label" = "lock";
-        "action" = "sleep 1; hyprlock";
+        "action" = "sleep 1; swaylock";
         "text" = "Lock";
         "keybind" = "l";
       }
