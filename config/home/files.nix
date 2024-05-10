@@ -15,6 +15,10 @@
     source = ./files/anyrun;
     recursive = true;
   };
+  home.file.".config/anytype" = {
+    source = ./files/anytype;
+    recursive = true;
+  };
   home.file.".config/copyq" = {
     source = ./files/copyq;
     recursive = true;
