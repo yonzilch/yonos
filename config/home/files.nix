@@ -27,7 +27,11 @@
     source = ./files/obs-studio;
     recursive = true;
   };
-    home.file.".config/qt5ct" = {
+  home.file.".config/strawberry" = {
+    source = ./files/strawberry;
+    recursive = true;
+  };
+  home.file.".config/qt5ct" = {
     source = ./files/qt5ct;
     recursive = true;
   };
