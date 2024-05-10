@@ -83,16 +83,12 @@ in {
                         "command": "gimp"
                     },
                     {
-                        "label": "📣",
+                        "label": "🔈️",
                         "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
                     },
                     {
                         "label": "🎙️",
                         "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-                    },
-                    {
-                        "label": "🌏",
-                        "command": "firefox"
                     },
                     {
                         "label": "📹",

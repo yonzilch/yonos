@@ -63,8 +63,10 @@ in {
   ntp = true;
   localHWClock = false;
 
-  # Enable Flatpak & Larger Programs
+  # Enable Distrobox
   distrobox = false;
+
+  # Enable Flatpak
   flatpak = false;
 
   # Enable Printer & Scanner Support
