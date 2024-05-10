@@ -5,7 +5,7 @@
   home.file.".base16-themes".source = ./files/base16-themes;
   home.file.".config/ascii-fastfetch".source = ./files/ascii-fastfetch;
   home.file.".config/starship.toml".source = ./files/starship.toml;
-  home.file.".config/swaylock-bg.jpg".source = ./files/media/swaylock-bg.jpg;
+  home.file.".config/swaylock-bg.jpg".source = ./files/swaylock/swaylock-bg.jpg;
   home.file.".emoji".source = ./files/emoji;
   home.file.".face".source = ./files/face.jpg; # For GDM
   home.file.".face.icon".source = ./files/face.jpg; # For SDDM
