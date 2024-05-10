@@ -19,6 +19,10 @@
     source = ./files/copyq;
     recursive = true;
   };
+  home.file.".config/fcitx5" = {
+    source = ./files/fcitx5/.config/fcitx5;
+    recursive = true;
+  };
   home.file.".config/nushell" = {
     source = ./files/nushell;
     recursive = true;
@@ -41,6 +45,10 @@
   };
   home.file.".local/share/fonts" = {
     source = ./files/fonts;
+    recursive = true;
+  };
+  home.file.".local/share/fcitx5" = {
+    source = ./files/fcitx5/.local/fcitx5;
     recursive = true;
   };
 }
