@@ -51,8 +51,10 @@ in {
 
   # Enable browsers
   browser-brave = true;
-  browser-floorp = true;
+  browser-firefox = false;
   browser-firefox-dev = true;
+  browser-floorp = true;
+
 
   # Enable / Setup NFS
   nfs = false;
