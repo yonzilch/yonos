@@ -40,6 +40,7 @@ in {
   theShell = "nushell";
   theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
+
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "amd";
@@ -55,31 +56,8 @@ in {
   browser-firefox-dev = true;
   browser-floorp = true;
 
-
-  # Enable / Setup NFS
-  nfs = false;
-  nfsMountPoint = "/mnt/nas";
-  nfsDevice = "nas:/volume1/nas";
-
-  # NTP & HWClock Settings
-  ntp = true;
-  localHWClock = false;
-
   # Enable Distrobox
   distrobox = false;
-
-  # Enable Flatpak
-  flatpak = false;
-
-  # Enable Printer & Scanner Support
-  printer = false;
-
-  # Enable Support For Logitech Devices
-  logitech = false;
-
-  # Enable Python & PyCharm
-  python = false;
-
 
   # Enable editors
   editor-helix = true;
@@ -87,14 +65,36 @@ in {
   editor-vscodium = true;
   editor-zed = true;
 
+  # Enable Flatpak
+  flatpak = false;
+  
+  # Enable Support For Logitech Devices
+  logitech = false;
+
+  # Enable / Setup NFS
+  nfs = false;
+  nfsMountPoint = "/mnt/nas";
+  nfsDevice = "nas:/volume1/nas";
+
   # Enable notes
   note-anytype = true;
   note-appflowy = true;
   note-joplin = true;
   note-trilium = true;
 
+  # NTP & HWClock Settings
+  ntp = true;
+  localHWClock = false;
+
+  # Enable Printer & Scanner Support
+  printer = false;
+
+  # Enable Python & PyCharm
+  python = false;
+
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
+  terminal-emulator-kitty = true;
   terminal-emulator-rio = true;
-
+  
 }
