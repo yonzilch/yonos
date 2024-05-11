@@ -26,6 +26,7 @@
     ./terminal-emulator-alacritty.nix
     ./terminal-emulator-kitty.nix
     ./terminal-emulator-rio.nix
+    ./terminal-emulator-wezterm.nix
     ./waybar.nix
     ./wlogout.nix
     ./swaylock.nix
