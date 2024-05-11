@@ -34,7 +34,7 @@ in with lib; {
   tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
       };
       "hyprland/window" = {
-      	max-length = 25;
+      	max-length = 50;
       	separate-outputs = false;
       };
       "cpu" = {
