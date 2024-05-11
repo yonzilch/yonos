@@ -24,6 +24,7 @@
     ./packages.nix
     ./starship.nix
     ./terminal-emulator-alacritty.nix
+    ./terminal-emulator-kitty.nix
     ./terminal-emulator-rio.nix
     ./waybar.nix
     ./wlogout.nix
