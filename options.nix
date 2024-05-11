@@ -96,5 +96,6 @@ in {
   terminal-emulator-alacritty = true;
   terminal-emulator-kitty = true;
   terminal-emulator-rio = true;
-  
+  terminal-emulator-wezterm = true;
+
 }
