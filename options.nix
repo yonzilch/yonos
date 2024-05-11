@@ -94,8 +94,8 @@ in {
 
   # Enable terminal-emulators
   terminal-emulator-alacritty = true;
-  terminal-emulator-kitty = true;
+  terminal-emulator-kitty = false;
   terminal-emulator-rio = true;
-  terminal-emulator-wezterm = true;
+  terminal-emulator-wezterm = false;
 
 }

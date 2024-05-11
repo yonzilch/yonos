@@ -22,6 +22,8 @@
     ./note-joplin.nix
     ./note-trilium.nix
     ./packages.nix
+    ./shell-nushell.nix
+    ./shell-zsh.nix
     ./starship.nix
     ./terminal-emulator-alacritty.nix
     ./terminal-emulator-kitty.nix
