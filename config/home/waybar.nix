@@ -13,9 +13,9 @@ in with lib; {
       layer = "top";
       position = "top";
 
-      modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory"];
+      modules-left = [ "custom/startmenu" "cpu" "memory" "hyprland/window"];
       modules-center = [ "hyprland/workspaces" ] ;
-      modules-right = [ "tray" "battery" "custom/notification" "clock" "custom/exit" ];
+      modules-right = [ "tray" "battery" "custom/notification" "pulseaudio" "clock" "custom/exit" ];
 
       "hyprland/workspaces" = {
       	format = if bar-number == true then "{name}" else "{icon}";
@@ -37,26 +37,40 @@ in with lib; {
       	max-length = 25;
       	separate-outputs = false;
       };
-      "memory" = {
-      	interval = 5;
-      	format = " {}%";
-        tooltip = true;
-      };
       "cpu" = {
       	interval = 5;
       	format = " {usage:2}%";
+        tooltip = true;
+      };
+      "memory" = {
+      	interval = 5;
+      	format = " {}%";
         tooltip = true;
       };
       "disk" = {
         format = " {free}";
         tooltip = true;
       };
+	  "bluetooth" = {
+		format = " {status}";
+		format-connected = " {device_alias}";
+		format-connected-battery = " {device_alias} {device_battery_percentage}%";
+		tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+		tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+		tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+		tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+	  };
       "network" = {
+		interval = "2";
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        format-ethernet = " {bandwidthDownOctets}";
-        format-wifi = "{icon} {signalStrength}%";
+        format-ethernet = "{icon} {bandwidthDownOctets}";
+        format-wifi = "{icon} {bandwidthDownOctets}";
         format-disconnected = "󰤮";
-        tooltip = false;
+        tooltip = true;
+		tooltip-format = "{ifname} via {gwaddr} 󰊗";
+    	tooltip-format-wifi = " {essid} ({frequency}GHz) ({signalStrength}%) ({signaldBm}dBm)";
+    	tooltip-format-ethernet = "{ifname} ";
+    	tooltip-format-disconnected = "Disconnected";
       };
       "tray" = {
         spacing = 12;
