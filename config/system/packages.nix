@@ -32,7 +32,6 @@
     meson
     neofetch
     networkmanagerapplet
-    nushellFull
     nh
     ninja
     nodejs
