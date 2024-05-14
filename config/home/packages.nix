@@ -14,6 +14,7 @@ in
     betterbird
     cinnamon.nemo-with-extensions
     clipcat
+    czkawka
     copyq
     element-desktop
     font-awesome
