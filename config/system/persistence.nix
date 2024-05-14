@@ -22,7 +22,6 @@ in
 	"Music"
 	"Documents"
 	"Pictures"
-  "Pictures/Screenshots"
   "Videos"
 	".local/share/sddm"
 	".mozilla"

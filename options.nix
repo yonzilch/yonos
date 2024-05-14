@@ -37,7 +37,7 @@ in {
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "Asia/Shanghai";
-  theShell = "nushell";
+  theShell = "nushell";# Possible options: bash, nushell, zsh, 
   theKernel = "xanmod"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
 
