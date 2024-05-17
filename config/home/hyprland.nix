@@ -140,6 +140,7 @@ in with lib; {
       # StartUP BackGround Programs:
       exec-once = anytype --enable-wayland-ime
       exec-once = copyq
+      exec-once = element-desktop --enable-wayland-ime
       exec-once = joplin-desktop
       exec-once = pot
 
