@@ -43,7 +43,7 @@ in {
 
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "amd";
+  cpuType = "intel";
   gpuType = "amd";
 
   # Nvidia Hybrid Devices
