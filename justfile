@@ -10,7 +10,7 @@ set shell := ["nu", "-c"]
 ############################################################################
 
 # update all the flake inputs
-up:
+update:
   nix flake update
 
 # Update specific input
