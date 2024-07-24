@@ -21,6 +21,7 @@ in
     ghostwriter
     gimp
     gopass
+    gparted
     grim
     imv
     keepassxc
