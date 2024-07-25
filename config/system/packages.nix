@@ -45,7 +45,7 @@
     symbola
     tealdeer
     termscp
-    unzip
+    unzipNLS
     unrar
     virt-viewer
     wget
