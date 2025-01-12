@@ -1,0 +1,6 @@
+{"action":"sleep 1; systemctl poweroff","keybind":"s","label":"shutdown","text":"Shutdown"}
+{"action":"sleep 1; systemctl reboot","keybind":"r","label":"reboot","text":"Reboot"}
+{"action":"sleep 1; hyprctl dispatch exit","keybind":"e","label":"logout","text":"Exit"}
+{"action":"sleep 1; systemctl suspend","keybind":"u","label":"suspend","text":"Suspend"}
+{"action":"sleep 1; hyprlock","keybind":"l","label":"lock","text":"Lock"}
+{"action":"sleep 1; systemctl hibernate","keybind":"h","label":"hibernate","text":"Hibernate"}
