@@ -1,6 +1,6 @@
 { pkgs, ...}:
 {
-  programs.nm-applet = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    networkmanagerapplet
+  ];
 }

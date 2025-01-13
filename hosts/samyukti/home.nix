@@ -3,10 +3,7 @@ let
   inherit (import ./env.nix) gitUsername gitEmail;
 in
 {
-  imports = map (f: ./. + "/${f}")
-      (builtins.filter
-      (f: builtins.match ".*\.nix" f != null)
-      (builtins.attrNames (builtins.readDir ../../home)));
+  imports = lib.filesystem.listFilesRecursive ../../home;
 
   home = {
     file = {

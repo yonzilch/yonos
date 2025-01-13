@@ -1,10 +1,8 @@
 { pkgs, ... }:
 {
   i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
+    enabled = "fcitx5";
     fcitx5 = {
-      waylandFrontend = true;
       addons = with pkgs; [
         fcitx5-catppuccin
         fcitx5-material-color
