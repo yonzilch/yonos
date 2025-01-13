@@ -12,7 +12,6 @@
         pkgs.xdg-desktop-portal-gtk
         pkgs.xdg-desktop-portal-hyprland
       ];
-      wlr.enable = true;
     };
     userDirs = {
       enable = true;

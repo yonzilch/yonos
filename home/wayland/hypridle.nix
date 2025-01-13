@@ -1,6 +1,6 @@
 { pkgs, ...}:
 {
-  programs.hypridle = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    hypridle
+  ];
 }
