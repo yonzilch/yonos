@@ -1,0 +1,516 @@
+#
+# Please note not all available settings / options are set here.
+# For a full list, see the wiki
+#
+
+$scale = 2
+
+# env
+      env = NIXOS_OZONE_WL, 1
+      env = NIXPKGS_ALLOW_UNFREE, 1
+      env = XDG_CURRENT_DESKTOP, Hyprland
+      env = GDK_SCALE, $scale
+      env = XCURSOR_SIZE,32
+      env = XDG_SESSION_TYPE, wayland
+      env = XDG_SESSION_DESKTOP, Hyprland
+      env = GDK_BACKEND, wayland
+      env = CLUTTER_BACKEND, wayland
+      env = SDL_VIDEODRIVER, ${sdl-videodriver}
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+      env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
+      env = MOZ_ENABLE_WAYLAND, 1
+      env = XMODIFIERS, @im=fcitx
+      env = QT_IM_MODULE, fcitx
+      env = SDL_IM_MODULE, fcitx
+      env = HYPRCURSOR_THEME, Bibata-Modern-Ice
+      env = HYPRCURSOR_SIZE, 32
+      # misc
+      env = _JAVA_AWT_WM_NONREPARENTING, 1
+      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+      env = QT_QPA_PLATFORM, wayland;xcb
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+      env = QT_QPA_PLATFORMTHEME, qt6ct
+      env = SDL_VIDEODRIVER, wayland
+      env = GDK_BACKEND, wayland
+      # ssh-agent
+      env = SSH_AUTH_SOCK, $XDG_RUNTIME_DIR/ssh-agent.socket
+      # electron
+      env = ELECTRON_OZONE_PLATFORM_HINT, wayland
+
+monitor = , highres, auto, $scale
+
+xwayland {
+  force_zero_scaling = true
+}
+
+# Slow app launch fix
+exec-once = systemctl --user import-environment
+exec-once = hash dbus-update-activation-environment 2>/dev/null
+exec-once = dbus-update-activation-environment --systemd
+#exec-once = gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+#exec-once = xdg-desktop-portal-hyprland
+
+plugin {
+  hy3 {
+    # disable gaps when only one window is onscreen
+    # 0 - always show gaps
+    # 1 - hide gaps with a single window onscreen
+    # 2 - 1 but also show the window border
+    no_gaps_when_only = 1
+
+    # policy controlling what happens when a node is removed from a group,
+    # leaving only a group
+    # 0 = remove the nested group
+    # 1 = keep the nested group
+    # 2 = keep the nested group only if its parent is a tab group
+    node_collapse_policy = 1
+
+    # offset from group split direction when only one window is in a group
+    group_inset = 10
+
+    # if a tab group will automatically be created for the first window spawned in a workspace
+    tab_first_window = true
+
+    # tab group settings
+    tabs {
+      # height of the tab bar
+      height = 13 # default: 15
+
+      # padding between the tab bar and its focused node
+      padding = 2 # default: 5
+
+      # the tab bar should animate in/out from the top instead of below the window
+      from_top = false # default: false
+
+      # rounding of tab bar corners
+      rounding = 6
+
+      # render the window title on the bar
+      render_text = true
+
+      # center the window title
+      text_center = true
+
+      # font to render the window title with
+      text_font = Sarasa Gothic SC
+
+      # height of the window title
+      text_height = 10
+
+      # left padding of the window title
+      text_padding = 0
+
+      # active tab bar segment color
+      col.active = rgb(b4befe)
+
+      # urgent tab bar segment color
+      col.urgent = rgb(f2cdcd)
+
+      # inactive tab bar segment color
+      col.inactive = rgb(181825)
+
+      # active tab bar text color
+      col.text.active = rgb(181825)
+
+      # urgent tab bar text color
+      col.text.urgent = rgb(181825)
+
+      # inactive tab bar text color
+      col.text.inactive = rgb(b4befe)
+    }
+
+    # autotiling settings
+    autotile {
+      # enable autotile
+      enable = false
+
+      # make autotile-created groups ephemeral
+      ephemeral_groups = true
+
+      # if a window would be squished smaller than this width, a vertical split will be created
+      # -1 = never automatically split vertically
+      # 0 = always automatically split vertically
+      # <number> = pixel width to split at
+      trigger_width = 0
+
+      # if a window would be squished smaller than this height, a horizontal split will be created
+      # -1 = never automatically split horizontally
+      # 0 = always automatically split horizontally
+      # <number> = pixel height to split at
+      trigger_height = 0
+
+      # a space or comma separated list of workspace ids where autotile should be enabled
+      # it's possible to create an exception rule by prefixing the definition with "not:"
+      # workspaces = 1,2 # autotiling will only be enabled on workspaces 1 and 2
+      # workspaces = not:1,2 # autotiling will be enabled on all workspaces except 1 and 2
+      workspaces = all
+    }
+  }
+}
+
+# ## Idle configuration
+#
+#exec-once = swayidle -w timeout 300 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'
+exec-once = hypridle
+
+# ## polkitagent
+#
+#exec-once = /usr/lib/polkit-kde-authentication-agent-1
+exec-once = systemctl --user start hyprpolkitagent
+
+# ## Wallpaper configuration
+#
+#exec-once = swaybg -o \* -i /usr/share/wallpapers/cachyos-wallpapers/Liquid.png -m fill
+#exec-once = hyprpaper
+exec-once = hyprwall -r
+
+# Source a file (multi-file configs)
+# source = ~/.config/hypr/myColors.conf
+source = ~/.config/hypr/mocha.conf
+
+# ## Input configuration
+#
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    follow_mouse = 2 # 0|1|2|3
+    float_switch_override_focus = 2
+
+    touchpad {
+        natural_scroll = no
+    }
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+}
+
+general {
+    gaps_in = 0
+    gaps_out = 0
+    border_size = 0
+    col.active_border = $lavender
+    col.inactive_border = $base
+
+    layout = hy3 # master|dwindle
+
+}
+
+decoration {
+    active_opacity = 0.98
+    inactive_opacity = 1.0
+    fullscreen_opacity = 1.0
+
+    rounding = 2
+    blur {
+        enabled = true
+        size = 15
+        passes = 2 # more passes = more resource intensive.
+        new_optimizations = true
+        xray = true
+        ignore_opacity = false
+    }
+    dim_inactive = false
+}
+
+# Blur for waybar
+#blurls = waybar
+
+animations {
+    enabled = no
+
+    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+
+    #bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+
+    bezier = overshot, 0.13, 0.99, 0.29, 1.1
+    animation = windows, 1, 4, overshot, slide
+    animation = windowsOut, 1, 5, default, popin 80%
+    animation = border, 1, 5, default
+    animation = fade, 1, 8, default
+    animation = workspaces, 1, 6, overshot, slide
+
+    #animation = windows, 1, 7, myBezier
+    #animation = windowsOut, 1, 7, default, popin 80%
+    #animation = fade, 1, 7, default
+    #animation = border, 1, 10, default
+    #animation = workspaces, 1, 6, default
+}
+
+# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+dwindle {
+    force_split = 0
+    special_scale_factor = 0.8
+    split_width_multiplier = 1.0
+    use_active_for_splits = true
+    pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = yes
+}
+
+# See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+master {
+    new_status = master
+    special_scale_factor = 0.8
+}
+
+misc {
+    #disable_autoreload = true
+    disable_hyprland_logo = true
+    always_follow_on_dnd = true
+    layers_hog_keyboard_focus = true
+    animate_manual_resizes = false
+    enable_swallow = true
+    focus_on_activate = true
+    vfr = true
+}
+
+gestures {
+     workspace_swipe = true
+     workspace_swipe_fingers = 4
+     workspace_swipe_distance = 250
+     workspace_swipe_invert = true
+     workspace_swipe_min_speed_to_force = 15
+     workspace_swipe_cancel_ratio = 0.5
+     workspace_swipe_create_new = false
+}
+
+device {
+    name = epic-mouse-v1
+    sensitivity = -0.5
+}
+
+# See https://wiki.hyprland.org/Configuring/Keywords/ for more
+$mainMod = SUPER
+
+# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+bind = $mainMod, RETURN, exec, kitty
+bind = $mainMod, T, exec, alacritty
+bind = $mainMod, E, exec, nemo
+bind = $mainMod, S, exec, grim -g "$(slurp)" - | swappy -f -
+bind = $mainMod, Q, hy3:killactive
+bind = $mainMod SHIFT, M, exit
+bind = $mainMod SHIFT, F, togglefloating
+bind = ALT, SPACE, exec, rofi -show combi -switchers combi -combi-modi run
+#bind = CTRL, SPACE, exec, wofi
+bind = $mainMod, F, fullscreen
+#bind = $mainMod, Y, pin
+#bind = $mainMod, P, pseudo # dwindle
+#bind = $mainMod, J, togglesplit # dwindle
+#bind = $mainMod, G, togglegroup,
+#bind = $mainMod, H, changegroupactive, f
+
+#bind = $mainMod SHIFT, G,exec,hyprctl --batch "keyword general:gaps_out 5;keyword general:gaps_in 3"
+#bind = $mainMod, G, exec, hyprctl --batch "keyword general:gaps_out 0;keyword general:gaps_in 0"
+
+# Volume control
+
+bind = ,XF86AudioLowerVolume,exec,pamixer -ud 2 && pamixer --get-volume > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
+bind = ,XF86AudioRaiseVolume,exec,pamixer -ui 2 && pamixer --get-volume > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
+# mute sound
+bind = ,XF86AudioMute,exec,amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
+
+# Playback control
+
+bind = ,XF86AudioPlay,exec, playerctl play-pause
+bind = ,XF86AudioNext,exec, playerctl next
+bind = ,XF86AudioPrev,exec, playerctl previous
+
+# Screen brightness
+bind = , XF86MonBrightnessUp, exec, brightnessctl s +5%
+bind = , XF86MonBrightnessDown, exec, brightnessctl s 5%-
+
+bind = ALT, E, exec , pkill fcitx5 -9;sleep 1;fcitx5 -d --replace; sleep 1;fcitx5-remote -r
+bind = ALT, W, exec, pkill waybar;sleep 1;waybar
+
+#bind = $mainMod, L, exec, wlogout
+
+# Move focus with mainMod + arrow keys
+#bind = $mainMod, left, movefocus, l
+#bind = $mainMod, right, movefocus, r
+#bind = $mainMod, up, movefocus, u
+#bind = $mainMod, down, movefocus, d
+
+# Scroll through existing workspaces with mainMod + scroll
+bindn = $mainMod, mouse_down, workspace, e-1
+bindn = $mainMod, mouse_up, workspace, e+1
+
+bindn = , mouse:272, hy3:focustab, mouse
+
+bindn = CTRL $mainMod, mouse:272, hy3:movefocus, l
+bindn = CTRL $mainMod, mouse:273, hy3:movefocus, r
+
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+bind = $mainMod, left, hy3:movefocus, l
+bind = $mainMod, right, hy3:movefocus, r
+bind = $mainMod, up, hy3:movefocus, u
+bind = $mainMod, down, hy3:movefocus, d
+
+bind = $mainMod, A, hy3:makegroup, tab
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+
+bind = $mainMod, period, workspace, e+1
+bind = $mainMod, period, workspace, e+1
+
+bind = $mainMod, period, workspace, e+1
+bind = $mainMod, comma, workspace, e-1
+bind = $mainMod, slash, workspace, previous
+
+bind = $mainMod, Tab, togglespecialworkspace
+bind = $mainMod SHIFT, Tab, movetoworkspace, special
+
+bind = $mainMod SHIFT, left, movewindow, l
+bind = $mainMod SHIFT, right, movewindow, r
+bind = $mainMod SHIFT, up, movewindow, u
+bind = $mainMod SHIFT, down, movewindow, d
+
+bind = $mainMod SHIFT, h, movewindow, l
+bind = $mainMod SHIFT, l, movewindow, r
+bind = $mainMod SHIFT, j, movewindow, u
+bind = $mainMod SHIFT, k, movewindow, d
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+# same as above, but doesnt switch to the workspace
+bind = $mainMod CTRL, 1, movetoworkspacesilent, 1
+bind = $mainMod CTRL, 2, movetoworkspacesilent, 2
+bind = $mainMod CTRL, 3, movetoworkspacesilent, 3
+bind = $mainMod CTRL, 4, movetoworkspacesilent, 4
+bind = $mainMod CTRL, 5, movetoworkspacesilent, 5
+bind = $mainMod CTRL, 6, movetoworkspacesilent, 6
+bind = $mainMod CTRL, 7, movetoworkspacesilent, 7
+bind = $mainMod CTRL, 8, movetoworkspacesilent, 8
+bind = $mainMod CTRL, 9, movetoworkspacesilent, 9
+bind = $mainMod CTRL, 0, movetoworkspacesilent, 10
+bind = $mainMod CTRL, left, workspace, -1
+bind = $mainMod CTRL, right, workspace, +1
+
+binds {
+     workspace_back_and_forth = 1
+     allow_workspace_cycles = 1
+}
+
+bind = $mainMod, R, submap, resize
+submap = resize
+binde = ,right,resizeactive,15 0
+binde = ,left,resizeactive,-15 0
+binde = ,up,resizeactive,0 -15
+binde = ,down,resizeactive,0 15
+binde = ,l,resizeactive,15 0
+binde = ,h,resizeactive,-15 0
+binde = ,k,resizeactive,0 -15
+binde = ,j,resizeactive,0 15
+bind = ,escape,submap,reset
+submap = reset
+
+bind = CTRL SHIFT, left, resizeactive,-15 0
+bind = CTRL SHIFT, right, resizeactive,15 0
+bind = CTRL SHIFT, up, resizeactive,0 -15
+bind = CTRL SHIFT, down, resizeactive,0 15
+bind = CTRL SHIFT, l, resizeactive, 15 0
+bind = CTRL SHIFT, h, resizeactive,-15 0
+bind = CTRL SHIFT, k, resizeactive, 0 -15
+bind = CTRL SHIFT, j, resizeactive, 0 15
+
+bind = ALT,Tab, hy3:movefocus, r
+#bind = ALT,Tab, bringactivetotop
+bind = ALT SHIFT,Tab, hy3:movefocus, l
+
+
+bind = CONTROLALT, Return, exec, playerctl play-pause
+bind = CONTROLALT, right, exec, playerctl next
+bind = CONTROLALT, left, exec, playerctl previous
+
+#------------#
+# auto start #
+#------------#
+#exec-once = mako
+exec-once = swaync
+exec-once = waybar
+exec-once = bash -c "mkfifo /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob && tail -f /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob | wob & disown"
+exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+
+exec-once = ssh-agent -a $SSH_AUTH_SOCK
+
+exec-once = sleep 1 && nm-applet --indicator
+exec-once = sleep 1 && anytype --enable-wayland-ime
+exec-once = sleep 1 && element-desktop --enable-wayland-ime
+exec-once = sleep 1 && joplin-desktop --enable-wayland-ime
+exec-once = sleep 1 && legcord  --enable-wayland-im
+exec-once = sleep 1 && strawberry
+exec-once = sleep 1 && syncthingtray --wait
+
+# -- Fcitx5 input method
+windowrule = pseudo, fcitx    # enable this will make fcitx5 works, but fcitx5-configtool will not work!
+exec-once = fcitx5 -d --replace     # start fcitx5 daemon
+
+# Float Necessary Windows
+windowrule = float, Rofi
+windowrule = float, pavucontrol
+windowrulev2 = float,class:^()$,title:^(Picture in picture)$
+windowrulev2 = float,class:^(brave)$,title:^(Save File)$
+windowrulev2 = float,class:^(brave)$,title:^(Open File)$
+windowrulev2 = float,class:^(LibreWolf)$,title:^(Picture-in-Picture)$
+windowrulev2 = float,class:^(blueman-manager)$
+windowrulev2 = float,class:^(xdg-desktop-portal-gtk)$
+windowrulev2 = float,class:^(xdg-desktop-portal-kde)$
+windowrulev2 = float,class:^(xdg-desktop-portal-hyprland)$
+windowrulev2 = float,class:^(hyprpolkitagent)$
+windowrulev2 = float,class:^(CachyOSHello)$
+windowrulev2 = float,class:^(zenity)$
+
+# Increase the opacity
+windowrule = opacity 0.8, nekoray
+windowrule = opacity 0.8, nemo
+
+
+#---------------#
+# windows rules #
+#---------------#
+#`hyprctl clients` get class、title...
+windowrule = float, keepassxc
+windowrule = size 1280 720, keepassxc
+windowrule = pseudo, swappy
+windowrule = float, swappy
+windowrule = float, strawberry
+windowrule = size 1280 720, strawberry
+windowrule = float, title:^(Picture-in-Picture)$
+windowrule = size 960 540, title:^(Picture-in-Picture)$
+windowrule = move 25%-, title:^(Picture-in-Picture)$
+windowrule = float, imv
+windowrule = move 25%-, imv
+windowrule = size 960 540, imv
+windowrule = float, mpv
+windowrule = move 25%-, mpv
+windowrule = size 960 540, mpv
+windowrule = noblur, ^(firefox)$
+windowrule = noblur, ^(waybar)$
+windowrulev2 = float,title:^(flameshot)
+windowrulev2 = move 0 0,title:^(flameshot)
+windowrulev2 = suppressevent fullscreen,title:^(flameshot)
+
+windowrulev2 = tile,maximize,class:^(Minecraft).*$
