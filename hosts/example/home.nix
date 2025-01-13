@@ -31,4 +31,10 @@ in
     };
     home-manager.enable = true;
   };
+
+  stylix.targets = {
+    hyprland.enable = false;
+    rofi.enable = false;
+    waybar.enable = false;
+  };
 }
