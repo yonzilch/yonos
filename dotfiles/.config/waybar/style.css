@@ -1,0 +1,135 @@
+@import "mocha.css";
+
+* {
+    /* https://docs.gtk.org/gtk3/css-overview.html#colors */
+    color: @text;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12pt;
+    font-weight: bold;
+    border-radius: 8px;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+@keyframes blink_red {
+    to {
+        background-color: @red;
+        color: @base;
+    }
+}
+.warning,
+.critical,
+.urgent {
+    animation-name: blink_red;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+window#waybar {
+    background-color: transparent;
+    border: 2px solid alpha(@crust, 0.3);
+}
+/*
+window > box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: shade(@base, 0.9);
+    padding: 3px;
+    padding-left: 8px;
+    border: 2px none @blue;
+}
+*/
+#workspaces {
+    padding-left: 0px;
+    padding-right: 4px;
+}
+#workspaces button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+#workspaces button.active {
+    background-color: @surface2;
+    color: @base;
+}
+#workspaces button.urgent {
+    color: @base;
+}
+#workspaces button:hover {
+    background-color: @surface0;
+    color: @base;
+}
+tooltip {
+    background: @mantle;
+}
+tooltip label {
+    color: @subtext1;
+}
+#custom-launcher {
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 6px;
+    color: #7ebae4;
+}
+
+#custom-powermenu {
+    color: @red;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#memory {
+    color: @teal;
+}
+#cpu {
+    color: @maroon;
+}
+#clock {
+    color: @subtext1;
+}
+
+#idle_inhibitor {
+    color: @pink;
+    padding-right: 8px;
+}
+#battery {
+    min-width: 55px;
+    color: @sky;
+}
+#battery.charging,
+#battery.full,
+#battery.plugged {
+    color: @green;
+}
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#custom-wall {
+    color: @sky;
+}
+#temperature {
+    color: @sky;
+}
+#backlight {
+    color: @peach;
+}
+#pulseaudio {
+    color: @flamingo;
+}
+#network {
+    color: @sapphire;
+}
+#network.disconnected {
+    color: @subtext0;
+}
+#tray {
+    padding-right: 8px;
+    padding-left: 10px;
+}

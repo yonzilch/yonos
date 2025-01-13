@@ -1,6 +1,7 @@
-{ pkgs, ...}:
+{ config, lib, pkgs, ... }:
+with lib;
 {
-  home.packages = with pkgs; [
-    hyprlandPlugins.hy3
-  ];
+  wayland.windowManager.plugins = {
+    pkgs.hyprlandPlugins.hy3
+  };
 }
