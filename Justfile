@@ -25,6 +25,17 @@ gc:
   sudo nix-collect-garbage --delete-old
 
 
+generate-hardware-config:
+  # generate hardware.nix
+  sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
+
+
+install:
+  # install this flake
+  NIX_CONFIG="experimental-features = nix-command flakes"
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+
+
 list:
   # list system packages
   sudo nix-store -qR /run/current-system | cat
