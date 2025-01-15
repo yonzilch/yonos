@@ -1,6 +1,6 @@
 { pkgs, ...}:
 {
-  programs.starship = {
+  programs.fastfetch = {
     enable = true;
   };
 }

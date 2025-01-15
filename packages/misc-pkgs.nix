@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     brightnessctl
-    grim
     libvirt
     lm_sensors
     libnotify
@@ -10,9 +9,6 @@
     ninja
     playerctl
     pkg-config
-    slurp
-    swappy
-    tealdeer
     wl-clipboard-rs
     zenith
   ];
