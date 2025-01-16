@@ -5,19 +5,9 @@ in
 {
   imports = [
     ./hardware.nix
-    ../../modules/drivers/amd-drivers.nix
-    ../../modules/drivers/nvidia-drivers.nix
-    ../../modules/drivers/nvidia-prime-drivers.nix
-    ../../modules/drivers/intel-drivers.nix
-    ../../modules/tweaks/locale-and-timezone.nix
-    ../../modules/tweaks/minimalise.nix
-    ../../modules/tweaks/network-and-ntp.nix
-    ../../modules/tweaks/nix.nix
-    ../../modules/tweaks/stylix.nix
-    ../../modules/tweaks/system.nix
-    ../../packages/essential-pkgs.nix
-    ../../packages/misc-pkgs.nix
-  ];
+    ]
+      ++ lib.filesystem.listFilesRecursive ../../modules
+      ++ lib.filesystem.listFilesRecursive ../../packages;
 
   # Specific boot options
   boot = {
