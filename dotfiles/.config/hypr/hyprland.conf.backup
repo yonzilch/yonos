@@ -26,12 +26,10 @@ $scale = 2
       env = HYPRCURSOR_SIZE, 32
       # misc
       env = _JAVA_AWT_WM_NONREPARENTING, 1
-      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-      env = QT_QPA_PLATFORM, wayland;xcb
-      env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_QPA_PLATFORMTHEME, qt6ct
       env = SDL_VIDEODRIVER, wayland
       env = GDK_BACKEND, wayland
+
       # ssh-agent
       env = SSH_AUTH_SOCK, $XDG_RUNTIME_DIR/ssh-agent.socket
       # electron
