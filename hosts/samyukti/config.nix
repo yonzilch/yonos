@@ -18,7 +18,7 @@ in
 
   # Driver module options
   drivers = {
-    amdgpu.enable = false;
+    amdgpu.enable = true;
     intel.enable = false;
     nvidia.enable = false;
     nvidia-prime = {

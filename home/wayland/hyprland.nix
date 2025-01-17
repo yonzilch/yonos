@@ -15,9 +15,6 @@ with lib;
     systemd.enable = false;
     xwayland.enable = true;
     extraConfig =
-      let
-        modifier = "SUPER";
-      in
       concatStrings [
         ''
           ${MonitorSettings}
@@ -126,8 +123,11 @@ with lib;
               special_scale_factor = 0.8
               split_width_multiplier = 1.0
               use_active_for_splits = true
-              pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+              pseudotile = yes
               preserve_split = yes
+          }
+          plugin {
+
           }
           xwayland {
             force_zero_scaling = true
@@ -142,26 +142,16 @@ with lib;
           bind = $mainMod SHIFT, M, exit
           bind = $mainMod SHIFT, F, togglefloating
           bind = ALT, SPACE, exec, fuzzel
-          #bind = CTRL, SPACE, exec, wofi
           bind = $mainMod, F, fullscreen
-          #bind = $mainMod, Y, pin
-          #bind = $mainMod, P, pseudo # dwindle
-          #bind = $mainMod, J, togglesplit # dwindle
-          #bind = $mainMod, G, togglegroup,
-          #bind = $mainMod, H, changegroupactive, f
-
-          #bind = $mainMod SHIFT, G,exec,hyprctl --batch "keyword general:gaps_out 5;keyword general:gaps_in 3"
-          #bind = $mainMod, G, exec, hyprctl --batch "keyword general:gaps_out 0;keyword general:gaps_in 0"
 
           # Volume control
-
           bind = ,XF86AudioLowerVolume,exec,pamixer -ud 2 && pamixer --get-volume > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
           bind = ,XF86AudioRaiseVolume,exec,pamixer -ui 2 && pamixer --get-volume > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
+
           # mute sound
           bind = ,XF86AudioMute,exec,amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > /tmp/$HYPRLAND_INSTANCE_SIGNATURE.wob
 
           # Playback control
-
           bind = ,XF86AudioPlay,exec, playerctl play-pause
           bind = ,XF86AudioNext,exec, playerctl next
           bind = ,XF86AudioPrev,exec, playerctl previous
@@ -173,7 +163,7 @@ with lib;
           bind = ALT, E, exec , pkill fcitx5 -9;sleep 1;fcitx5 -d --replace; sleep 1;fcitx5-remote -r
           bind = ALT, W, exec, pkill waybar;sleep 1;waybar
 
-          #bind = $mainMod, L, exec, wlogout
+          bind = $mainMod, L, exec, wleave
 
           # Move focus with mainMod + arrow keys
           #bind = $mainMod, left, movefocus, l
@@ -282,7 +272,6 @@ with lib;
           bind = CTRL SHIFT, k, resizeactive, 0 -15
           bind = CTRL SHIFT, j, resizeactive, 0 15
           bind = ALT,Tab, hy3:movefocus, r
-          #bind = ALT,Tab, bringactivetotop
           bind = ALT SHIFT,Tab, hy3:movefocus, l
           bind = CONTROLALT, Return, exec, playerctl play-pause
           bind = CONTROLALT, right, exec, playerctl next
