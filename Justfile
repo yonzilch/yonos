@@ -1,6 +1,3 @@
-# set shell environment
-set shell := ["nu", "-c"]
-
 # set hostname environment
 hostname := `hostname`
 
