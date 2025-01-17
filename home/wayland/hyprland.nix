@@ -20,6 +20,7 @@ with lib;
       in
       concatStrings [
         ''
+          ${MonitorSettings}
           env = NIXOS_OZONE_WL, 1
           env = NIXPKGS_ALLOW_UNFREE, 1
           env = XDG_CURRENT_DESKTOP, Hyprland
@@ -32,53 +33,49 @@ with lib;
           env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
           env = SDL_VIDEODRIVER, x11
           env = MOZ_ENABLE_WAYLAND, 1
+          env = XMODIFIERS, @im=fcitx
+          env = QT_IM_MODULE, fcitx
+          env = SDL_IM_MODULE, fcitx
+
+          # -- Fcitx5 input method
+          windowrule=pseudo,fcitx    # enable this will make fcitx5 works, but fcitx5-configtool will not work!
+          exec-once=fcitx5 -d --replace     # start fcitx5 daemon
+          bind=ALT,E,exec,pkill fcitx5 -9;sleep 1;fcitx5 -d --replace; sleep 1;fcitx5-remote -r
+
           exec-once = dbus-update-activation-environment --systemd --all
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-          exec-once = killall -q swww;sleep .5 && swww init
-          exec-once = killall -q waybar;sleep .5 && waybar
-          exec-once = killall -q swaync;sleep .5 && swaync
+          exec-once = pkill waybar;sleep .5 && waybar
+          exec-once = pkill swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/blackhole.jpg
-          exec-once = fcitx5
-          # monitor=,preferred,auto,1
-          # monitor= HDMI-A-1, 3840x2160@60,0x0,1
-          monitor= DP-1, 3840x2160@60,0x0,1
-          monitor = eDP-1, 2560x1440@60,0x2160,1
-          ${extraMonitorSettings}
+
           general {
             gaps_in = 6
             gaps_out = 8
             border_size = 2
-            layout = hy3
+            layout = dwindle
             resize_on_border = true
             col.active_border = rgb(${config.stylix.base16Scheme.base08}) rgb(${config.stylix.base16Scheme.base0C}) 45deg
             col.inactive_border = rgb(${config.stylix.base16Scheme.base01})
           }
           input {
-            kb_layout = ${keyboardLayout}
-            kb_options = grp:alt_shift_toggle
-            kb_options = caps:super
-            follow_mouse = 1
+            kb_layout = us
+            kb_model =
+            kb_options =
+            kb_rules =
+            kb_variant =
+            follow_mouse = 2
             touchpad {
-              natural_scroll = true
+              natural_scroll = no
               disable_while_typing = true
               scroll_factor = 0.8
             }
-            sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
             accel_profile = flat
+            sensitivity = 0
           }
-          windowrule = noborder,^(wofi)$
-          windowrule = center,^(wofi)$
-          windowrule = center,^(steam)$
           windowrule = float, nm-connection-editor|blueman-manager
           windowrule = float, swayimg|vlc|Viewnior|pavucontrol
           windowrule = float, nwg-look|qt5ct|mpv
-          windowrule = float, zoom
-          windowrulev2 = stayfocused, title:^()$,class:^(steam)$
-          windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-          windowrulev2 = opacity 0.9 0.7, class:^(Brave)$
-          windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
           gestures {
             workspace_swipe = true
             workspace_swipe_fingers = 3
@@ -89,7 +86,7 @@ with lib;
             key_press_enables_dpms = false
           }
           animations {
-            enabled = yes
+            enabled = no
             bezier = wind, 0.05, 0.9, 0.1, 1.05
             bezier = winIn, 0.1, 1.1, 0.1, 1.1
             bezier = winOut, 0.3, -0.3, 0, 1
@@ -113,51 +110,41 @@ with lib;
             }
           }
           plugin {
-
+            hyprtrails {
+            }
           }
           dwindle {
             pseudotile = true
             preserve_split = true
           }
-          bind = ${modifier},Return,exec,${terminal}
-          # bind = ${modifier}SHIFT,Return,exec,rofi-launcher
-          bind = ${modifier},SPACE,exec,rofi-launcher
-          bind = ${modifier}SHIFT,W,exec,web-search
-          bind = ${modifier}ALT,W,exec,wallsetter
+          bind = ${modifier},Return,exec,alacritty
+          bind = ALT,Space,exec,fuzzel
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
-          bind = ${modifier},W,exec,${browser}
-          # bind = ${modifier},E,exec,emopicker9000
-          bind = ${modifier}SHIFT,S,exec,screenshootin
-          # bind = ${modifier},D,exec,discord
-          # bind = ${modifier},O,exec,obs
+          bind = ${modifier},S,exec,grim -g "$(slurp)" - | swappy -f -
           bind = ${modifier},C,exec,hyprpicker -a
-          # bind = ${modifier},G,exec,gimp
-          # bind = ${modifier}SHIFT,G,exec,godot4
-          # bind = ${modifier},T,exec,thunar
-          bind = ${modifier},Y,exec,${terminal} -e yazi
-          # bind = ${modifier},M,exec,spotify
+          bind = ${modifier},E,exec,nemo
           bind = ${modifier},Q,killactive,
           bind = ${modifier},P,pseudo,
           bind = ${modifier}SHIFT,I,togglesplit,
           bind = ${modifier},F,fullscreen,
           bind = ${modifier}SHIFT,F,togglefloating,
           bind = ${modifier}SHIFT,C,exit,
-          bind = ${modifier}SHIFT,left,hy3:movewindow,l
-          bind = ${modifier}SHIFT,right,hy3:movewindow,r
-          bind = ${modifier}SHIFT,up,hy3:movewindow,u
-          bind = ${modifier}SHIFT,down,hy3:movewindow,d
-          bind = ${modifier}SHIFT,h,hy3:movewindow,l
-          bind = ${modifier}SHIFT,l,hy3:movewindow,r
-          bind = ${modifier}SHIFT,k,hy3:movewindow,u
-          bind = ${modifier}SHIFT,j,hy3:movewindow,d
-          bind = ${modifier},left,hy3:movefocus,l
-          bind = ${modifier},right,hy3:movefocus,r
-          bind = ${modifier},up,hy3:movefocus,u
-          bind = ${modifier},down,hy3:movefocus,d
-          bind = ${modifier},h,hy3:movefocus,l
-          bind = ${modifier},l,hy3:movefocus,r
-          bind = ${modifier},k,hy3:movefocus,u
-          bind = ${modifier},j,hy3:movefocus,d
+          bind = ${modifier}SHIFT,left,movewindow,l
+          bind = ${modifier}SHIFT,right,movewindow,r
+          bind = ${modifier}SHIFT,up,movewindow,u
+          bind = ${modifier}SHIFT,down,movewindow,d
+          bind = ${modifier}SHIFT,h,movewindow,l
+          bind = ${modifier}SHIFT,l,movewindow,r
+          bind = ${modifier}SHIFT,k,movewindow,u
+          bind = ${modifier}SHIFT,j,movewindow,d
+          bind = ${modifier},left,movefocus,l
+          bind = ${modifier},right,movefocus,r
+          bind = ${modifier},up,movefocus,u
+          bind = ${modifier},down,movefocus,d
+          bind = ${modifier},h,movefocus,l
+          bind = ${modifier},l,movefocus,r
+          bind = ${modifier},k,movefocus,u
+          bind = ${modifier},j,movefocus,d
           bind = ${modifier},1,workspace,1
           bind = ${modifier},2,workspace,2
           bind = ${modifier},3,workspace,3
@@ -169,7 +156,7 @@ with lib;
           bind = ${modifier},9,workspace,9
           bind = ${modifier},0,workspace,10
           bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
-          # bind = ${modifier},SPACE,togglespecialworkspace
+          bind = ${modifier},SPACE,togglespecialworkspace
           bind = ${modifier}SHIFT,1,movetoworkspace,1
           bind = ${modifier}SHIFT,2,movetoworkspace,2
           bind = ${modifier}SHIFT,3,movetoworkspace,3
