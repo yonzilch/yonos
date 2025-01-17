@@ -20,6 +20,8 @@
   # Disable unnecessary fonts
   fonts.fontconfig.enable =lib.mkForce false;
 
+  # Remove useless package
+
   # Disable unnecessary programs
   programs = {
     bash = {
