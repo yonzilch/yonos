@@ -14,14 +14,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c84d3fc3-8936-409f-ba56-be07e22bc904";
+    { device = "/dev/disk/by-uuid/44e32bf3-40f2-4136-b4f0-4b2532bb677a";
       fsType = "xfs";
     };
 
-  boot.initrd.luks.devices."luks-2aecc1e6-3741-483d-91ea-bb26e2403f7c".device = "/dev/disk/by-uuid/2aecc1e6-3741-483d-91ea-bb26e2403f7c";
+  boot.initrd.luks.devices."luks-cf01a757-5f5f-42fe-a9eb-20678b6dd7a9".device = "/dev/disk/by-uuid/cf01a757-5f5f-42fe-a9eb-20678b6dd7a9";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/15BF-3C76";
+    { device = "/dev/disk/by-uuid/118B-DB46";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
@@ -33,7 +33,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s20f0u6.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp9s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp6s0.useDHCP = lib.mkDefault true;

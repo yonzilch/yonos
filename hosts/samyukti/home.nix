@@ -34,6 +34,7 @@ in
 
   stylix.targets = {
     hyprland.enable = false;
+    nushell.enable = false;
     waybar.enable = false;
   };
 }

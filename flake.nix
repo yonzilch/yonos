@@ -25,8 +25,8 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
     let
-      hostname = "example";
-      username = "example";
+      hostname = "samyukti";
+      username = "admin";
     in
     {
       nixosConfigurations = {

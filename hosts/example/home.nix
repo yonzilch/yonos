@@ -34,7 +34,7 @@ in
 
   stylix.targets = {
     hyprland.enable = false;
-    rofi.enable = false;
+    nushell.enable = false;
     waybar.enable = false;
   };
 }
