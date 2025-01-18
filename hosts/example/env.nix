@@ -3,4 +3,5 @@
   gitEmail = "foobar@example.com";
 
   MonitorSettings = "monitor=,preferred,auto,1";
+  ScaleLevel = "1";
 }

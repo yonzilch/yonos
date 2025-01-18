@@ -12,6 +12,7 @@ with lib;
     hyprpaper
     hyprpolkitagent
     hyprsunset
+    xorg.xprop
   ];
   programs.hyprlock = {
     enable = true;
@@ -26,6 +27,7 @@ with lib;
     extraConfig = concatStrings [
     ''
       ${MonitorSettings}
+      $SCALE = ${ScaleLevel}
       source = ~/.config/hypr/hyprland-basic.conf
     ''
     ];
