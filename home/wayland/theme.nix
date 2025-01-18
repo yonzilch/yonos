@@ -9,4 +9,11 @@
     };
     enable = true;
   };
+  stylix.targets = {
+    fuzzel.enable = false;
+    hyprland.enable = false;
+    nushell.enable = false;
+    waybar.enable = false;
+    zed.enable = false;
+  };
 }

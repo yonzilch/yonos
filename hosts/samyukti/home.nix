@@ -1,7 +1,4 @@
 { config, hostname, lib, pkgs, username, ... }:
-let
-  inherit (import ./env.nix) gitUsername gitEmail;
-in
 {
   imports = lib.filesystem.listFilesRecursive ../../home;
 
@@ -23,20 +20,5 @@ in
     username = "${username}";
   };
 
-  programs = {
-    git = {
-      enable = true;
-      userName = "${gitUsername}";
-      userEmail = "${gitEmail}";
-    };
-    home-manager.enable = true;
-  };
-
-  stylix.targets = {
-    fuzzel.enable = false;
-    hyprland.enable = false;
-    nushell.enable = false;
-    waybar.enable = false;
-    zed.enable = false;
-  };
+  programs.home-manager.enable = true;
 }
