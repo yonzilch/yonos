@@ -58,7 +58,6 @@ with lib;
           exec-once = pkill swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
 
-
           general {
             gaps_in = 6
             gaps_out = 8
@@ -120,13 +119,35 @@ with lib;
             }
           }
           plugin {
-            hyprtrails {
+            hy3 {
+            no_gaps_when_only = 1
+            node_collapse_policy = 1
+            group_inset = 10
+            tab_first_window = true
+            tabs {
+              height = 13
+              padding = 2
+              from_top = false # default: false
+              rounding = 6
+              render_text = true
+              text_center = true
+              text_font = Sarasa Gothic SC
+              text_height = 10
+              text_padding = 0
+              col.active = rgb(b4befe)
+              col.urgent = rgb(f2cdcd)
+              col.inactive = rgb(181825)
+              col.text.active = rgb(181825)
+              col.text.urgent = rgb(181825)
+              col.text.inactive = rgb(b4befe)
+              }
             }
           }
           dwindle {
             pseudotile = true
             preserve_split = true
           }
+          bind = ALT, W, exec, pkill waybar;sleep 1;waybar
           bind = ${modifier},Return,exec,alacritty
           bind = ALT,Space,exec,fuzzel
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
