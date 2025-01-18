@@ -2,6 +2,10 @@
 {
   environment.systemPackages = with pkgs; [
     brightnessctl
+    file
+    gcc
+    ghc
+    gnumake
     libvirt
     lm_sensors
     libnotify
