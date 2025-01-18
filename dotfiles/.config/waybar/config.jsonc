@@ -16,8 +16,8 @@
   "spacing": 8, // Gaps between modules (4px)
 
   "modules-left": [
-    "custom/powermenu",
-    //"custom/startmenu",
+    //"custom/powermenu",
+    "custom/startmenu",
     "hyprland/workspaces",
     "cpu",
     "memory"
@@ -29,9 +29,8 @@
     //"custom/media"
   ],
   "modules-center": [
-    "wlr/taskbar",
-    //"custom/weather"
-    "custom/hyprsunset",
+    "wlr/taskbar"
+    //"custom/hyprsunset"
   ],
   "modules-right": [
     "backlight",
@@ -60,9 +59,7 @@
   "custom/startmenu": {
     "format": "",
     "tooltip": false,
-    "on-click": "rofi -show combi -modi window,run,combi -combi-modi window,run",
-    "on-click-right": "rofi-theme-selector",
-    "on-click-middle": "pkill rofi",
+    "on-click": "fuzzel",
   },
   "custom/screenshot_t": {
     "format": "   ",
@@ -163,16 +160,7 @@
     },
     "tooltip": "true",
   },
-  "custom/weather": {
-    "format": "{}",
-    "format-alt": "{alt}: {}",
-    "format-alt-click": "click-right",
-    "interval": 3600,
-    "exec": "curl -s 'https://wttr.in/?format=1'",
-    //"return-type": "json",
-    //"exec": "~/.config/waybar/modules/weather.sh",
-    "exec-if": "ping wttr.in -c1",
-  },
+  
   "custom/pacman": {
     "format": "<big>􏆲</big>  {}",
     "interval": 3600, // every hour
