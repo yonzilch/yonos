@@ -33,6 +33,7 @@ in
   };
 
   stylix.targets = {
+    fuzzel.enable = false;
     hyprland.enable = false;
     nushell.enable = false;
     waybar.enable = false;
