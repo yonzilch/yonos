@@ -18,9 +18,9 @@
   };
 
   # Disable unnecessary fonts
-  fonts.fontconfig.enable =lib.mkForce false;
+  fonts.fontconfig.enable =lib.mkDefault false;
 
-  # Remove useless package
+  # [WIP] Remove useless package
 
   # Disable unnecessary programs
   programs = {
