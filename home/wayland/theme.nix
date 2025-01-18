@@ -9,6 +9,19 @@
     };
     enable = true;
   };
+
+
+    home.packages = with pkgs; [
+      libsForQt5.qtstyleplugin-kvantum
+    ];
+
+  qt = {
+    enable = true;
+    style ={
+      name = "kvantum";
+    };
+  };
+
   stylix.targets = {
     fuzzel.enable = false;
     hyprland.enable = false;
