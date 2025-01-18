@@ -37,10 +37,10 @@
       };
       serif = config.stylix.fonts.sansSerif;
       sizes = {
-        applications = 14;
-        terminal = 14;
-        desktop = 12;
+        applications = 16;
+        desktop = 14;
         popups = 12;
+        terminal = 12;
       };
     };
     image = pkgs.fetchurl {
