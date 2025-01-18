@@ -51,6 +51,10 @@
     enable = true;
   };
 
+  programs = {
+    fuse.userAllowOther = true;
+  };
+
   services = {
     xserver = {
       enable = false;
