@@ -10,10 +10,9 @@
     enable = true;
   };
 
-
-    home.packages = with pkgs; [
-      libsForQt5.qtstyleplugin-kvantum
-    ];
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+  ];
 
   qt = {
     enable = true;
@@ -22,11 +21,10 @@
     };
   };
 
-  stylix.targets = {
-    fuzzel.enable = false;
-    hyprland.enable = false;
-    nushell.enable = false;
-    waybar.enable = false;
-    zed.enable = false;
+  stylix = {
+    autoEnable = false;
+    targets = {
+      swaync.enable = true;
+    };
   };
 }

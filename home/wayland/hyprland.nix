@@ -7,6 +7,15 @@ let
 in
 with lib;
 {
+  home.packages = with pkgs; [
+    hypridle
+    hyprpaper
+    hyprpolkitagent
+    hyprsunset
+  ];
+  programs.hyprlock = {
+    enable = true;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -44,10 +53,11 @@ with lib;
 
           exec-once = dbus-update-activation-environment --systemd --all
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+          exec-once = systemctl --user start hyprpolkitagent
           exec-once = pkill waybar;sleep .5 && waybar
           exec-once = pkill swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
-          exec-once = lxqt-policykit-agent
+
 
           general {
             gaps_in = 6
