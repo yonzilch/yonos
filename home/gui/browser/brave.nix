@@ -4,13 +4,43 @@
     commandLineArgs = [
       "--ozone-platform-hint=auto"
       "--ozone-platform=wayland"
-      "--wayland-text-input-v3=true"
+      "--gtk-version=4"
+      "--enable-wayland-ime"
+      "--password-store=basic"
     ];
     enable = true;
     extensions = [
       {
-        id = "dcpihecpambacapedldabdbpakmachpb";
-        updateUrl = "https://raw.githubusercontent.com/iamadamdev/bypass-paywalls-chrome/master/updates.xml";
+        # Dark Reader
+        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+      }
+      {
+        # KeePassXC-Browser
+        id = "oboonakemofpalcgghocfoadofidjkkk";
+      }
+      {
+        # kiss-translator
+        id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
+      }
+      {
+        # Cookie-Editor
+        id = "hlkenndednhfkekhgcdicdfddnkalmdm";
+      }
+      {
+        # Wappalyzer - Technology profiler
+        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
+      }
+      {
+        # LocalCDN
+        id = "njdfdhgcmkocbgbhcioffdbicglldapd";
+      }
+      {
+        # uBlock Origin
+        id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+      }
+      {
+        # ClearURLs
+        id = "lckanjgmijmafbedllaakclkaicjfmnk";
       }
     ];
     package = pkgs.brave;

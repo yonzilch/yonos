@@ -1,0 +1,14 @@
+[Wallet]
+Close When Idle=true
+Close on Screensaver=true
+Enabled=false
+First Use=false
+Idle Timeout=1
+Launch Manager=false
+Leave Manager Open=false
+Leave Open=false
+Prompt on Open=false
+Use One Wallet=true
+
+[org.freedesktop.secrets]
+apiEnabled=false
