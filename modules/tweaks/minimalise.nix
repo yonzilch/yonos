@@ -17,9 +17,6 @@
     defaultPackages = lib.mkForce [ ];
   };
 
-  # Disable unnecessary fonts
-  fonts.fontconfig.enable =lib.mkDefault false;
-
   # [WIP] Remove useless package
 
   # Disable unnecessary programs
