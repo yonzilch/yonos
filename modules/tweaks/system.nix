@@ -12,7 +12,7 @@
       "vm.max_map_count" = 2147483642; # Needed For Some Steam Games
     };
     kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [ "audit=0" "console=tty0" "noatime" ];
     loader = {
       efi.canTouchEfiVariables = true;
@@ -34,7 +34,6 @@
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
     ];
-    plymouth.enable = lib.mkDefault true;
   };
 
   console.keyMap = "us";
@@ -48,12 +47,9 @@
   };
 
   services = {
-    xserver = {
-      enable = false;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
+    fstrim = {
+      enable = true;
+      interval = "weekly";
     };
     greetd = {
       enable = true;
@@ -65,10 +61,6 @@
       };
       vt = 1;
     };
-    fstrim = {
-      enable = true;
-      interval = "weekly";
-    };
     libinput.enable = true;
     pipewire = {
       enable = true;
@@ -78,6 +70,17 @@
       jack.enable = true;
       pulse.enable = true;
       wireplumber.enable = true;
+    };
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+    };
+    xserver = {
+      enable = false;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
 
      # NFS Support
