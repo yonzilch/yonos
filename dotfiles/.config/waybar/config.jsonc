@@ -9,9 +9,10 @@
   "modules-left": [
     //"custom/powermenu",
     "custom/startmenu",
-    "hyprland/workspaces",
     "cpu",
-    "memory"
+    "memory",
+    "custom/wl-gammarelay-temperature",
+    "hyprland/workspaces"
     //"disk"
   ],
   "modules-center": [
@@ -24,6 +25,7 @@
     "custom/screenshot",
     "tray",
     "network",
+    "custom/wl-gammarelay-brightness",
     "wireplumber",
     "clock",
     "custom/notification",
@@ -219,6 +221,19 @@
     "spacing": 8,
   },
 
+  "custom/wl-gammarelay-temperature": {
+      "format": " {}",
+      "exec": "wl-gammarelay-rs watch {t}",
+      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+  },
+  "custom/wl-gammarelay-brightness": {
+      "format": " {}%",
+      "exec": "wl-gammarelay-rs watch {bp}",
+      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+  },
+  
   "custom/notification": {
     "tooltip": true,
     "format": " {icon} ",
