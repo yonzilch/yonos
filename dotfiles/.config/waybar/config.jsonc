@@ -1,20 +1,11 @@
 {
-  // -------------------------------------------------------------------------
-  // Global configuration
-  // -------------------------------------------------------------------------
-
   "layer": "top",
-
   "position": "top",
-
   //"height": 20,
-
   "margin-left": 10,
   "margin-bottom": 0,
   "margin-right": 10,
-
-  "spacing": 8, // Gaps between modules (4px)
-
+  "spacing": 8,
   "modules-left": [
     //"custom/powermenu",
     "custom/startmenu",
@@ -22,11 +13,6 @@
     "cpu",
     "memory"
     //"disk"
-    //"hyprland/submap"
-    //"temperature"
-    //"idle_inhibitor"
-    //"mpd
-    //"custom/media"
   ],
   "modules-center": [
     "wlr/taskbar"
@@ -35,7 +21,7 @@
   "modules-right": [
     "backlight",
     "battery",
-    "custom/screenshot_t",
+    "custom/screenshot",
     "tray",
     "network",
     "wireplumber",
@@ -60,13 +46,16 @@
     "format": "",
     "tooltip": false,
     "on-click": "fuzzel",
+    "on-click-right": "wlogout",
   },
-  "custom/screenshot_t": {
-    "format": "   ",
-    "on-click": "~/.config/hypr/scripts/screenshot",
-    "on-click-right": "~/.config/hypr/scripts/screenshot_area",
-    "on-click-middle": "~/.config/hypr/scripts/screenshot_full",
+  "custom/screenshot": {
+    "format": "  ",
+    "on-click": "grim -g \"$(slurp)\" - | swappy -f -",
+    "on-click-right": "nemo ~/Pictures",
+    "on-click-middle": "grim - | wl-copy",
+    "tooltip": false,
   },
+
 
   "clock#1": {
     "format": " {:%a}",
@@ -152,45 +141,11 @@
     "on-scroll-down": "brightnessctl s 5%-",
     "on-scroll-up": "brightnessctl s +5%",
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-    "tooltip": "true",
-  },
-  
-  "custom/pacman": {
-    "format": "<big>􏆲</big>  {}",
-    "interval": 3600, // every hour
-    "exec": "checkupdates | wc -l", // # of updates
-    "exec-if": "exit 0", // always run; consider advanced run conditions
-    "on-click": "alacritty -e 'paru'; pkill -SIGRTMIN+8 waybar", // update system
-    "signal": 8,
-    "max-length": 5,
-    "min-length": 3,
-  },
-
-  "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜",
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-  },
-
   "custom/powermenu": {
     "format": " ",
     "tooltip": false,
     "on-click": "wlogout",
   },
-
   "clock": {
     "interval": 60,
     "align": 0,
@@ -199,49 +154,12 @@
     "format": " {:%H:%M}",
     "format-alt": " {:%a %b %d, %G}",
   },
-
   "clock#date": {
     "format": "  {:%H:%M   %e %b}", // Icon: calendar-alt
     //"format": "{:%I:%M %p  %A %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "today-format": "<b>{}</b>",
   },
-
-  "custom/hyprsunset": {
-  "format": "{}",
-  "signal": 10,
-  "on-click-right": "hyprsunset-toggle toggle",
-  "on-click": "hyprsunset-toggle toggle",
-  "exec": "hyprsunset-toggle",
-  "interval": "once",
-  "tooltip": false
-},
-
-  "custom/gammastep": {
-    "interval": 5,
-    "return-type": "json",
-    "exec": {
-      "pre": "if unit_status=\"$(systemctl --user is-active gammastep)\"; then\nstatus=\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\"\nelse\nstatus=\"$unit_status\"\nfi",
-      "alt": "${status:-inactive}",
-      "tooltip": "Gammastep is $status",
-    },
-    "format": "{icon}",
-    "format-icons": {
-      "activating": "󰁪 ",
-      "deactivating": "󰁪 ",
-      "inactive": "? ",
-      "active (Night)": " ",
-      "active (Nighttime)": " ",
-      "active (Transition (Night)": " ",
-      "active (Transition (Nighttime)": " ",
-      "active (Day)": " ",
-      "active (Daytime)": " ",
-      "active (Transition (Day)": " ",
-      "active (Transition (Daytime)": " ",
-    },
-    "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep",
-  },
-
   "cpu": {
     "interval": 3,
     //"format": " {}%", // Icon: microchip
@@ -249,22 +167,6 @@
     "max-length": 13,
     "min-length": 13,
   },
-
-  "mpd": {
-    "max-length": 25,
-    "format": "<span foreground='#bb9af7'></span> {title}",
-    "format-paused": " {title}",
-    "format-stopped": "<span foreground='#bb9af7'></span>",
-    "format-disconnected": "",
-    "on-click": "mpc --quiet toggle",
-    "on-click-right": "mpc update; mpc ls | mpc add",
-    "on-click-middle": "alacritty -e ncmpcpp",
-    "on-scroll-up": "mpc --quiet prev",
-    "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold": 5,
-    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})",
-  },
-
   "custom/title": {
     "format": "{}",
     "interval": 0,
@@ -272,22 +174,7 @@
     //"max-length": 35,
     "tooltip": false,
   },
-
-  "custom/title#name": {
-    "format": "{}",
-    "interval": 0,
-    "return-type": "json",
-
-    "max-length": 35,
-    "exec": "$HOME/.scripts/title",
-  },
-
-  /*"custom/keyboard": {
-        "format": " {}",
-        "interval": 1,
-        "exec": "$HOME/.config/waybar/get_kbdlayout.sh"
-    },*/
-
+  
   "hyprland/workspaces": {
     "all-outputs": true,
     "format": "{name}",
@@ -308,58 +195,22 @@
     "sort-by-number": true,
     "active-only": false,
   },
-
   "hyprland/window": {
     "max-length": 100,
     "separate-outputs": true,
   },
-
-  "hyprland/submap": {
-      "format": "✌️ {}",
-      "max-length": 8,
-      "tooltip": false
-  },
-
-  "pulseaudio": {
-    //"format": "{volume}% {icon} {format_source}",
-    "format": "{icon} {volume}%",
-    "format-muted": " Mute",
-    "format-bluetooth": " {volume}% {format_source}",
-    "format-bluetooth-muted": " Mute",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
-    },
-    "on-click": "pavucontrol",
-    "on-click-right": "amixer sset Master toggle",
-  },
-
+  
   "wireplumber": {
-    "on-click": "sonusmix",
-    "on-click-right": "amixer sset Master toggle 1>/dev/null",
-    //on-click: "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
-    //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";
-    //on-scroll-up: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04-";
+    "on-click": "pwvucontrol",
+    "on-click-right": "easyeffects",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01-",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01+",
     "format": " {icon} {volume}% ",
-    "format-muted": " ",
+    "format-muted": "",
     "format-source": "",
     "format-source-muted": "",
-    //"format-muted": "<span foreground='#fab387'> </span>",
-    //"format-icons": [ "<span foreground='#fab387'></span>" ]
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": ["", "", ""],
     },
   },
@@ -381,8 +232,7 @@
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
-    "on-click-middle": "swaync-client -C",
-    "on-click-right": "swaync-client -d -sw",
     "escape": true,
   },
 }
+

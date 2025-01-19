@@ -6,6 +6,7 @@
     gcc
     ghc
     gnumake
+    jq
     libvirt
     lm_sensors
     libnotify
