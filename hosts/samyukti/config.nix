@@ -9,13 +9,6 @@ in
       ++ lib.filesystem.listFilesRecursive ../../modules
       ++ lib.filesystem.listFilesRecursive ../../packages;
 
-  # Specific boot options
-  boot = {
-    initrd.kernelModules = [
-      "amdgpu" # For AMD GPU
-    ];
-  };
-
   # Driver module options
   drivers = {
     amdgpu.enable = true;
