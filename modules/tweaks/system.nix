@@ -75,6 +75,7 @@
       enable = true;
       scheduler = "scx_lavd";
     };
+    timesyncd.enable = false;
     xserver = {
       enable = false;
       xkb = {
