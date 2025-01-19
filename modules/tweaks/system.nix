@@ -41,9 +41,9 @@
 
   fonts = {
     packages = with pkgs; [
+      material-icons
       noto-fonts-emoji
       noto-fonts-cjk
-      material-icons
     ];
   };
 
@@ -65,13 +65,13 @@
     };
     greetd = {
       enable = true;
-      vt = 1;
       settings = {
         default_session = {
           user = username;
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         };
       };
+      vt = 1;
     };
     fstrim = {
       enable = true;
@@ -80,9 +80,12 @@
     libinput.enable = true;
     pipewire = {
       enable = true;
+      audio.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
+      jack.enable = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
 
      # NFS Support
@@ -117,4 +120,8 @@
 #  turn off swap by default
 #  swapDevices = [{ device = "/swapfile"; size = 4096; }];
 
+  xdg = {
+    autostart.enable = lib.mkForce false;
+    terminal-exec.enable = lib.mkDefault true;
+  };
 }

@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ lib, pkgs, ...}:
 {
   fonts.fontconfig = {
     defaultFonts = {
@@ -7,7 +7,7 @@
       sansSerif = [ "Sarasa Gothic SC" ];
       serif = [ "Sarasa Gothic SC" ];
     };
-    enable = true;
+    enable = lib.mkForce true;
   };
 
   home.packages = with pkgs; [

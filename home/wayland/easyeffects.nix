@@ -1,6 +1,7 @@
 { pkgs, ...}:
 {
   home.packages = with pkgs; [
-    sonusmix
+    easyeffects
   ];
+  services.easyeffects.enable = true;
 }
