@@ -1,4 +1,4 @@
-{ lib, pkgs, ...}:
+{ pkgs, ...}:
 {
   fonts.fontconfig = {
     defaultFonts = {
@@ -7,18 +7,17 @@
       sansSerif = [ "Sarasa Gothic SC" ];
       serif = [ "Sarasa Gothic SC" ];
     };
-    enable = lib.mkForce true;
+    enable = true;
   };
 
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
+    qt6ct
   ];
 
   qt = {
     enable = true;
-    style ={
-      name = "kvantum";
-    };
+    style.name = "kvantum";
   };
 
   stylix = {

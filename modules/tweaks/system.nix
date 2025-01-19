@@ -39,14 +39,6 @@
 
   console.keyMap = "us";
 
-  fonts = {
-    packages = with pkgs; [
-      material-icons
-      noto-fonts-emoji
-      noto-fonts-cjk
-    ];
-  };
-
   hardware.graphics = {
     enable = true;
   };
