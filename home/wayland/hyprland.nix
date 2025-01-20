@@ -8,10 +8,8 @@ in
 with lib;
 {
   home.packages = with pkgs; [
-    hypridle
     hyprpaper
     hyprpolkitagent
-    hyprsunset
     xorg.xprop
   ];
   programs.hyprlock = {
