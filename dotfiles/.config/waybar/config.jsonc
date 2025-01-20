@@ -11,12 +11,11 @@
     "custom/startmenu",
     "cpu",
     "memory",
-    "custom/wl-gammarelay-temperature",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
     //"disk"
   ],
   "modules-center": [
-    "wlr/taskbar"
+    "wlr/taskbar",
     //"custom/hyprsunset"
   ],
   "modules-right": [
@@ -25,6 +24,7 @@
     "custom/screenshot",
     "tray",
     "network",
+    "custom/wl-gammarelay-temperature",
     "custom/wl-gammarelay-brightness",
     "wireplumber",
     "clock",
@@ -58,7 +58,6 @@
     "tooltip": false,
   },
 
-
   "clock#1": {
     "format": " {:%a}",
     "tooltip": false,
@@ -76,13 +75,13 @@
   },
 
   "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 22,
-      "spacing": 3,
-      "tooltip-format": "{title}",
-      "ignore-list": [],
-      "on-click": "activate",
-      "on-click-middle": "close",
+    "format": "{icon}",
+    "icon-size": 22,
+    "spacing": 3,
+    "tooltip-format": "{title}",
+    "ignore-list": [],
+    "on-click": "activate",
+    "on-click-middle": "close",
   },
 
   "temperature": {
@@ -123,7 +122,7 @@
     "format-disconnected": "󰌙",
     "format-ethernet": "  ",
     "format-wifi": " {icon}",
-    "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤢 ","󰤨 "],
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
     "on-click-right": "nm-connection-editor",
     "on-click-middle": "kitty nmtui",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
@@ -176,7 +175,7 @@
     //"max-length": 35,
     "tooltip": false,
   },
-  
+
   "hyprland/workspaces": {
     "all-outputs": true,
     "format": "{name}",
@@ -201,7 +200,7 @@
     "max-length": 100,
     "separate-outputs": true,
   },
-  
+
   "wireplumber": {
     "on-click": "pwvucontrol",
     "on-click-right": "easyeffects",
@@ -222,18 +221,18 @@
   },
 
   "custom/wl-gammarelay-temperature": {
-      "format": " {}",
-      "exec": "wl-gammarelay-rs watch {t}",
-      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
-      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+    "format": " {}",
+    "exec": "wl-gammarelay-rs watch {t}",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
   },
   "custom/wl-gammarelay-brightness": {
-      "format": " {}%",
-      "exec": "wl-gammarelay-rs watch {bp}",
-      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
-      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+    "format": " {}%",
+    "exec": "wl-gammarelay-rs watch {bp}",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
   },
-  
+
   "custom/notification": {
     "tooltip": true,
     "format": " {icon} ",
@@ -250,4 +249,3 @@
     "escape": true,
   },
 }
-
