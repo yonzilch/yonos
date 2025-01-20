@@ -1,4 +1,4 @@
-{ config, hostname, inputs, lib, pkgs, ... }:
+{ hostname, lib, pkgs, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix)
     MonitorSettings

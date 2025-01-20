@@ -1,5 +1,4 @@
-{ pkgs, ...}:
-{
+_: {
   programs.floorp = {
     enable = true;
   };
