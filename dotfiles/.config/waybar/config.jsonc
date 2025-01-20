@@ -11,12 +11,11 @@
     "custom/startmenu",
     "cpu",
     "memory",
-    "hyprland/workspaces",
+    "hyprland/workspaces"
     //"disk"
   ],
   "modules-center": [
-    "wlr/taskbar",
-    //"custom/hyprsunset"
+    "wlr/taskbar"
   ],
   "modules-right": [
     "backlight",
@@ -28,7 +27,7 @@
     "custom/wl-gammarelay-brightness",
     "wireplumber",
     "clock",
-    "custom/notification",
+    "custom/swaync",
   ],
 
   // -------------------------------------------------------------------------
@@ -53,10 +52,11 @@
   "custom/screenshot": {
     "format": "  ",
     "on-click": "grim -g \"$(slurp)\" - | swappy -f -",
-    "on-click-right": "nemo ~/Pictures",
-    "on-click-middle": "grim - | wl-copy",
+    "on-click-right": "nemo ~/Pictures/Screenshots",
+    "on-click-middle": "grim - | wl-copy -t image/png",
     "tooltip": false,
   },
+
 
   "clock#1": {
     "format": " {:%a}",
@@ -75,27 +75,13 @@
   },
 
   "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 22,
-    "spacing": 3,
-    "tooltip-format": "{title}",
-    "ignore-list": [],
-    "on-click": "activate",
-    "on-click-middle": "close",
-  },
-
-  "temperature": {
-    // "thermal-zone": 1,
-    "interval": 4,
-    //"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-    "critical-threshold": 80,
-    // "format-critical": " {temperatureC}°C",
-    "format-critical": "  {temperatureC}°C",
-    "format": "{icon}  {temperatureC}°C",
-    "format-icons": ["", "", ""],
-    "max-length": 7,
-    "min-length": 7,
-    "on-click": "xsensors",
+      "format": "{icon}",
+      "icon-size": 22,
+      "spacing": 3,
+      "tooltip-format": "{title}",
+      "ignore-list": [],
+      "on-click": "activate",
+      "on-click-middle": "close",
   },
 
   "memory": {
@@ -116,22 +102,25 @@
     "format-plugged": " {capacity}%",
     "format-icons": ["", "", "", "", ""],
   },
+
   "network": {
     "interval": 5,
     "format-alt": "{bandwidthUpBits}  {bandwidthDownBits}",
     "format-disconnected": "󰌙",
     "format-ethernet": "  ",
     "format-wifi": " {icon}",
-    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
+    "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤢 ","󰤨 "],
     "on-click-right": "nm-connection-editor",
     "on-click-middle": "kitty nmtui",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
     "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}",
   },
+
   "disk": {
     "format": " {free}",
     "tooltip": true,
   },
+
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
@@ -142,11 +131,13 @@
     "on-scroll-down": "brightnessctl s 5%-",
     "on-scroll-up": "brightnessctl s +5%",
   },
+
   "custom/powermenu": {
     "format": " ",
     "tooltip": false,
     "on-click": "wlogout",
   },
+
   "clock": {
     "interval": 60,
     "align": 0,
@@ -155,12 +146,14 @@
     "format": " {:%H:%M}",
     "format-alt": " {:%a %b %d, %G}",
   },
+
   "clock#date": {
     "format": "  {:%H:%M   %e %b}", // Icon: calendar-alt
     //"format": "{:%I:%M %p  %A %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "today-format": "<b>{}</b>",
   },
+
   "cpu": {
     "interval": 3,
     //"format": " {}%", // Icon: microchip
@@ -168,6 +161,7 @@
     "max-length": 13,
     "min-length": 13,
   },
+  
   "custom/title": {
     "format": "{}",
     "interval": 0,
@@ -208,7 +202,7 @@
     "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01-",
     "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01+",
     "format": " {icon} {volume}% ",
-    "format-muted": "",
+    "format-muted": "MUTE",
     "format-source": "",
     "format-source-muted": "",
     "format-icons": {
@@ -220,20 +214,26 @@
     "spacing": 8,
   },
 
-  "custom/wl-gammarelay-temperature": {
-    "format": " {}",
-    "exec": "wl-gammarelay-rs watch {t}",
-    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
-    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
-  },
   "custom/wl-gammarelay-brightness": {
-    "format": " {}%",
-    "exec": "wl-gammarelay-rs watch {bp}",
-    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
-    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
+      "format": " {}%",
+      "exec": "wl-gammarelay-rs watch {bp}",
+      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.5",
+      "on-click-middle": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
+      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
+      "tooltip": false
+  },
+  "custom/wl-gammarelay-temperature": {
+      "format": " {}K",
+      "exec": "wl-gammarelay-rs watch {t}",
+      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
+      "on-click-middle": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
+      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
+      "tooltip": false
   },
 
-  "custom/notification": {
+  "custom/swaync": {
     "tooltip": true,
     "format": " {icon} ",
     "format-icons": {
@@ -249,3 +249,5 @@
     "escape": true,
   },
 }
+
+
