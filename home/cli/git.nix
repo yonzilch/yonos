@@ -1,4 +1,4 @@
-{ hostname, pkgs, ...}:
+{ hostname, ...}:
 let
   inherit (import ../../hosts/${hostname}//env.nix) gitEmail gitUsername;
 in

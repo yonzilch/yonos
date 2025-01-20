@@ -1,4 +1,4 @@
-{ config, hostname, lib, pkgs, ... }:
+{ hostname, pkgs, ... }:
 {
   networking = {
     dhcpcd.extraConfig = "nohook resolv.conf";

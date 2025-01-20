@@ -1,4 +1,4 @@
-{ config, hostname, lib, pkgs, username, ... }:
+{ lib, username, ... }:
 {
   imports = lib.filesystem.listFilesRecursive ../../home;
 
