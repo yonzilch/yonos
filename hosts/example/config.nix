@@ -1,6 +1,8 @@
 { lib, pkgs, username, ... }:
 let
-  inherit (import ./env.nix) gitUsername;
+  inherit (import ./env.nix)
+  Bluetooth GPU-AMD GPU-Intel GPU-Nvidia
+  gitUsername;
 in
 {
   imports = [
@@ -11,14 +13,10 @@ in
 
   # Driver module options
   drivers = {
-    amdgpu.enable = true;
-    intel.enable = false;
-    nvidia.enable = false;
-    nvidia-prime = {
-      enable = false;
-      intelBusID = "";
-      nvidiaBusID = "";
-    };
+    amdgpu.enable = GPU-AMD;
+    bluetooth.enable = Bluetooth;
+    intel.enable = GPU-Intel;
+    nvidia.enable = GPU-Nvidia;
   };
 
   # Define users
