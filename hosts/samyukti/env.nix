@@ -1,4 +1,10 @@
 {
+  Bluetooth = true;
+
+  GPU-AMD = true;
+  GPU-Nvidia = false;
+  GPU-Intel = false;
+
   gitUsername = "yonzilch";
   gitEmail = "github@yonzilch.com";
 
