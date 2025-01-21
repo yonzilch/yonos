@@ -61,6 +61,7 @@
       };
       vt = 1;
     };
+    gvfs.enable = true;
     libinput.enable = true;
     pipewire = {
       enable = true;
