@@ -3,7 +3,7 @@
 
   GPU-AMD = true;
   GPU-Nvidia = false;
-  GPU-Intel = false;
+  GPU-Intel = true;
 
   gitUsername = "yonzilch";
   gitEmail = "github@yonzilch.com";
