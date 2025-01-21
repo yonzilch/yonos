@@ -9,8 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.bluetooth.enable = lib.mkDefault true;
-    hardware.bluetooth.powerOnBoot = lib.mkDefault true;
+    hardware.bluetooth = {
+      enable = lib.mkDefault true;
+      powerOnBoot = lib.mkDefault true;
+    };
     services.blueman.enable = lib.mkDefault true;
   };
 }
