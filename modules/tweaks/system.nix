@@ -1,4 +1,7 @@
-{ config, lib, pkgs, username, ... }:
+{ config, hostname, lib, pkgs, username, ... }:
+let
+  inherit (import ../../hosts/${hostname}/env.nix) TimeZone;
+in
 {
   boot = {
     consoleLogLevel = 2; # Only errors and warnings are displayed
@@ -40,10 +43,64 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
+  };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+  };
+
+  networking = {
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.enable = false;
+    hostName = hostname;
+    nameservers = [ "127.0.0.1" "::1" ];
+      networkmanager = {
+        dns = "none";
+        enable = true;
+      };
+    timeServers = [
+      "nts.netnod.se"
+      "nts.time.nl"
+    ];
   };
 
   programs = {
     fuse.userAllowOther = true;
+  };
+
+  security = {
+    rtkit.enable = true;
+    polkit = {
+      enable = true;
+      extraConfig = ''
+        polkit.addRule(function(action, subject) {
+          if (
+            subject.isInGroup("users")
+              && (
+                action.id == "org.freedesktop.login1.reboot" ||
+                action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+                action.id == "org.freedesktop.login1.power-off" ||
+                action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+              )
+            )
+          {
+            return polkit.Result.YES;
+          }
+        })
+      '';
+    };
   };
 
   services = {
@@ -76,6 +133,48 @@
       enable = true;
       scheduler = "scx_lavd";
     };
+    stubby = {
+      enable = true;
+      settings = pkgs.stubby.passthru.settingsExample // {
+        resolution_type = "GETDNS_RESOLUTION_STUB";
+        dns_transport_list = ["GETDNS_TRANSPORT_TLS"];
+        tls_authentication = "GETDNS_AUTHENTICATION_REQUIRED";
+        tls_query_padding_blocksize = 256;
+        edns_client_subnet_private = 1;
+        idle_timeout = 10000;
+        listen_addresses = ["127.0.0.1" "0::1"];
+        round_robin_upstreams = 1;
+        upstream_recursive_servers = [{
+          address_data = "185.222.222.222";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [{
+            digest = "sha256";
+            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+          }];
+        } {
+          address_data = "45.11.45.11";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [{
+            digest = "sha256";
+            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+          }];
+        } {
+          address_data = "2a09::";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [{
+            digest = "sha256";
+            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+          }];
+        } {
+          address_data = "2a11::";
+          tls_auth_name = "dot.sb";
+          tls_pubkey_pinset = [{
+            digest = "sha256";
+            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
+          }];
+        }];
+      };
+    };
     timesyncd.enable = false;
     xserver = {
       enable = false;
@@ -84,39 +183,16 @@
         variant = "";
       };
     };
-
      # NFS Support
-#    rpcbind.enable = false;
-#    nfs.server.enable = false;
+#    nfs.server.enable = true;
   };
 
-  security = {
-    rtkit.enable = true;
-    polkit = {
-      enable = true;
-      extraConfig = ''
-        polkit.addRule(function(action, subject) {
-          if (
-            subject.isInGroup("users")
-              && (
-                action.id == "org.freedesktop.login1.reboot" ||
-                action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-                action.id == "org.freedesktop.login1.power-off" ||
-                action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-              )
-            )
-          {
-            return polkit.Result.YES;
-          }
-        })
-      '';
-    };
-  };
   system.stateVersion = "25.05";
 
 #  turn off swap by default
 #  swapDevices = [{ device = "/swapfile"; size = 4096; }];
 
+  time.timeZone = TimeZone;
   xdg = {
     autostart.enable = lib.mkForce false;
     terminal-exec.enable = lib.mkDefault true;
