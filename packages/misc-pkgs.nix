@@ -11,6 +11,7 @@
     lm_sensors
     libnotify
     meson
+    nemo
     ninja
     playerctl
     pkg-config
