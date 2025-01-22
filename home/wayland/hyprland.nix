@@ -10,7 +10,6 @@ with lib;
 {
   home.packages = with pkgs; [
     hyprpaper
-    hyprpolkitagent
     xorg.xprop
   ];
   programs.hyprlock = {
