@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   # Minimize boot
   boot = {
@@ -16,8 +16,6 @@
   environment = {
     defaultPackages = lib.mkForce [ ];
   };
-
-  # [WIP] Remove useless package
 
   # Disable unnecessary programs
   programs = {
