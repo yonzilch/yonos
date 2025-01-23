@@ -35,7 +35,7 @@ install:
 
 list:
   # list system packages
-  sudo nix-store -qR /run/current-system | cat
+  nix-store -qR /run/current-system | cat
 
 
 profile:
@@ -55,7 +55,7 @@ update:
 
 upgrade:
   # let system totally upgrade
-  sudo nixos-rebuild switch --flake .#{{hostname}}
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
 
 upgrade-debug:
   # let system totally upgrade (deBug Mode)
