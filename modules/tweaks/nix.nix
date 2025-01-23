@@ -1,5 +1,6 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
+  environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
     channel.enable = false;
     gc = {
@@ -11,11 +12,13 @@
       automatic = true;
       dates = [ "weekly" ];
     };
+    registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = lib.mkDefault true;
-      gc-keep-outputs = lib.mkDefault false;
-      gc-keep-derivations = lib.mkDefault false;
       experimental-features = [ "nix-command" "flakes" ];
+      gc-keep-derivations = lib.mkDefault false;
+      gc-keep-outputs = lib.mkDefault false;
+      nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
     };
   };
   nixpkgs = {
