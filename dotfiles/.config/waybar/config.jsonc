@@ -86,7 +86,7 @@
 
   "memory": {
     "interval": 10,
-    "format": " {used:0.2f}/{total:0.0f} GB",
+    "format": " {used:0.2f}/{total:0.0f}GB",
     "on-click": "alacritty -e btop",
   },
 
@@ -156,18 +156,10 @@
 
   "cpu": {
     "interval": 3,
-    //"format": " {}%", // Icon: microchip
     "format": " {max_frequency}GHz {usage}%",
     "max-length": 13,
     "min-length": 13,
-  },
-  
-  "custom/title": {
-    "format": "{}",
-    "interval": 0,
-    "return-type": "json",
-    //"max-length": 35,
-    "tooltip": false,
+    "on-click": "alacritty -e zenith",
   },
 
   "hyprland/workspaces": {
@@ -185,8 +177,8 @@
       "9": "九",
       "10": "十",
     },
-    "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
-    "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "on-scroll-down": "hyprctl dispatch workspace e+1 1>/dev/null",
+    "on-scroll-up": "hyprctl dispatch workspace e-1 1>/dev/null",
     "sort-by-number": true,
     "active-only": false,
   },
