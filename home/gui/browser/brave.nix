@@ -2,10 +2,9 @@
 {
   programs.chromium = {
     commandLineArgs = [
-      "--ozone-platform-hint=auto"
-      "--ozone-platform=wayland"
-      "--gtk-version=4"
       "--enable-wayland-ime"
+      "--ozone-platform=wayland"
+      "--ozone-platform-hint=auto"
       "--password-store=basic"
     ];
     enable = true;
