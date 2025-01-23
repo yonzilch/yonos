@@ -55,4 +55,4 @@ update:
 
 upgrade:
   # let system totally upgrade
-  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v |& nom
