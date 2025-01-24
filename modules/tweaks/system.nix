@@ -54,7 +54,7 @@ in
     hostName = hostname;
     nameservers = [ "127.0.0.1" "::1" ];
       networkmanager = {
-        dns = "none";
+        dns = "systemd-resolved";
         enable = true;
       };
     timeServers = [
@@ -116,7 +116,9 @@ in
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    resolved.enable = true;
+    resolved = {
+      enable = true;
+    };
     scx = {
       enable = true;
       scheduler = "scx_lavd";
@@ -196,7 +198,10 @@ in
 #  turn off swap by default
 #  swapDevices = [{ device = "/swapfile"; size = 4096; }];
 
-  time.timeZone = TimeZone;
+  time = {
+    hardwareClockInLocalTime = false;
+    timeZone = TimeZone;
+  };
   xdg = {
     autostart.enable = lib.mkForce false;
     terminal-exec.enable = lib.mkDefault true;
