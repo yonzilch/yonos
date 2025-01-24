@@ -18,8 +18,22 @@ in
     kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [ "audit=0" "console=tty0" "erst_disable" "noatime" ];
     loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = false;
+      grub = {
+        configurationLimit = 10;
+        device = "nodev"; # "nodev" for efi only
+        enable = true;
+        efiInstallAsRemovable = true;
+        efiSupport = true;
+        extraEntries = ''
+          menuentry "Reboot" {
+            reboot
+          }
+          menuentry "Poweroff" {
+            halt
+          }
+        '';
+      };
     };
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
