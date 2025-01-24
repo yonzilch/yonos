@@ -58,7 +58,7 @@ in
     hostName = hostname;
     nameservers = [ "127.0.0.1" "::1" ];
       networkmanager = {
-        dns = "systemd-resolved";
+        dns = "none";
         enable = true;
       };
     timeServers = [
@@ -119,9 +119,6 @@ in
       jack.enable = true;
       pulse.enable = true;
       wireplumber.enable = true;
-    };
-    resolved = {
-      enable = true;
     };
     scx = {
       enable = true;
