@@ -116,6 +116,7 @@ in
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    resolved.enable = true;
     scx = {
       enable = true;
       scheduler = "scx_lavd";
