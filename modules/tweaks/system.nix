@@ -16,7 +16,7 @@ in
     };
     kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
     kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelParams = [ "audit=0" "console=tty0" "erst_disable" "noatime" ];
+    kernelParams = [ "audit=0" "console=tty0" "erst_disable" "noatime" "nowatchdog" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
