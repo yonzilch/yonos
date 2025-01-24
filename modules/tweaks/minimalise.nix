@@ -6,11 +6,11 @@
   };
 
   # Disable unnecessary documentation
-  documentation.enable =lib.mkForce  false;
-  documentation.doc.enable =lib.mkForce  false;
-  documentation.info.enable =lib.mkForce  false;
-  documentation.man.enable =lib.mkForce  false;
-  documentation.nixos.enable =lib.mkForce  false;
+  documentation.enable = lib.mkForce  false;
+  documentation.doc.enable = lib.mkForce  false;
+  documentation.info.enable = lib.mkForce  false;
+  documentation.man.enable = lib.mkForce  false;
+  documentation.nixos.enable = lib.mkForce  false;
 
   # Minimize environment
   environment = {
@@ -43,19 +43,19 @@
 
   # Minimize services
   services = {
-    pulseaudio.enable = false;
+    pulseaudio.enable = lib.mkForce false;
   };
 
   # Minimize systemd services
   systemd = {
-    coredump.enable = false;
-    enableEmergencyMode = false;
-    oomd.enable = false;
+    coredump.enable = lib.mkForce false;
+    enableEmergencyMode = lib.mkForce false;
+    oomd.enable = lib.mkForce false;
     services = {
-      systemd-bsod.enable = false;
-      systemd-importd.enable = false;
-      systemd-journal-flush.enable = false;
-      systemd-udev-settle.enable = false;
+      systemd-bsod.enable = lib.mkForce false;
+      systemd-importd.enable = lib.mkForce false;
+      systemd-journal-flush.enable = lib.mkForce false;
+      systemd-udev-settle.enable = lib.mkForce false;
     };
   };
 }
