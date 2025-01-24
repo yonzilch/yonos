@@ -19,7 +19,11 @@ in
     kernelParams = [ "audit=0" "console=tty0" "erst_disable" "noatime" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      systemd-boot = {
+        configurationLimit = 50;
+        editor = false;
+        enable = true;
+      };
     };
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support

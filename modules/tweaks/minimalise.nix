@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   # Minimize boot
   boot = {
@@ -48,9 +48,12 @@
 
   # Minimize systemd services
   systemd = {
+    coredump.enable = false;
     enableEmergencyMode = false;
     oomd.enable = false;
     services = {
+      systemd-bsod.enable = false;
+      systemd-importd.enable = false;
       systemd-journal-flush.enable = false;
       systemd-udev-settle.enable = false;
     };
