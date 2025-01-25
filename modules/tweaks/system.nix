@@ -14,6 +14,7 @@ in
       verbose = false;
     };
     kernel.sysctl = {
+      "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
       "vm.max_map_count" = 2147483642; # Needed For Some Steam Games
     };
     kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
