@@ -3,7 +3,7 @@
 
   GPU-AMD = false;
   GPU-Nvidia = false;
-  GPU-Intel = true;
+  GPU-Intel = false;
 
   MonitorSettings = "monitor = , highres, auto, 2";
   ScaleLevel = "2";
