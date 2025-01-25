@@ -19,6 +19,7 @@
       gc-keep-derivations = lib.mkDefault false;
       gc-keep-outputs = lib.mkDefault false;
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
+      warn-dirty = lib.mkDefault false;
     };
   };
   nixpkgs = {
