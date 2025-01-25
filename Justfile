@@ -16,6 +16,11 @@ build-vm input:
   sudo nixos-rebuild build-vm --flake .#{{input}} --show-trace -L -v
 
 
+clean-channels:
+  # remove nix-channel files
+  sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
+
+
 gc:
   # let system gc (remove unused packages, etc)
   sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
