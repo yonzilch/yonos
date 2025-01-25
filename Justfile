@@ -29,8 +29,7 @@ generate-hardware-config:
 
 install:
   # install this flake
-  NIX_CONFIG="experimental-features = nix-command flakes"
-  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+  bash ./install.sh
 
 
 list:
