@@ -813,8 +813,8 @@ $env.config = {
         }
     ]
 }
-source ~/.local/share/atuin/init.nu
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
+atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
