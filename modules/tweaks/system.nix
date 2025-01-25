@@ -4,6 +4,7 @@ let
 in
 {
   boot = {
+    bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
     initrd = {
       compressor = "zstd";
@@ -24,6 +25,7 @@ in
         editor = false;
         enable = true;
       };
+      timeout = 3;
     };
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
