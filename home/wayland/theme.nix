@@ -30,7 +30,7 @@
 
   qt = {
     enable = true;
-    style.name = "kvantum-dark";
+    style.name = "kvantum";
   };
 
   stylix = {
