@@ -1,9 +1,5 @@
 { lib, pkgs, ... }:
 {
-  # Minimize boot
-  boot = {
-    swraid.enable = lib.mkForce false;
-  };
 
   # Disable unnecessary documentation
   documentation.enable = lib.mkForce  false;
