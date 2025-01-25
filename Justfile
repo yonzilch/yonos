@@ -22,14 +22,14 @@ gc:
   sudo nix-collect-garbage --delete-old
 
 
-generate-hardware-config:
+ghc:
   # generate hardware.nix
-  sudo nixos-generate-config --show-hardware-config > ./hosts/{{hostname}}/hardware.nix
+  nixos-generate-config --show-hardware-config > ./hosts/{{hostname}}/hardware.nix
 
 
 install:
   # install this flake
-  bash ./install.sh
+  bash install.sh
 
 
 list:
