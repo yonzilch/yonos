@@ -105,8 +105,8 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland -r -t";
-          user = username;
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland -t --user-menu";
+          user = "greeter";
         };
       };
       vt = 1;
