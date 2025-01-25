@@ -1,8 +1,7 @@
 { lib, pkgs, username, ... }:
 let
   inherit (import ./env.nix)
-  Bluetooth GPU-AMD GPU-Intel GPU-Nvidia
-  gitUsername;
+  Bluetooth GPU-AMD GPU-Intel GPU-Nvidia;
 in
 {
   imports = [
@@ -26,7 +25,6 @@ in
       hashedPassword = "$y$j9T$mslKS512r42wFwuiLoXGi1$eZb49BpD4C8MLENkWhxyWtFj4hkQ1zVGKI4dVjYsH/D";
     };
     users."${username}" = {
-      description = "${gitUsername}";
       extraGroups = [
         "libvirtd"
         "networkmanager"
