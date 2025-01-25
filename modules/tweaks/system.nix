@@ -1,4 +1,4 @@
-{ config, hostname, lib, pkgs, username, ... }:
+{ config, hostname, lib, pkgs, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix) TimeZone;
 in
@@ -6,6 +6,7 @@ in
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
+    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt sp5100_tco";
     initrd = {
       compressor = "zstd";
       compressorArgs = [ "-T0" "-19" "--long" ];
@@ -17,7 +18,7 @@ in
     };
     kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
     kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelParams = [ "audit=0" "console=tty0" "erst_disable" "noatime" "nowatchdog" ];
+    kernelParams = [ "audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
