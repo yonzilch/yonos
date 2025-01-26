@@ -10,5 +10,5 @@
 
   TimeZone = "Asia/Singapore";
 
-  Transparent-Proxy = true;
+  Transparent-Proxy = false;
 }
