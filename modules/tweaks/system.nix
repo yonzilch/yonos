@@ -10,7 +10,10 @@ in
     initrd = {
       compressor = "zstd";
       compressorArgs = [ "-T0" "-19" "--long" ];
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        network.wait-online.enable = false;
+      };
       verbose = false;
     };
     kernel.sysctl = {
