@@ -64,10 +64,11 @@ in
     firewall.enable = false;
     hostName = hostname;
     nameservers = [ "127.0.0.1" "::1" ];
-      networkmanager = {
-        dns = "none";
-        enable = true;
-      };
+    networkmanager = {
+      dns = "none";
+      enable = true;
+    };
+    resolvconf.enable = lib.mkForce false;
     timeServers = [
       "nts.netnod.se"
       "nts.time.nl"
@@ -173,7 +174,7 @@ in
         }];
       };
     };
-    timesyncd.enable = false;
+    timesyncd.enable = lib.mkForce false;
     xserver = {
       enable = false;
       xkb = {
