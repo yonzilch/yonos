@@ -7,5 +7,8 @@
 
   MonitorSettings = "monitor = , preferred, auto, 1";
   ScaleLevel = "1";
+
   TimeZone = "America/Chicago";
+
+  Transparent-Proxy = false;
 }
