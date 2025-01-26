@@ -3,19 +3,9 @@
   "YonOS is a Nix and Flakes❄️ based config customized with Occam's razor
    NixOS is cool🧊, but it'll make you feel cold🥶 when eating this flake, I guess.";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://chaotic-nyx.cachix.org"
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    daeuniverse.url = "github:daeuniverse/flake.nix";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +16,7 @@
     self-nur.url = "github:yonzilch/nur-packages";
   };
 
-  outputs = inputs@{ chaotic, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ chaotic, daeuniverse, nixpkgs, home-manager, stylix, ... }:
     let
       hostname = "samyukti";
       username = "admin";
@@ -42,7 +32,8 @@
           modules = [
             ./hosts/${hostname}/config.nix
             chaotic.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            daeuniverse.nixosModules.daed
+            stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = {

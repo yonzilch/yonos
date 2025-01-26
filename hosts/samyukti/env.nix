@@ -7,5 +7,8 @@
 
   MonitorSettings = "monitor = , highres, auto, 2";
   ScaleLevel = "2";
+
   TimeZone = "Asia/Singapore";
+
+  Transparent-Proxy = true;
 }
