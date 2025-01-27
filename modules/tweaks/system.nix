@@ -6,7 +6,7 @@ in
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
-    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt sp5100_tco";
+    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
       compressorArgs = [ "-T0" "-19" "--long" ];
