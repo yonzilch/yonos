@@ -39,7 +39,8 @@
 
   # Minimize services
   services = {
-    pulseaudio.enable = lib.mkForce false;
+    resolved.enable = lib.mkForce false;
+    timesyncd.enable = lib.mkForce false;
   };
 
   # Minimize systemd services
@@ -48,9 +49,11 @@
     enableEmergencyMode = lib.mkForce false;
     oomd.enable = lib.mkForce false;
     services = {
+      mount-pstore.enable = lib.mkForce false;
       systemd-bsod.enable = lib.mkForce false;
       systemd-importd.enable = lib.mkForce false;
       systemd-journal-flush.enable = lib.mkForce false;
+      systemd-pstore.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
     };
   };
