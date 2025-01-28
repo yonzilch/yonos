@@ -81,8 +81,8 @@
             val = "󰈭  Find Word";
             on_press.raw = "require('telescope.builtin').live_grep";
             opts = {
-              keymap = [ "n" "g" ":Telescope live_grep <CR>" { noremap = true; silent = true; nowait = true; } ];
-              shortcut = "g";
+              keymap = [ "n" "w" ":Telescope live_grep <CR>" { noremap = true; silent = true; nowait = true; } ];
+              shortcut = "w";
 
               position = "center";
               cursor = 3;
