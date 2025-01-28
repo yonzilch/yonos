@@ -7,6 +7,10 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+    };
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
@@ -17,34 +21,34 @@
   };
 
   outputs = inputs@{ chaotic, daeuniverse, nixpkgs, home-manager, stylix, ... }:
-    let
-      hostname = "samyukti";
-      username = "admin";
-    in
-    {
-      nixosConfigurations = {
-        "${hostname}" = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit hostname;
-            inherit inputs;
-            inherit username;
-          };
-          modules = [
-            ./hosts/${hostname}/config.nix
-            chaotic.nixosModules.default
-            daeuniverse.nixosModules.daed
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = {
-                inherit hostname;
-                inherit inputs;
-                inherit username;
-              };
-              home-manager.users.${username} = import ./hosts/${hostname}/home.nix;
-            }
-          ];
+  let
+    hostname = "samyukti";
+    username = "admin";
+  in
+  {
+    nixosConfigurations = {
+      "${hostname}" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit hostname;
+          inherit inputs;
+          inherit username;
         };
+        modules = [
+          ./hosts/${hostname}/config.nix
+          chaotic.nixosModules.default
+          daeuniverse.nixosModules.daed
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit hostname;
+              inherit inputs;
+              inherit username;
+            };
+            home-manager.users.${username} = import ./hosts/${hostname}/home.nix;
+          }
+        ];
       };
     };
+  };
 }
