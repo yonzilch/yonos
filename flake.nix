@@ -43,7 +43,6 @@
             home-manager.extraSpecialArgs = {
               inherit hostname;
               inherit inputs;
-              inherit nixvim;
               inherit username;
             };
             home-manager.users.${username} = import ./hosts/${hostname}/home.nix;
