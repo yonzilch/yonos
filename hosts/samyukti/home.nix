@@ -1,6 +1,9 @@
-{ lib, username, ... }:
+{ lib, nixvim, username, ... }:
 {
-  imports = lib.filesystem.listFilesRecursive ../../home;
+  imports = [
+    nixvim.homeManagerModules.nixvim
+    ]
+      ++ lib.filesystem.listFilesRecursive ../../home;
 
   home = {
     file = {
