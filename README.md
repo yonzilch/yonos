@@ -17,7 +17,7 @@ Yon Zilch's OS
 
 Here it is:
 
-![yonos-2024-05-04](https://github.com/yonzilch/yonos/blob/main/-img/yonos-2024-05-04.png)
+![yonos-2025-01-28](https://github.com/yonzilch/yonos/blob/main/-img/yonos-2025-01-28.png)
 
 
 ## Install
