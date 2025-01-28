@@ -20,7 +20,7 @@
     self-nur.url = "github:yonzilch/nur-packages";
   };
 
-  outputs = inputs@{ chaotic, daeuniverse, nixpkgs, home-manager, stylix, ... }:
+  outputs = inputs@{ chaotic, daeuniverse, nixpkgs, nixvim, home-manager, stylix, ... }:
   let
     hostname = "samyukti";
     username = "admin";
@@ -37,12 +37,14 @@
           ./hosts/${hostname}/config.nix
           chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
+          nixvim.nixosModules.nixvim
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
               inherit hostname;
               inherit inputs;
+              inherit nixvim;
               inherit username;
             };
             home-manager.users.${username} = import ./hosts/${hostname}/home.nix;
