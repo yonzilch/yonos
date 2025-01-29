@@ -23,7 +23,7 @@ Here it is:
 ## Install
 
 ```
-nix-shell -p git just
+nix-shell -p git
 
 git clone https://github.com/yonzilch/yonos.git && cd yonos && bash install.sh
 
