@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     opts = {
     number = true;
@@ -6,8 +7,10 @@ _: {
     showmode = false;
     clipboard = {
       providers = {
-        wl-copy.enable = true;
-        xsel.enable = false;
+        wl-copy = {
+          enable = true;
+          package = pkgs.wl-clipboard-rs;
+        };
       };
       register = "unnamedplus";
     };
