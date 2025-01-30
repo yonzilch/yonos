@@ -1,1 +1,1 @@
-*.lua linguist-language=Nix
+dotfiles/.local/share/fcitx5/rime/** linguist-vendored
