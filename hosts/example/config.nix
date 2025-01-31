@@ -8,7 +8,7 @@ in
     ./hardware.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
-      ++ lib.filesystem.listFilesRecursive ../../packages/essential;
+      ++ lib.filesystem.listFilesRecursive ../../packages;
 
   # Driver module options
   drivers = {
