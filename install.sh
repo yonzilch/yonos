@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#!/bin/bash
-
 # Check if running on NixOS
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
     echo "Current running NixOS, going next step"
