@@ -14,7 +14,6 @@ in
         enable = true;
         network.wait-online.enable = false;
       };
-      tmp.cleanOnBoot = true;
       verbose = false;
     };
     kernel.sysctl = {
@@ -36,6 +35,7 @@ in
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
     ];
+    tmp.cleanOnBoot = true;
   };
 
   console.keyMap = "us";
