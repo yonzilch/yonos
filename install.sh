@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#!/bin/bash
+
+# Check if running on NixOS
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
     echo "Current running NixOS, going next step"
     echo "--------------------------------"
@@ -8,6 +11,16 @@ else
     exit
 fi
 
+# Check if running on NixOS LiveCD
+if [ -n "$(cat /proc/cmdline | grep isoboot)" ] || [ "$(cat /proc/cmdline | grep boot.dev)" ]; then
+    echo "Please install under installed NixOS"
+    exit 1
+else
+    echo "Running on installed NixOS, going next step"
+    echo "--------------------------------"
+fi
+
+# Get username
 if [ "$(whoami)" == "root" ]; then
   echo "Please install as a normal user rather than root"
   exit 1
