@@ -35,7 +35,10 @@ sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./
 
 nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
 
+git add .
+
 echo "Now going to build, stay online and don't power down."
+echo "--------------------------------"
 sleep 2
 
 NIX_CONFIG="experimental-features = nix-command flakes"
