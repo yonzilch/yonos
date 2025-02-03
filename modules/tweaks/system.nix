@@ -14,6 +14,7 @@ in
         enable = true;
         network.wait-online.enable = false;
       };
+      tmp.cleanOnBoot = true;
       verbose = false;
     };
     kernel.sysctl = {
