@@ -174,15 +174,6 @@ in
         }];
       };
     };
-    xserver = {
-      enable = false;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-     # NFS Support
-#    nfs.server.enable = true;
   };
 
   system = {
@@ -205,9 +196,6 @@ in
       };
     };
   };
-
-#  turn off swap by default
-#  swapDevices = [{ device = "/swapfile"; size = 4096; }];
 
   time = {
     hardwareClockInLocalTime = false;
