@@ -174,7 +174,6 @@ in
         }];
       };
     };
-    timesyncd.enable = lib.mkForce false;
     xserver = {
       enable = false;
       xkb = {
