@@ -3,8 +3,8 @@
   # Minimize boot
   boot = {
     bcache.enable = lib.mkForce false;
+    binfmt.addEmulatedSystemsToNixSandbox = lib.mkForce false;
     initrd.includeDefaultModules = false;
-    tmp.cleanOnBoot = true;
   };
 
   # Disable unnecessary documentation
