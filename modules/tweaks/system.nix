@@ -186,7 +186,10 @@ in
 #    nfs.server.enable = true;
   };
 
-  system.stateVersion = "25.05";
+  system = {
+    rebuild.enableNg = true;
+    stateVersion = "25.05";
+  };
 
   systemd = {
     user.services.mate-polkit = {
