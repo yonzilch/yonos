@@ -1,5 +1,11 @@
 { lib, ... }:
 {
+  # Minimize boot
+  boot = {
+    bcache.enable = lib.mkForce false;
+    initrd.includeDefaultModules = false;
+    tmp.cleanOnBoot = true;
+  };
 
   # Disable unnecessary documentation
   documentation.enable = lib.mkForce  false;
