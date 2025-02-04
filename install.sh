@@ -10,7 +10,7 @@ else
 fi
 
 # Check if running on NixOS LiveCD
-if [ -n "$(cat /proc/cmdline | grep isoboot)" ] || [ "$(cat /proc/cmdline | grep boot.dev)" ]; then
+if [ "$(df -T / | awk '{print $2}' | tail -n 1)" == "overlay" ]; then
     echo "Please install under installed NixOS"
     exit 1
 else
@@ -59,3 +59,4 @@ echo "--------------------------------"
 
 echo "Jobs done."
 echo "Live long and prosper!"
+echo "Please reboot to get a brand new system"
