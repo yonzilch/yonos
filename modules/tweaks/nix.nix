@@ -35,7 +35,7 @@
     };
   };
   nixpkgs = {
-    config.allowUnfree = lib.mkForce true;
+    config.allowUnfree = lib.mkDefault false;
     hostPlatform = "x86_64-linux";
   };
 }
