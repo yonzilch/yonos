@@ -20,11 +20,11 @@ fi
 
 # Get username
 if [ "$(whoami)" == "root" ]; then
-  echo "Please install as a normal user rather than root"
-  exit 1
+    echo "Please install as a normal user rather than root"
+    exit 1
 else
-  echo "Successfully get the username, going next step"
-  echo "--------------------------------"
+    echo "Successfully get the username, going next step"
+    echo "--------------------------------"
 fi
 
 echo "Default options are in brackets [ ]"
