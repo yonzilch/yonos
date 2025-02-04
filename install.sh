@@ -9,13 +9,13 @@ else
     exit
 fi
 
-# Check if running on NixOS LiveCD
-if [ "$(df -T / | awk '{print $2}' | tail -n 1)" == "overlay" ]; then
-    echo "Please install under installed NixOS"
-    exit 1
-else
+# Check if boot directory exists to detect NixOS LiveCD environment
+if [ -d "/boot" ]; then
     echo "Running on installed NixOS, going next step"
     echo "--------------------------------"
+else
+    echo "Please install under installed NixOS not LiveCD"
+    exit 1
 fi
 
 # Get username
