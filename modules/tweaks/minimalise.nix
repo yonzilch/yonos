@@ -4,7 +4,6 @@
   boot = {
     bcache.enable = lib.mkForce false;
     binfmt.addEmulatedSystemsToNixSandbox = lib.mkForce false;
-    initrd.includeDefaultModules = false;
   };
 
   # Disable unnecessary documentation
