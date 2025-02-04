@@ -1,4 +1,4 @@
-{ config, hostname, lib, ... }:
+{ hostname, lib, ... }:
 with lib;
 let
   inherit (import ../../hosts/${hostname}/env.nix) Transparent-Proxy;
