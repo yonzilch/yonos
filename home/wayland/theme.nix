@@ -35,10 +35,11 @@
   };
 
   stylix = {
-    autoEnable = false;
+    autoEnable = true;
     targets = {
-      gtk.enable = true;
-      swaync.enable = true;
+      hyprland.enable = false;
+      nixvim.enable = false;
+      waybar.enable = false;
     };
   };
 }
