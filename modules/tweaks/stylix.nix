@@ -43,10 +43,7 @@
         terminal = 12;
       };
     };
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/yonzilch/my-wallpapers/refs/heads/main/Black-Snow-Flakes-wallpaper.jpg";
-      sha256 = "KMhH3hoUeiqTE1nV8o7ToWr6QDoGuEjEkH5w5ASikZM=";
-    };
+    image = ../../dotfiles/.local/share/wallpapers/Black-Snow-Flake.jpg;
     opacity.terminal = 0.8;
     polarity = "dark";
   };
