@@ -44,7 +44,6 @@
       };
     };
     image = ../../dotfiles/.local/share/wallpapers/Black-Snow-Flake.jpg;
-    opacity.terminal = 0.8;
     polarity = "dark";
   };
 }
