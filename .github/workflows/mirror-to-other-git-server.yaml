@@ -1,29 +1,30 @@
 name: Mirror this repository to other git server
-
 on:
   push:
     branches:
       - main
     tags:
       - "*"
-
 jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 -d > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 codeberg.org >> ~/.ssh/known_hosts
+
       - name: Mirror repository
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
-          git remote add mirror ${{ secrets.REPO_URL_MIRROR }}
-          git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
-        env:
-          GIT_SSH_COMMAND: "ssh -v -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no"
+          git remote add mirror "${{ secrets.REPO_URL_MIRROR }}"
+          git fetch --unshallow origin
+          git push --mirror mirror
