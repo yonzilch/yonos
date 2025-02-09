@@ -25,5 +25,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
           git remote add mirror "${{ secrets.REPO_URL_MIRROR }}"
-          git fetch --unshallow origin
           git push --mirror mirror
