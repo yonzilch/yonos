@@ -19,8 +19,8 @@ jobs:
           REPO_URL_MIRROR: ${{ secrets.REPO_URL_MIRROR }}
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
