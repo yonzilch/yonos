@@ -25,7 +25,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-
+          export GIT_SSH_COMMAND="ssh -v -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
           git remote add mirror "$REPO_URL_MIRROR"
