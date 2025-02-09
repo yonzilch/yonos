@@ -187,11 +187,6 @@ $env.config = {
         use_ls_colors: true
     }
 
-    filesize: {
-        metric: false
-        format: "auto"
-    }
-
     cursor_shape: {
         emacs: line
         vi_insert: block
