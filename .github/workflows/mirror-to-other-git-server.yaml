@@ -20,6 +20,8 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MIRROR }}
           REPO_URL_MIRROR: ${{ secrets.REPO_URL_MIRROR }}
         run: |
+          set -eu
+
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
