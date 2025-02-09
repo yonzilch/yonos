@@ -14,6 +14,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: Mirror repository
+        id: mirror
+        shell: bash
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MIRROR }}
           REPO_URL_MIRROR: ${{ secrets.REPO_URL_MIRROR }}
