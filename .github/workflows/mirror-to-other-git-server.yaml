@@ -16,7 +16,7 @@ jobs:
       - name: Mirror repository
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MIRROR }}
-          MIRROR_REPO_URL: ${{ secrets.REPO_URL_MIRROR }}
+          REPO_URL_MIRROR: ${{ secrets.REPO_URL_MIRROR }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
