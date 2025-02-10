@@ -10,36 +10,52 @@
     enable = true;
     extensions = [
       {
-        # Dark Reader
-        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+        # Dark Mode
+        id = "dmghijelimhndkbmpgbldicpogfkceaj";
       }
       {
-        # KeePassXC-Browser
-        id = "oboonakemofpalcgghocfoadofidjkkk";
-      }
-      {
-        # kiss-translator
-        id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
+        # ClearURLs
+        id = "lckanjgmijmafbedllaakclkaicjfmnk";
       }
       {
         # Cookie-Editor
         id = "hlkenndednhfkekhgcdicdfddnkalmdm";
       }
       {
-        # Wappalyzer - Technology profiler
-        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
+        # KeePassXC-Browser
+        id = "oboonakemofpalcgghocfoadofidjkkk";
+      }
+      {
+        # KISS Translator
+        id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
       }
       {
         # LocalCDN
         id = "njdfdhgcmkocbgbhcioffdbicglldapd";
       }
       {
+        # MetaMask
+        id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
+      }
+      {
         # uBlock Origin
         id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
       }
       {
-        # ClearURLs
-        id = "lckanjgmijmafbedllaakclkaicjfmnk";
+        # User-Agent Switcher and Manager
+        id = "bhchdcejhohfmigjafbampogmaanbfkg";
+      }
+      {
+        # Vimium C
+        id = "hfjbmagddngcpeloejdejnfgbamkjaeg";
+      }
+      {
+        # Violentmonkey
+        id = "jinjaccalgkegednnccohejagnlnfdag";
+      }
+      {
+        # Wappalyzer
+        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
       }
     ];
     package = pkgs.brave;
