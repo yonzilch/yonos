@@ -10,8 +10,8 @@
     enable = true;
     extensions = [
       {
-        # Dark Mode
-        id = "dmghijelimhndkbmpgbldicpogfkceaj";
+        # Dark Reader
+        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
       }
       {
         # ClearURLs
