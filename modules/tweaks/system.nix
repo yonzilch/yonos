@@ -76,10 +76,6 @@ in
     ];
   };
 
-  programs = {
-    fuse.userAllowOther = true;
-  };
-
   security = {
     rtkit.enable = true;
     polkit = {
@@ -202,6 +198,7 @@ in
     hardwareClockInLocalTime = false;
     timeZone = TimeZone;
   };
+
   xdg = {
     autostart.enable = lib.mkForce false;
     terminal-exec.enable = lib.mkDefault true;
