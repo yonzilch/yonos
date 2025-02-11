@@ -4,6 +4,7 @@
 
     # archive
     p7zip
+    gnutar
     unzipNLS
     xz
     zip
