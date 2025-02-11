@@ -39,5 +39,5 @@ See [LICENSE](LICENSE) for more information.
 
 - <https://gitlab.com/Zaney/zaneyos>
 - <https://github.com/ryan4yin/nix-config>
-- <https://github.com/xddxdd/nixos-config.git>
+- <https://github.com/xddxdd/nixos-config>
 - <https://gitea.c3d2.de/c3d2/nix-config>
