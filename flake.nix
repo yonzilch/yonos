@@ -34,7 +34,7 @@
           inherit username;
         };
         modules = [
-          ./hosts/${hostname}/config.nix
+          ./hosts/${hostname}/default.nix
           chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
           stylix.nixosModules.stylix
