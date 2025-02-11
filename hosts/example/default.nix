@@ -33,13 +33,5 @@ in
       isNormalUser = true;
       shell = pkgs.nushell;
     };
-    # users."another-user" = {
-    #   description = "Another user account";
-    #   extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
-    #   homeMode = "755";
-    #   ignoreShellProgramCheck = true;
-    #   isNormalUser = true;
-    #   shell = "${shell}";
-    # };
   };
 }
