@@ -35,6 +35,7 @@
     meson
     ninja
     pkg-config
+    sarasa-gothic
     zenith
   ];
 
