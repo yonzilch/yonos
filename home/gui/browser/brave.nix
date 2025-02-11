@@ -38,16 +38,16 @@
         id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
       }
       {
+        # Surfingkeys
+        id = "gfbliohnnapiefjpjlpjnehglfpaknnc";
+      }
+      {
         # uBlock Origin
         id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
       }
       {
         # User-Agent Switcher and Manager
         id = "bhchdcejhohfmigjafbampogmaanbfkg";
-      }
-      {
-        # Vimium C
-        id = "hfjbmagddngcpeloejdejnfgbamkjaeg";
       }
       {
         # Violentmonkey
