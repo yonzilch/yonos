@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 {
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
@@ -12,6 +12,7 @@
       automatic = true;
       dates = [ "weekly" ];
     };
+    package = pkgs.lix;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = lib.mkDefault true;
