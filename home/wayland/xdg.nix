@@ -16,7 +16,14 @@
     };
     userDirs = {
       enable = true;
-      createDirectories = true;
+      createDirectories = false;
+      documents = "$HOME/Documents";
+      download = "$HOME/Downloads";
+      music = "$HOME/Music";
+      pictures = "$HOME/Pictures";
+      publicShare = "/var/empty";
+      templates = "/var/empty";
+      videos = "$HOME/Videos";
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
       };
