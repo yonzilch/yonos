@@ -11,4 +11,5 @@
   TimeZone = "America/Chicago";
 
   Transparent-Proxy = false;
+  QEMU-VM-Use-Case = false;
 }

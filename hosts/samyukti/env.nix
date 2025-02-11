@@ -11,4 +11,5 @@
   TimeZone = "Asia/Singapore";
 
   Transparent-Proxy = false;
+  QEMU-VM-Use-Case = true;
 }

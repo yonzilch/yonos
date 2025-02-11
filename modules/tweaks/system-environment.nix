@@ -37,8 +37,12 @@
     zenith
   ];
 
-  programs.git = {
-    enable = true;
-    package = pkgs.gitMinimal;
+  programs = {
+    dconf.enable = true;
+    fuse.userAllowOther = true;
+    git = {
+      enable = true;
+      package = pkgs.gitMinimal;
+    };
   };
 }
