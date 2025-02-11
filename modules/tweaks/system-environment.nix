@@ -12,12 +12,29 @@
     # core
     greetd.tuigreet
     just
-    micro
     v4l-utils # For OBS virtual cam support
+
+    # editor use in tty
+    micro
 
     # networking tool
     curl
     socat
+
+    # misc
+    expect
+    file
+    gcc
+    ghc
+    gnumake
+    jq
+    libvirt
+    lm_sensors
+    libnotify
+    meson
+    ninja
+    pkg-config
+    zenith
   ];
 
   programs.git = {

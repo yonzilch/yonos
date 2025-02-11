@@ -7,8 +7,7 @@ in
   imports = [
     ./hardware.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules
-      ++ lib.filesystem.listFilesRecursive ../../packages;
+      ++ lib.filesystem.listFilesRecursive ../../modules;
 
   # Driver module options
   drivers = {
