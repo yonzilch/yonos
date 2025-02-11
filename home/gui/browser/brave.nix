@@ -22,6 +22,10 @@
         id = "hlkenndednhfkekhgcdicdfddnkalmdm";
       }
       {
+        # FluentRead
+        id = "djnlaiohfaaifbibleebjggkghlmcpcj";
+      }
+      {
         # KeePassXC-Browser
         id = "oboonakemofpalcgghocfoadofidjkkk";
       }
