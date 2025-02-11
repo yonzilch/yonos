@@ -7,10 +7,9 @@ in
   imports = lib.filesystem.listFilesRecursive ../../home;
 
   dconf.settings = {
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = [ "qemu:///system" ];
-        uris = [ "qemu:///system" ];
-      };
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
 
@@ -32,5 +31,5 @@ in
     username = "${username}";
   };
 
-  programs.home-manager.enable = true;};
+  programs.home-manager.enable = true;
 }
