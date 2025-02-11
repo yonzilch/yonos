@@ -45,5 +45,6 @@
       enable = true;
       package = pkgs.gitMinimal;
     };
+    ssh.startAgent = true;
   };
 }
