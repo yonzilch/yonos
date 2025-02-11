@@ -38,6 +38,7 @@
     autoEnable = true;
     targets = {
       hyprland.enable = false;
+      kde.enable = false;
       nixvim.enable = false;
       waybar.enable = false;
     };
