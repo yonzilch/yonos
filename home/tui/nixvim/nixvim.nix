@@ -18,10 +18,7 @@
           transparent_background = true;
           integrations = {
             cmp = true;
-            flash = true;
             fidget = true;
-            gitsigns = true;
-            indent_blankline.enabled = true;
             lsp_trouble = true;
             mini.enabled = true;
             neotree = true;
@@ -61,6 +58,10 @@
       mapleader = " ";
       maplocalleader = " ";
       have_nerd_font = true;
+    };
+
+    performance = {
+      combinePlugins.enable = true;
     };
   };
 }
