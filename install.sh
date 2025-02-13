@@ -53,7 +53,7 @@ echo "--------------------------------"
 sleep 2
 
 NIX_CONFIG="experimental-features = nix-command flakes"
-sudo nixos-rebuild switch --flake .#${hostName} --sudo
+sudo nixos-rebuild switch --flake .#${hostName} --option substituters = https://chaotic-nyx.cachix.org trusted-public-keys = chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8=
 
 echo "--------------------------------"
 
