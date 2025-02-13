@@ -46,8 +46,8 @@
   "custom/startmenu": {
     "format": "",
     "tooltip": false,
-    "on-click": "fuzzel",
-    "on-click-right": "wlogout",
+    "on-click": "wlogout",
+    "on-click-right": "fuzzel",
   },
   "custom/screenshot": {
     "format": "  ",
