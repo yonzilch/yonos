@@ -12,8 +12,6 @@
   MonitorSettings = "monitor = , preferred, auto, 1";
   ScaleLevel = "1";
 
-
-
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = false;
 }
