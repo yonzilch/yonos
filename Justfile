@@ -59,9 +59,9 @@ update:
 
 upgrade:
   # let system totally upgrade
-  nixos-rebuild switch --flake .#{{hostname}} --show-trace --sudo
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
 
 
 upgrade-debug:
   # let system totally upgrade (deBug Mode)
-  unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
+  sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
