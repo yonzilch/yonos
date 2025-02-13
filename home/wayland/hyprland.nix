@@ -3,6 +3,7 @@ let
   inherit (import ../../hosts/${hostname}/env.nix)
     MonitorSettings
     GPU-Nvidia
+    KeyboardLayout
     ScaleLevel
     ;
 in
@@ -25,6 +26,7 @@ with lib;
     extraConfig = concatStrings [
     ''
       ${MonitorSettings}
+      $KEYBOARDLAYOUT = ${KeyboardLayout}
       $SCALE = ${ScaleLevel}
       source = ~/.config/hypr/hyprland-basic.conf
     ''

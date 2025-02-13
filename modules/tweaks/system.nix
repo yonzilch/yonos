@@ -1,6 +1,6 @@
 { config, hostname, lib, pkgs, ... }:
 let
-  inherit (import ../../hosts/${hostname}/env.nix) Locale TimeZone;
+  inherit (import ../../hosts/${hostname}/env.nix) KeyboardLayout Locale TimeZone;
 in
 {
   boot = {
@@ -38,7 +38,7 @@ in
     tmp.cleanOnBoot = true;
   };
 
-  console.keyMap = "us";
+  console.keyMap = KeyboardLayout;
 
   hardware.graphics = {
     enable = true;
