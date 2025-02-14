@@ -1,4 +1,14 @@
 {
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.0-flash"
+    },
+    "version": "2"
+  },
   "auto_install_extensions": {
     "catppuchin": true,
     "html": true,
@@ -11,7 +21,7 @@
   "buffer_font_size": 16,
   "terminal": {
     "shell": {
-      "program": "bash"
+      "program": "nu"
     },
     "toolbar": {
       "breadcrumbs": false
