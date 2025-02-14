@@ -42,6 +42,7 @@
       kde.enable = false;
       nixvim.enable = false;
       waybar.enable = false;
+      zed.enable = false;
     };
   };
 }
