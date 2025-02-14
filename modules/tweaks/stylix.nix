@@ -43,7 +43,7 @@
         terminal = 12;
       };
     };
-    image = ../../dotfiles/.local/share/wallpapers/DOWNLOAD-NixOS-1;
+    image = ../../dotfiles/.local/share/wallpapers/CAMERA-Amoy-Seaside-2020-08-18.jpg;
     polarity = "dark";
   };
 }
