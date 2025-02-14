@@ -20,7 +20,6 @@
 
     # networking tool
     curl
-    socat
 
     # misc
     expect
