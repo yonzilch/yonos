@@ -43,7 +43,7 @@
         terminal = 12;
       };
     };
-    image = ../../dotfiles/.local/share/wallpapers/DOWNLOAD-Black-Snow-Flake.jpg;
+    image = ../../dotfiles/.local/share/wallpapers/DOWNLOAD-NixOS-1;
     polarity = "dark";
   };
 }
