@@ -52,8 +52,8 @@ echo "Now going to build, stay online and don't power down."
 echo "--------------------------------"
 sleep 2
 
-NIX_CONFIG="experimental-features = nix-command flakes"
-sudo nixos-rebuild switch --flake .#${hostName} --option substituters = https://chaotic-nyx.cachix.org trusted-public-keys = chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8=
+NIX_CONFIG="'experimental-features = nix-command flakes' 'substituters = https://chaotic-nyx.cachix.org' 'trusted-public-keys = chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8='"
+sudo nixos-rebuild switch --flake .#${hostName}
 
 echo "--------------------------------"
 
