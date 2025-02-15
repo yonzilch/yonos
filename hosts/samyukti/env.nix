@@ -1,7 +1,7 @@
 {
   Bluetooth = true;
 
-  GPU-AMD = false;
+  GPU-AMD = true;
   GPU-Nvidia = false;
   GPU-Intel = false;
 
