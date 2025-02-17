@@ -33,6 +33,7 @@ in
       };
       grub = lib.mkIf (BootLoader == "grub") {
         configurationLimit = 50;
+        device = "nodev";
         enable = true;
       };
       timeout = 3;
