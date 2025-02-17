@@ -1,6 +1,7 @@
 { config, hostname, lib, pkgs, ... }:
 let
-  inherit (import ../../hosts/${hostname}/env.nix) KernelPackages KeyboardLayout Locale TimeZone WM;
+  inherit (import ../../hosts/${hostname}/env.nix)
+  BootLoader KernelPackages KeyboardLayout Locale TimeZone WM;
 in
 {
   boot = {
@@ -25,9 +26,13 @@ in
     kernelParams = [ "audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog" ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      systemd-boot = lib.mkIf (BootLoader == "systemd-boot") {
         configurationLimit = 50;
         editor = false;
+        enable = true;
+      };
+      grub = lib.mkIf (BootLoader == "grub") {
+        configurationLimit = 50;
         enable = true;
       };
       timeout = 3;

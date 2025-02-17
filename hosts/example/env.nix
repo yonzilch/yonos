@@ -1,6 +1,8 @@
 {
   Bluetooth = false; # see https://github.com/blueman-project/blueman
 
+  BootLoader = "systemd-boot"; # see https://nixos.wiki/wiki/Bootloader
+
   GPU-AMD = false; # see https://nixos.wiki/wiki/AMD_GPU
   GPU-Nvidia = false; # see https://nixos.wiki/wiki/Nvidia
   GPU-Intel = false; # see https://nixos.wiki/wiki/Intel_Graphics
