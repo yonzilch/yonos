@@ -8,7 +8,6 @@ mkIf (WM == "niri")
   home.packages = with pkgs; [
     niri
     hyprpaper
-    xorg.xprop
   ];
   programs.hyprlock = {
     enable = true;
