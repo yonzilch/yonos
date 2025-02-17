@@ -1,6 +1,8 @@
 {
   Bluetooth = false;
 
+  BootLoader = "grub";
+
   GPU-AMD = false;
   GPU-Nvidia = false;
   GPU-Intel = false;
