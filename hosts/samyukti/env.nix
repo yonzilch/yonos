@@ -5,6 +5,7 @@
   GPU-Nvidia = false;
   GPU-Intel = false;
 
+  KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
   TimeZone = "Asia/Singapore";
@@ -14,4 +15,6 @@
 
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
+
+  WM = "Hyprland";
 }

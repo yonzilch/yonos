@@ -1,6 +1,6 @@
 { config, hostname, lib, pkgs, ... }:
 let
-  inherit (import ../../hosts/${hostname}/env.nix) KeyboardLayout Locale TimeZone;
+  inherit (import ../../hosts/${hostname}/env.nix) KernelPackages KeyboardLayout Locale TimeZone WM;
 in
 {
   boot = {
@@ -21,7 +21,7 @@ in
       "vm.max_map_count" = 2147483642; # Needed For Some Steam Games
     };
     kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.${KernelPackages};
     kernelParams = [ "audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog" ];
     loader = {
       efi.canTouchEfiVariables = true;
@@ -109,7 +109,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland -t --user-menu";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
           user = "greeter";
         };
       };
