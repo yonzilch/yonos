@@ -1,12 +1,7 @@
 { hostname, lib, pkgs, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix)
-    MonitorSettings
-    GPU-Nvidia
-    KeyboardLayout
-    ScaleLevel
-    WM
-    ;
+    MonitorSettings GPU-Nvidia KeyboardLayout ScaleLevel WM;
 in
 with lib;
 mkIf (WM == "Hyprland")
