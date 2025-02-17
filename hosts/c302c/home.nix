@@ -6,7 +6,7 @@ in
 {
   imports = lib.filesystem.listFilesRecursive ../../home;
 
-  dconf.settings = {
+  dconf.settings = mkIf QEMU-VM-Use-Case {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
       uris = [ "qemu:///system" ];
