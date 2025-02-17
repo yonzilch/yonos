@@ -1,6 +1,3 @@
-{ pkgs, ...}:
-{
-  home.packages = with pkgs; [
-    swaynotificationcenter
-  ];
+_: {
+  services.swaync.enable = true;
 }
