@@ -1,4 +1,4 @@
-{ hostname, lib, ... }:
+{ hostname, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix) Bluetooth;
 in
