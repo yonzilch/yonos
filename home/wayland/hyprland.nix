@@ -5,9 +5,11 @@ let
     GPU-Nvidia
     KeyboardLayout
     ScaleLevel
+    WM
     ;
 in
 with lib;
+mkIf (WM == "Hyprland")
 {
   home.packages = with pkgs; [
     hyprpaper
