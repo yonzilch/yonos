@@ -53,7 +53,7 @@
     "format": "  ",
     "on-click": "grim -g \"$(slurp)\" - | swappy -f -",
     "on-click-right": "nemo ~/Pictures/Screenshots",
-    "on-click-middle": "grim - | wl-copy -t image/png",
+    "on-click-middle": "sh -c 'grim - | wl-copy -t image/png && notify-send \"Screenshot copied to clipboard\"'",
     "tooltip": false,
   },
 
