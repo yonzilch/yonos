@@ -24,7 +24,7 @@ mkIf (WM == "Hyprland")
       ${MonitorSettings}
       $KEYBOARDLAYOUT = ${KeyboardLayout}
       $SCALE = ${ScaleLevel}
-      source = ~/.config/hypr/hyprland-basic.conf
+      source = ~/.config/hypr/hyprland/*
     ''
     ];
     settings = mkIf GPU-Nvidia {
