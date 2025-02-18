@@ -7,7 +7,6 @@ with lib;
 mkIf (WM == "Hyprland")
 {
   home.packages = with pkgs; [
-    hyprpaper
     xorg.xprop
   ];
   programs.hyprlock = {
