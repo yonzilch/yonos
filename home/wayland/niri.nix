@@ -7,7 +7,6 @@ mkIf (WM == "niri")
 {
   home.packages = with pkgs; [
     niri
-    hyprpaper
   ];
   programs.hyprlock = {
     enable = true;
