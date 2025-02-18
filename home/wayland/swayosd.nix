@@ -1,6 +1,3 @@
-{ pkgs, ...}:
-{
-  home.packages = with pkgs; [
-    swayosd
-  ];
+_: {
+  services.swayosd.enable = true;
 }
