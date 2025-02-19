@@ -56,10 +56,10 @@ binds {
     Super+Right { focus-column-right; }
 
     /// Using Vim-like keys
-    Super+Left  { focus-column-left; }
-    Super+Down  { focus-window-down; }
-    Super+Up    { focus-window-up; }
-    Super+Right { focus-column-right; }
+    Super+H  { focus-column-left; }
+    Super+J  { focus-window-down; }
+    Super+K    { focus-window-up; }
+    Super+L { focus-column-right; }
 
 
     Super+Ctrl+Left  { move-column-left; }
