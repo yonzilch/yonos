@@ -1,42 +1,48 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+    systemPackages = with pkgs; [
 
-    # archive
-    p7zip
-    gnutar
-    unzipNLS
-    xz
-    zip
-    zstd
+      # archive
+      p7zip
+      gnutar
+      unzipNLS
+      xz
+      zip
+      zstd
 
-    # core
-    greetd.tuigreet
-    just
-    v4l-utils # For OBS virtual cam support
+      # core
+      greetd.tuigreet
+      just
+      v4l-utils # For OBS virtual cam support
 
-    # editor use in tty
-    micro
+      # editor use in tty
+      micro
 
-    # networking tool
-    curl
+      # networking tool
+      curl
 
-    # misc
-    expect
-    file
-    gcc
-    ghc
-    gnumake
-    jq
-    libvirt
-    lm_sensors
-    libnotify
-    meson
-    ninja
-    pkg-config
-    sarasa-gothic
-    zenith
-  ];
+      # misc
+      expect
+      file
+      gcc
+      ghc
+      gnumake
+      jq
+      libvirt
+      lm_sensors
+      libnotify
+      meson
+      ninja
+      pkg-config
+      sarasa-gothic
+      zenith
+    ];
+  };
 
   programs = {
     dconf.enable = true;
