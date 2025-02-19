@@ -21,10 +21,10 @@
       gc-keep-outputs = lib.mkDefault false;
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
-        "https://cache.garnix.io"
-        "https://cache.nixos.org"
-        "https://chaotic-nyx.cachix.org"
-        "https://nix-community.cachix.org"
+        "https://cache.garnix.io" # see https://github.com/sodiboo/niri-flake
+        "https://cache.nixos.org" # see https://nixos.wiki/wiki/Binary_Cache
+        "https://chaotic-nyx.cachix.org" # see https://github.com/chaotic-cx/nyx
+        "https://nix-community.cachix.org" # see https://nix-community.org/cache/
       ];
       trusted-public-keys = [
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
