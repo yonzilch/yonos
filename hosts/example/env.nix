@@ -9,6 +9,7 @@
 
   KernelPackages = "linuxPackages_zen"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
   KeyboardLayout = "us"; # see https://en.wikipedia.org/wiki/Keyboard_layout
+  KeyboardOptions = ""; # see https://wiki.hyprland.org/Configuring/Uncommon-tips--tricks https://github.com/YaLTeR/niri/wiki/Configuration:-Input#keyboard
   Locale = "en_US.UTF-8"; # see https://docs.moodle.org/405/en/Table_of_locales
   TimeZone = "America/Chicago"; # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 

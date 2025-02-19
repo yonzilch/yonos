@@ -1,7 +1,7 @@
 { hostname, lib, pkgs, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix)
-    MonitorSettings GPU-Nvidia KeyboardLayout ScaleLevel WM;
+  GPU-Nvidia MonitorSettings  KeyboardLayout KeyboardOptions ScaleLevel WM;
 in
 with lib;
 mkIf (WM == "Hyprland")
@@ -23,6 +23,7 @@ mkIf (WM == "Hyprland")
     ''
       ${MonitorSettings}
       $KEYBOARDLAYOUT = ${KeyboardLayout}
+      $KEYBOARDOPTIONS = ${KeyboardOptions}
       $SCALE = ${ScaleLevel}
       source = ~/.config/hypr/hyprland/*
     ''
