@@ -1,5 +1,4 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "display": {
     "separator": " ",
   },
@@ -17,25 +16,29 @@
       "type": "host",
       "key": " PC         │",
       "keyColor": "cyan",
-      "format": "\u001b[1;96m{2}",
+      "format": "{2}",
+      "outputColor": "cyan",
     },
     {
       "type": "board",
       "key": "│ ╠ Board   │",
       "keyColor": "cyan",
-      "format": "\u001b[96m{1}",
+      "format": "{1}",
+      "outputColor": "cyan",
     },
     {
       "type": "cpu",
       "key": "│ ╠ CPU     │",
       "keyColor": "cyan",
-      "format": "\u001b[96m{1}",
+      "format": "{1}",
+      "outputColor": "cyan",
     },
     {
       "type": "gpu",
       "key": "│ ╠ GPU     │",
       "keyColor": "cyan",
-      "format": "\u001b[96m{1} {2}",
+      "format": "{1} {2}",
+      "outputColor": "cyan",
     },
     {
       "type": "memory",
@@ -67,7 +70,8 @@
       "type": "uptime",
       "key": "│ ╚ Uptime  │",
       "keyColor": "cyan",
-      "format": "\u001b[96m{1} days {2} hours {3} minutes",
+      "format": "{1} days {2} hours {3} minutes",
+      "outputColor": "cyan",
     },
     {
       "type": "custom",
@@ -81,13 +85,15 @@
       "type": "os",
       "key": " OS         │",
       "keyColor": "blue",
-      "format": "\u001b[1;94m{2} {8} {12}",
+      "format": "{2} {8} {12}",
+      "outputColor": "blue",
     },
     {
       "type": "kernel",
       "key": "│ ╠ Kernel  │",
       "keyColor": "blue",
-      "format": "\u001b[94m{1} {2} {4}",
+      "format": "{1} {2}",
+      "outputColor": "blue",
     },
     {
       "type": "packages",
