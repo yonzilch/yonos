@@ -3,7 +3,6 @@
 
   BootLoader = "systemd-boot";
 
-
   GPU-AMD = true;
   GPU-Nvidia = false;
   GPU-Intel = false;
