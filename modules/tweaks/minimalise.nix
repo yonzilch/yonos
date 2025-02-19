@@ -45,7 +45,6 @@
   # Minimize services
   services = {
     resolved.enable = lib.mkForce false;
-    timesyncd.enable = lib.mkForce false;
   };
 
   # Minimize systemd services
