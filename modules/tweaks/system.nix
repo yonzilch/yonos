@@ -77,8 +77,9 @@ in
     };
     resolvconf.enable = lib.mkForce false;
     timeServers = [
-      "nts.netnod.se"
-      "nts.time.nl"
+      "ntppool1.time.nl"
+      "ntppool2.time.nl"
+      "ntp.ripe.net"
     ];
   };
 
