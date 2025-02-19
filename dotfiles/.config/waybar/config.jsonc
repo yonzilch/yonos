@@ -86,7 +86,7 @@
 
   "memory": {
     "interval": 10,
-    "format": " {used:0.2f}/{total:0.0f}GB",
+    "format": " {used:0.2f}/{total:0.0f}GB",
     "on-click": "alacritty -e btop",
   },
 
