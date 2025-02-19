@@ -1,0 +1,269 @@
+animations {
+    off
+}
+
+
+binds {
+    // App Launcher
+    Alt+Space { spawn "fuzzel"; }
+
+    // Shortcuts
+    Super+Shift+Slash { show-hotkey-overlay; }
+    Super+E { spawn "nemo"; }
+    Super+L { spawn "wlogout"; }
+    Super+T { spawn "alacritty"; }
+    Super+S { screenshot; }
+    Super+Ctrl+S { screenshot-window; }
+    Super+Ctrl+Alt+Print { screenshot-screen; }
+
+    // Window actions
+    Super+F { fullscreen-window; }
+    Super+Q { close-window; }
+
+    // Workspace jumping
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+    Super+0 { focus-workspace 10; }
+
+    // Window movement between Workspace
+    Super+Shift+1 { move-column-to-workspace 1; }
+    Super+Shift+2 { move-column-to-workspace 2; }
+    Super+Shift+3 { move-column-to-workspace 3; }
+    Super+Shift+4 { move-column-to-workspace 4; }
+    Super+Shift+5 { move-column-to-workspace 5; }
+    Super+Shift+6 { move-column-to-workspace 6; }
+    Super+Shift+7 { move-column-to-workspace 7; }
+    Super+Shift+8 { move-column-to-workspace 8; }
+    Super+Shift+9 { move-column-to-workspace 9; }
+    Super+Shift+0 { move-column-to-workspace 10; }
+
+    // Window focus movement
+    /// Using familier keys
+    Alt+Tab { focus-column-right; }
+    Alt+Shift+Tab  { focus-column-left; }
+
+    /// Using Arrow keys
+    Super+Left  { focus-column-left; }
+    Super+Down  { focus-window-down; }
+    Super+Up    { focus-window-up; }
+    Super+Right { focus-column-right; }
+
+    /// Using Vim-like keys
+    Super+Left  { focus-column-left; }
+    Super+Down  { focus-window-down; }
+    Super+Up    { focus-window-up; }
+    Super+Right { focus-column-right; }
+
+
+    Super+Ctrl+Left  { move-column-left; }
+    Super+Ctrl+Down  { move-window-down; }
+    Super+Ctrl+Up    { move-window-up; }
+    Super+Ctrl+Right { move-column-right; }
+
+    Super+Home { focus-column-first; }
+    Super+End  { focus-column-last; }
+    Super+Ctrl+Home { move-column-to-first; }
+    Super+Ctrl+End  { move-column-to-last; }
+
+    Super+Shift+Left  { focus-monitor-left; }
+    Super+Shift+Down  { focus-monitor-down; }
+    Super+Shift+Up    { focus-monitor-up; }
+    Super+Shift+Right { focus-monitor-right; }
+
+    Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Super+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Super+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+    Super+Page_Down      { focus-workspace-down; }
+    Super+Page_Up        { focus-workspace-up; }
+    Super+U              { focus-workspace-down; }
+    Super+I              { focus-workspace-up; }
+    Super+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Super+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Super+Ctrl+U         { move-column-to-workspace-down; }
+    Super+Ctrl+I         { move-column-to-workspace-up; }
+
+    Super+Shift+Page_Down { move-workspace-down; }
+    Super+Shift+Page_Up   { move-workspace-up; }
+    Super+Shift+U         { move-workspace-down; }
+    Super+Shift+I         { move-workspace-up; }
+
+    Super+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Super+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Super+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Super+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Super+WheelScrollRight      { focus-column-right; }
+    Super+WheelScrollLeft       { focus-column-left; }
+    Super+Ctrl+WheelScrollRight { move-column-right; }
+    Super+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Super+Shift+WheelScrollDown      { focus-column-right; }
+    Super+Shift+WheelScrollUp        { focus-column-left; }
+    Super+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Super+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Super+Ctrl+1 { move-window-to-workspace 1; }
+
+    // Switches focus between the current and the previous workspace.
+    // Super+Tab { focus-workspace-previous; }
+
+    Super+Comma  { consume-window-into-column; }
+    Super+Period { expel-window-from-column; }
+
+    Super+R { switch-preset-column-width; }
+    Super+Shift+R { reset-window-height; }
+    Super+Shift+F { maximize-column; }
+
+    Super+C { center-column; }
+
+    Super+Minus { set-column-width "-10%"; }
+    Super+Equal { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Super+Shift+Minus { set-window-height "-10%"; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+
+    // Actions to switch layouts.
+    // Note: if you uncomment these, make sure you do NOT have
+    // a matching layout switch hotkey configured in xkb options above.
+    // Having both at once on the same hotkey will break the switching,
+    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+    Super+Space       { switch-layout "next"; }
+    Super+Shift+Space { switch-layout "prev"; }
+
+    // The quit action will show a confirmation dialog to avoid accidental exits.
+    Super+Shift+E { quit; }
+
+    // Powers off the monitors. To turn them back on, do any input like
+    // moving the mouse or pressing any other key.
+    Super+Shift+P { power-off-monitors; }
+
+    // Volume control
+    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+
+}
+
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+
+input {
+    keyboard {
+        xkb {
+            options "caps:escape"
+		    layout "us"
+        }
+    }
+
+    touch {
+        // map-to-output "DP-3"
+        // map-to-output "Interaction Systems, Inc TYPE-C TCH00562020"
+    }
+
+    // disable-power-key-handling
+    // warp-mouse-to-focus
+    // focus-follows-mouse
+    focus-follows-mouse max-scroll-amount="0%"
+    // workspace-auto-back-and-forth
+
+    touchpad {
+        accel-speed 0.4
+        // accel-profile "flat"
+        // disabled-on-external-mouse
+        // dwt
+        // dwtp
+        natural-scroll
+        tap
+    }
+
+    mouse {
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+    }
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
+
+spawn-at-startup "fcitx5" "-d" "-r"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "waybar"
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+window-rule {
+    clip-to-geometry true
+    geometry-corner-radius 10
+}
+
+layout {
+    gaps 2
+
+    center-focused-column "on-overflow"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+
+        // fixed 1920
+    }
+
+    // If you leave the brackets empty, the windows themselves will decide their initial width.
+    // default-column-width {}
+    default-column-width { proportion 0.98; }
+
+    focus-ring {
+	off
+
+	width 3
+
+        active-color "#31324400"
+        inactive-color "#31324400"
+
+        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    border {
+        // off
+
+        width 2
+        active-color "#313244FF"
+        inactive-color "#1e1e2eFF"
+
+    }
+
+    struts {
+	// left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
