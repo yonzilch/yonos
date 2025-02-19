@@ -41,3 +41,4 @@ See [LICENSE](LICENSE) for more information.
 - <https://github.com/ryan4yin/nix-config>
 - <https://github.com/xddxdd/nixos-config>
 - <https://gitea.c3d2.de/c3d2/nix-config>
+- <https://github.com/ruiiiijiiiiang/dotfiles>
