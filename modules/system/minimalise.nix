@@ -43,7 +43,6 @@
         RateLimitBurst=1000
       '';
     };
-
     resolved.enable = lib.mkForce false;
   };
 
@@ -61,6 +60,8 @@
       systemd-udev-settle.enable = lib.mkForce false;
     };
   };
+
+  # Disable xdg autostart
   xdg = {
     autostart.enable = lib.mkForce false;
   };
