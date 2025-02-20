@@ -3,32 +3,31 @@ let
   inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
 in
 {
-    environment = {
-      sessionVariables = {
-        EDITOR = "micro";
-        TERMINAL = "alacritty";
-        _JAVA_AWT_WM_NONREPARENTING = 1;
-        AWT_TOOLKIT = "MToolkit";
-        CLUTTER_BACKEND = "wayland";
-        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-        GDK_BACKEND = "wayland";
-        GDK_SCALE = "${ScaleLevel}";
-        GTK_USE_PORTAL = 1;
-        MOZ_ENABLE_WAYLAND = 1;
-        NIXOS_OZONE_WL = 1;
-        QT_AUTO_SCREEN_SCALE_FACTOR = 1;
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-        QT_QPA_PLATFORM = "wayland";
-        SDL_HINT_VIDEODRIVER = "wayland";
-        SDL_VIDEODRIVER = "wayland";
-        XDG_SESSION_TYPE = "wayland";
+  environment = {
+    sessionVariables = {
+      EDITOR = "micro";
+      TERMINAL = "alacritty";
+      _JAVA_AWT_WM_NONREPARENTING = 1;
+      AWT_TOOLKIT = "MToolkit";
+      CLUTTER_BACKEND = "wayland";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      GDK_BACKEND = "wayland";
+      GDK_SCALE = "${ScaleLevel}";
+      GTK_USE_PORTAL = 1;
+      MOZ_ENABLE_WAYLAND = 1;
+      NIXOS_OZONE_WL = 1;
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+      QT_QPA_PLATFORM = "wayland";
+      SDL_HINT_VIDEODRIVER = "wayland";
+      SDL_VIDEODRIVER = "wayland";
+      XDG_SESSION_TYPE = "wayland";
 
-        QT_IM_MODULE = "fcitx";
-        SDL_IM_MODULE = "fcitx";
-        XMODIFIERS = "@im=fcitx";
-      };
-      systemPackages = with pkgs; [
-
+      QT_IM_MODULE = "fcitx";
+      SDL_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+    };
+    systemPackages = with pkgs; [
       # archive
       p7zip
       gnutar
