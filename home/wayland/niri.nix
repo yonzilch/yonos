@@ -1,14 +1,11 @@
-{ hostname, lib, pkgs, ... }:
+{ hostname, lib, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix) WM;
 in
 with lib;
 mkIf (WM == "niri")
 {
-  home.packages = with pkgs; [
-    niri
-  ];
-  programs.hyprlock = {
+  programs.niri = {
     enable = true;
   };
 }
