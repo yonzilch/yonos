@@ -14,7 +14,7 @@ binds {
     Super+T { spawn "alacritty"; }
     Super+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
-    Super+Alt+S { screenshot-screen; }
+    Super+Ctrl+Alt+Print { screenshot-screen; }
 
     // Window actions
     Super+F { fullscreen-window; }
@@ -33,16 +33,16 @@ binds {
     Super+0 { focus-workspace 10; }
 
     // Window movement between Workspace
-    Super+Shift+1 { move-column-to-workspace 1; }
-    Super+Shift+2 { move-column-to-workspace 2; }
-    Super+Shift+3 { move-column-to-workspace 3; }
-    Super+Shift+4 { move-column-to-workspace 4; }
-    Super+Shift+5 { move-column-to-workspace 5; }
-    Super+Shift+6 { move-column-to-workspace 6; }
-    Super+Shift+7 { move-column-to-workspace 7; }
-    Super+Shift+8 { move-column-to-workspace 8; }
-    Super+Shift+9 { move-column-to-workspace 9; }
-    Super+Shift+0 { move-column-to-workspace 10; }
+    Super+Shift+1 { move-window-to-workspace 1; }
+    Super+Shift+2 { move-window-to-workspace 2; }
+    Super+Shift+3 { move-window-to-workspace 3; }
+    Super+Shift+4 { move-window-to-workspace 4; }
+    Super+Shift+5 { move-window-to-workspace 5; }
+    Super+Shift+6 { move-window-to-workspace 6; }
+    Super+Shift+7 { move-window-to-workspace 7; }
+    Super+Shift+8 { move-window-to-workspace 8; }
+    Super+Shift+9 { move-window-to-workspace 9; }
+    Super+Shift+0 { move-window-to-workspace 10; }
 
     // Window focus movement
     /// Using familier keys
@@ -50,32 +50,33 @@ binds {
     Alt+Shift+Tab  { focus-column-left; }
 
     /// Using Arrow keys
-    Super+Left  { focus-column-left; }
-    Super+Down  { focus-window-down; }
-    Super+Up    { focus-window-up; }
-    Super+Right { focus-column-right; }
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
 
     /// Using Vim-like keys
-    Super+H  { focus-column-left; }
-    Super+J  { focus-window-down; }
-    Super+K    { focus-window-up; }
-    Super+L { focus-column-right; }
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
 
-
-    Super+Ctrl+Left  { move-column-left; }
-    Super+Ctrl+Down  { move-window-down; }
-    Super+Ctrl+Up    { move-window-up; }
-    Super+Ctrl+Right { move-column-right; }
+    // Window direction movement
+    /// Using Arrow keys
+    Super+Shift+Left  { move-column-left; }
+    Super+Shift+Down  { move-window-down; }
+    Super+Shift+Up    { move-window-up; }
+    Super+Shift+Right { move-column-right; }
 
     Super+Home { focus-column-first; }
     Super+End  { focus-column-last; }
     Super+Ctrl+Home { move-column-to-first; }
     Super+Ctrl+End  { move-column-to-last; }
 
-    Super+Shift+Left  { focus-monitor-left; }
-    Super+Shift+Down  { focus-monitor-down; }
-    Super+Shift+Up    { focus-monitor-up; }
-    Super+Shift+Right { focus-monitor-right; }
+    // Super+Shift+Left  { focus-monitor-left; }
+    // Super+Shift+Down  { focus-monitor-down; }
+    // Super+Shift+Up    { focus-monitor-up; }
+    // Super+Shift+Right { focus-monitor-right; }
 
     Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -205,6 +206,7 @@ screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
 
 spawn-at-startup "fcitx5" "-d" "-r"
 spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "swww ~/.local/share/wallpapers/DOWNLOAD-NixOS-1.png"
 spawn-at-startup "waybar"
 
 window-rule {
