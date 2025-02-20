@@ -19,5 +19,5 @@
   Transparent-Proxy = false; # see https://github.com/daeuniverse/daed
   QEMU-VM-Use-Case = false; # see https://github.com/qemu/qemu
 
-  WM = "Hyprland"; # Possible options: Hyprland, niri
+  WM = "niri"; # Possible options: Hyprland, niri
 }
