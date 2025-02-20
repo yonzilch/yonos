@@ -17,7 +17,10 @@ mkIf (WM == "Hyprland")
     plugins = [
       pkgs.hyprlandPlugins.hy3
     ];
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+    };
     xwayland.enable = true;
     extraConfig = concatStrings [
     ''

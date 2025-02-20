@@ -61,4 +61,7 @@
       systemd-udev-settle.enable = lib.mkForce false;
     };
   };
+  xdg = {
+    autostart.enable = lib.mkForce false;
+  };
 }

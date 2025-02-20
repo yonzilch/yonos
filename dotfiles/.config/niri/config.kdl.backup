@@ -14,7 +14,7 @@ binds {
     Super+T { spawn "alacritty"; }
     Super+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
-    Super+Ctrl+Alt+Print { screenshot-screen; }
+    Super+Alt+S { screenshot-screen; }
 
     // Window actions
     Super+F { fullscreen-window; }
