@@ -1,14 +1,10 @@
-{ config, lib, ... }:
-with lib;
+{ hostname, lib, ... }:
 let
-  cfg = config.drivers.nvidia;
+  inherit (import ../../hosts/${hostname}/env.nix) GPU-Nvidia;
 in
+with lib;
 {
-  options.drivers.nvidia = {
-    enable = mkEnableOption "Enable Nvidia Drivers";
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf GPU-Nvidia {
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia = {
       # Modesetting is required.

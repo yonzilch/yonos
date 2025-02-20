@@ -1,14 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
+{ hostname, lib, pkgs, ... }:
 let
-  cfg = config.drivers.intel;
+  inherit (import ../../hosts/${hostname}/env.nix) GPU-Intel;
 in
+with lib;
 {
-  options.drivers.intel = {
-    enable = mkEnableOption "Enable Intel Graphics Drivers";
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf GPU-Intel {
     nixpkgs.config.packageOverrides = pkgs: {
       vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     };

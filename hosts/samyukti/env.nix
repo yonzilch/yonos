@@ -19,6 +19,6 @@
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
 
-  WM = "Hyprland"; #(wlogout:6119): Gdk-WARNING **: 15:55:39.572: Settings portal not found: Error calling StartServiceByName for org.freedesktop.portal.Desktop: Timeout was reached
+  WM = "Hyprland"; # [WIP] niri crash report: (wlogout:6119): Gdk-WARNING **: 15:55:39.572: Settings portal not found: Error calling StartServiceByName for org.freedesktop.portal.Desktop: Timeout was reached
 
 }
