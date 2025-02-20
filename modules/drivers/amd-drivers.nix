@@ -1,14 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
+{ hostname, lib, pkgs, ... }:
 let
-  cfg = config.drivers.amdgpu;
+  inherit (import ../../hosts/${hostname}/env.nix) GPU-AMD;
 in
+with lib;
 {
-  options.drivers.amdgpu = {
-    enable = mkEnableOption "Enable AMD Drivers";
-  };
-
-  config = mkIf cfg.enable {
+  config = mkIf GPU-AMD {
     systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
     services.xserver.videoDrivers = [ "amdgpu" ];
   };
