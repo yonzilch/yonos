@@ -13,7 +13,7 @@
   Locale = "en_US.UTF-8"; # see https://docs.moodle.org/405/en/Table_of_locales
   TimeZone = "America/Chicago"; # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-  MonitorSettings = "monitor = , preferred, auto, 1"; # see https://wiki.hyprland.org/Configuring/Monitors/
+  MonitorSettings = "monitor = , 1920x1080@60, auto, 1"; # see https://wiki.hyprland.org/Configuring/Monitors/
   ScaleLevel = "1"; # see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
 
   Transparent-Proxy = false; # see https://github.com/daeuniverse/daed
