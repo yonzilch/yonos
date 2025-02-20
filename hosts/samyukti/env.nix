@@ -5,7 +5,7 @@
 
   GPU-AMD = true;
   GPU-Nvidia = false;
-  GPU-Intel = false;
+  GPU-Intel = true;
 
   KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
@@ -19,5 +19,6 @@
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
 
-  WM = "Hyprland";
+  WM = "Hyprland"; #(wlogout:6119): Gdk-WARNING **: 15:55:39.572: Settings portal not found: Error calling StartServiceByName for org.freedesktop.portal.Desktop: Timeout was reached
+
 }
