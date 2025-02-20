@@ -209,7 +209,7 @@ spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "swww ~/.local/share/wallpapers/DOWNLOAD-NixOS-1.png"
 spawn-at-startup "xdg-desktop-portal"
 spawn-at-startup "xdg-desktop-portal-wlr"
-spawn-at-startup "xdg-desktop-portal-hyprland"
+spawn-at-startup "xdg-desktop-portal-gnome"
 spawn-at-startup "waybar"
 
 window-rule {
