@@ -28,22 +28,22 @@
     nano.enable = lib.mkForce false;
   };
 
-  # Minimize journal
-  services.journald = {
-    extraConfig = ''
-      Storage=volatile
-      Compress=yes
-      SystemMaxUse=50M
-      RuntimeMaxUse=10M
-      MaxFileSec=1day
-      MaxRetentionSec=1month
-      RateLimitInterval=30s
-      RateLimitBurst=1000
-    '';
-  };
-
   # Minimize services
   services = {
+    gnome.gnome-keyring.enable = lib.mkForce false;
+    journald = {
+      extraConfig = ''
+        Storage=volatile
+        Compress=yes
+        SystemMaxUse=50M
+        RuntimeMaxUse=10M
+        MaxFileSec=1day
+        MaxRetentionSec=1month
+        RateLimitInterval=30s
+        RateLimitBurst=1000
+      '';
+    };
+
     resolved.enable = lib.mkForce false;
   };
 

@@ -57,7 +57,6 @@
         pkgs.xdg-desktop-portal-gnome
         pkgs.xdg-desktop-portal-hyprland
       ];
-      wlr.enable = true;
     };
     userDirs = {
       enable = true;
