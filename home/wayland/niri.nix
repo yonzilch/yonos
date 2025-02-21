@@ -17,10 +17,28 @@ mkIf (WM == "niri")
       DefaultDependencies = false;
     };
   };
+  systemd.user.services.xdg-desktop-portal-gnome = {
+    Unit = {
+      Description = "Portal service (GNOME implementation)";
+    };
+    Service = {
+    Type = "dbus";
+    BusName = "org.freedesktop.impl.portal.desktop.gnome";
+    ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
+    };
+  };
   home.packages = with pkgs; [
     niri
   ];
   xdg.portal = {
+    config = {
+      common = {
+        default = [
+          "gnome"
+          "gtk"
+        ];
+      };
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome

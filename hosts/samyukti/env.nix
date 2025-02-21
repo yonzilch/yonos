@@ -19,5 +19,5 @@
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
 
-  WM = "Hyprland";
+  WM = "niri";
 }
