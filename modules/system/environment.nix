@@ -10,6 +10,7 @@ in
       _JAVA_AWT_WM_NONREPARENTING = 1;
       AWT_TOOLKIT = "MToolkit";
       CLUTTER_BACKEND = "wayland";
+      DISPLAY = "null";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       GDK_BACKEND = "wayland";
       GDK_SCALE = "${ScaleLevel}";
