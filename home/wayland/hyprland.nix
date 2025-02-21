@@ -9,9 +9,6 @@ mkIf (WM == "Hyprland")
   home.packages = with pkgs; [
     xorg.xprop
   ];
-  programs.hyprlock = {
-    enable = true;
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [

@@ -85,7 +85,10 @@ in
 
   security = {
     rtkit.enable = true;
-    pam.services.login.kwallet.enable = lib.mkForce false;
+    pam.services = {
+      hyprlock = {};
+      login.kwallet.enable = lib.mkForce false;
+    };
     polkit = {
       enable = true;
       extraConfig = ''
