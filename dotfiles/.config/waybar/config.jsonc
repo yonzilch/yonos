@@ -11,7 +11,8 @@
     "custom/startmenu",
     "cpu",
     "memory",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "niri/workspaces"
     //"disk"
   ],
   "modules-center": [
@@ -185,6 +186,10 @@
   "hyprland/window": {
     "max-length": 100,
     "separate-outputs": true,
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
   },
 
   "wireplumber": {
