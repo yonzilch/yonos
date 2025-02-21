@@ -10,7 +10,6 @@ binds {
     // Shortcuts
     Super+Shift+Slash { show-hotkey-overlay; }
     Super+E { spawn "nemo"; }
-    Super+L { spawn "wlogout"; }
     Super+T { spawn "alacritty"; }
     Super+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
