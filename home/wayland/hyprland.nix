@@ -41,5 +41,10 @@ mkIf (WM == "Hyprland")
       ];
     };
   };
-  xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal = {
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
 }
