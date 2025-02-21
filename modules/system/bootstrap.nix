@@ -111,9 +111,8 @@ in
   };
 
   system = {
-    rebuild.enableNg = false;
+    rebuild.enableNg = true;
     stateVersion = config.system.nixos.release;
-    switch.enableNg = false;
   };
 
   systemd.user.services.mate-polkit = {
