@@ -161,7 +161,7 @@ binds {
 
 environment {
     CURRENT_COMPOSITOR "niri"
-    DISPLAY ":12"
+    DISPLAY "null"
     XDG_SESSION_DESKTOP "Niri"
 }
 
