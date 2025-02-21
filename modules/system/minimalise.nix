@@ -62,7 +62,7 @@
   };
 
   # Disable xdg autostart
-  #xdg = {
-  #  autostart.enable = lib.mkForce false;
-  #};
+  xdg = {
+    autostart.enable = lib.mkForce false;
+  };
 }
