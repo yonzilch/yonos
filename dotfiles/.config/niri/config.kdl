@@ -138,8 +138,8 @@ binds {
     // a matching layout switch hotkey configured in xkb options above.
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    Super+Space       { switch-layout "next"; }
-    Super+Shift+Space { switch-layout "prev"; }
+    // Super+Space       { switch-layout "next"; }
+    // Super+Shift+Space { switch-layout "prev"; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Super+Shift+E { quit; }
