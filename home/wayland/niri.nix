@@ -11,7 +11,7 @@ mkIf (WM == "niri")
   ];
   xdg.portal = {
     configPackages = [
-      pkgs.gnome.gnome-session
+      pkgs.gnome-session
     ];
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
