@@ -159,6 +159,13 @@ binds {
 }
 
 
+environment {
+    CURRENT_COMPOSITOR "niri"
+    DISPLAY ":0"
+    XDG_SESSION_DESKTOP "Niri"
+}
+
+
 hotkey-overlay {
     skip-at-startup
 }
