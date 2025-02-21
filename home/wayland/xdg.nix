@@ -47,9 +47,7 @@
     portal = {
       config = {
         common = {
-          "org.freedesktop.impl.portal.Secret" = [
-            "keepassxc"
-          ];
+          "org.freedesktop.impl.portal.FileChooser" = "gtk";
         };
       };
       enable = true;
