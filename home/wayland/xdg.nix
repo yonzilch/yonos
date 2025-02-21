@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   xdg = {
     enable = true;
@@ -45,19 +45,14 @@
       };
     };
     portal = {
+      config = {
+        common = {
+          "org.freedesktop.impl.portal.Secret" = [
+            "keepassxc"
+          ];
+        };
+      };
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-wlr
-      ];
-      configPackages = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-wlr
-      ];
     };
     userDirs = {
       enable = true;

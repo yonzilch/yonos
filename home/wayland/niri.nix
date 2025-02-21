@@ -9,4 +9,12 @@ mkIf (WM == "niri")
     nautilus
     niri
   ];
+  xdg.portal = {
+    configPackages = [
+      pkgs.gnome.gnome-session
+    ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome ];
+  };
 }
