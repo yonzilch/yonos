@@ -125,6 +125,7 @@ _: {
           }
         ];
       };
+      persistence.enable = true;
       trim.enable = true;
       neoscroll.enable = true;
       dressing.enable = true;
