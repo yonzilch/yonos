@@ -6,7 +6,7 @@ with lib;
 mkIf (WM == "niri")
 {
   home.packages = with pkgs; [
-    nautilis
+    nautilus
     niri
   ];
 }
