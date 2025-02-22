@@ -6,6 +6,10 @@
   inputs = {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     daeuniverse.url = "github:daeuniverse/flake.nix";
+    disko = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +24,7 @@
     self-nur.url = "github:yonzilch/nur-packages";
   };
 
-  outputs = inputs@{ chaotic, daeuniverse, nixpkgs, home-manager, stylix, ... }:
+  outputs = inputs@{ chaotic, daeuniverse, disko, nixpkgs, home-manager, stylix, ... }:
   let
     hostname = "samyukti";
     username = "admin";
