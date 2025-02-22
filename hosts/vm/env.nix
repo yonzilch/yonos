@@ -1,7 +1,7 @@
 {
   Bluetooth = false; # see https://github.com/blueman-project/blueman
 
-  BootLoader = "grub"; # see https://nixos.wiki/wiki/Bootloader
+  BootLoader = "systemd-boot"; # see https://nixos.wiki/wiki/Bootloader
 
   GPU-AMD = false; # see https://nixos.wiki/wiki/AMD_GPU
   GPU-Nvidia = false; # see https://nixos.wiki/wiki/Nvidia
@@ -13,11 +13,11 @@
   Locale = "en_US.UTF-8"; # see https://docs.moodle.org/405/en/Table_of_locales
   TimeZone = "America/Chicago"; # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-  MonitorSettings = "monitor = , 1920x1080@60, auto, 1"; # see https://wiki.hyprland.org/Configuring/Monitors/
+  MonitorSettings = "monitor = , preferred, auto, 1"; # see https://wiki.hyprland.org/Configuring/Monitors/
   ScaleLevel = "1"; # see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
 
   Transparent-Proxy = false; # see https://github.com/daeuniverse/daed
   QEMU-VM-Use-Case = false; # see https://github.com/qemu/qemu
 
-  WM = "niri"; # Possible options: Hyprland, niri
+  WM = "Hyprland"; # Possible options: Hyprland, niri
 }
