@@ -21,7 +21,7 @@
       gc-keep-outputs = lib.mkDefault false;
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
-        "https://cache.garnix.io" # see https://github.com/sodiboo/niri-flake
+        "https://cache.garnix.io" # see https://github.com/daeuniverse/flake.nix
         "https://cache.nixos.org" # see https://nixos.wiki/wiki/Binary_Cache
         "https://chaotic-nyx.cachix.org" # see https://github.com/chaotic-cx/nyx
         "https://nix-community.cachix.org" # see https://nix-community.org/cache/
