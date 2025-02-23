@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ inputs, lib, ... }:
 {
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
