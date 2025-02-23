@@ -12,7 +12,7 @@
       automatic = true;
       dates = [ "weekly" ];
     };
-    package = pkgs.lix;
+    # package = pkgs.lix; # use lix instead of nix would cause clan-cli error
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = lib.mkDefault true;
