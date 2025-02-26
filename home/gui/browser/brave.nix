@@ -26,10 +26,6 @@
         id = "djnlaiohfaaifbibleebjggkghlmcpcj";
       }
       {
-        # KeePassXC-Browser
-        id = "oboonakemofpalcgghocfoadofidjkkk";
-      }
-      {
         # KISS Translator
         id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
       }
