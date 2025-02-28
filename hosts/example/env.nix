@@ -1,7 +1,7 @@
 {
   Bluetooth = false; # see https://github.com/blueman-project/blueman
 
-  BootLoader = "systemd-boot"; # see https://nixos.wiki/wiki/Bootloader
+  BootLoader = "systemd-boot"; # Possible options: grub, systemd-boot # see https://nixos.wiki/wiki/Bootloader
 
   GPU-AMD = false; # see https://nixos.wiki/wiki/AMD_GPU
   GPU-Nvidia = false; # see https://nixos.wiki/wiki/Nvidia
@@ -11,7 +11,7 @@
   KeyboardLayout = "us"; # see https://en.wikipedia.org/wiki/Keyboard_layout
   KeyboardOptions = ""; # see https://wiki.hyprland.org/Configuring/Uncommon-tips--tricks https://github.com/YaLTeR/niri/wiki/Configuration:-Input#keyboard
   Locale = "en_US.UTF-8"; # see https://docs.moodle.org/405/en/Table_of_locales
-  TimeZone = "America/Chicago"; # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TimeZone = "Asia/Singapore"; # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
   MonitorSettings = "monitor = , preferred, auto, 1"; # see https://wiki.hyprland.org/Configuring/Monitors/
   ScaleLevel = "1"; # see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
