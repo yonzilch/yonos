@@ -6,7 +6,7 @@ _: {
       filesystem = {
         window = {
           mappings = {
-            "\\" = "close_window";
+            "<C-\\>" = "close_window";
           };
         };
       };
@@ -14,7 +14,7 @@ _: {
 
     keymaps = [
       {
-        key = "\\";
+        key = "<C-\\>";
         action = "<cmd>Neotree reveal<cr>";
         options = {
           desc = "NeoTree reveal";
