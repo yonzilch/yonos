@@ -1,16 +1,26 @@
-{ config, hostname, lib, pkgs, ... }:
-let
-  inherit (import ../../hosts/${hostname}/env.nix)
-  BootLoader KernelPackages KeyboardLayout Locale TimeZone;
-in
 {
+  config,
+  hostname,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit
+    (import ../../hosts/${hostname}/env.nix)
+    BootLoader
+    KernelPackages
+    KeyboardLayout
+    Locale
+    TimeZone
+    ;
+in {
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
-      compressorArgs = [ "-T0" "-19" "--long" ];
+      compressorArgs = ["-T0" "-19" "--long"];
       systemd.enable = true;
       verbose = false;
     };
@@ -18,9 +28,9 @@ in
       "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
       "vm.max_map_count" = 2147483642; # Needed For Some Steam Games
     };
-    kernelModules = [ "v4l2loopback" ];# v4l2loopback is for OBS Virtual Cam Support
+    kernelModules = ["v4l2loopback"]; # v4l2loopback is for OBS Virtual Cam Support
     kernelPackages = pkgs.${KernelPackages};
-    kernelParams = [ "audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog" ];
+    kernelParams = ["audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = lib.mkIf (BootLoader == "systemd-boot") {
@@ -67,7 +77,7 @@ in
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall.enable = false;
     hostName = hostname;
-    nameservers = [ "127.0.0.1" "::1" ];
+    nameservers = ["127.0.0.1" "::1"];
     networkmanager = {
       dns = "none";
       enable = true;
@@ -82,6 +92,11 @@ in
 
   security = {
     rtkit.enable = true;
+    sudo.enable = false;
+    sudo-rs = {
+      enable = true;
+      execWheelOnly = true;
+    };
     pam.services = {
       hyprlock = {};
       login.kwallet.enable = lib.mkForce false;
@@ -114,9 +129,9 @@ in
 
   systemd.user.services.mate-polkit = {
     description = "mate-polkit-agent";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1";
