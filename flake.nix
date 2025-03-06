@@ -26,7 +26,7 @@
 
   outputs = inputs@{ chaotic, daeuniverse, disko, nixpkgs, home-manager, stylix, ... }:
   let
-    hostname = "samyukti";
+    hostname = "vm";
     username = "admin";
   in
   {
@@ -41,6 +41,7 @@
           ./hosts/${hostname}/default.nix
           chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
+          disko.nixosModules.disko
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
