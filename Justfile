@@ -8,6 +8,11 @@ anywhere input:
   nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}}
 
 
+anywhere-lb input:
+  # perform nixos-anywhere install (use localhost to build)
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
+
+
 anywhere-vm input:
   # test nixos-anywhere install in local vm
   nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
@@ -24,7 +29,7 @@ build-vm input:
 
 
 clean-channels:
-  # remove nix-channel files
+  # remove nix-channel files (expect nix-path)
   sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
 
 

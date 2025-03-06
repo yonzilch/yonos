@@ -24,13 +24,13 @@ _: {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "mirror";
+                pool = "fs";
               };
             };
           };
           type = "gpt";
         };
-        device = "/dev/sda";
+        device = "/dev/vda";
         type = "disk";
       };
       mirror2 = {
@@ -49,25 +49,25 @@ _: {
                 type = "filesystem";
                 format = "vfat";
                 mountOptions = [ "umask=0077" ];
-                mountpoint = "/boot1";
+                mountpoint = "/boot2";
               };
             };
             zfs = {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "mirror";
+                pool = "fs";
               };
             };
           };
           type = "gpt";
         };
-        device = "/dev/sda";
+        device = "/dev/vdb";
         type = "disk";
       };
     };
     zpool = {
-      mirror = {
+      fs = {
         datasets = {
           root = {
             mountpoint = "/";
