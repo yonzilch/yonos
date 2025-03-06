@@ -1,9 +1,31 @@
 { lib, pkgs, username, ... }:
 {
   imports = [
+    ./disko.nix
     ./hardware.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules;
+
+  boot.loader.grub = {
+    efiSupport = true;
+    mirroredBoots = [
+      {
+        devices = [
+          "nodev"
+        ];
+        path = "/boot1";
+      }
+      {
+        devices = [
+          "nodev"
+        ];
+        path = "/boot2";
+      }
+    ];
+    zfsSupport = true;
+  };
+
+  networking.hostId = "283f9130";
 
   # Define users
   users = {
