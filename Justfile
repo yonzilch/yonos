@@ -1,9 +1,16 @@
 # set hostname environment
 hostname := `hostname`
 
-build-image:
-  # build system image
-  sudo nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+
+
+anywhere input:
+  # perform nixos-anywhere install
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}}
+
+
+anywhere-vm input:
+  # test nixos-anywhere install in local vm
+  nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
 
 
 build input:
