@@ -18,6 +18,9 @@ in {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
+    extraModulePackages = [
+      config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
+    ];
     initrd = {
       compressor = "zstd";
       compressorArgs = ["-T0" "-19" "--long"];
@@ -41,13 +44,11 @@ in {
       grub = lib.mkIf (BootLoader == "grub") {
         configurationLimit = 50;
         device = "nodev";
+        efiSupport = true;
         enable = true;
       };
       timeout = 3;
     };
-    extraModulePackages = [
-      config.boot.kernelPackages.v4l2loopback # v4l2loopback is for OBS Virtual Cam Support
-    ];
     tmp.cleanOnBoot = true;
   };
 

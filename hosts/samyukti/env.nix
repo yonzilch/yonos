@@ -20,4 +20,5 @@
   QEMU-VM-Use-Case = true;
 
   WM = "Hyprland";
+  ZFS-Use-Case = false;
 }
