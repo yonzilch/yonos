@@ -20,4 +20,5 @@
   QEMU-VM-Use-Case = false; # see https://github.com/qemu/qemu
 
   WM = "Hyprland"; # Possible options: Hyprland, niri
+  ZFS-Use-Case = true; # see https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html
 }
