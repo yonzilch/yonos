@@ -1,7 +1,7 @@
 {
   Bluetooth = false; # see https://github.com/blueman-project/blueman
 
-  BootLoader = "mirror";
+  BootLoader = "grub-mirror";
 
   GPU-AMD = false; # see https://nixos.wiki/wiki/AMD_GPU
   GPU-Nvidia = false; # see https://nixos.wiki/wiki/Nvidia

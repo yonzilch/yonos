@@ -1,20 +1,20 @@
 {
   Bluetooth = true;
 
-  BootLoader = "systemd-boot";
+  BootLoader = "grub-mirror";
 
-  GPU-AMD = true;
+  GPU-AMD = false;
   GPU-Nvidia = false;
-  GPU-Intel = true;
+  GPU-Intel = false;
 
-  KernelPackages = "linuxPackages_cachyos";
+  KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
   KeyboardOptions = "caps:escape";
   Locale = "en_US.UTF-8";
   TimeZone = "Asia/Singapore";
 
-  MonitorSettings = "monitor = , highres, auto, 2";
-  ScaleLevel = "2";
+  MonitorSettings = "monitor = , 2560x1440@165, auto, 1.5";
+  ScaleLevel = "1";
 
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;

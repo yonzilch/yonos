@@ -30,7 +30,7 @@ _: {
           };
           type = "gpt";
         };
-        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-1";
+        device = "/dev/disk/by-id/nvme-SSSTC_CL4-8D512_00233540017F";
         type = "disk";
       };
       mirror2 = {
@@ -62,7 +62,7 @@ _: {
           };
           type = "gpt";
         };
-        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-2";
+        device = "/dev/disk/by-id/nvme-SSSTC_CL4-8D512_002212400M02";
         type = "disk";
       };
     };

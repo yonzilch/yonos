@@ -57,7 +57,7 @@
       systemd-importd.enable = lib.mkForce false;
       systemd-journal-flush.enable = lib.mkForce false;
       systemd-pstore.enable = lib.mkForce false;
-      systemd-udev-settle.enable = lib.mkForce false;
+      # systemd-udev-settle.enable = lib.mkForce false; # zpool import need
     };
   };
 

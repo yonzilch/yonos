@@ -12,6 +12,7 @@
     KeyboardLayout
     Locale
     TimeZone
+    ZFS-Use-Case
     ;
 in {
   boot = {
@@ -35,17 +36,28 @@ in {
     kernelPackages = pkgs.${KernelPackages};
     kernelParams = ["audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
     loader = {
-      efi.canTouchEfiVariables = true;
       systemd-boot = lib.mkIf (BootLoader == "systemd-boot") {
         configurationLimit = 50;
         editor = false;
         enable = true;
       };
-      grub = lib.mkIf (BootLoader == "grub") {
+      grub = lib.mkIf (lib.strings.hasInfix "grub" BootLoader) {
         configurationLimit = 50;
         device = "nodev";
+        efiInstallAsRemovable = true;
         efiSupport = true;
         enable = true;
+        mirroredBoots = lib.mkIf (BootLoader == "grub-mirror") [
+          {
+            devices = [ "nodev" ];
+            path = "/boot";
+          }
+          {
+            devices = [ "nodev" ];
+            path = "/boot-mirror";
+          }
+        ];
+        zfsSupport = ZFS-Use-Case;
       };
       timeout = 3;
     };
