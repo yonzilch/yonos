@@ -24,13 +24,13 @@ _: {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "fs";
+                pool = "zroot";
               };
             };
           };
           type = "gpt";
         };
-        device = "/dev/vda";
+        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-1";
         type = "disk";
       };
       mirror2 = {
@@ -56,31 +56,45 @@ _: {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "fs";
+                pool = "zroot";
               };
             };
           };
           type = "gpt";
         };
-        device = "/dev/vdb";
+        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-2";
         type = "disk";
       };
     };
     zpool = {
-      fs = {
+      zroot = {
         datasets = {
+          home = {
+            mountpoint = "/home";
+            options."com.sun:auto-snapshot" = "true";
+            type = "zfs_fs";
+          };
+          nix = {
+            mountpoint = "/nix";
+            options."com.sun:auto-snapshot" = "false";
+            type = "zfs_fs";
+          };
+          persist = {
+            mountpoint = "/persist";
+            options."com.sun:auto-snapshot" = "false";
+            type = "zfs_fs";
+          };
           root = {
             mountpoint = "/";
-            type = "zfs_fs";
             options = {
               mountpoint = "legacy";
               "com.sun:auto-snapshot" = "false";
             };
+            type = "zfs_fs";
           };
         };
         mode = "mirror";
         options.ashift = "12";
-        type = "zpool";
         rootFsOptions = {
           acltype = "posixacl";
           atime = "off";
@@ -88,6 +102,7 @@ _: {
           mountpoint = "none";
           xattr = "sa";
         };
+        type = "zpool";
       };
     };
   };
