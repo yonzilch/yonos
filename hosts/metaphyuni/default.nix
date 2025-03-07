@@ -6,7 +6,7 @@
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules;
 
-  networking.hostId = "283f9130";
+  networking.hostId = "60114255";
 
   # Define users
   users = {

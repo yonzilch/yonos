@@ -26,7 +26,7 @@
 
   outputs = inputs@{ chaotic, daeuniverse, disko, nixpkgs, home-manager, stylix, ... }:
   let
-    hostname = "vm";
+    hostname = "samyukti";
     username = "admin";
   in
   {
