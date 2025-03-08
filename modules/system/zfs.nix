@@ -1,10 +1,12 @@
 {
   hostname,
   lib,
+  pkgs,
   ...
 }: let
   inherit
     (import ../../hosts/${hostname}/env.nix)
+    KernelPackages
     ZFS-Use-Case
     ;
 in
@@ -17,6 +19,7 @@ in
       zfs = {
         forceImportRoot = false;
         devNodes = "/dev/disk/by-id";
+        package = lib.mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
       };
     };
     # Where hostID can be generated with:
