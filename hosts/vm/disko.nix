@@ -71,7 +71,7 @@ _: {
         datasets = {
           home = {
             mountpoint = "/home";
-            options."com.sun:auto-snapshot" = "true";
+            options."com.sun:auto-snapshot" = "false";
             type = "zfs_fs";
           };
           nix = {
@@ -87,7 +87,10 @@ _: {
           root = {
             mountpoint = "/";
             options = {
-              mountpoint = "legacy";
+              encryption = "aes-256-gcm";
+              keyformat = "passphrase";
+              #keylocation = "file:///tmp/secret.key";
+              keylocation = "prompt";
               "com.sun:auto-snapshot" = "false";
             };
             type = "zfs_fs";
