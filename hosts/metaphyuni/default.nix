@@ -8,7 +8,6 @@
 
   networking.hostId = "60114255";
 
-  # Define users
   users = {
     users.root = {
       hashedPassword = "$y$j9T$R3Yv9RtPiBY5UAI.pMU/w.$yp9hFWPZ0eVuNQBqrKpYwLYFU458gXEeZCQyvmHirr7";
