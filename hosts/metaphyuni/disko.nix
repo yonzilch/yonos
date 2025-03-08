@@ -86,14 +86,10 @@ _: {
           };
           root = {
             mountpoint = "/";
-            # [WIP]
-            #options = {
-            #  encryption = "aes-256-gcm";
-            #  keyformat = "passphrase";
-            #  #keylocation = "file:///tmp/secret.key";
-            #  keylocation = "prompt";
-            #  "com.sun:auto-snapshot" = "false";
-            #};
+            options = {
+              mountpoint = "legacy";
+              "com.sun:auto-snapshot" = "false";
+            };
             type = "zfs_fs";
           };
         };
