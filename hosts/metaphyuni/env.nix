@@ -13,7 +13,7 @@
   Locale = "en_US.UTF-8";
   TimeZone = "Asia/Singapore";
 
-  MonitorSettings = "monitor = , 2560x1440@165, auto, 1.5";
+  MonitorSettings = "monitor = , 2560x1600@165, auto, 1.5";
   ScaleLevel = "1";
 
   Transparent-Proxy = false;
