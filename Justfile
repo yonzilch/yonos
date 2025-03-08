@@ -13,11 +13,6 @@ anywhere-lb input:
   nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
 
 
-anywhere-lb-impure input:
-  # perform nixos-anywhere install (use localhost to build)
-  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
-
-
 anywhere-vm input:
   # test nixos-anywhere install in local vm
   nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
