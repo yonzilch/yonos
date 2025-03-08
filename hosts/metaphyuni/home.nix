@@ -4,7 +4,7 @@ let
   inherit (import ../../hosts/${hostname}/env.nix) QEMU-VM-Use-Case;
 in
 {
-  imports = lib.filesystem.listFilesRecursive ../../home/wayland;
+  imports = lib.filesystem.listFilesRecursive ../../home;
 
   dconf.settings = mkIf QEMU-VM-Use-Case {
     "org/virt-manager/virt-manager/connections" = {
