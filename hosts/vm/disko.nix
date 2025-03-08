@@ -69,28 +69,38 @@ _: {
     zpool = {
       zroot = {
         datasets = {
-          home = {
+          "root" = {
+            mountpoint = "/";
+            # [WIP]
+            #options = {
+            #  encryption = "aes-256-gcm";
+            #  keyformat = "passphrase";
+            #  # keylocation = "file:///tmp/secret.key";
+            #  keylocation = "prompt";
+            #  "com.sun:auto-snapshot" = "false";
+            #};
+            type = "zfs_fs";
+          };
+          "root/home" = {
             mountpoint = "/home";
-            options."com.sun:auto-snapshot" = "false";
+            options = {
+              mountpoint = "/home";
+              "com.sun:auto-snapshot" = "false";
+            };
             type = "zfs_fs";
           };
           nix = {
             mountpoint = "/nix";
-            options."com.sun:auto-snapshot" = "false";
+            options = {
+              mountpoint = "/nix";
+              "com.sun:auto-snapshot" = "false";
+            };
             type = "zfs_fs";
           };
           persist = {
             mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
-            type = "zfs_fs";
-          };
-          root = {
-            mountpoint = "/";
             options = {
-              encryption = "aes-256-gcm";
-              keyformat = "passphrase";
-              #keylocation = "file:///tmp/secret.key";
-              keylocation = "prompt";
+              mountpoint = "/persist";
               "com.sun:auto-snapshot" = "false";
             };
             type = "zfs_fs";
