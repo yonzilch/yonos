@@ -7,7 +7,7 @@
   GPU-Nvidia = false; # see https://nixos.wiki/wiki/Nvidia
   GPU-Intel = false; # see https://nixos.wiki/wiki/Intel_Graphics
 
-  KernelPackages = "linuxPackages_xanmod"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
+  KernelPackages = "linuxPackages_cachyos"; # see https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
   KeyboardLayout = "us"; # see https://en.wikipedia.org/wiki/Keyboard_layout
   KeyboardOptions = ""; # see https://wiki.hyprland.org/Configuring/Uncommon-tips--tricks https://github.com/YaLTeR/niri/wiki/Configuration:-Input#keyboard
   Locale = "en_US.UTF-8"; # see https://docs.moodle.org/405/en/Table_of_locales
