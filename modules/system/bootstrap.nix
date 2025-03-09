@@ -64,7 +64,10 @@ in {
     tmp.cleanOnBoot = true;
   };
 
-  console.keyMap = KeyboardLayout;
+  console = {
+    earlySetup = true;
+    keyMap = KeyboardLayout;
+  };
 
   hardware.graphics = {
     enable = true;
