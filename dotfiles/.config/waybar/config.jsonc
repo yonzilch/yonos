@@ -9,8 +9,11 @@
   "modules-left": [
     //"custom/powermenu",
     "custom/startmenu",
-    "cpu",
-    "memory",
+    //"cpu",
+    //"memory",
+    "network",
+    "backlight",
+    "battery",
     "hyprland/workspaces",
     "niri/workspaces"
     //"disk"
@@ -19,13 +22,10 @@
     "wlr/taskbar"
   ],
   "modules-right": [
-    "backlight",
-    "battery",
     "custom/screenshot",
     "tray",
-    "network",
-    "custom/wl-gammarelay-temperature",
     "custom/wl-gammarelay-brightness",
+    "custom/wl-gammarelay-temperature",
     "wireplumber",
     "clock",
     "custom/swaync",
@@ -45,13 +45,13 @@
   },
 
   "custom/startmenu": {
-    "format": "",
+    "format": " ",
     "tooltip": false,
     "on-click": "wlogout",
     "on-click-right": "fuzzel",
   },
   "custom/screenshot": {
-    "format": "  ",
+    "format": " 󰨵 ",
     "on-click": "grim -g \"$(slurp)\" - | swappy -f -",
     "on-click-right": "nemo ~/Pictures/Screenshots",
     "on-click-middle": "sh -c 'grim - | wl-copy -t image/png && notify-send \"Screenshot copied to clipboard\"'",
@@ -106,15 +106,10 @@
 
   "network": {
     "interval": 5,
-    "format-alt": "{bandwidthUpBits}  {bandwidthDownBits}",
-    "format-disconnected": "󰌙",
-    "format-ethernet": "  ",
-    "format-wifi": " {icon}",
-    "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤢 ","󰤨 "],
+    "format": "{bandwidthUpBits} {bandwidthDownBits}",
+    "format-disconnected": "󰲜",
     "on-click-right": "nm-connection-editor",
-    "on-click-middle": "kitty nmtui",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
-    "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}",
   },
 
   "disk": {
@@ -125,12 +120,10 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-alt": "{percent}% {icon}",
-    "format-alt-click": "click-right",
     //"format-icons": ["", ""],
     "format-icons": ["", ""],
-    "on-scroll-down": "brightnessctl s 5%-",
-    "on-scroll-up": "brightnessctl s +5%",
+    "on-scroll-down": "brightnessctl s 2%-",
+    "on-scroll-up": "brightnessctl s +2%",
   },
 
   "custom/powermenu": {
@@ -214,8 +207,8 @@
   "custom/wl-gammarelay-brightness": {
       "format": " {}%",
       "exec": "wl-gammarelay-rs watch {bp}",
-      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.5",
-      "on-click-middle": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
+      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.7",
+      "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
       "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
       "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
       "tooltip": false
@@ -224,7 +217,7 @@
       "format": " {}K",
       "exec": "wl-gammarelay-rs watch {t}",
       "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
-      "on-click-middle": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
+      "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
       "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
       "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
       "tooltip": false
