@@ -9,8 +9,8 @@
   "modules-left": [
     //"custom/powermenu",
     "custom/startmenu",
-    "cpu",
-    "memory",
+    //"cpu",
+    //"memory",
     "hyprland/workspaces",
     "niri/workspaces"
     //"disk"
@@ -246,5 +246,3 @@
     "escape": true,
   },
 }
-
-
