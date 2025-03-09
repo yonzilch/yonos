@@ -3,12 +3,13 @@ _: {
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];
+        ids = ["*"];
         settings = {
           main = {
             capslock = "overload(alt, esc)";
           };
           "alt" = {
+            c = "backspace";
             d = "delete";
             h = "left";
             j = "down";
