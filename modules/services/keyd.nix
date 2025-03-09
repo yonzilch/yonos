@@ -11,6 +11,7 @@ _: {
           "alt" = {
             c = "backspace";
             d = "delete";
+            e = "enter";
             h = "left";
             j = "down";
             k = "up";
