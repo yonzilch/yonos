@@ -9,7 +9,6 @@
 
   KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
-  KeyboardOptions = "caps:escape";
   Locale = "en_US.UTF-8";
   TimeZone = "Asia/Singapore";
 
