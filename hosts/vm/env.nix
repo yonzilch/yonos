@@ -15,6 +15,7 @@
   MonitorSettings = "monitor = , 2560x1440@60, auto, 1.5"; # see https://wiki.hyprland.org/Configuring/Monitors/
   ScaleLevel = "1"; # see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
 
+  Power-Implement = true;
   Transparent-Proxy = false; # see https://github.com/daeuniverse/daed
   QEMU-VM-Use-Case = false; # see https://github.com/qemu/qemu
 

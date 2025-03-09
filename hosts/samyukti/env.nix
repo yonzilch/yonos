@@ -15,6 +15,7 @@
   MonitorSettings = "monitor = , highres, auto, 2";
   ScaleLevel = "2";
 
+  Power-Implement = true;
   Transparent-Proxy = false;
   QEMU-VM-Use-Case = true;
 
