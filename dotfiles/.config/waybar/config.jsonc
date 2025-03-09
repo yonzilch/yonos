@@ -11,9 +11,9 @@
     "custom/startmenu",
     //"cpu",
     //"memory",
-    "network",
     "backlight",
     "battery",
+    "network",
     "hyprland/workspaces",
     "niri/workspaces"
     //"disk"
