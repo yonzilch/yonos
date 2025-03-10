@@ -1,8 +1,10 @@
-{ hostname, pkgs, ... }:
-let
-  inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
-in
 {
+  hostname,
+  pkgs,
+  ...
+}: let
+  inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
+in {
   environment = {
     sessionVariables = {
       EDITOR = "nvim";
@@ -61,7 +63,6 @@ in
       ninja
       pkg-config
       sarasa-gothic
-      zenith
     ];
   };
 
