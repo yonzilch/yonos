@@ -1,5 +1,3 @@
-
-
 Yon Zilch's OS
 ==========
 
@@ -42,3 +40,4 @@ See [LICENSE](LICENSE) for more information.
 - <https://github.com/xddxdd/nixos-config>
 - <https://gitea.c3d2.de/c3d2/nix-config>
 - <https://github.com/ruiiiijiiiiang/dotfiles>
+- <https://github.com/Mic92/dotfiles>
