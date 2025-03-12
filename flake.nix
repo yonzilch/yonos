@@ -1,6 +1,5 @@
 {
-  description =
-  "YonOS is a Nix and Flakes❄️ based config customized with Occam's razor
+  description = "YonOS is a Nix and Flakes❄️ based config customized with Occam's razor
    NixOS is cool🧊, but it'll make you feel cold🥶 when eating this flake, I guess.";
 
   inputs = {
@@ -24,12 +23,18 @@
     self-nur.url = "github:yonzilch/nur-packages";
   };
 
-  outputs = inputs@{ chaotic, daeuniverse, disko, nixpkgs, home-manager, stylix, ... }:
-  let
-    hostname = "samyukti";
+  outputs = inputs @ {
+    chaotic,
+    daeuniverse,
+    disko,
+    nixpkgs,
+    home-manager,
+    stylix,
+    ...
+  }: let
+    hostname = "metaphyuni";
     username = "admin";
-  in
-  {
+  in {
     nixosConfigurations = {
       "${hostname}" = nixpkgs.lib.nixosSystem {
         specialArgs = {
