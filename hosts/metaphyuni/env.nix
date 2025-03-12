@@ -22,7 +22,7 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , 2560x1600@165, auto, 1.6";
+  MonitorSettings = "monitor = , 2560x1600@100, auto, 1.6";
   ScaleLevel = "1.6";
   WM = "Hyprland";
 }
