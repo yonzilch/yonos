@@ -1,36 +1,37 @@
 { lib, ... }:
+with lib;
 {
   # Minimize boot
   boot = {
-    bcache.enable = lib.mkForce false;
-    binfmt.addEmulatedSystemsToNixSandbox = lib.mkForce false;
+    bcache.enable = mkForce false;
+    binfmt.addEmulatedSystemsToNixSandbox = mkForce false;
   };
 
   # Disable unnecessary documentation
-  documentation.enable = lib.mkForce  false;
-  documentation.doc.enable = lib.mkForce false;
-  documentation.info.enable = lib.mkForce false;
-  documentation.man.enable = lib.mkForce false;
-  documentation.nixos.enable = lib.mkForce false;
+  documentation.enable = mkForce  false;
+  documentation.doc.enable = mkForce false;
+  documentation.info.enable = mkForce false;
+  documentation.man.enable = mkForce false;
+  documentation.nixos.enable = mkForce false;
 
   # Minimize environment
   environment = {
-    defaultPackages = lib.mkForce [ ];
+    defaultPackages = mkForce [ ];
   };
 
   # Disable unnecessary programs
   programs = {
     bash = {
-      completion.enable = lib.mkForce false;
-      enableLsColors = lib.mkForce false;
+      completion.enable = mkForce false;
+      enableLsColors = mkForce false;
     };
-    command-not-found.enable = lib.mkForce false;
-    nano.enable = lib.mkForce false;
+    command-not-found.enable = mkForce false;
+    nano.enable = mkForce false;
   };
 
   # Minimize services
   services = {
-    gnome.gnome-keyring.enable = lib.mkForce false;
+    gnome.gnome-keyring.enable = mkForce false;
     journald = {
       extraConfig = ''
         Storage=volatile
@@ -43,26 +44,26 @@
         RateLimitBurst=1000
       '';
     };
-    resolved.enable = lib.mkForce false;
+    resolved.enable = mkForce false;
   };
 
   # Minimize systemd services
   systemd = {
-    coredump.enable = lib.mkForce false;
-    enableEmergencyMode = lib.mkForce false;
-    oomd.enable = lib.mkForce false;
+    coredump.enable = mkForce false;
+    enableEmergencyMode = mkForce false;
+    oomd.enable = mkForce false;
     services = {
-      mount-pstore.enable = lib.mkForce false;
-      systemd-bsod.enable = lib.mkForce false;
-      systemd-importd.enable = lib.mkForce false;
-      systemd-journal-flush.enable = lib.mkForce false;
-      systemd-pstore.enable = lib.mkForce false;
-      # systemd-udev-settle.enable = lib.mkForce false; # zpool import need
+      mount-pstore.enable = mkForce false;
+      systemd-bsod.enable = mkForce false;
+      systemd-importd.enable = mkForce false;
+      systemd-journal-flush.enable = mkForce false;
+      systemd-pstore.enable = mkForce false;
+      # systemd-udev-settle.enable = mkForce false; # zpool import need
     };
   };
 
   # Disable xdg autostart
   xdg = {
-    autostart.enable = lib.mkForce false;
+    autostart.enable = mkForce false;
   };
 }
