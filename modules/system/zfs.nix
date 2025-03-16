@@ -6,6 +6,7 @@
 }: let
   inherit
     (import ../../hosts/${hostname}/env.nix)
+    Networking-HostID
     KernelPackages
     ZFS-Use-Case
     ;
@@ -22,9 +23,7 @@ in
         package = lib.mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
       };
     };
-    # Where hostID can be generated with:
-    # head -c4 /dev/urandom | od -A none -t x4
-    # networking.hostId = "";
+    networking.hostId = Networking-HostID;
     services.zfs = {
       autoScrub = {
         enable = true;
