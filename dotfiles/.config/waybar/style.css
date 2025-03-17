@@ -103,13 +103,11 @@ tooltip label {
 #battery.plugged {
     color: @green;
 }
+#battery.warning {
+    color: @yellow;
+}
 #battery.critical:not(.charging) {
     color: @red;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 #custom-wall {
     color: @sky;
