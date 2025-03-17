@@ -6,7 +6,7 @@
   GPU-Nvidia = false;
   GPU-Intel = false;
   Power-Implement = true;
-  ZFS-Networking-HostID = "";
+  ZFS-Networking-HostID = "b53024b6";
   ZFS-Use-Case = true;
 
   ## Software related
