@@ -6,8 +6,8 @@
 }: let
   inherit
     (import ../../hosts/${hostname}/env.nix)
-    Networking-HostID
     KernelPackages
+    ZFS-Networking-HostID
     ZFS-Use-Case
     ;
 in
@@ -23,7 +23,7 @@ in
         package = lib.mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
       };
     };
-    networking.hostId = Networking-HostID;
+    networking.hostId = ZFS-Networking-HostID;
     services.zfs = {
       autoScrub = {
         enable = true;
