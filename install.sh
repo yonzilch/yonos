@@ -14,7 +14,7 @@ if [ -d "/boot" ]; then
     echo "Running on installed NixOS, going next step"
     echo "--------------------------------"
 else
-    echo "Please install under installed NixOS not LiveCD"
+    echo "Please install under installed NixOS not in LiveCD"
     exit 1
 fi
 
