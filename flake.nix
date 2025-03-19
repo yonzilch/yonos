@@ -31,7 +31,8 @@
     home-manager,
     stylix,
     ...
-  }: let
+  }:
+  let
     hostname = "samyukti";
     username = "admin";
   in {
