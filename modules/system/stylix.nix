@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-# catppuccin-mocha base16Scheme
+# catppuccin-mocha base16Scheme # See https://github.com/catppuccin/base16
 #      base16Scheme = {
 #        base00 = "1e1e2e"; # base
 #        base01 = "181825"; # mantle
