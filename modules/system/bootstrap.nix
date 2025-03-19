@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit
     (import ../../hosts/${hostname}/env.nix)
     BootLoader
