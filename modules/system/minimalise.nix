@@ -8,7 +8,7 @@ with lib;
   };
 
   # Disable unnecessary documentation
-  documentation.enable = mkForce  false;
+  documentation.enable = mkForce false;
   documentation.doc.enable = mkForce false;
   documentation.info.enable = mkForce false;
   documentation.man.enable = mkForce false;
