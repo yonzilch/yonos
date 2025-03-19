@@ -2,7 +2,8 @@
   hostname,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
 in {
   environment = {

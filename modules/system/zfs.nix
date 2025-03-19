@@ -30,7 +30,7 @@ in
         interval = "weekly";
       };
       trim = {
-        enable = true; # hdd no need
+        enable = true; # HDD no need
         interval = "weekly";
       };
       autoSnapshot.enable = true;
