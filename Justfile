@@ -29,7 +29,7 @@ build-vm input:
 
 
 clean-channels:
-  # remove nix-channel files (expect nix-path)
+  # remove useless nix-channel files
   sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
 
 
@@ -71,9 +71,9 @@ update:
 
 upgrade:
   # let system totally upgrade
-  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
+  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix ; git add . ; sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
 
 
 upgrade-debug:
   # let system totally upgrade (deBug Mode)
-  sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
+  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix ; git add . ; sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
