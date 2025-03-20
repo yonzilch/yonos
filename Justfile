@@ -1,6 +1,8 @@
 # set hostname environment
 hostname := `hostname`
 
+# set current username
+username := `whoami`
 
 
 anywhere input:
@@ -9,7 +11,7 @@ anywhere input:
 
 
 anywhere-lb input:
-  # perform nixos-anywhere install (use localhost to build)
+  # perform nixos-anywhere install (local builder)
   nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
 
 
@@ -28,7 +30,7 @@ build-vm input:
   sudo nixos-rebuild build-vm --flake .#{{input}} --show-trace -L -v
 
 
-clean-channels:
+clean:
   # remove useless nix-channel files
   sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
 
@@ -71,9 +73,19 @@ update:
 
 upgrade:
   # let system totally upgrade
-  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix ; git add . ; sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
+  ## Update both hostname and username in flake.nix
+  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix
+  sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{username}}\"/" ./flake.nix
+  git add .
+  ## Rebuild the system
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
 
 
 upgrade-debug:
   # let system totally upgrade (deBug Mode)
-  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix ; git add . ; sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
+  ## Update both hostname and username in flake.nix
+  sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{hostname}}\"/" ./flake.nix
+  sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"{{username}}\"/" ./flake.nix
+  git add .
+  ## Rebuild the system
+  sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --sudo --log-format internal-json --show-trace -L -v |& nom --json
