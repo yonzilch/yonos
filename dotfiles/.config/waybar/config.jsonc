@@ -106,8 +106,9 @@
 
   "network": {
     "interval": 5,
-    "format": "{bandwidthUpBits} {bandwidthDownBits}",
-    "format-disconnected": "󰲜",
+    "format": "{bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-disconnected": "󰲜 ",
+    "on-click": "alacritty -e zenith",
     "on-click-right": "nm-connection-editor",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
   },
@@ -120,8 +121,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    //"format-icons": ["", ""],
-    "format-icons": ["", ""],
+    "format-icons": [""],
     "on-scroll-down": "brightnessctl s 2%-",
     "on-scroll-up": "brightnessctl s +2%",
   },
@@ -136,16 +136,9 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "format": " {:%H:%M}",
     "format-alt": " {:%a %b %d, %G}",
-  },
-
-  "clock#date": {
-    "format": "  {:%H:%M   %e %b}", // Icon: calendar-alt
-    //"format": "{:%I:%M %p  %A %b %d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "today-format": "<b>{}</b>",
   },
 
   "cpu": {
@@ -159,18 +152,6 @@
   "hyprland/workspaces": {
     "all-outputs": true,
     "format": "{name}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
-    },
     "on-scroll-down": "hyprctl dispatch workspace e+1 1>/dev/null",
     "on-scroll-up": "hyprctl dispatch workspace e-1 1>/dev/null",
     "sort-by-number": true,
@@ -205,7 +186,7 @@
   },
 
   "custom/wl-gammarelay-brightness": {
-      "format": " {}%",
+      "format": "{}%",
       "exec": "wl-gammarelay-rs watch {bp}",
       "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.7",
       "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
@@ -214,7 +195,7 @@
       "tooltip": false
   },
   "custom/wl-gammarelay-temperature": {
-      "format": " {}K",
+      "format": "{}K",
       "exec": "wl-gammarelay-rs watch {t}",
       "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
       "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
