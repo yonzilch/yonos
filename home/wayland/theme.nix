@@ -38,6 +38,7 @@
   stylix = {
     autoEnable = true;
     targets = {
+      floorp.enable = false;
       hyprland.enable = false;
       kde.enable = false;
       nixvim.enable = false;
