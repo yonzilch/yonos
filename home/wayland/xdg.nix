@@ -33,7 +33,7 @@
         "x-scheme-handler/https" = browser;
         "x-scheme-handler/unknown" = browser;
 
-        "x-scheme-handler/tg" = ["io.github.kukuruzka165.materialgram.desktop "];
+        "x-scheme-handler/tg" = ["io.github.kukuruzka165.materialgram.desktop"];
 
         "audio/*" = ["mpv.desktop"];
         "video/*" = ["mpv.desktop"];
