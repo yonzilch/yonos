@@ -30,6 +30,7 @@ in {
       SDL_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";
     };
+
     systemPackages = with pkgs; [
       # archive
       p7zip
