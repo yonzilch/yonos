@@ -110,7 +110,7 @@
     "format-disconnected": "󰲜 ",
     "on-click": "alacritty -e zenith",
     "on-click-right": "corestats",
-    "on-middle-click": "alacritty -e nmtui",
+    "on-click-middle": "alacritty -e nmtui",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
   },
 
