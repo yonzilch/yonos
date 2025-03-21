@@ -109,7 +109,8 @@
     "format": "{bandwidthUpBytes} {bandwidthDownBytes}",
     "format-disconnected": "󰲜 ",
     "on-click": "alacritty -e zenith",
-    "on-click-right": "nm-connection-editor",
+    "on-click-right": "corestats",
+    "on-middle-right": "alacritty -e nmtui",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
   },
 
