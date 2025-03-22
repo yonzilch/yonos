@@ -44,7 +44,7 @@
           inherit username;
         };
         modules = [
-          ./hosts/${hostname}/default.nix
+          ./hosts/${hostname}
           chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
           disko.nixosModules.disko
