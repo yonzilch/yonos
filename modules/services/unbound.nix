@@ -6,26 +6,26 @@ _: {
         server = {
           interface = ["127.0.0.1" "::1"];
           verbosity = 1;
-          use-syslog = "yes";
-          do-ip4 = "yes";
-          do-ip6 = "yes";
-          do-udp = "yes";
-          do-tcp = "yes";
+          use-syslog = true;
+          do-ip4 = true;
+          do-ip6 = true;
+          do-udp = true;
+          do-tcp = true;
 
           # Privacy-related settings
-          qname-minimisation = "yes";
-          hide-identity = "yes";
-          hide-version = "yes";
+          qname-minimisation = true;
+          hide-identity = true;
+          hide-version = true;
 
           # Performance settings
-          prefetch = "yes";
+          prefetch = true;
           num-threads = 2;
         };
 
         forward-zone = [
           {
             name = ".";
-            forward-tls-upstream = "yes";
+            forward-tls-upstream = true;
             # dot.sb servers
             forward-addr = [
               "185.222.222.222@853#dot.sb"
@@ -44,7 +44,7 @@ _: {
 
         # Remote control configuration (optional)
         remote-control = {
-          control-enable = "yes";
+          control-enable = true;
           control-interface = "127.0.0.1";
         };
       };
