@@ -9,8 +9,6 @@ in
     programs.virt-manager.enable = true;
 
     services = {
-      cockpit.enable = true;
-      qemuGuest.enable = true;
       spice-vdagentd.enable = true;
       spice-webdavd.enable = true;
     };
