@@ -5,6 +5,7 @@
   GPU-AMD = true;
   GPU-Nvidia = false;
   GPU-Intel = false;
+  HotSpot-Use-Case = false;
   ZFS-Networking-HostID = "b53024b6";
   ZFS-Use-Case = true;
 
