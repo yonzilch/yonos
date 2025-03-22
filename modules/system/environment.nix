@@ -32,7 +32,8 @@ in {
     };
 
     systemPackages = with pkgs; [
-      # archive
+
+      # Archive
       p7zip
       gnutar
       unzipNLS
@@ -40,31 +41,22 @@ in {
       zip
       zstd
 
-      # core
+      # Greeter with ddm
       greetd.tuigreet
-      just
-      v4l-utils # For OBS virtual cam support
 
-      # editor use in tty
+      # For OBS virtual cam support
+      v4l-utils
+
+      # Editor use in tty
       micro
 
-      # networking tool
+      # Networking tool
       curl
 
-      # misc
-      expect
-      file
-      gcc
-      ghc
-      gnumake
-      jq
+      # Misc
+      libnotify
       libvirt
       lm_sensors
-      libnotify
-      meson
-      ninja
-      pkg-config
-      sarasa-gothic
     ];
   };
 
