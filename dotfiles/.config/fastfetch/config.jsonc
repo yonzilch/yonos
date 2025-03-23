@@ -142,8 +142,15 @@
       "outputColor": "blue",
     },
     {
+      "type": "font",
+      "key": "│ ╠ Font    │",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "format": "{1}",
+    },
+    {
       "type": "terminalfont",
-      "key": "│ ╠󰬴 Font    │",
+      "key": "│ ╠󰬴 TermFont│",
       "keyColor": "blue",
       "outputColor": "blue",
     },
@@ -156,7 +163,7 @@
     },
     {
       "type": "title",
-      "key": "│ ╚ Hostname│",
+      "key": "│ ╚ Hostname│",
       "keyColor": "blue",
       "outputColor": "blue",
       "format": "{8}",
