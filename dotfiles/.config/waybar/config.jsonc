@@ -169,9 +169,9 @@
   "wireplumber": {
     "on-click": "pwvucontrol",
     "on-click-right": "easyeffects",
-    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01-",
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01+",
+    "on-click-middle": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-down": "swayosd-client --output-volume -2",
+    "on-scroll-up": "swayosd-client --output-volume +2",
     "format": "{icon} {volume}%",
     "format-muted": "MUTE",
     "format-source": "",
