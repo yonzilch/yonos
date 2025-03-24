@@ -44,6 +44,7 @@
       kde.enable = false;
       nixvim.enable = false;
       waybar.enable = false;
+      yazi.enable = false;
       zed.enable = false;
     };
   };
