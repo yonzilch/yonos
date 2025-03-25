@@ -15,7 +15,7 @@ mkIf (WM == "sway")
       enable = true;
       variables = ["--all"];
     };
-    xwayland.enable = true;
+    xwayland = true;
   };
   xdg.portal = {
     config = {
