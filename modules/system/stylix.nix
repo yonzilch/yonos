@@ -28,12 +28,12 @@
     };
     fonts = {
       monospace = {
-        name = "Maple Mono SC NF";
-        package = pkgs.maple-mono-SC-NF;
+        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
       };
       sansSerif = {
-        name = "Maple Mono SC NF";
-        package = pkgs.maple-mono-SC-NF;
+        name = "Sarasa Gothic SC";
+        package = pkgs.sarasa-gothic;
       };
       serif = config.stylix.fonts.sansSerif;
       sizes = {
