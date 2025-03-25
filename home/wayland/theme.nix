@@ -3,9 +3,9 @@
   fonts.fontconfig = {
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "Maple Mono SC NF" ];
-      sansSerif = [ "Maple Mono SC NF" ];
-      serif = [ "Maple Mono SC NF" ];
+      monospace = [ "JetBrainsMono Nerd Font Mono" ];
+      sansSerif = [ "Sarasa Gothic SC" ];
+      serif = [ "Sarasa Gothic SC" ];
     };
     enable = true;
   };
@@ -27,6 +27,7 @@
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
     qt6ct
+    sarasa-gothic
   ];
 
   qt = {
