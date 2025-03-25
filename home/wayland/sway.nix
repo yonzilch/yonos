@@ -10,6 +10,8 @@ mkIf (WM == "sway")
     xorg.xprop
   ];
   wayland.windowManager.sway = {
+    config = {};
+    checkConfig = false;
     enable = true;
     extraOptions = [
       "--unsupported-gpu"
