@@ -25,19 +25,19 @@ multiplier = 3
 size = 12
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Maple Mono SC NF"
 style = "Regular"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "Maple Mono SC NF"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Maple Mono SC NF"
 style = "Italic"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "Maple Mono SC NF"
 style = "Bold Italic"
 
 [selection]
