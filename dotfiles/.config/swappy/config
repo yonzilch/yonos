@@ -7,5 +7,5 @@ paint_mode = brush
 save_dir = ~/Pictures/Screenshots
 save_filename_format = SCREENSHOT-%Y-%m-%d-%H:%M:%S.png
 show_panel = false
-text_font = Sarasa Gothic SC
+text_font = Maple Mono SC NF
 text_size = 20
