@@ -45,6 +45,6 @@
   MonitorSettings = "monitor = , preferred, auto, 1";
   ### See https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
   ScaleLevel = "1";
-  ### Possible options: Hyprland, niri
+  ### Possible options: Hyprland, niri, sway
   WM = "Hyprland";
 }

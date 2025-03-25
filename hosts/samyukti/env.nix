@@ -24,6 +24,7 @@
 
   ## Wayland related
   MonitorSettings = "monitor = , highres, auto, 1.875";
+  OutputSettings = "output * scale 1.875";
   ScaleLevel = "1.875";
   WM = "Hyprland";
 }
