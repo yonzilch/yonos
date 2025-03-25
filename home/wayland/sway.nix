@@ -10,18 +10,10 @@ mkIf (WM == "sway")
     xorg.xprop
   ];
   wayland.windowManager.sway = {
-    config = {};
     checkConfig = false;
     enable = true;
     extraOptions = [
       "--unsupported-gpu"
-    ];
-    extraConfig = concatStrings [
-    ''
-      ${OutputSettings}
-      include $HOME/.config/sway/swaywm/*
-      set $SCALE ${ScaleLevel}
-    ''
     ];
     systemd = {
       enable = true;
@@ -33,15 +25,24 @@ mkIf (WM == "sway")
     };
     xwayland = true;
   };
-  xdg.portal = {
-    config = {
-      common = {
-        default = ["gtk"];
-      };
-    };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
+  xdg = {
+    dataFile.".config/sway/config".text = concatStrings [
+      ''
+        ${OutputSettings}
+        set $SCALE ${ScaleLevel}
+        include $HOME/.config/sway/swaywm/*
+      ''
     ];
+    portal = {
+      config = {
+        common = {
+          default = ["gtk"];
+        };
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-wlr
+      ];
+    };
   };
 }
