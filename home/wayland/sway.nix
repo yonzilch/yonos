@@ -11,9 +11,16 @@ mkIf (WM == "sway")
   ];
   wayland.windowManager.sway = {
     enable = true;
+    extraOptions = [
+      "--unsupported-gpu"
+    ];
     systemd = {
       enable = true;
       variables = ["--all"];
+    };
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
     };
     xwayland = true;
   };
