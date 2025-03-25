@@ -42,7 +42,6 @@
       floorp.enable = false;
       hyprland.enable = false;
       kde.enable = false;
-      mpv.enable = false;
       nixvim.enable = false;
       waybar.enable = false;
       yazi.enable = false;
