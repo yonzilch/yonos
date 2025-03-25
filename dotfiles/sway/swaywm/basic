@@ -1,0 +1,18 @@
+# Set inner/outer gaps
+gaps inner 2
+gaps outer 2
+
+# Hide titlebar on windows:
+default_border pixel 2
+
+# Default Font
+font pango:JetBrainsMono 10
+
+# Thin borders:
+smart_borders on
+
+# Title format for windows
+for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+for_window [shell="x_wayland"] title_format "%class - %title"
+
+workspace_layout tabbed
