@@ -1,7 +1,7 @@
 { hostname, lib, pkgs, ... }:
 let
   inherit (import ../../hosts/${hostname}/env.nix)
-  WM;
+  OutputSettings ScaleLevel WM;
 in
 with lib;
 mkIf (WM == "sway")
@@ -13,6 +13,13 @@ mkIf (WM == "sway")
     enable = true;
     extraOptions = [
       "--unsupported-gpu"
+    ];
+    extraConfig = concatStrings [
+    ''
+      ${OutputSettings}
+      include $HOME/.config/sway/swaywm/*
+      set $SCALE ${ScaleLevel}
+    ''
     ];
     systemd = {
       enable = true;
