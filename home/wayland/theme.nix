@@ -41,6 +41,7 @@
       hyprland.enable = false;
       kde.enable = false;
       nixvim.enable = false;
+      sway.enable = false;
       waybar.enable = false;
       yazi.enable = false;
       zed.enable = false;
