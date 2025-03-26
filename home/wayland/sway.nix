@@ -11,7 +11,7 @@ mkIf (WM == "sway")
     xorg.xprop
   ];
   xdg = {
-    configFile.".config/sway/config".text = concatStrings [
+    configFile."sway/config".text = concatStrings [
       ''
         ${OutputSettings}
         set $SCALE ${ScaleLevel}
