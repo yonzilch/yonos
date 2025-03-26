@@ -1,7 +1,3 @@
-{ pkgs, ...}:
-{
-  home.packages = with pkgs; [
-    easyeffects
-  ];
+_: {
   services.easyeffects.enable = true;
 }

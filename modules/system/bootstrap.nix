@@ -1,20 +1,8 @@
-{
-  config,
-  hostname,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, hostname, lib, pkgs, ...}:
 let
   inherit
     (import ../../hosts/${hostname}/env.nix)
-    BootLoader
-    KernelPackages
-    KeyboardLayout
-    Locale
-    TimeZone
-    ZFS-Use-Case
-    ;
+    BootLoader KernelPackages KeyboardLayout Locale TimeZone ZFS-Use-Case;
 in {
   boot = {
     bcache.enable = false;
