@@ -30,5 +30,5 @@ set $crust #11111b
 # Colors                border      bg          text        indi        childborder
 client.focused          $blue       $lavender   $mantle     $overlay2   $surface2
 client.focused_inactive $blue       $base       $lavender   $base       $surface2
-client.unfocused        $mantle     $base       $lavender   $base       $surface2
+client.unfocused        $blue       $base       $lavender   $base       $surface2
 client.urgent           $flamingo   $flamingo   $mantle     $base       $surface2
