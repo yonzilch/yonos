@@ -7,15 +7,30 @@ with lib;
 mkIf (WM == "sway")
 {
   home.packages = with pkgs; [
-    sway
     xorg.xprop
   ];
+  wayland.windowManager.sway = {
+    checkConfig = false;
+    enable = true;
+    extraOptions = [
+      "--unsupported-gpu"
+    ];
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+    };
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
+    };
+    xwayland = true;
+  };
   xdg = {
     configFile."sway/config".text = concatStrings [
       ''
         ${OutputSettings}
         set $SCALE ${ScaleLevel}
-        include $HOME/.config/sway/swaywm/*
+        include $HOME/.config/sway/*
       ''
     ];
     portal = {
