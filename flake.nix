@@ -19,8 +19,6 @@
       url = "github:nix-community/home-manager";
     };
     stylix.url = "github:danth/stylix";
-
-    self-nur.url = "github:yonzilch/nur-packages";
   };
 
   outputs = inputs @ {

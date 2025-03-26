@@ -1,15 +1,7 @@
-{
-  hostname,
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit
-    (import ../../hosts/${hostname}/env.nix)
-    KernelPackages
-    ZFS-Networking-HostID
-    ZFS-Use-Case
-    ;
+{ hostname, lib, pkgs, ...}:
+let
+  inherit (import ../../hosts/${hostname}/env.nix)
+  KernelPackages ZFS-Networking-HostID ZFS-Use-Case;
 in
 {
   config = lib.mkIf ZFS-Use-Case {
