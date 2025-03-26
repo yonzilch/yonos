@@ -5,14 +5,10 @@ let
 in
 {
   config = mkIf QEMU-VM-Use-Case {
-
-    programs.virt-manager.enable = true;
-
     services = {
       spice-vdagentd.enable = true;
       spice-webdavd.enable = true;
     };
-
     virtualisation.libvirtd.enable = true;
   };
 }
