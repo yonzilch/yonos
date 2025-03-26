@@ -26,7 +26,7 @@ mkIf (WM == "sway")
     xwayland = true;
   };
   xdg = {
-    dataFile.".config/sway/config".text = concatStrings [
+    configFile.".config/sway/config".text = concatStrings [
       ''
         ${OutputSettings}
         set $SCALE ${ScaleLevel}

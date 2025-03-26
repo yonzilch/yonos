@@ -33,7 +33,7 @@
     ...
   }:
   let
-    hostname = "vm";
+    hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
