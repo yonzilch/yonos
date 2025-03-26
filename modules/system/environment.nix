@@ -1,8 +1,4 @@
-{
-  hostname,
-  pkgs,
-  ...
-}:
+{ hostname, pkgs, ...}:
 let
   inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
 in {
