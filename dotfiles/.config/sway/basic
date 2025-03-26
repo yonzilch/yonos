@@ -11,7 +11,7 @@ gaps outer 2
 default_border pixel 2
 
 # Default Font
-font pango:Sarasa Gothic SC 14
+font pango:Sarasa Gothic SC 10
 
 # Thin borders:
 smart_borders on
