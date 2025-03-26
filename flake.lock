@@ -574,22 +574,6 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1712449641,
-        "narHash": "sha256-U9DDWMexN6o5Td2DznEgguh8TRIUnIl9levmit43GcI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "600b15aea1b36eeb43833a50b0e96579147099ff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
         "lastModified": 1741513245,
         "narHash": "sha256-7rTAMNTY1xoBwz0h7ZMtEcd8LELk9R5TzBPoHuhNSCk=",
         "owner": "NixOS",
@@ -680,7 +664,6 @@
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
-        "self-nur": "self-nur",
         "stylix": "stylix"
       }
     },
@@ -701,24 +684,6 @@
         "type": "github"
       }
     },
-    "self-nur": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1738059684,
-        "narHash": "sha256-CWw0h4vmPRxQWe1bBmcQvPo6UU3DNZjcMfOYNfjQlZI=",
-        "owner": "yonzilch",
-        "repo": "nur-packages",
-        "rev": "c5db736588064c9e0290922c6d57729c8783972d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yonzilch",
-        "repo": "nur-packages",
-        "type": "github"
-      }
-    },
     "stylix": {
       "inputs": {
         "base16": "base16",
@@ -731,7 +696,7 @@
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_4",
         "nur": "nur",
         "systems": "systems_2",
         "tinted-foot": "tinted-foot",
