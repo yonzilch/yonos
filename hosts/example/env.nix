@@ -41,10 +41,10 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  ### See https://wiki.hyprland.org/Configuring/Monitors/
+  ### For Hyprland See https://wiki.hyprland.org/Configuring/Monitors/
   MonitorSettings = "monitor = , preferred, auto, 1";
-  ### See https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
-  ScaleLevel = "1";
+  ### For sway See https://github.com/swaywm/sway/wiki#display-configuration
+  OutputSettings = "output * scale 1";
   ### Possible options: Hyprland, niri, sway
   WM = "Hyprland";
 }
