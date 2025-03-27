@@ -31,7 +31,7 @@
     ...
   }:
   let
-    hostname = "metaphyuni";
+    hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
