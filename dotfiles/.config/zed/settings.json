@@ -28,7 +28,6 @@
       }
     }
   },
-  "package": "/nix/store/nz94v1wpnfxmnbrszfjhkbgpk89s6zs8-zeditor",
   "show_whitespaces": "all",
   "terminal": {
     "alternate_scroll": "off",
