@@ -26,7 +26,7 @@
     animation-direction: alternate;
 }
 window#waybar {
-    background-color: transparent;
+    background-color: @mantle;
     border: 2px solid alpha(@crust, 0.3);
 }
 /*
