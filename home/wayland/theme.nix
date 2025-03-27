@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, ...}:
+{
   fonts.fontconfig = {
     defaultFonts = {
       emoji = ["Noto Color Emoji"];
