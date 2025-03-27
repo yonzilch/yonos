@@ -47,5 +47,5 @@
   ### See https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
   ScaleLevel = "1";
   ### Possible options: Hyprland, niri, sway
-  WM = "sway";
+  WM = "Hyprland";
 }
