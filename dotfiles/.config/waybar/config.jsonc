@@ -11,13 +11,13 @@
     "custom/startmenu",
     //"cpu",
     //"memory",
+    //"disk",
     "backlight",
     "battery",
     "network",
-    "niri/workspaces",
     "hyprland/workspaces",
+    "niri/workspaces",
     "sway/workspaces"
-    //"disk"
   ],
   "modules-center": [
     "wlr/taskbar"
@@ -167,6 +167,11 @@
     "format": "{icon}",
   },
 
+  "sway/workspaces": {
+    "all-outputs": true,
+    "format": "{name}",
+  },
+
   "wireplumber": {
     "on-click": "pwvucontrol",
     "on-click-right": "easyeffects",
@@ -221,3 +226,4 @@
     "escape": true,
   },
 }
+

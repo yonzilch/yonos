@@ -24,7 +24,7 @@
 
   ## Wayland related
   MonitorSettings = "monitor = , 2560x1600@100, auto, 1.6";
-  OutputSettings = "output * resolution 2560x1600@100 scale 1.6";
+  OutputSettings = "output * resolution 2560x1600@165Hz scale 1.6";
   ScaleLevel = "1.6";
   WM = "Hyprland";
 }
