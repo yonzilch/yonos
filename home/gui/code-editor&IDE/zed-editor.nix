@@ -6,6 +6,7 @@
   ];
   programs.zed-editor = {
     enable = true;
+    package = pkgs.zed-editor-fhs;
 
     #userSettings = {
     #  assistant = {
@@ -37,7 +38,6 @@
     #      };
     #    };
     #  };
-    #  package = pkgs.zed-editor-fhs;
     #  show_whitespaces = "all";
     #  terminal = {
     #    alternate_scroll = "off";
