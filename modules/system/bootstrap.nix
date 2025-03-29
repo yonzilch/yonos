@@ -91,7 +91,7 @@ in
     timeServers = [
       "ntppool1.time.nl"
       "ntppool2.time.nl"
-      "ntp.ripe.net"
+      "nts.netnod.se"
     ];
   };
 
