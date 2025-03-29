@@ -45,6 +45,7 @@ with lib;
       '';
     };
     resolved.enable = mkForce false;
+    timesyncd.enable = mkForce false;
   };
 
   # Minimize systemd services
