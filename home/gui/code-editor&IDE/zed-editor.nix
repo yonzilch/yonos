@@ -6,7 +6,7 @@
   ];
   programs.zed-editor = {
     enable = true;
-    package = pkgs.zed-editor-fhs;
+    #package = pkgs.zed-editor-fhs;
 
     #userSettings = {
     #  assistant = {
