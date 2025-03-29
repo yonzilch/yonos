@@ -1,9 +1,9 @@
 { config, hostname, lib, pkgs, ...}:
 let
-  inherit
-    (import ../../hosts/${hostname}/env.nix)
-    BootLoader KernelPackages KeyboardLayout Locale TimeZone ZFS-Use-Case;
-in {
+  inherit (import ../../hosts/${hostname}/env.nix)
+  BootLoader KernelPackages KeyboardLayout Locale TimeZone ZFS-Use-Case;
+in
+{
   boot = {
     bcache.enable = false;
     consoleLogLevel = 2; # Only errors and warnings are displayed
