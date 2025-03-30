@@ -40,7 +40,6 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-
   ### MonitorSettings For Hyprland See https://wiki.hyprland.org/Configuring/Monitors/
   MonitorSettings = "monitor = , preferred, auto, 1";
   ### OutputSettings For sway See https://github.com/swaywm/sway/wiki#display-configuration
