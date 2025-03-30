@@ -29,16 +29,13 @@
     nixpkgs,
     stylix,
     ...
-  }:
-  let
+  }: let
     hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
       "${hostname}" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname inputs username;
-        };
+        specialArgs = {inherit hostname inputs username;};
         modules = [
           ./hosts/${hostname}
           chaotic.nixosModules.default
@@ -48,9 +45,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              extraSpecialArgs = {
-                inherit hostname inputs username;
-              };
+              extraSpecialArgs = {inherit hostname inputs username;};
               users.${username} = import ./hosts/${hostname}/home.nix;
             };
           }
