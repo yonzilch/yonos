@@ -16,7 +16,7 @@ with lib;
 
   # Minimize environment
   environment = {
-    defaultPackages = mkForce [ ];
+    defaultPackages = mkForce [];
   };
 
   # Disable unnecessary programs

@@ -3,14 +3,12 @@ _: {
     plugins = {
       alpha = {
         enable = true;
-        layout =
-        let
-        padding = val: {
-          type = "padding";
-          inherit val;
-        };
-        in
-        [
+        layout = let
+          padding = val: {
+            type = "padding";
+            inherit val;
+          };
+        in [
           (padding 4)
           {
             opts = {
@@ -33,7 +31,16 @@ _: {
             val = "  Find File";
             on_press.raw = "require('telescope.builtin').find_files";
             opts = {
-              keymap = [ "n" "f" ":Telescope find_files <CR>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "f"
+                ":Telescope find_files <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "f";
 
               position = "center";
@@ -49,7 +56,16 @@ _: {
             val = "  New File";
             on_press.__raw = "function() vim.cmd[[ene]] end";
             opts = {
-              keymap = [ "n" "n" ":ene <BAR> startinsert <CR>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "n"
+                ":ene <BAR> startinsert <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "n";
 
               position = "center";
@@ -65,7 +81,16 @@ _: {
             val = "󰈚  Recent Files";
             on_press.raw = "require('telescope.builtin').oldfiles";
             opts = {
-              keymap = [ "n" "r" ":Telescope oldfiles <CR>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "r"
+                ":Telescope oldfiles <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "r";
 
               position = "center";
@@ -81,7 +106,16 @@ _: {
             val = "󰈭  Find Word";
             on_press.raw = "require('telescope.builtin').live_grep";
             opts = {
-              keymap = [ "n" "w" ":Telescope live_grep <CR>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "w"
+                ":Telescope live_grep <CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "w";
 
               position = "center";
@@ -97,7 +131,16 @@ _: {
             val = "  Restore Session";
             on_press.raw = "require('persistence').load()";
             opts = {
-              keymap = [ "n" "s" ":lua require('persistence').load()<cr>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "s"
+                ":lua require('persistence').load()<cr>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "s";
 
               position = "center";
@@ -113,7 +156,16 @@ _: {
             val = "  Quit Neovim";
             on_press.__raw = "function() vim.cmd[[qa]] end";
             opts = {
-              keymap = [ "n" "q" ":qa<CR>" { noremap = true; silent = true; nowait = true; } ];
+              keymap = [
+                "n"
+                "q"
+                ":qa<CR>"
+                {
+                  noremap = true;
+                  silent = true;
+                  nowait = true;
+                }
+              ];
               shortcut = "q";
 
               position = "center";

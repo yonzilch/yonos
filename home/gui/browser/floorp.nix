@@ -2,7 +2,7 @@ _: {
   programs = {
     floorp = {
       enable = true;
-      languagePacks = [ "en-US" ];
+      languagePacks = ["en-US"];
       policies = {
         DisableAccounts = true;
         DisableAppUpdate = true;
@@ -48,7 +48,10 @@ _: {
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
         Preferences = {
-          "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+          "browser.contentblocking.category" = {
+            Value = "strict";
+            Status = "locked";
+          };
           "browser.formfill.enable" = false;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
           "browser.newtabpage.activity-stream.feeds.snippets" = false;

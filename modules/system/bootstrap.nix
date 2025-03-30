@@ -38,11 +38,11 @@ in
         enable = true;
         mirroredBoots = lib.mkIf (BootLoader == "grub-mirror") [
           {
-            devices = [ "nodev" ];
+            devices = ["nodev"];
             path = "/boot";
           }
           {
-            devices = [ "nodev" ];
+            devices = ["nodev"];
             path = "/boot-mirror";
           }
         ];
