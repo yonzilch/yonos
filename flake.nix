@@ -9,14 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
     };
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixvim";
-    };
-    home-manager = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
     };
     stylix.url = "github:danth/stylix";
   };
@@ -25,8 +25,8 @@
     chaotic,
     daeuniverse,
     disko,
-    nixpkgs,
     home-manager,
+    nixpkgs,
     stylix,
     ...
   }:
@@ -37,9 +37,7 @@
     nixosConfigurations = {
       "${hostname}" = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit hostname;
-          inherit inputs;
-          inherit username;
+          inherit hostname inputs username;
         };
         modules = [
           ./hosts/${hostname}
@@ -49,12 +47,12 @@
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = {
-              inherit hostname;
-              inherit inputs;
-              inherit username;
+            home-manager = {
+              extraSpecialArgs = {
+                inherit hostname inputs username;
+              };
+              users.${username} = import ./hosts/${hostname}/home.nix;
             };
-            home-manager.users.${username} = import ./hosts/${hostname}/home.nix;
           }
         ];
       };
