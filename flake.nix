@@ -1,6 +1,6 @@
 {
   description = "YonOS is a Nix and Flakes❄️ based config customized with Occam's razor
-   NixOS is cool🧊, but it'll make you feel cold🥶 when eating this flake, I guess.";
+    NixOS is cool🧊, but it'll make you feel cold🥶 when eating this flake, I guess.";
 
   inputs = {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
