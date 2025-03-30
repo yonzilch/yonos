@@ -4,7 +4,7 @@
     ./disko.nix
     ./hardware.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules;
+    ++ lib.filesystem.listFilesRecursive ../../modules;
 
   users = {
     users.root = {

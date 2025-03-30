@@ -22,9 +22,9 @@ mkIf (WM == "niri")
       Description = "Portal service (GNOME implementation)";
     };
     Service = {
-    Type = "dbus";
-    BusName = "org.freedesktop.impl.portal.desktop.gnome";
-    ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
+      Type = "dbus";
+      BusName = "org.freedesktop.impl.portal.desktop.gnome";
+      ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
     };
   };
   home.packages = with pkgs; [
@@ -33,7 +33,7 @@ mkIf (WM == "niri")
   xdg.portal = {
     config = {
       common = {
-        default = [ "gnome" "gtk" ];
+        default = ["gnome" "gtk"];
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
         "org.freedesktop.impl.portal.Screenshot" = "gnome";
         "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
