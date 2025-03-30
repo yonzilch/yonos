@@ -57,6 +57,10 @@ sudo nixos-rebuild switch --flake .#${hostName}
 
 echo "--------------------------------"
 
+# Remove useless nix-channel files
+sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
+
+echo "--------------------------------"
 echo "Jobs done."
 echo "Live long and prosper!"
 echo "Please reboot to get a brand new system"
