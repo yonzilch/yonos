@@ -11,13 +11,13 @@ with lib;
     };
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
     # package = pkgs.lix; # use lix instead of nix would cause clan-cli error
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = mkDefault true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       gc-keep-derivations = mkDefault false;
       gc-keep-outputs = mkDefault false;
       nix-path = mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";

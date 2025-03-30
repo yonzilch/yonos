@@ -4,8 +4,7 @@
     enable = true;
     mimeApps = {
       enable = true;
-      defaultApplications =
-      let
+      defaultApplications = let
         browser = ["brave-browser.desktop"];
         editor = ["nvim.desktop"];
         filemanager = ["nemo.desktop"];

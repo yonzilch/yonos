@@ -20,12 +20,12 @@ mkIf (WM == "Hyprland")
     };
     xwayland.enable = true;
     extraConfig = concatStrings [
-    ''
-      ${MonitorSettings}
-      $KEYBOARDLAYOUT = ${KeyboardLayout}
-      $SCALE = ${ScaleLevel}
-      source = ~/.config/hypr/hyprland/*
-    ''
+      ''
+        ${MonitorSettings}
+        $KEYBOARDLAYOUT = ${KeyboardLayout}
+        $SCALE = ${ScaleLevel}
+        source = ~/.config/hypr/hyprland/*
+      ''
     ];
     settings = mkIf GPU-Nvidia {
       env = [

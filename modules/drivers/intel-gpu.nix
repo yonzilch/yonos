@@ -6,7 +6,7 @@ with lib;
 {
   config = mkIf GPU-Intel {
     nixpkgs.config.packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
     };
 
     # OpenGL
