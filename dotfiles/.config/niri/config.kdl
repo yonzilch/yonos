@@ -100,7 +100,7 @@ binds {
     Super+Shift+H { focus-column-left; }
     Super+Shift+J { focus-window-down; }
     Super+Shift+K { focus-window-up; }
-    Super+L { focus-column-right; }
+    Super+Shift+L { focus-column-right; }
 
     // Window direction movement
     /// Using Arrow keys
