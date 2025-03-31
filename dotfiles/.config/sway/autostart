@@ -2,6 +2,7 @@ exec "dbus-update-activation-environment --systemd --all; systemctl --user reset
 
 exec_always fcitx5 -d -r
 exec_always nm-applet
+exec_always swayosd-server
 exec_always swww-daemon
 exec_always swww restore
 exec_always xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE $SCALE
