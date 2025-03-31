@@ -1,5 +1,5 @@
 animations {
-    off
+    on
 }
 
 
@@ -49,16 +49,16 @@ binds {
     Alt+Shift+Tab  { focus-column-left; }
 
     /// Using Arrow keys
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
+    Super+Left  { focus-column-left; }
+    Super+Down  { focus-window-down; }
+    Super+Up    { focus-window-up; }
+    Super+Right { focus-column-right; }
 
     /// Using Vim-like keys
-    Mod+H { focus-column-left; }
-    Mod+J { focus-window-down; }
-    Mod+K { focus-window-up; }
-    Mod+L { focus-column-right; }
+    Super+Shift+H { focus-column-left; }
+    Super+Shift+J { focus-window-down; }
+    Super+Shift+K { focus-window-up; }
+    Super+L { focus-column-right; }
 
     // Window direction movement
     /// Using Arrow keys
@@ -154,7 +154,6 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
     XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
-
 }
 
 
@@ -176,17 +175,16 @@ input {
     focus-follows-mouse
     warp-mouse-to-focus
 
+    mouse {
+        accel-profile "flat"
+        scroll-factor 0.5
+    }
     touchpad {
         accel-profile "flat"
         dwt
         natural-scroll
         scroll-factor 0.5
         tap
-    }
-
-    mouse {
-        accel-profile "flat"
-        scroll-factor 0.5
     }
 }
 
