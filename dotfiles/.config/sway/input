@@ -1,12 +1,15 @@
+# Uncomment below to enable numlock by default
+# input type:keyboard xkb_numlock enabled
+
+
 # Touchpad configuration
 input type:touchpad {
     dwt enabled
+    natural_scroll enabled
+    scroll_factor 0.5
     tap enabled
-    #natural_scroll enabled
 }
 
-# Uncomment below to enable numlock by default
-# input type:keyboard xkb_numlock enabled
 
 # Set keyboard layout and variant based on current system settings
 exec_always {

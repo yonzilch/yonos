@@ -1,85 +1,43 @@
-# App Launcher
-bindsym Mod1+space exec fuzzel
+# Shortcuts
 
-# Toggle some programs
+## Toggle some programs
+### Input Tool
 bindsym Ctrl+Mod1+i exec "pkill fcitx5 -9; sleep 1; fcitx5 -d --replace; sleep 1; fcitx5-remote -r"
-bindsym Ctrl+Mod1+n exec "swaync-client -rs"
+### Notification Manager
+bindsym Ctrl+Mod1+n exec "swaync-client -rs" # Notification Manager
+### Status Bar
 bindsym Ctrl+Mod1+b exec "pkill waybar; sleep 1; waybar"
 
-# Shortcuts
-## File Explorer
+## Run some apps
+## Applications Launcher
+bindsym Mod1+space exec fuzzel
+
+### File Explorer
 bindsym Mod4+e exec nemo
 
-## Locker
+### Locker
 bindsym Mod4+l exec "pkill wlogout || wlogout"
 
-## Terminal Emulator
+### Terminal Emulator
 bindsym Mod4+t exec alacritty
 
 ## Screenshoter
 ### Area Mode
 bindsym Mod4+s exec "grim -g \"$(slurp)\" - | swappy -f -"
-
 ### Fullscreen Mode
 bindsym Mod4+Mod1+s exec "grim - | wl-copy -t image/png && notify-send \"Screenshot copied to clipboard\""
-
 ### Window Mode
 bindsym Mod4+Ctrl+s exec "grim -g \"$(swaymsg -t get_tree | jq -r '.. | select(.type? == \"con\" and .focused) | .rect | \"\(.x),\(.y) \(.width)x\(.height)\"' | slurp)\" - | swappy -f -"
-
 ### OCR Mode
 bindsym Mod4+Ctrl+Mod1+s exec "grim -g \"$(slurp)\" - | tesseract -l \"eng\" stdin stdout | wl-copy && notify-send \"OCR content copied to clipboard\""
 
 
+
 # Window actions
+## Normal actions
 bindsym Mod4+f fullscreen
 bindsym Mod4+q kill
 bindsym Mod4+Shift+f floating toggle
-
-# Workspace jumping
-bindsym Mod4+1 workspace number 1
-bindsym Mod4+2 workspace number 2
-bindsym Mod4+3 workspace number 3
-bindsym Mod4+4 workspace number 4
-bindsym Mod4+5 workspace number 5
-bindsym Mod4+6 workspace number 6
-bindsym Mod4+7 workspace number 7
-bindsym Mod4+8 workspace number 8
-bindsym Mod4+9 workspace number 9
-bindsym Mod4+0 workspace number 10
-
-# Window movement between Workspaces
-## Without switching to the Workspace
-bindsym Mod4+Ctrl+1 move container to workspace number 1
-bindsym Mod4+Ctrl+2 move container to workspace number 2
-bindsym Mod4+Ctrl+3 move container to workspace number 3
-bindsym Mod4+Ctrl+4 move container to workspace number 4
-bindsym Mod4+Ctrl+5 move container to workspace number 5
-bindsym Mod4+Ctrl+6 move container to workspace number 6
-bindsym Mod4+Ctrl+7 move container to workspace number 7
-bindsym Mod4+Ctrl+8 move container to workspace number 8
-bindsym Mod4+Ctrl+9 move container to workspace number 9
-bindsym Mod4+Ctrl+0 move container to workspace number 10
-
-## Switching to the Workspace
-bindsym Mod4+Shift+1 move container to workspace number 1, workspace number 1
-bindsym Mod4+Shift+2 move container to workspace number 2, workspace number 2
-bindsym Mod4+Shift+3 move container to workspace number 3, workspace number 3
-bindsym Mod4+Shift+4 move container to workspace number 4, workspace number 4
-bindsym Mod4+Shift+5 move container to workspace number 5, workspace number 5
-bindsym Mod4+Shift+6 move container to workspace number 6, workspace number 6
-bindsym Mod4+Shift+7 move container to workspace number 7, workspace number 7
-bindsym Mod4+Shift+8 move container to workspace number 8, workspace number 8
-bindsym Mod4+Shift+9 move container to workspace number 9, workspace number 9
-bindsym Mod4+Shift+0 move container to workspace number 10, workspace number 10
-
-# Special Workspace
-bindsym Mod4+grave workspace special
-bindsym Mod4+Ctrl+grave move container to workspace special
-bindsym Mod4+Shift+grave move container to workspace special, workspace special
-
-# Workspace movement
-bindsym Mod4+Ctrl+Left workspace prev
-bindsym Mod4+Ctrl+Right workspace next
 
 ## Window focus movement
 ### Using Alt+Tab
@@ -92,11 +50,12 @@ bindsym Mod4+Right focus right
 bindsym Mod4+Up focus up
 bindsym Mod4+Down focus down
 
-## Using Vim-like keys
-#bindsym Mod4+Mod1+h focus left
-#bindsym Mod4+Mod1+l focus right
-#bindsym Mod4+Mod1+k focus up
-#bindsym Mod4+Mod1+j focus down
+### Using Vim-like keys
+bindsym Mod4+Mod1+h focus left
+bindsym Mod4+Mod1+l focus right
+bindsym Mod4+Mod1+k focus up
+bindsym Mod4+Mod1+j focus down
+
 
 # Window direction movement
 ## Using Arrow keys
@@ -110,6 +69,62 @@ bindsym Mod4+Shift+h move left
 bindsym Mod4+Shift+l move right
 bindsym Mod4+Shift+k move up
 bindsym Mod4+Shift+j move down
+
+
+# Workspace Actions
+## Workspace movement
+### Using Arrow keys
+bindsym Mod4+Ctrl+Left workspace prev
+bindsym Mod4+Ctrl+Right workspace next
+
+## Workspace movement
+### Using Vim-like keys
+bindsym Mod4+Mod1+Ctrl+h workspace prev
+bindsym Mod4+Mod1+Ctrl+l workspace next
+
+## Workspace jumping
+bindsym Mod4+1 workspace number 1
+bindsym Mod4+2 workspace number 2
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+9 workspace number 9
+bindsym Mod4+0 workspace number 10
+
+## Window movement between Workspaces
+### without switching to the Workspace
+bindsym Mod4+Ctrl+1 move container to workspace number 1
+bindsym Mod4+Ctrl+2 move container to workspace number 2
+bindsym Mod4+Ctrl+3 move container to workspace number 3
+bindsym Mod4+Ctrl+4 move container to workspace number 4
+bindsym Mod4+Ctrl+5 move container to workspace number 5
+bindsym Mod4+Ctrl+6 move container to workspace number 6
+bindsym Mod4+Ctrl+7 move container to workspace number 7
+bindsym Mod4+Ctrl+8 move container to workspace number 8
+bindsym Mod4+Ctrl+9 move container to workspace number 9
+bindsym Mod4+Ctrl+0 move container to workspace number 10
+
+### also switching to the Workspace
+bindsym Mod4+Shift+1 move container to workspace number 1, workspace number 1
+bindsym Mod4+Shift+2 move container to workspace number 2, workspace number 2
+bindsym Mod4+Shift+3 move container to workspace number 3, workspace number 3
+bindsym Mod4+Shift+4 move container to workspace number 4, workspace number 4
+bindsym Mod4+Shift+5 move container to workspace number 5, workspace number 5
+bindsym Mod4+Shift+6 move container to workspace number 6, workspace number 6
+bindsym Mod4+Shift+7 move container to workspace number 7, workspace number 7
+bindsym Mod4+Shift+8 move container to workspace number 8, workspace number 8
+bindsym Mod4+Shift+9 move container to workspace number 9, workspace number 9
+bindsym Mod4+Shift+0 move container to workspace number 10, workspace number 10
+
+### Special Workspace
+bindsym Mod4+grave workspace special
+bindsym Mod4+Ctrl+grave move container to workspace special
+bindsym Mod4+Shift+grave move container to workspace special, workspace special
+
+
 
 # Mouse actions
 ## Window movement and resize

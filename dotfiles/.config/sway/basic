@@ -20,7 +20,6 @@ smart_borders on
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
-
 titlebar_padding 5 2
 
 workspace_layout tabbed
