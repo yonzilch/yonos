@@ -8,6 +8,7 @@ in
     {
       "org/nemo/preferences" = {
         "default-folder-viewer" = "list-view";
+        "show-hidden-files" = true;
       };
     }
     (mkIf QEMU-VM-Use-Case {
