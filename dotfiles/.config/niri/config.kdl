@@ -114,10 +114,10 @@ binds {
     Super+Ctrl+Home { move-column-to-first; }
     Super+Ctrl+End  { move-column-to-last; }
 
-    // Super+Shift+Left  { focus-monitor-left; }
-    // Super+Shift+Down  { focus-monitor-down; }
-    // Super+Shift+Up    { focus-monitor-up; }
-    // Super+Shift+Right { focus-monitor-right; }
+    Super+Shift+Alt+Left  { focus-monitor-left; }
+    Super+Shift+Alt+Down  { focus-monitor-down; }
+    Super+Shift+Alt+Up    { focus-monitor-up; }
+    Super+Shift+Alt+Right { focus-monitor-right; }
 
     Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
