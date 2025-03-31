@@ -1,0 +1,18 @@
+{
+    "output": {
+        "blocklist": [],
+        "loudness#1": {
+            "bypass": false,
+            "clipping": false,
+            "clipping-range": 6.0,
+            "fft": "4096",
+            "input-gain": 0.0,
+            "output-gain": 10.0,
+            "std": "ISO226-2003",
+            "volume": 6.999999999999991
+        },
+        "plugins_order": [
+            "loudness#1"
+        ]
+    }
+}
