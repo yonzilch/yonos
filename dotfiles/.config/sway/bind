@@ -16,20 +16,20 @@ bindsym Mod1+space exec fuzzel
 bindsym Mod4+e exec nemo
 
 ### Locker
-bindsym Mod4+l exec "pkill wlogout || wlogout"
+bindsym Mod4+l exec pkill wlogout || wlogout
 
 ### Terminal Emulator
 bindsym Mod4+t exec alacritty
 
 ## Screenshoter
 ### Area Mode
-bindsym Mod4+s exec "grim -g \"$(slurp)\" - | swappy -f -"
+bindsym Mod4+s exec grim -g "$(slurp)" - | swappy -f -
 ### Fullscreen Mode
-bindsym Mod4+Mod1+s exec "grim - | wl-copy -t image/png && notify-send \"Screenshot copied to clipboard\""
+bindsym Mod4+Mod1+s exec grim - | wl-copy -t image/png;notify-send "Screenshot copied to clipboard"
 ### Window Mode
-bindsym Mod4+Ctrl+s exec "grim -g \"$(swaymsg -t get_tree | jq -r '.. | select(.type? == \"con\" and .focused) | .rect | \"\(.x),\(.y) \(.width)x\(.height)\"' | slurp)\" - | swappy -f -"
+bindsym Mod4+Ctrl+s exec grim -g "$(hyprctl clients -j | jq '.[] | select(.hidden | not) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' -r | slurp)" - | swappy -f -
 ### OCR Mode
-bindsym Mod4+Ctrl+Mod1+s exec "grim -g \"$(slurp)\" - | tesseract -l \"eng\" stdin stdout | wl-copy && notify-send \"OCR content copied to clipboard\""
+bindsym Mod4+Ctrl+Mod1+s exec grim -g "$(slurp)" - | tesseract -l "eng" stdin stdout | wl-copy;notify-send "OCR content copied to clipboard"
 
 
 
