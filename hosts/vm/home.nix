@@ -1,17 +1,6 @@
-{ hostname, lib, username, ... }:
-with lib;
-let
-  inherit (import ../../hosts/${hostname}/env.nix) QEMU-VM-Use-Case;
-in
+{ lib, username, ... }:
 {
   imports = lib.filesystem.listFilesRecursive ../../home;
-
-  dconf.settings = mkIf QEMU-VM-Use-Case {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
 
   home = {
     file = {
