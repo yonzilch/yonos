@@ -172,44 +172,30 @@ hotkey-overlay {
 
 
 input {
-    keyboard {
-        xkb {
-            options "caps:escape"
-		    layout "us"
-        }
-    }
-
-    touch {
-        // map-to-output "DP-3"
-        // map-to-output "Interaction Systems, Inc TYPE-C TCH00562020"
-    }
-
-    // disable-power-key-handling
-    // warp-mouse-to-focus
-    // focus-follows-mouse
-    focus-follows-mouse max-scroll-amount="0%"
-    // workspace-auto-back-and-forth
+    disable-power-key-handling
+    focus-follows-mouse
+    warp-mouse-to-focus
 
     touchpad {
-        accel-speed 0.4
-        // accel-profile "flat"
-        // disabled-on-external-mouse
-        // dwt
-        // dwtp
+        accel-profile "flat"
+        dwt
         natural-scroll
+        scroll-factor 0.5
         tap
     }
 
     mouse {
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-profile "flat"
+        scroll-factor 0.5
     }
 }
 
+
 prefer-no-csd
 
+
 screenshot-path "~/Pictures/Screenshots/SCREENSHOT-%Y-%m-%d-%H:%M:%S.png"
+
 
 spawn-at-startup "fcitx5" "-d" "-r"
 spawn-at-startup "nm-applet"
@@ -219,63 +205,47 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "restore"
 spawn-at-startup "waybar"
 
+
 window-rule {
+    block-out-from "screen-capture"
+
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
-
 window-rule {
     clip-to-geometry true
     geometry-corner-radius 10
 }
 
+
 layout {
-    gaps 2
-
     center-focused-column "on-overflow"
-
+    border {
+        width 2
+        active-color "#313244FF"
+        inactive-color "#1e1e2eFF"
+    }
+    default-column-width { proportion 0.95; }
+    focus-ring {
+        off
+        active-color "#31324400"
+        inactive-color "#31324400"
+        width 3
+    }
+    gaps 2
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-
-        // fixed 1920
-    }
-
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
-    default-column-width { proportion 0.98; }
-
-    focus-ring {
-	off
-
-	width 3
-
-        active-color "#31324400"
-        inactive-color "#31324400"
-
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    border {
-        // off
-
-        width 2
-        active-color "#313244FF"
-        inactive-color "#1e1e2eFF"
-
     }
 
     struts {
-	// left 64
-        // right 64
-        // top 64
-        // bottom 64
+        left 0.1
+        right 0.1
+        top 0
+        bottom 0
     }
 }
