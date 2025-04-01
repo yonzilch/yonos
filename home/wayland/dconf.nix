@@ -1,8 +1,8 @@
 { hostname, lib, ... }:
-with lib;
 let
   inherit (import ../../hosts/${hostname}/env.nix) QEMU-VM-Use-Case;
 in
+with lib;
 {
   dconf.settings = mkMerge [
     {
