@@ -1,11 +1,13 @@
 { hostname, pkgs, ...}:
 let
   inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
-in {
+in
+{
   environment = {
     sessionVariables = {
       EDITOR = "nvim";
       TERMINAL = "alacritty";
+
       _JAVA_AWT_WM_NONREPARENTING = 1;
       AWT_TOOLKIT = "MToolkit";
       CLUTTER_BACKEND = "wayland";

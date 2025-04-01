@@ -3,6 +3,7 @@ let
   inherit (import ../../hosts/${hostname}/env.nix)
   BootLoader KernelPackages KeyboardLayout Locale TimeZone ZFS-Use-Case;
 in
+with lib;
 {
   boot = {
     bcache.enable = false;
@@ -25,18 +26,13 @@ in
     kernelPackages = pkgs.${KernelPackages};
     kernelParams = ["audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
     loader = {
-      systemd-boot = lib.mkIf (BootLoader == "systemd-boot") {
-        configurationLimit = 50;
-        editor = false;
-        enable = true;
-      };
-      grub = lib.mkIf (lib.strings.hasInfix "grub" BootLoader) {
+      grub = mkIf (strings.hasInfix "grub" BootLoader) {
         configurationLimit = 50;
         device = "nodev";
         efiInstallAsRemovable = true;
         efiSupport = true;
         enable = true;
-        mirroredBoots = lib.mkIf (BootLoader == "grub-mirror") [
+        mirroredBoots = mkIf (BootLoader == "grub-mirror") [
           {
             devices = ["nodev"];
             path = "/boot";
@@ -47,6 +43,11 @@ in
           }
         ];
         zfsSupport = ZFS-Use-Case;
+      };
+      systemd-boot = mkIf (BootLoader == "systemd-boot") {
+        configurationLimit = 50;
+        editor = false;
+        enable = true;
       };
       timeout = 3;
     };
@@ -87,7 +88,7 @@ in
       dns = "none";
       enable = true;
     };
-    resolvconf.enable = lib.mkForce false;
+    resolvconf.enable = mkForce false;
   };
 
   security = {
@@ -99,7 +100,7 @@ in
     };
     pam.services = {
       hyprlock = {};
-      login.kwallet.enable = lib.mkForce false;
+      login.kwallet.enable = mkForce false;
     };
     polkit = {
       enable = true;
