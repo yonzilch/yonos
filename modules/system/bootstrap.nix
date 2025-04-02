@@ -128,20 +128,6 @@ with lib;
     stateVersion = config.system.nixos.release;
   };
 
-  systemd.user.services.mate-polkit = {
-    description = "mate-polkit-agent";
-    wantedBy = ["graphical-session.target"];
-    wants = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
-
   time = {
     hardwareClockInLocalTime = false;
     timeZone = TimeZone;
