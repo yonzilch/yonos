@@ -1,4 +1,4 @@
-exec "dbus-update-activation-environment --systemd --all; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target"
+exec dbus-update-activation-environment --systemd --all && systemctl --user stop sway-session.target && systemctl --user start sway-session.target
 
 exec_always fcitx5 -d -r
 exec_always nm-applet
