@@ -32,7 +32,7 @@
   "terminal": {
     "alternate_scroll": "off",
     "blinking": "off",
-    "button": false,
+    "button": true,
     "copy_on_select": false,
     "detect_venv": {
       "on": {
