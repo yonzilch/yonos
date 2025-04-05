@@ -1,15 +1,6 @@
 _: {
   programs.nixvim = {
     plugins.lint = {
-      enable = true;
-
-      lintersByFt = {
-        nix = ["nix"];
-        markdown = [
-          "markdownlint"
-        ];
-      };
-
       autoCmd = {
         callback.__raw = ''
           function()
@@ -21,6 +12,15 @@ _: {
           "BufEnter"
           "BufWritePost"
           "InsertLeave"
+        ];
+      };
+
+      enable = true;
+
+      lintersByFt = {
+        nix = ["nix"];
+        markdown = [
+          "markdownlint"
         ];
       };
     };
