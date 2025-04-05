@@ -1,7 +1,7 @@
 { config, hostname, lib, pkgs, ...}:
 let
   inherit (import ../../hosts/${hostname}/env.nix)
-  BootLoader KernelPackages KeyboardLayout Locale TimeZone ZFS-Use-Case;
+  BootLoader KernelPackages KeyboardLayout Locale StateVersion TimeZone ZFS-Use-Case;
 in
 with lib;
 {
@@ -126,7 +126,7 @@ with lib;
 
   system = {
     rebuild.enableNg = true;
-    stateVersion = config.system.nixos.release;
+    stateVersion = StateVersion;
   };
 
   time = {
