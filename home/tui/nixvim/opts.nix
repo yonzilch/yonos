@@ -17,8 +17,8 @@
       encoding = "utf-8";
       expandtab = true;
       fileencoding = "utf-8";
-      grepprg = "rg --vimgrep";
       grepformat = "%f:%l:%c:%m";
+      grepprg = "rg --vimgrep";
       hlsearch = true;
       ignorecase = true;
       inccommand = "split";
