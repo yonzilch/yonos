@@ -1,197 +1,5 @@
 _: {
   programs.nixvim = {
-    keymaps = [
-      {
-        mode = "n";
-        key = "<C-Up>";
-        action = "<C-w>k";
-        options.desc = "Move To Window Up";
-      }
-      {
-        mode = "n";
-        key = "<C-Down>";
-        action = "<C-w>j";
-        options.desc = "Move To Window Down";
-      }
-      {
-        mode = "n";
-        key = "<C-Left>";
-        action = "<C-w>h";
-        options.desc = "Move To Window Left";
-      }
-      {
-        mode = "n";
-        key = "<C-Right>";
-        action = "<C-w>l";
-        options.desc = "Move To Window Right";
-      }
-      {
-        mode = "n";
-        key = "<leader>wd";
-        action = "<C-W>c";
-        options = {
-          silent = true;
-          desc = "Delete window";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>-";
-        action = "<C-W>s";
-        options = {
-          silent = true;
-          desc = "Split window below";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>|";
-        action = "<C-W>v";
-        options = {
-          silent = true;
-          desc = "Split window right";
-        };
-      }
-      {
-        mode = "n";
-        key = "<C-s>";
-        action = "<cmd>w<cr><esc>";
-        options = {
-          silent = true;
-          desc = "Save file";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>qq";
-        action = "<cmd>quitall<cr><esc>";
-        options = {
-          silent = true;
-          desc = "Quit all";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>ul";
-        action = ":lua ToggleLineNumber()<cr>";
-        options = {
-          silent = true;
-          desc = "Toggle Line Numbers";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>uL";
-        action = ":lua ToggleRelativeLineNumber()<cr>";
-        options = {
-          silent = true;
-          desc = "Toggle Relative Line Numbers";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>uw";
-        action = ":lua ToggleWrap()<cr>";
-        options = {
-          silent = true;
-          desc = "Toggle Line Wrap";
-        };
-      }
-      {
-        mode = "n";
-        key = "<A-Up>";
-        action = "<cmd>m .-2<cr>==";
-        options.desc = "Move line up";
-      }
-      {
-        mode = "v";
-        key = "<A-Up>";
-        action = ":m '<-2<cr>gv=gv";
-        options.desc = "Move line up";
-      }
-      {
-        mode = "n";
-        key = "<A-Down>";
-        action = "<cmd>m .+1<cr>==";
-        options.desc = "Move line down";
-      }
-      {
-        mode = "v";
-        key = "<A-Down>";
-        action = ":m '>+1<cr>gv=gv";
-        options.desc = "Move line Down";
-      }
-      {
-        mode = "v";
-        key = "<";
-        action = "<gv";
-      }
-      {
-        mode = "v";
-        key = ">";
-        action = ">gv";
-      }
-      {
-        mode = "i";
-        key = "<C-a>";
-        action = "<cmd> norm! ggVG<cr>";
-        options.desc = "Select all lines in buffer";
-      }
-      {
-        mode = "n";
-        key = "J";
-        action = "mzJ`z";
-        options.desc = "Allow cursor to stay in the same place after appending to current line ";
-      }
-      {
-        mode = "n";
-        key = "n";
-        action = "nzzzv";
-        options.desc = "Allow search terms to stay in the middle";
-      }
-      {
-        mode = "n";
-        key = "N";
-        action = "Nzzzv";
-        options.desc = "Allow search terms to stay in the middle";
-      }
-      {
-        mode = [
-          "n"
-          "i"
-        ];
-        key = "<esc>";
-        action = "<cmd>noh<cr><esc>";
-        options = {
-          silent = true;
-          desc = "Escape and clear hlsearch";
-        };
-      }
-      {
-        mode = "x";
-        key = "p";
-        action = "\"_dP";
-        options.desc = "Deletes to void register and paste over";
-      }
-      {
-        mode = [
-          "n"
-          "v"
-        ];
-        key = "<leader>y";
-        action = "\"+y";
-        options.desc = "Copy to system clipboard";
-      }
-      {
-        mode = [
-          "n"
-          "v"
-        ];
-        key = "<leader>D";
-        action = "\"_d";
-        options.desc = "Delete to void register";
-      }
-    ];
     extraConfigLua = ''
       function ToggleLineNumber()
       if vim.wo.number then
@@ -221,5 +29,197 @@ _: {
       end, { desc = 'Toggle Inlay Hints' })
       end
     '';
+    keymaps = [
+      {
+        action = "<cmd> norm! ggVG<cr>";
+        key = "<C-a>";
+        mode = "i";
+        options.desc = "Select all lines in buffer";
+      }
+      {
+        action = "<C-W>c";
+        key = "<leader>wd";
+        mode = "n";
+        options = {
+          desc = "Delete window";
+          silent = true;
+        };
+      }
+      {
+        action = "<C-W>s";
+        key = "<leader>-";
+        mode = "n";
+        options = {
+          desc = "Split window below";
+          silent = true;
+        };
+      }
+      {
+        action = "<C-W>v";
+        key = "<leader>|";
+        mode = "n";
+        options = {
+          desc = "Split window right";
+          silent = true;
+        };
+      }
+      {
+        action = "<cmd>m .+1<cr>==";
+        key = "<A-Down>";
+        mode = "n";
+        options.desc = "Move line down";
+      }
+      {
+        action = "<cmd>m .-2<cr>==";
+        key = "<A-Up>";
+        mode = "n";
+        options.desc = "Move line up";
+      }
+      {
+        action = "<cmd>quitall<cr><esc>";
+        key = "<leader>qq";
+        mode = "n";
+        options = {
+          desc = "Quit all";
+          silent = true;
+        };
+      }
+      {
+        action = "<cmd>w<cr><esc>";
+        key = "<C-s>";
+        mode = "n";
+        options = {
+          desc = "Save file";
+          silent = true;
+        };
+      }
+      {
+        action = "<C-w>j";
+        key = "<C-Down>";
+        mode = "n";
+        options.desc = "Move To Window Down";
+      }
+      {
+        action = "<C-w>h";
+        key = "<C-Left>";
+        mode = "n";
+        options.desc = "Move To Window Left";
+      }
+      {
+        action = "<C-w>l";
+        key = "<C-Right>";
+        mode = "n";
+        options.desc = "Move To Window Right";
+      }
+      {
+        action = "<C-w>k";
+        key = "<C-Up>";
+        mode = "n";
+        options.desc = "Move To Window Up";
+      }
+      {
+        action = "\"_d";
+        key = "<leader>D";
+        mode = [
+          "n"
+          "v"
+        ];
+        options.desc = "Delete to void register";
+      }
+      {
+        action = "<cmd>noh<cr><esc>";
+        key = "<esc>";
+        mode = [
+          "n"
+          "i"
+        ];
+        options = {
+          desc = "Escape and clear hlsearch";
+          silent = true;
+        };
+      }
+      {
+        action = ":lua ToggleLineNumber()<cr>";
+        key = "<leader>ul";
+        mode = "n";
+        options = {
+          desc = "Toggle Line Numbers";
+          silent = true;
+        };
+      }
+      {
+        action = ":lua ToggleRelativeLineNumber()<cr>";
+        key = "<leader>uL";
+        mode = "n";
+        options = {
+          desc = "Toggle Relative Line Numbers";
+          silent = true;
+        };
+      }
+      {
+        action = ":lua ToggleWrap()<cr>";
+        key = "<leader>uw";
+        mode = "n";
+        options = {
+          desc = "Toggle Line Wrap";
+          silent = true;
+        };
+      }
+      {
+        action = "\"+y";
+        key = "<leader>y";
+        mode = [
+          "n"
+          "v"
+        ];
+        options.desc = "Copy to system clipboard";
+      }
+      {
+        action = ":m '>+1<cr>gv=gv";
+        key = "<A-Down>";
+        mode = "v";
+        options.desc = "Move line Down";
+      }
+      {
+        action = ":m '<-2<cr>gv=gv";
+        key = "<A-Up>";
+        mode = "v";
+        options.desc = "Move line up";
+      }
+      {
+        action = "<gv";
+        key = "<";
+        mode = "v";
+      }
+      {
+        action = ">gv";
+        key = ">";
+        mode = "v";
+      }
+      {
+        action = "\"_dP";
+        key = "p";
+        mode = "x";
+        options.desc = "Deletes to void register and paste over";
+      }
+      {
+        action = "mzJ`z";
+        key = "J";
+        mode = "n";
+        options.desc = "Allow cursor to stay in the same place after appending to current line ";
+      }
+      {
+        action = "Nzzzv";
+        key = "N";
+        mode = "n";
+        options.desc = "Allow search terms to stay in the middle";
+      }
+      {
+        action = "nzzzv";
+        key = "n";
+        mode = "n";
+        options.desc = "Allow search terms to stay in the middle";
+      }
+    ];
   };
 }

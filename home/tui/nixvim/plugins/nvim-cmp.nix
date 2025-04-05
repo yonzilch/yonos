@@ -4,13 +4,6 @@ _: {
       enable = true;
 
       settings = {
-        snippet = {
-          expand = ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-        };
 
         completion = {
           completeopt = "menu,menuone,noinsert";
@@ -38,6 +31,15 @@ _: {
             end, { 'i', 's' })
           '';
         };
+
+        snippet = {
+          expand = ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
+        };
+
         sources = [
           {
             name = "luasnip";
