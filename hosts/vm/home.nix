@@ -1,4 +1,7 @@
-{ lib, username, ... }:
+{ hostname, lib, username, ... }:
+let
+  inherit (import ../../hosts/${hostname}/env.nix) StateVersion;
+in
 {
   imports = lib.filesystem.listFilesRecursive ../../home;
 
@@ -16,7 +19,7 @@
       };
     };
     homeDirectory = "/home/${username}";
-    stateVersion = "25.05";
+    stateVersion = StateVersion;
     username = "${username}";
   };
 
