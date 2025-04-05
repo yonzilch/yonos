@@ -30,7 +30,7 @@
     stylix,
     ...
   }: let
-    hostname = "samyukti";
+    hostname = "vm";
     username = "admin";
   in {
     nixosConfigurations = {
