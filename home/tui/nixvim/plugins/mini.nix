@@ -7,10 +7,10 @@ _: {
         ai = {
           n_lines = 500;
         };
-        surround = {
-        };
         statusline = {
           use_icons.__raw = "vim.g.have_nerd_font";
+        };
+        surround = {
         };
       };
     };

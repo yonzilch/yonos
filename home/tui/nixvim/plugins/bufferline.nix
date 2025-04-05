@@ -19,6 +19,28 @@ _: {
               bg = "#252434";
             };
 
+            close_button = {
+              fg = "#605f6f";
+              bg = "#252434";
+            };
+            close_button_visible = {
+              fg = "#605f6f";
+              bg = "#252434";
+            };
+
+            duplicate = {
+              fg = "NONE";
+              bg = "#252434";
+            };
+            duplicate_selected = {
+              fg = "#F38BA8";
+              bg = "#1E1D2D";
+            };
+            duplicate_visible = {
+              fg = "#89B4FA";
+              bg = "#252434";
+            };
+
             error = {
               fg = "#605f6f";
               bg = "#252434";
@@ -28,14 +50,6 @@ _: {
               bg = "#252434";
             };
 
-            close_button = {
-              fg = "#605f6f";
-              bg = "#252434";
-            };
-            close_button_visible = {
-              fg = "#605f6f";
-              bg = "#252434";
-            };
             fill = {
               bg = "#1E1D2D";
               fg = "#605f6f";
@@ -69,19 +83,6 @@ _: {
             separator_selected = {
               bg = "#252434";
               fg = "#252434";
-            };
-
-            duplicate = {
-              fg = "NONE";
-              bg = "#252434";
-            };
-            duplicate_selected = {
-              fg = "#F38BA8";
-              bg = "#1E1D2D";
-            };
-            duplicate_visible = {
-              fg = "#89B4FA";
-              bg = "#252434";
             };
           };
 
