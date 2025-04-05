@@ -36,6 +36,8 @@
   KeyboardLayout = "us";
   ### See https://docs.moodle.org/405/en/Table_of_locales
   Locale = "en_US.UTF-8";
+  ### See https://mynixos.com/nixpkgs/option/system.stateVersion
+  StateVersion = "25.05";
   ### See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TimeZone = "Asia/Singapore";
 
