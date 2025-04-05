@@ -20,6 +20,7 @@
   KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
+  StateVersion = "25.05";
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
