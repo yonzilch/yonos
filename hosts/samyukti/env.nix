@@ -13,7 +13,6 @@
   QEMU-VM-Use-Case = true;
   Transparent-Proxy = false;
 
-
   # Options
   ## Basic
   BootLoader = "systemd-boot";

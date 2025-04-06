@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # services.hyprpolkitagent.enable = true;
   systemd.user.services.hyprpolkitagent = {
     Install = {
-      WantedBy = [ "graphical-session.target" ];
+      WantedBy = ["graphical-session.target"];
     };
     Unit = {
       After = "graphical-session.target";

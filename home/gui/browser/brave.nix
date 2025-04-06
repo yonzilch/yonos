@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.chromium = {
     commandLineArgs = [
       "--enable-wayland-ime"

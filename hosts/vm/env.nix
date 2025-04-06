@@ -13,7 +13,6 @@
   QEMU-VM-Use-Case = false;
   Transparent-Proxy = false;
 
-
   # Options
   ## Basic
   BootLoader = "grub";

@@ -16,7 +16,7 @@ _: {
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountOptions = [ "nofail" "umask=0077" ];
+                mountOptions = ["nofail" "umask=0077"];
                 mountpoint = "/boot";
               };
             };
@@ -48,7 +48,7 @@ _: {
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountOptions = [ "nofail" "umask=0077" ];
+                mountOptions = ["nofail" "umask=0077"];
                 mountpoint = "/boot-mirror";
               };
             };

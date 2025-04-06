@@ -19,7 +19,7 @@ _: {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "nofail" ];
+                mountOptions = ["nofail"];
               };
             };
             zfs = {
