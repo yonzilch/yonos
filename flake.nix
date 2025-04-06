@@ -21,22 +21,14 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = inputs @ {
-    chaotic,
-    daeuniverse,
-    disko,
-    home-manager,
-    nixpkgs,
-    stylix,
-    ...
-  }: let
+  outputs = inputs: let
     hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
+      "${hostname}" = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {inherit hostname inputs username;};
-        modules = [
+        modules = with inputs; [
           ./hosts/${hostname}
           chaotic.nixosModules.default
           daeuniverse.nixosModules.daed
