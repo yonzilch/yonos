@@ -1,9 +1,12 @@
-{ hostname, lib, username, ... }:
-let
+{
+  hostname,
+  lib,
+  username,
+  ...
+}: let
   inherit (import ../hosts/${hostname}/env.nix) StateVersion;
   ls = lib.filesystem.listFilesRecursive;
-in
-{
+in {
   imports =
     ls ./cli
     ++ ls ./gui

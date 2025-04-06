@@ -1,7 +1,12 @@
-{ lib, pkgs, username, ... }:
 {
-  imports = [
-    ./hardware.nix
+  lib,
+  pkgs,
+  username,
+  ...
+}: {
+  imports =
+    [
+      ./hardware.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;
 

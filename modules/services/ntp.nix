@@ -1,6 +1,5 @@
-{ lib, ...}:
-with lib;
-{
+{lib, ...}:
+with lib; {
   services.ntpd-rs = {
     enable = true;
     settings = {

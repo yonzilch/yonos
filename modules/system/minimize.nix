@@ -1,6 +1,5 @@
-{ lib, ... }:
-with lib;
-{
+{lib, ...}:
+with lib; {
   # Minimize boot
   boot = {
     bcache.enable = mkForce false;
