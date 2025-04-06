@@ -1,8 +1,10 @@
-{ hostname, pkgs, ... }:
-let
-  inherit (import ../../hosts/${hostname}/env.nix) WM;
-in
 {
+  hostname,
+  pkgs,
+  ...
+}: let
+  inherit (import ../../hosts/${hostname}/env.nix) WM;
+in {
   services = {
     greetd = {
       enable = true;

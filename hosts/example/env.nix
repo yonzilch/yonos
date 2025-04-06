@@ -18,13 +18,11 @@
   ### See https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html
   ZFS-Use-Case = false;
 
-
   ## Software related
   ### See https://github.com/qemu/qemu
   QEMU-VM-Use-Case = false;
   ### See https://github.com/daeuniverse/daed
   Transparent-Proxy = false;
-
 
   # Options
   ## Basic

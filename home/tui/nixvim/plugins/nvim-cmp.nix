@@ -4,7 +4,6 @@ _: {
       enable = true;
 
       settings = {
-
         completion = {
           completeopt = "menu,menuone,noinsert";
         };

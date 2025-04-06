@@ -1,8 +1,10 @@
-{ hostname, pkgs, ...}:
-let
-  inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
-in
 {
+  hostname,
+  pkgs,
+  ...
+}: let
+  inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
+in {
   environment = {
     sessionVariables = {
       EDITOR = "nvim";
@@ -30,7 +32,6 @@ in
     };
 
     systemPackages = with pkgs; [
-
       # Archive
       p7zip
       gnutar
