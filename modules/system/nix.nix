@@ -25,10 +25,10 @@ with lib; {
       gc-keep-outputs = mkDefault false;
       nix-path = mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
-        "https://cache.garnix.io" # see https://github.com/daeuniverse/flake.nix
-        "https://cache.nixos.org" # see https://nixos.wiki/wiki/Binary_Cache
-        "https://chaotic-nyx.cachix.org" # see https://github.com/chaotic-cx/nyx
-        "https://nix-community.cachix.org" # see https://nix-community.org/cache/
+        "https://cache.garnix.io" # See https://github.com/daeuniverse/flake.nix
+        "https://cache.nixos.org" # See https://nixos.wiki/wiki/Binary_Cache
+        "https://chaotic-nyx.cachix.org" # See https://github.com/chaotic-cx/nyx
+        "https://nix-community.cachix.org" # See https://nix-community.org/cache/
       ];
       trusted-public-keys = [
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
