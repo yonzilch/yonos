@@ -36,13 +36,13 @@ clean:
 
 
 format:
-  # Use alejandra and deadnix format code
+  # Use alejandra and deadnix to format code
   deadnix -e
   alejandra .
 
 
 gc:
-  # Let system gc (remove unused packages, etc)
+  # Do garbage-clean (remove unused packages, etc)
   sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
   sudo nix-collect-garbage --delete-old
 
@@ -73,7 +73,7 @@ switch input:
 
 
 update:
-  # Let flake update
+  # Update flake.lock
   sudo nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
 
 
