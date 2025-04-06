@@ -21,20 +21,12 @@
         id = "hlkenndednhfkekhgcdicdfddnkalmdm";
       }
       {
-        # FluentRead
-        id = "djnlaiohfaaifbibleebjggkghlmcpcj";
-      }
-      {
         # KISS Translator
         id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
       }
       {
         # LocalCDN
         id = "njdfdhgcmkocbgbhcioffdbicglldapd";
-      }
-      {
-        # MetaMask
-        id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
       }
       {
         # Surfingkeys
