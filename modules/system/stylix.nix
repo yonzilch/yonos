@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   stylix = {
     enable = true;
     # catppuccin-mocha base16Scheme # See https://github.com/catppuccin/base16
