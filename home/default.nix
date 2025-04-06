@@ -1,9 +1,14 @@
 { hostname, lib, username, ... }:
 let
-  inherit (import ./${hostname}/env.nix) StateVersion;
+  inherit (import ../hosts/${hostname}/env.nix) StateVersion;
+  ls = lib.filesystem.listFilesRecursive;
 in
 {
-  imports = lib.filesystem.listFilesRecursive ../home;
+  imports =
+    ls ./cli
+    ++ ls ./gui
+    ++ ls ./tui
+    ++ ls ./wayland;
 
   home = {
     file = {
