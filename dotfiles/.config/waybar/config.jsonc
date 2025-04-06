@@ -53,9 +53,9 @@
   },
   "custom/screenshot": {
     "format": " 󰨵 ",
-    "on-click": "grim -g \"$(slurp)\" - | swappy -f -",
+    "on-click": "sh ~/.config/waybar/scripts/Screenshot-Area.sh",
     "on-click-right": "nemo ~/Pictures/Screenshots",
-    "on-click-middle": "sh -c 'grim - | wl-copy -t image/png && notify-send \"Screenshot copied to clipboard\"'",
+    "on-click-middle": "sh ~/.config/waybar/scripts/Screenshot-Fullscreen.sh",
     "tooltip": false,
   },
 
