@@ -1,21 +1,21 @@
 { hostname, lib, username, ... }:
 let
-  inherit (import ../../hosts/${hostname}/env.nix) StateVersion;
+  inherit (import ./${hostname}/env.nix) StateVersion;
 in
 {
-  imports = lib.filesystem.listFilesRecursive ../../home;
+  imports = lib.filesystem.listFilesRecursive ../home;
 
   home = {
     file = {
       ".config" = {
         force = true;
         recursive = true;
-        source = ../../dotfiles/.config;
+        source = ../dotfiles/.config;
       };
       ".local" = {
         force = true;
         recursive = true;
-        source = ../../dotfiles/.local;
+        source = ../dotfiles/.local;
       };
     };
     homeDirectory = "/home/${username}";
