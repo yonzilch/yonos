@@ -28,7 +28,7 @@ _: {
           (padding 6)
           {
             type = "button";
-            val = "  Find File";
+            val = "  Find File";
             on_press.raw = "require('telescope.builtin').find_files";
             opts = {
               keymap = [
@@ -53,7 +53,7 @@ _: {
           (padding 1)
           {
             type = "button";
-            val = "  New File";
+            val = "  New File";
             on_press.__raw = "function() vim.cmd[[ene]] end";
             opts = {
               keymap = [
@@ -78,7 +78,7 @@ _: {
           (padding 1)
           {
             type = "button";
-            val = "󰈚  Recent Files";
+            val = "  Recent Files";
             on_press.raw = "require('telescope.builtin').oldfiles";
             opts = {
               keymap = [
@@ -103,7 +103,7 @@ _: {
           (padding 1)
           {
             type = "button";
-            val = "󰈭  Find Word";
+            val = "  Find Word";
             on_press.raw = "require('telescope.builtin').live_grep";
             opts = {
               keymap = [
@@ -128,7 +128,7 @@ _: {
           (padding 1)
           {
             type = "button";
-            val = "  Restore Session";
+            val = "󱀸  Restore Session";
             on_press.raw = "require('persistence').load()";
             opts = {
               keymap = [
@@ -153,7 +153,7 @@ _: {
           (padding 1)
           {
             type = "button";
-            val = "  Quit Neovim";
+            val = "󰈆  Quit Neovim";
             on_press.__raw = "function() vim.cmd[[qa]] end";
             opts = {
               keymap = [
