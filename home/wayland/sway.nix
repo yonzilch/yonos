@@ -19,15 +19,14 @@ in
         xorg.xprop
       ];
       systemd.user.targets.sway-session = {
-        Target = {
-          After = "graphical-session-pre.target";
-          BindsTo = "graphical-session.target";
-          DefaultDependencies = false;
-          Wants = "graphical-session-pre.target";
-        };
         Unit = {
           Description = "sway compositor session";
           Documentation = "man:systemd.special(7)";
+          After = "graphical-session-pre.target graphical-session.target";
+          BindsTo = "graphical-session.target";
+          Conflicts = "shutdown.target";
+          DefaultDependencies = false;
+          Wants = "graphical-session-pre.target";
         };
       };
       xdg = {
