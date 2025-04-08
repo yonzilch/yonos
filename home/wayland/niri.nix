@@ -13,25 +13,14 @@ in
         niri
       ];
       systemd.user.targets.niri-session = {
-        Target = {
-          After = "graphical-session-pre.target";
+        Unit = {
+          After = "graphical-session-pre.target graphical-session.target";
           BindsTo = "graphical-session.target";
+          Conflicts = "shutdown.target";
           DefaultDependencies = false;
-          Wants = "graphical-session-pre.target";
-        };
-        Unit = {
-          Description = "niri compositor session";
+          Description = "sway compositor session";
           Documentation = "man:systemd.special(7)";
-        };
-      };
-      systemd.user.services.xdg-desktop-portal-gnome = {
-        Unit = {
-          Description = "Portal service (GNOME implementation)";
-        };
-        Service = {
-          Type = "dbus";
-          BusName = "org.freedesktop.impl.portal.desktop.gnome";
-          ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
+          Wants = "graphical-session-pre.target";
         };
       };
       xdg.portal = {
