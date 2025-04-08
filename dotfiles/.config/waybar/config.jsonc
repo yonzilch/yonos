@@ -7,11 +7,7 @@
   "margin-right": 10,
   "spacing": 8,
   "modules-left": [
-    //"custom/powermenu",
     "custom/startmenu",
-    //"cpu",
-    //"memory",
-    //"disk",
     "backlight",
     "battery",
     "network",
@@ -36,64 +32,23 @@
   // Modules
   // -------------------------------------------------------------------------
 
-  "custom/sp1": {
-    "format": " | ",
-    "tooltip": false,
-  },
-  "custom/sp2": {
-    "format": " |",
-    "tooltip": false,
-  },
-
   "custom/startmenu": {
     "format": " ",
     "tooltip": false,
     "on-click": "wlogout",
     "on-click-right": "fuzzel",
   },
-  "custom/screenshot": {
-    "format": " 󰨵 ",
-    "on-click": "sh ~/.config/waybar/scripts/Screenshot-Area.sh",
-    "on-click-right": "nemo ~/Pictures/Screenshots",
-    "on-click-middle": "sh ~/.config/waybar/scripts/Screenshot-Fullscreen.sh",
-    "tooltip": false,
-  },
 
-
-  "clock#1": {
-    "format": " {:%a}",
-    "tooltip": false,
-    "on-click": "gsimplecal",
-  },
-  "clock#2": {
-    "format": " {:%d-%h-%Y}",
-    "tooltip": false,
-    "on-click": "gsimplecal",
-  },
-  "clock#3": {
-    "format": " {:%H:%M:%S %p}",
-    "tooltip": false,
-    "on-click": "gsimplecal",
-  },
-
-  "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 22,
-      "spacing": 3,
-      "tooltip-format": "{title}",
-      "ignore-list": [],
-      "on-click": "activate",
-      "on-click-middle": "close",
-  },
-
-  "memory": {
-    "interval": 10,
-    "format": " {used:0.2f}/{total:0.0f}GB",
-    "on-click": "alacritty -e btop",
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [""],
+    "on-scroll-down": "brightnessctl s 2%-",
+    "on-scroll-up": "brightnessctl s +2%",
   },
 
   "battery": {
-    "interval": 2,
+    "interval": 5,
     "states": {
       "good": 95,
       "warning": 15,
@@ -106,48 +61,12 @@
   },
 
   "network": {
-    "interval": 5,
+    "interval": 3,
     "format": "{bandwidthUpBytes} {bandwidthDownBytes}",
     "format-disconnected": "󰲜 ",
     "on-click": "alacritty -e zenith",
     "on-click-right": "corestats",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
-  },
-
-  "disk": {
-    "format": " {free}",
-    "tooltip": true,
-  },
-
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": [""],
-    "on-scroll-down": "brightnessctl s 2%-",
-    "on-scroll-up": "brightnessctl s +2%",
-  },
-
-  "custom/powermenu": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "wlogout",
-  },
-
-  "clock": {
-    "interval": 60,
-    "align": 0,
-    "rotate": 0,
-    "tooltip-format": "<tt><big>{calendar}</big></tt>",
-    "format": " {:%H:%M}",
-    "format-alt": " {:%a %b %d, %G}",
-  },
-
-  "cpu": {
-    "interval": 3,
-    "format": " {max_frequency}GHz {usage}%",
-    "max-length": 13,
-    "min-length": 13,
-    "on-click": "alacritty -e zenith",
   },
 
   "hyprland/workspaces": {
@@ -157,10 +76,6 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1 1>/dev/null",
     "sort-by-number": true,
     "active-only": false,
-  },
-  "hyprland/window": {
-    "max-length": 100,
-    "separate-outputs": true,
   },
 
   "niri/workspaces": {
@@ -172,19 +87,22 @@
     "format": "{name}",
   },
 
-  "wireplumber": {
-    "on-click": "pwvucontrol",
-    "on-click-right": "easyeffects",
-    "on-click-middle": "swayosd-client --output-volume mute-toggle",
-    "on-scroll-down": "swayosd-client --output-volume -2",
-    "on-scroll-up": "swayosd-client --output-volume +2",
-    "format": "{icon} {volume}%",
-    "format-muted": "MUTE",
-    "format-source": "",
-    "format-source-muted": "",
-    "format-icons": {
-      "default": ["", "", ""],
-    },
+  "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 22,
+      "spacing": 3,
+      "tooltip-format": "{title}",
+      "ignore-list": [],
+      "on-click": "activate",
+      "on-click-middle": "close",
+  },
+
+  "custom/screenshot": {
+    "format": " 󰨵 ",
+    "on-click": "sh ~/.config/waybar/scripts/Screenshot-Area.sh",
+    "on-click-right": "nemo ~/Pictures/Screenshots",
+    "on-click-middle": "sh ~/.config/waybar/scripts/Screenshot-Fullscreen.sh",
+    "tooltip": false,
   },
 
   "tray": {
@@ -208,6 +126,30 @@
       "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
       "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
       "tooltip": false
+  },
+
+  "wireplumber": {
+    "on-click": "pwvucontrol",
+    "on-click-right": "easyeffects",
+    "on-click-middle": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-down": "swayosd-client --output-volume -2",
+    "on-scroll-up": "swayosd-client --output-volume +2",
+    "format": "{icon} {volume}%",
+    "format-muted": "MUTE",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": ["", "", ""],
+    },
+  },
+
+  "clock": {
+    "interval": 60,
+    "align": 0,
+    "rotate": 0,
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "format": " {:%H:%M}",
+    "format-alt": " {:%a %b %d, %G}",
   },
 
   "custom/swaync": {
