@@ -12,20 +12,6 @@ in
       home.packages = with pkgs; [
         niri
       ];
-      xdg.portal = {
-        config = {
-          common = {
-            default = ["gnome" "gtk"];
-            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-            "org.freedesktop.impl.portal.Screenshot" = "gnome";
-            "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
-          };
-        };
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-gnome
-        ];
-      };
       systemd.user.targets.niri-session = {
         Target = {
           After = "graphical-session-pre.target";
@@ -47,5 +33,19 @@ in
           BusName = "org.freedesktop.impl.portal.desktop.gnome";
           ExecStart = "${pkgs.xdg-desktop-portal-gnome}/libexec/xdg-desktop-portal-gnome";
         };
+      };
+      xdg.portal = {
+        config = {
+          common = {
+            default = ["gnome" "gtk"];
+            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+            "org.freedesktop.impl.portal.Screenshot" = "gnome";
+            "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+          };
+        };
+        extraPortals = [
+          pkgs.xdg-desktop-portal-gtk
+          pkgs.xdg-desktop-portal-gnome
+        ];
       };
     }
