@@ -18,6 +18,18 @@ in
         sway
         xorg.xprop
       ];
+      systemd.user.targets.sway-session = {
+        Target = {
+          After = "graphical-session-pre.target";
+          BindsTo = "graphical-session.target";
+          DefaultDependencies = false;
+          Wants = "graphical-session-pre.target";
+        };
+        Unit = {
+          Description = "sway compositor session";
+          Documentation = "man:systemd.special(7)";
+        };
+      };
       xdg = {
         configFile."sway/config".text = concatStrings [
           ''
@@ -36,18 +48,6 @@ in
             pkgs.xdg-desktop-portal-gtk
             pkgs.xdg-desktop-portal-wlr
           ];
-        };
-      };
-      systemd.user.targets.sway-session = {
-        Target = {
-          After = "graphical-session-pre.target";
-          BindsTo = "graphical-session.target";
-          DefaultDependencies = false;
-          Wants = "graphical-session-pre.target";
-        };
-        Unit = {
-          Description = "sway compositor session";
-          Documentation = "man:systemd.special(7)";
         };
       };
     }
