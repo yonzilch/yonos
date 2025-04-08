@@ -20,12 +20,12 @@ in
       ];
       systemd.user.targets.sway-session = {
         Unit = {
-          Description = "sway compositor session";
-          Documentation = "man:systemd.special(7)";
           After = "graphical-session-pre.target graphical-session.target";
           BindsTo = "graphical-session.target";
           Conflicts = "shutdown.target";
           DefaultDependencies = false;
+          Description = "sway compositor session";
+          Documentation = "man:systemd.special(7)";
           Wants = "graphical-session-pre.target";
         };
       };
