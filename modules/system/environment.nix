@@ -6,7 +6,7 @@
   inherit (import ../../hosts/${hostname}/env.nix) ScaleLevel;
 in {
   environment = {
-    sessionVariables = {
+    variables = {
       EDITOR = "nvim";
       TERMINAL = "alacritty";
 
