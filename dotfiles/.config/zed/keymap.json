@@ -1,0 +1,18 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-q": null,
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "ctrl-\\": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-q": null,
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "ctrl-\\": "workspace::ToggleLeftDock"
+    }
+  }
+]
