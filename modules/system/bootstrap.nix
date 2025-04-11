@@ -36,7 +36,7 @@ in
       };
       kernelModules = ["v4l2loopback"]; # v4l2loopback is for OBS Virtual Cam Support
       kernelPackages = pkgs.${KernelPackages};
-      kernelParams = ["audit=0" "console=tty0" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
+      kernelParams = ["audit=0" "console=tty1" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
       loader = {
         grub = mkIf (strings.hasInfix "grub" BootLoader) {
           configurationLimit = 50;
