@@ -33,8 +33,8 @@ in {
 
     systemPackages = with pkgs; [
       # Archive
-      p7zip
       gnutar
+      p7zip
       unzipNLS
       xz
       zip
