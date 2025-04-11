@@ -1,5 +1,4 @@
-{lib, ...}:
-with lib; {
+_: {
   services.ntpd-rs = {
     enable = true;
     settings = {
@@ -19,11 +18,5 @@ with lib; {
       ];
     };
     useNetworkingTimeServers = false;
-  };
-  systemd.services.ntpd-rs = {
-    after = mkForce [];
-    requires = mkForce [];
-    wantedBy = mkForce [];
-    wants = mkForce [];
   };
 }
