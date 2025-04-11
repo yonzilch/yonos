@@ -8,7 +8,7 @@ in {
   services = {
     greetd = {
       enable = true;
-      vt = 1;
+      vt = 2;
       settings = {
         default_session = {
           user = "greeter";
