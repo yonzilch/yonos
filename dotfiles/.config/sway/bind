@@ -145,7 +145,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Alternative playback control
+# Playback control (bonus)
 bindsym Ctrl+Mod1+Return exec playerctl play-pause
 bindsym Ctrl+Mod1+Right exec playerctl next
 bindsym Ctrl+Mod1+Left exec playerctl previous
@@ -155,3 +155,7 @@ bindsym XF86AudioRaiseVolume exec "swayosd-client --output-volume +2"
 bindsym XF86AudioLowerVolume exec "swayosd-client --output-volume -2"
 bindsym XF86AudioMicMute exec "swayosd-client --input-volume mute-toggle"
 bindsym XF86AudioMute exec "swayosd-client --output-volume mute-toggle
+
+# Volume control (bonus)
+bindsym Ctrl+Mod1+Up exec "swayosd-client --output-volume +2"
+bindsym Ctrl+Mod1+Down exec "swayosd-client --output-volume -2"
