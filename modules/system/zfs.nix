@@ -15,9 +15,10 @@ in
     config = mkIf ZFS-Use-Case {
       boot = {
         kernelParams = ["zfs_force=1"];
+        supportedFilesystems = ["zfs"];
         zfs = {
-          forceImportRoot = false;
           devNodes = "/dev/disk/by-id";
+          forceImportRoot = false;
           package = mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
         };
       };
