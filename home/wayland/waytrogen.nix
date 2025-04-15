@@ -1,10 +1,4 @@
-{config, pkgs, ...}: {
-  dconf.settings = {
-    "org/Waytrogen/Waytrogen" = {
-      "wallpaper-folder" = "${config.home.homeDirectory}/Pictures/Wallpapers";
-    };
-  };
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     waytrogen
   ];
