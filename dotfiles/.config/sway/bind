@@ -1,6 +1,6 @@
 # Shortcuts
 
-## Toggle some programs
+## Restart some programs
 ### Input Tool
 bindsym Ctrl+Mod1+i exec "pkill fcitx5 -9; sleep 1; fcitx5 -d --replace; sleep 1; fcitx5-remote -r"
 ### Notification Manager
@@ -15,8 +15,8 @@ bindsym Mod1+space exec fuzzel
 ### File Explorer
 bindsym Mod4+e exec nemo
 
-### Locker
-bindsym Mod4+l exec pkill wlogout || wlogout
+### Logout Menu
+bindsym Ctrl+Mod4+q exec wlogout
 
 ### Terminal Emulator
 bindsym Mod4+t exec alacritty
