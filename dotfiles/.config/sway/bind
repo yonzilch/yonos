@@ -77,10 +77,9 @@ bindsym Mod4+Shift+j move down
 bindsym Mod4+Ctrl+Left workspace prev
 bindsym Mod4+Ctrl+Right workspace next
 
-## Workspace movement
 ### Using Vim-like keys
-bindsym Mod4+Mod1+Ctrl+h workspace prev
-bindsym Mod4+Mod1+Ctrl+l workspace next
+bindsym Mod4+Ctrl+h workspace prev
+bindsym Mod4+Ctrl+l workspace next
 
 ## Workspace jumping
 bindsym Mod4+1 workspace number 1
