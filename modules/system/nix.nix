@@ -8,9 +8,9 @@ with lib; {
   nix = {
     channel.enable = false;
     gc = {
-      automatic = mkDefault true;
-      dates = mkDefault "weekly";
-      options = mkDefault "--delete-older-than 7d";
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
     optimise = {
       automatic = true;
@@ -19,10 +19,14 @@ with lib; {
     # package = pkgs.lix; # use lix instead of nix would cause clan-cli error
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
-      auto-optimise-store = mkDefault true;
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
-      gc-keep-derivations = mkDefault false;
-      gc-keep-outputs = mkDefault false;
+      connect-timeout = 5;
+      gc-keep-derivations = false;
+      gc-keep-outputs = false;
+      keep-going = true;
+      log-lines = 25;
       nix-path = mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       substituters = [
         "https://cache.garnix.io" # See https://github.com/daeuniverse/flake.nix
@@ -36,11 +40,11 @@ with lib; {
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-      warn-dirty = mkDefault false;
+      warn-dirty = false;
     };
   };
   nixpkgs = {
-    config.allowUnfree = mkDefault false;
+    config.allowUnfree = false;
     hostPlatform = "x86_64-linux";
   };
 }

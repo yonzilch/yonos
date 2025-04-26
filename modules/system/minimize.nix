@@ -51,9 +51,11 @@ with lib; {
   systemd = {
     coredump.enable = mkForce false;
     enableEmergencyMode = mkForce false;
+    network.wait-online.enable = mkForce false;
     oomd.enable = mkForce false;
     services = {
       mount-pstore.enable = mkForce false;
+      NetworkManager-wait-online.enable = mkForce false;
       systemd-bsod.enable = mkForce false;
       systemd-importd.enable = mkForce false;
       systemd-journal-flush.enable = mkForce false;
