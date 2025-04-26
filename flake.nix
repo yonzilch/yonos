@@ -22,7 +22,7 @@
   };
 
   outputs = inputs: let
-    hostname = "metaphyuni";
+    hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
