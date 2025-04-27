@@ -19,7 +19,7 @@ in
         zfs = {
           devNodes = "/dev/disk/by-id";
           forceImportRoot = false;
-          package = mkIf (KernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
+          package = mkIf (strings.hasInfix "linuxPackages_cachyos" KernelPackages) pkgs.zfs_cachyos;
         };
       };
       networking.hostId = ZFS-Networking-HostID;
