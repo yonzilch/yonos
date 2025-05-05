@@ -54,7 +54,7 @@ in
               path = "/boot-mirror";
             }
           ];
-          theme = mkForce "${pkgs.catppuccin-grub}";
+          theme = mkForce "${pkgs.minimal-grub-theme}";
           zfsSupport = ZFS-Use-Case;
         };
         systemd-boot = mkIf (BootLoader == "systemd-boot") {
