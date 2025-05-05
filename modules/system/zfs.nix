@@ -34,6 +34,9 @@ in
         };
         autoSnapshot.enable = true;
       };
-      systemd.services.zfs-zed.wantedBy = mkForce [];
+      systemd.services = {
+        zfs-share.enable = mkForce false;
+        zfs-zed.enable = mkForce false;
+      };
     };
   }
