@@ -23,8 +23,8 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , highres, auto, 1.875";
-  OutputSettings = "output * scale 1.875";
-  ScaleLevel = "1.875";
+  MonitorSettings = "monitor = , highres, auto, 2";
+  OutputSettings = "output * scale 2";
+  ScaleLevel = "2";
   WM = "sway";
 }
