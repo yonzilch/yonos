@@ -7,6 +7,8 @@
         browser = ["brave-browser.desktop"];
         editor = ["nvim.desktop"];
         filemanager = ["nemo.desktop"];
+        image-viewer = ["oculante.desktop"];
+        media-player = ["mpv.desktop"];
       in {
         "application/json" = browser;
         "application/pdf" = browser;
@@ -34,13 +36,13 @@
 
         "x-scheme-handler/tg" = ["io.github.kukuruzka165.materialgram.desktop"];
 
-        "audio/*" = ["mpv.desktop"];
-        "video/*" = ["mpv.desktop"];
-        "image/*" = ["oculante.desktop"];
-        "image/gif" = ["oculante.desktop"];
-        "image/jpeg" = ["oculante.desktop"];
-        "image/png" = ["oculante.desktop"];
-        "image/webp" = ["oculante.desktop"];
+        "audio/*" = media-player;
+        "video/*" = media-player;
+        "image/*" = image-viewer;
+        "image/gif" = image-viewer;
+        "image/jpeg" = image-viewer;
+        "image/png" = image-viewer;
+        "image/webp" = image-viewer;
       };
     };
     portal = {
