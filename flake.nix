@@ -5,43 +5,23 @@
   inputs = {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     daeuniverse.url = "github:daeuniverse/flake.nix";
-    disko = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/disko";
-    };
-    home-manager = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
-    };
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/nixvim";
-    };
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
     stylix.url = "github:danth/stylix";
   };
-
   outputs = inputs: let
     hostname = "samyukti";
     username = "admin";
   in {
     nixosConfigurations = {
       "${hostname}" = inputs.nixpkgs.lib.nixosSystem {
+        modules = [./hosts];
         specialArgs = {inherit hostname inputs username;};
-        modules = with inputs; [
-          ./hosts/${hostname}
-          chaotic.nixosModules.default
-          daeuniverse.nixosModules.daed
-          disko.nixosModules.disko
-          stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {inherit hostname inputs username;};
-              users.${username} = import ./home;
-            };
-          }
-        ];
       };
     };
   };
