@@ -30,7 +30,6 @@
   Transparent-Proxy = false;
   ### See https://github.com/daeuniverse/daed
 
-
   # Options
   ## System related
   BootLoader = "systemd-boot";
@@ -50,7 +49,6 @@
 
   TimeZone = "Asia/Singapore";
   ### See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
 
   ## Wayland related
   MonitorSettings = "monitor = , preferred, auto, auto";
