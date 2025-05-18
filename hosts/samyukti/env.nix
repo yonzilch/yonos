@@ -11,7 +11,7 @@
 
   ## Software related
   QEMU-VM-Use-Case = true;
-  Transparent-Proxy = false;
+  Transparent-Proxy = true;
 
   # Options
   ## Basic
