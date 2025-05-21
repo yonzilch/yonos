@@ -46,8 +46,8 @@ in {
       # For OBS virtual cam support
       v4l-utils
 
-      # Editor use in tty
-      micro
+      # Editor
+      helix
 
       # Networking tool
       curl
