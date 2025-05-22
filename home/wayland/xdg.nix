@@ -1,22 +1,41 @@
 {config, ...}: {
   xdg = {
     enable = true;
-    mimeApps = {
+    mimeApps = let
+      archiver-extract-smart = ["peazip-extract-smart.desktop"];
+      archiver-useless-options = [
+        "peazip-extract.desktop"
+        "peazip-extract-here.desktop"
+        "peazip-extract-desktop.desktop"
+        "peazip-extract-documents.desktop"
+        "peazip-extract-downloads.desktop"
+      ];
+      browser = ["brave-browser.desktop"];
+      editor = ["nvim.desktop"];
+      filemanager = ["nemo.desktop"];
+      image-viewer = ["oculante.desktop"];
+      media-player = ["mpv.desktop"];
+    in {
+      associations.removed = {
+        "application/iso" = archiver-useless-options;
+        "application/zip" = archiver-useless-options;
+        "application/x-7z-compressed" = archiver-useless-options;
+        "application/x-ace-compressed" = archiver-useless-options;
+        "application/x-bzip2" = archiver-useless-options;
+        "application/x-gzip" = archiver-useless-options;
+        "application/x-tar" = archiver-useless-options;
+        "application/x-rar-compressed" = archiver-useless-options;
+      };
       enable = true;
-      defaultApplications = let
-        archiver = ["peazip.desktop"];
-        browser = ["brave-browser.desktop"];
-        editor = ["nvim.desktop"];
-        filemanager = ["nemo.desktop"];
-        image-viewer = ["oculante.desktop"];
-        media-player = ["mpv.desktop"];
-      in {
-        "application/x-bzip2" = archiver;
-        "application/x-gzip" = archiver;
-        "application/x-tar" = archiver;
-        "application/x-7z-compressed" = archiver;
-        "application/x-rar-compressed" = archiver;
-        "application/x-ace-compressed" = archiver;
+      defaultApplications = {
+        "application/iso" = archiver-extract-smart;
+        "application/zip" = archiver-extract-smart;
+        "application/x-7z-compressed" = archiver-extract-smart;
+        "application/x-ace-compressed" = archiver-useless-options;
+        "application/x-bzip2" = archiver-extract-smart;
+        "application/x-gzip" = archiver-extract-smart;
+        "application/x-tar" = archiver-extract-smart;
+        "application/x-rar-compressed" = archiver-extract-smart;
 
         "application/json" = browser;
         "application/pdf" = browser;
