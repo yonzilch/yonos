@@ -2,9 +2,11 @@
   home.packages = with pkgs; [
     nil
     nixd
+    zed-editor
   ];
-  programs.zed-editor = {
-    enable = true;
+
+  # programs.zed-editor = {
+    # enable = true;
     # package = pkgs.zed-editor-fhs;
 
     # userSettings = {
@@ -76,5 +78,5 @@
     #   };
     #   vim_mode = false;
     # };
-  };
+  # };
 }
