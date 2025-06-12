@@ -9,7 +9,7 @@ else
     exit
 fi
 
-# Check if boot directory exists to detect NixOS LiveCD environment
+# Check if boot directory exists in order to detect NixOS LiveCD environment
 if [ -d "/boot" ]; then
     echo "Running on installed NixOS, going next step"
     echo "----------------------------------------------------------------"
@@ -32,6 +32,7 @@ echo "Just press enter as default"
 echo "----------------------------------------------------------------"
 sleep 2
 
+# Input hostname
 read -p "Enter Hostname: [ nixos ] " hostName
 if [ -z "$hostName" ]; then
   hostName="nixos"
@@ -63,4 +64,5 @@ sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/chan
 echo "----------------------------------------------------------------"
 echo "Jobs done."
 echo "Live long and prosper!"
-echo "Please reboot to get a brand new system"
+echo "Please reboot to get a brand new system."
+echo "If there goes something wrong, please do report, thank you!"
