@@ -4,7 +4,7 @@
 
 # YonOS
 
-A Nix and Flakes❄️ based config customized with Occam's razor
+A Nix and Flakes❄️ based config set customized with Occam's razor
 
 [![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=NixOS&color=blue&logo=nixos&link=https://nixos.org&labelColor=111212)](https://nixos.org)
 [![license](https://img.shields.io/github/license/yonzilch/yonos.svg?style=flat-square)](LICENSE)
