@@ -24,7 +24,7 @@
 
   ## Wayland related
   MonitorSettings = "monitor = , highres, auto, 2";
-  OutputSettings = "output * scale 2";
+  OutputSettings = "output DP-3 scale 2 res 3840x2160@100.000Hz";
   ScaleLevel = "2";
   WM = "sway";
 }
