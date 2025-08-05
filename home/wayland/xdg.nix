@@ -2,9 +2,8 @@
   xdg = {
     enable = true;
     mimeApps = let
-      archiver-extract-smart = ["peazip-extract-smart.desktop"];
+      archiver-extract = ["peazip-extract.desktop"];
       archiver-useless-options = [
-        "peazip-extract.desktop"
         "peazip-extract-desktop.desktop"
         "peazip-extract-documents.desktop"
         "peazip-extract-downloads.desktop"
@@ -34,14 +33,14 @@
       };
       enable = true;
       defaultApplications = {
-        "application/iso" = archiver-extract-smart;
-        "application/zip" = archiver-extract-smart;
-        "application/x-7z-compressed" = archiver-extract-smart;
+        "application/iso" = archiver-extract;
+        "application/zip" = archiver-extract;
+        "application/x-7z-compressed" = archiver-extract;
         "application/x-ace-compressed" = archiver-useless-options;
-        "application/x-bzip2" = archiver-extract-smart;
-        "application/x-gzip" = archiver-extract-smart;
-        "application/x-rar-compressed" = archiver-extract-smart;
-        "application/x-tar" = archiver-extract-smart;
+        "application/x-bzip2" = archiver-extract;
+        "application/x-gzip" = archiver-extract;
+        "application/x-rar-compressed" = archiver-extract;
+        "application/x-tar" = archiver-extract;
 
         "application/json" = browser;
         "application/pdf" = browser;
@@ -77,6 +76,7 @@
         "audio/*" = media-player;
         "video/*" = media-player;
 
+        "x-scheme-handler/mpv" = ["mpv.desktop"];
         "x-scheme-handler/tg" = ["io.github.kukuruzka165.materialgram.desktop"];
       };
     };
