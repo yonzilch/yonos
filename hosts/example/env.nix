@@ -39,7 +39,7 @@
   ### Possible options: DoT ; Plain ; # See https://unbound.docs.nlnetlabs.nl/en/latest/getting-started/configuration.html
 
   KernelPackages = "linuxPackages_zen";
-  ### See https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
+  ### Recommend option: linuxPackages_cachyos # See https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
 
   KeyboardLayout = "us";
   ### See https://en.wikipedia.org/wiki/Keyboard_layout
@@ -47,7 +47,7 @@
   Locale = "en_US.UTF-8";
   ### See https://docs.moodle.org/405/en/Table_of_locales
 
-  StateVersion = "25.05";
+  StateVersion = "25.11";
   ### See https://mynixos.com/nixpkgs/option/system.stateVersion
 
   TimeSync-Method = "Plain";
