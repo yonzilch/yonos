@@ -50,6 +50,9 @@
   StateVersion = "25.05";
   ### See https://mynixos.com/nixpkgs/option/system.stateVersion
 
+  TimeSync-Method = "Plain";
+  ### Possible options: NTS ; Plain ; # See https://github.com/pendulum-project/ntpd-rs
+
   TimeZone = "Asia/Singapore";
   ### See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
