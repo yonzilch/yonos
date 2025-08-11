@@ -35,6 +35,9 @@
   BootLoader = "systemd-boot";
   ### Possible options: grub ; grub-mirror ; systemd-boot # See https://nixos.wiki/wiki/Bootloader https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=mirroredBoots
 
+  DNS-Method = "Plain";
+  ### Possible options: DoT ; Plain ; # See https://unbound.docs.nlnetlabs.nl/en/latest/getting-started/configuration.html
+
   KernelPackages = "linuxPackages_zen";
   ### See https://search.nixos.org/options?show=boot.kernelPackages https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
 
