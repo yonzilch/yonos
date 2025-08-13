@@ -7,7 +7,7 @@
   GPU-Intel = false;
   HotSpot-Use-Case = false;
   ZFS-Networking-HostID = "b53024b6";
-  ZFS-Use-Case = true;
+  ZFS-Use-Case = false;
 
   ## Software related
   QEMU-VM-Use-Case = true;
