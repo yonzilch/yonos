@@ -8,17 +8,17 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod"];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "uas"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-
-  boot.zfs.extraPools = ["backup"];
-
-  fileSystems."/run/media/admin/backup" = {
-    device = "backup";
-    fsType = "zfs";
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/8713458b-45c1-430c-b545-585fb7296001";
@@ -30,7 +30,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/9965-0792";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   swapDevices = [];
