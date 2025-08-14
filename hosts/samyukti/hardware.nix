@@ -36,6 +36,17 @@
     ];
   };
 
+  fileSystems."/run/media/admin/hdd1" = {
+    device = "/dev/disk/by-id/ata-HSH721414ALN6M0_VEGU6RTY";
+    fsType = "f2fs";
+    options = [
+      "nofail"
+    ];
+  };
+  systemd.tmpfiles.rules = [
+    "d /run/media/admin/hdd1 0777 admin admin - -"
+  ];
+
   swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;
