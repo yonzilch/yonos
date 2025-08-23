@@ -1,11 +1,11 @@
 {
   # Specific Use Cases
   ## Hardware related
-  Bluetooth = false;
+  Bluetooth = true;
   GPU-AMD = true;
   GPU-Nvidia = false;
-  GPU-Intel = false;
-  HotSpot-Use-Case = false;
+  GPU-Intel = true;
+  HotSpot-Use-Case = true;
   ZFS-Networking-HostID = "b53024b6";
   ZFS-Use-Case = false;
 
