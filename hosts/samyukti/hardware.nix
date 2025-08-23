@@ -40,7 +40,15 @@
     device = "/dev/disk/by-id/ata-HSH721414ALN6M0_VEGU6RTY";
     fsType = "f2fs";
     options = [
+      # Continute when it failed
       "nofail"
+      # Enable compress
+      "compress_algorithm=zstd:6"
+      "compress_chksum"
+      # Enable better garbage collector
+      "gc_merge"
+      # Do not synchronously update access or modification times
+      "lazytime"
     ];
   };
   systemd.tmpfiles.rules = [
