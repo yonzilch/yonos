@@ -13,11 +13,9 @@
     "network",
     "hyprland/workspaces",
     "niri/workspaces",
-    "sway/workspaces"
+    "sway/workspaces",
   ],
-  "modules-center": [
-    "wlr/taskbar"
-  ],
+  "modules-center": ["wlr/taskbar"],
   "modules-right": [
     "custom/screenshot",
     "tray",
@@ -64,7 +62,7 @@
     "interval": 3,
     "format": "{bandwidthUpBytes} {bandwidthDownBytes}",
     "format-disconnected": "󰲜 ",
-    "on-click": "alacritty -e zenith",
+    "on-click": "alacritty -e btm",
     "on-click-right": "corestats",
     "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n",
   },
@@ -88,13 +86,13 @@
   },
 
   "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 22,
-      "spacing": 3,
-      "tooltip-format": "{title}",
-      "ignore-list": [],
-      "on-click": "activate",
-      "on-click-middle": "close",
+    "format": "{icon}",
+    "icon-size": 22,
+    "spacing": 3,
+    "tooltip-format": "{title}",
+    "ignore-list": [],
+    "on-click": "activate",
+    "on-click-middle": "close",
   },
 
   "custom/screenshot": {
@@ -110,22 +108,22 @@
   },
 
   "custom/wl-gammarelay-brightness": {
-      "format": "{}%",
-      "exec": "wl-gammarelay-rs watch {bp}",
-      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.7",
-      "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
-      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
-      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
-      "tooltip": false
+    "format": "{}%",
+    "exec": "wl-gammarelay-rs watch {bp}",
+    "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 0.7",
+    "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
+    "tooltip": false,
   },
   "custom/wl-gammarelay-temperature": {
-      "format": "{}K",
-      "exec": "wl-gammarelay-rs watch {t}",
-      "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
-      "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
-      "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
-      "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
-      "tooltip": false
+    "format": "{}K",
+    "exec": "wl-gammarelay-rs watch {t}",
+    "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
+    "on-click-right": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
+    "tooltip": false,
   },
 
   "wireplumber": {
@@ -168,4 +166,3 @@
     "escape": true,
   },
 }
-
