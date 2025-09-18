@@ -33,7 +33,7 @@
   # Options
   ## System related
   BootLoader = "systemd-boot";
-  ### Possible options: grub ; grub-mirror ; systemd-boot # See https://nixos.wiki/wiki/Bootloader https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=mirroredBoots
+  ### Possible options: grub ; grub-mirror ; refind ; systemd-boot # See https://nixos.wiki/wiki/Bootloader https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=mirroredBoots
 
   DNS-Method = "Plain";
   ### Possible options: DoT ; Plain ; # See https://unbound.docs.nlnetlabs.nl/en/latest/getting-started/configuration.html
@@ -63,7 +63,7 @@
   OutputSettings = "output * scale 1";
   ### OutputSettings For sway See https://github.com/swaywm/sway/wiki#display-configuration
 
-  ScaleLevel = "1";
+  ScaleLevel = "2";
   ### For Hyprland see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
   ### For sway see https://github.com/swaywm/sway/wiki#hidpi
 
