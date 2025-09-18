@@ -18,7 +18,6 @@
 in
   with lib; {
     boot = {
-      bcache.enable = false;
       consoleLogLevel = 2; # Only errors and warnings are displayed
       extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
       extraModulePackages = [
@@ -26,7 +25,11 @@ in
       ];
       initrd = {
         compressor = "zstd";
-        compressorArgs = ["-T0" "-19" "--long"];
+        compressorArgs = [
+          "-T0"
+          "-19"
+          "--long"
+        ];
         systemd.enable = true;
         verbose = false;
       };
@@ -36,7 +39,14 @@ in
       };
       kernelModules = ["v4l2loopback"]; # v4l2loopback is for OBS Virtual Cam Support
       kernelPackages = pkgs.${KernelPackages};
-      kernelParams = ["audit=0" "console=tty1" "erst_disable" "nmi_watchdog=0" "noatime" "nowatchdog"];
+      kernelParams = [
+        "audit=0"
+        "console=tty1"
+        "erst_disable"
+        "nmi_watchdog=0"
+        "noatime"
+        "nowatchdog"
+      ];
       loader = {
         grub = mkIf (strings.hasInfix "grub" BootLoader) {
           configurationLimit = 50;
@@ -56,6 +66,11 @@ in
           ];
           theme = mkForce "${pkgs.minimal-grub-theme}";
           zfsSupport = ZFS-Use-Case;
+        };
+        refind = mkIf (BootLoader == "refind") {
+          efiInstallAsRemovable = true;
+          enable = true;
+          maxGenerations = 50;
         };
         systemd-boot = mkIf (BootLoader == "systemd-boot") {
           configurationLimit = 50;
@@ -96,7 +111,10 @@ in
       dhcpcd.extraConfig = "nohook resolv.conf";
       firewall.enable = false;
       hostName = hostname;
-      nameservers = ["127.0.0.1" "::1"];
+      nameservers = [
+        "127.0.0.1"
+        "::1"
+      ];
       networkmanager = {
         dns = "none";
         enable = true;
