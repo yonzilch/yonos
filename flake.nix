@@ -15,7 +15,7 @@
     stylix.url = "github:danth/stylix";
   };
   outputs = inputs: let
-    hostname = "samyukti";
+    hostname = "metaphyuni";
     username = "admin";
   in {
     nixosConfigurations = {
