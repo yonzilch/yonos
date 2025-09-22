@@ -31,16 +31,15 @@
           "application/zip" = archiver-useless-options;
         };
       };
-      enable = true;
       defaultApplications = {
         "application/iso" = archiver-extract;
-        "application/zip" = archiver-extract;
         "application/x-7z-compressed" = archiver-extract;
         "application/x-ace-compressed" = archiver-useless-options;
         "application/x-bzip2" = archiver-extract;
         "application/x-gzip" = archiver-extract;
         "application/x-rar-compressed" = archiver-extract;
         "application/x-tar" = archiver-extract;
+        "application/zip" = archiver-extract;
 
         "application/json" = browser;
         "application/pdf" = browser;
@@ -65,6 +64,7 @@
 
         "x-scheme-handler/about" = filemanager;
         "x-scheme-handler/ftp" = filemanager;
+        "x-scheme-handler/webdav" = filemanager;
 
         "image/*" = image-viewer;
         "image/avif" = image-viewer;
@@ -79,6 +79,7 @@
         "x-scheme-handler/mpv" = ["mpv.desktop"];
         "x-scheme-handler/tg" = ["io.github.kukuruzka165.materialgram.desktop"];
       };
+      enable = true;
     };
     portal = {
       config = {
