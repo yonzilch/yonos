@@ -51,8 +51,19 @@
       "lazytime"
     ];
   };
+  fileSystems."/run/media/admin/hdd2" = {
+    device = "/dev/disk/by-id/ata-ST2000VX000-1ES164_W4Z317X9-part1";
+    fsType = "exfat";
+    options = [
+      # Continute when it failed
+      "nofail"
+      # Do not synchronously update access or modification times
+      "lazytime"
+    ];
+  };
   systemd.tmpfiles.rules = [
     "d /run/media/admin/hdd1 0777 admin admin - -"
+    "d /run/media/admin/hdd2 0777 admin admin - -"
   ];
 
   swapDevices = [];
