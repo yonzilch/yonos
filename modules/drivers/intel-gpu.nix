@@ -9,16 +9,16 @@ in
   with lib; {
     config = mkIf GPU-Intel {
       nixpkgs.config.packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+        intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
       };
 
       # OpenGL
       hardware.graphics = {
         extraPackages = with pkgs; [
           intel-media-driver
+          intel-vaapi-driver
           libvdpau-va-gl
-          vaapiIntel
-          vaapiVdpau
+          libva-vdpau-driver
           vpl-gpu-rt
         ];
       };
