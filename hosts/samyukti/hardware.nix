@@ -55,10 +55,11 @@
     device = "/dev/disk/by-id/ata-ST2000VX000-1ES164_W4Z317X9-part1";
     fsType = "exfat";
     options = [
-      # Continute when it failed
       "nofail"
-      # Do not synchronously update access or modification times
+      "gid=100"
       "lazytime"
+      "uid=1000"
+      "umask=0000"
     ];
   };
   systemd.tmpfiles.rules = [
