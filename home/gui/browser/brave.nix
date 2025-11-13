@@ -7,48 +7,12 @@
       "--password-store=basic"
     ];
     enable = true;
-    extensions = [
-      {
-        # Dark Reader
-        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-      }
-      {
-        # ClearURLs
-        id = "lckanjgmijmafbedllaakclkaicjfmnk";
-      }
-      {
-        # Cookie-Editor
-        id = "hlkenndednhfkekhgcdicdfddnkalmdm";
-      }
-      {
-        # KISS Translator
-        id = "bdiifdefkgmcblbcghdlonllpjhhjgof";
-      }
-      {
-        # LocalCDN
-        id = "njdfdhgcmkocbgbhcioffdbicglldapd";
-      }
-      {
-        # Surfingkeys
-        id = "gfbliohnnapiefjpjlpjnehglfpaknnc";
-      }
-      {
-        # uBlock Origin
-        id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-      }
-      {
-        # User-Agent Switcher and Manager
-        id = "bhchdcejhohfmigjafbampogmaanbfkg";
-      }
-      {
-        # Violentmonkey
-        id = "jinjaccalgkegednnccohejagnlnfdag";
-      }
-      {
-        # Wappalyzer
-        id = "gppongmhjkpfnbhagpmjfkannfbllamg";
-      }
-    ];
+    # extensions = [ # see https://mynixos.com/home-manager/option/programs.chromium.extensions
+    #   {
+    #     # Dark Reader
+    #     id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+    #   }
+    # ];
     package = pkgs.brave;
   };
 }
