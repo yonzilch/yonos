@@ -3,7 +3,7 @@ _: {
     plugins = {
       alpha = {
         enable = true;
-        layout = let
+        settings.layout = let
           padding = val: {
             type = "padding";
             inherit val;
