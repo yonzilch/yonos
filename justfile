@@ -35,6 +35,10 @@ username := `whoami`
   sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
 
 
+@fix:
+  # Fix nix-store
+  sudo nix-store --verify --check-contents --repair
+
 @format:
   # Use alejandra and deadnix to format code
   deadnix -e
