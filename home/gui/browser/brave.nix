@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   programs.chromium = {
     commandLineArgs = [
-      "--enable-wayland-ime"
-      "--ozone-platform=wayland"
-      "--ozone-platform-hint=auto"
       "--password-store=basic"
     ];
     enable = true;
