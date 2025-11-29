@@ -60,13 +60,13 @@
   MonitorSettings = "monitor = , preferred, auto, auto";
   ### MonitorSettings For Hyprland See https://wiki.hyprland.org/Configuring/Monitors/
 
-  OutputSettings = "output * scale 1";
+  OutputSettings = "output * scale 2";
   ### OutputSettings For sway See https://github.com/swaywm/sway/wiki#display-configuration
 
   ScaleLevel = "2";
   ### For Hyprland see https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
   ### For sway see https://github.com/swaywm/sway/wiki#hidpi
 
-  WM = "Hyprland";
+  WM = "sway";
   ### Possible options: Hyprland ; niri ; sway
 }
