@@ -68,9 +68,12 @@ in
           zfsSupport = ZFS-Use-Case;
         };
         limine = mkIf (BootLoader == "limine") {
+          biosSupport = true;
           efiInstallAsRemovable = true;
+          efiSupport = true;
           enable = true;
           maxGenerations = 50;
+          partitionIndex = 1;
         };
         systemd-boot = mkIf (BootLoader == "systemd-boot") {
           configurationLimit = 50;
