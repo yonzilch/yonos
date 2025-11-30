@@ -18,7 +18,7 @@ A Nix and Flakes❄️ based config set customized with Occam's razor
 
 Here it is:
 
-![yonos-2025-01-28](https://github.com/yonzilch/yonos/blob/main/-img/yonos-2025-01-28.png)
+![yonos-2025-11-30](https://github.com/yonzilch/yonos/blob/main/-img/yonos-2025-11-30.png)
 
 
 ## Document
