@@ -71,6 +71,11 @@ username := `whoami`
   sudo nix profile history --profile /nix/var/nix/profiles/system
 
 
+@profile-diff:
+  # Show system profile diff
+  sudo nix profile diff-closures --profile /nix/var/nix/profiles/system
+
+
 @switch input:
   # Let system rebuild and switch
   sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
