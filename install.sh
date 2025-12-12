@@ -45,6 +45,7 @@ sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./
 userName=$(whoami)
 sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./flake.nix
 
+# Generate hardware-configuration
 nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
 
 git add .
