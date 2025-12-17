@@ -16,7 +16,7 @@
   # Options
   ## Basic
   BootLoader = "grub";
-  DNS-Method = "DoT";
+  DNS-Method = "NetworkManager";
   KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";

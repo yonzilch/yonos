@@ -16,7 +16,7 @@
   # Options
   ## Basic
   BootLoader = "systemd-boot";
-  DNS-Method = "DoT";
+  DNS-Method = "unbound";
   KernelPackages = "linuxPackages_cachyos";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
