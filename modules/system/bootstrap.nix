@@ -121,21 +121,6 @@ in
       };
     };
 
-    networking = {
-      dhcpcd.extraConfig = "nohook resolv.conf";
-      firewall.enable = false;
-      hostName = hostname;
-      nameservers = [
-        "127.0.0.1"
-        "::1"
-      ];
-      networkmanager = {
-        dns = "none";
-        enable = true;
-      };
-      resolvconf.enable = mkForce false;
-    };
-
     security = {
       rtkit.enable = true;
       sudo.enable = false;

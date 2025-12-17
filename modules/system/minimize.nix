@@ -43,7 +43,6 @@ with lib; {
         RateLimitBurst=1000
       '';
     };
-    resolved.enable = mkForce false;
     timesyncd.enable = mkForce false;
   };
 
