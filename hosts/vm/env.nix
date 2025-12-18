@@ -10,8 +10,8 @@
   ZFS-Use-Case = true;
 
   ## Software related
+  Proxy-Provider = "daed";
   QEMU-VM-Use-Case = false;
-  Transparent-Proxy = false;
 
   # Options
   ## Basic

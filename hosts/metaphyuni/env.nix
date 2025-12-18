@@ -10,8 +10,8 @@
   ZFS-Use-Case = true;
 
   ## Software related
+  Proxy-Provider = "throne";
   QEMU-VM-Use-Case = true;
-  Transparent-Proxy = false;
 
   # Options
   ## Basic
