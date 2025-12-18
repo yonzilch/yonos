@@ -56,14 +56,17 @@
   ## Software Related
   # ----------------------------------------------------------------------------
 
+  # Proxy Service Provider
+  # Options: "daed" | "none" | "throne"
+  # See: https://github.com/daeuniverse/daed
+  # See: https://github.com/throneproj/Throne
+  # Set "none" not to use any of them
+  Proxy-Provider = "throne";
+
   # QEMU/KVM virtualization support
   # See: https://github.com/qemu/qemu
   # See: https://github.com/virt-manager/virt-manager
   QEMU-VM-Use-Case = false;
-
-  # Transparent proxy (daed)
-  # See: https://github.com/daeuniverse/daed
-  Transparent-Proxy = false;
 
   # ============================================================================
   # System Options
