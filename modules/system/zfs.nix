@@ -1,12 +1,10 @@
 {
   hostname,
   lib,
-  pkgs,
   ...
 }: let
   inherit
     (import ../../hosts/${hostname}/env.nix)
-    KernelPackages
     ZFS-Networking-HostID
     ZFS-Use-Case
     ;
@@ -19,7 +17,6 @@ in
         zfs = {
           devNodes = "/dev/disk/by-id";
           forceImportRoot = false;
-          package = mkIf (strings.hasInfix "linuxPackages_cachyos" KernelPackages) pkgs.zfs_cachyos;
         };
       };
       networking.hostId = ZFS-Networking-HostID;

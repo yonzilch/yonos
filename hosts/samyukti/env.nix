@@ -17,7 +17,7 @@
   ## Basic
   BootLoader = "systemd-boot";
   DNS-Method = "unbound";
-  KernelPackages = "linuxPackages_cachyos";
+  KernelPackages = "linuxPackages_zen";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
   StateVersion = "25.05";
