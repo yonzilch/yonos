@@ -6,7 +6,6 @@
 }: {
   imports = with inputs; [
     ./${hostname}
-    chaotic.nixosModules.default
     daeuniverse.nixosModules.daed
     disko.nixosModules.disko
     stylix.nixosModules.stylix
