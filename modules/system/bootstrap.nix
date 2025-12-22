@@ -153,10 +153,7 @@ in
       };
     };
 
-    system = {
-      rebuild.enableNg = true;
-      stateVersion = StateVersion;
-    };
+    system.stateVersion = StateVersion;
 
     time = {
       hardwareClockInLocalTime = false;
