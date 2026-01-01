@@ -1,26 +1,26 @@
 {
   # Specific Use Cases
   ## Hardware related
-  Bluetooth = true;
+  Bluetooth = false;
   GPU-AMD = true;
   GPU-Nvidia = false;
   GPU-Intel = true;
-  HotSpot-Use-Case = true;
+  HotSpot-Use-Case = false;
   ZFS-Networking-HostID = "b53024b6";
   ZFS-Use-Case = false;
 
   ## Software related
   Proxy-Provider = "throne";
-  QEMU-VM-Use-Case = true;
+  QEMU-VM-Use-Case = false;
 
   # Options
   ## Basic
-  BootLoader = "systemd-boot";
+  BootLoader = "limine";
   DNS-Method = "unbound";
   KernelPackages = "linuxPackages_zen";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
-  StateVersion = "25.05";
+  StateVersion = "26.05";
   TimeSync-Method = "NTS";
   TimeZone = "Asia/Singapore";
 
