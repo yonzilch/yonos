@@ -20,15 +20,15 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
+  boot.initrd.luks.devices."luks-b25a930d-cdb4-40bc-8e88-43b33f1539b7".device = "/dev/disk/by-uuid/b25a930d-cdb4-40bc-8e88-43b33f1539b7";
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/8713458b-45c1-430c-b545-585fb7296001";
+    device = "/dev/mapper/luks-b25a930d-cdb4-40bc-8e88-43b33f1539b7";
     fsType = "xfs";
   };
 
-  boot.initrd.luks.devices."luks-50c130bb-d2fd-4719-8b27-252e0e586edb".device = "/dev/disk/by-uuid/50c130bb-d2fd-4719-8b27-252e0e586edb";
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9965-0792";
+    device = "/dev/disk/by-uuid/DCEA-AF87";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -63,8 +63,8 @@
     ];
   };
   systemd.tmpfiles.rules = [
-    "d /run/media/admin/hdd1 0777 admin admin - -"
-    "d /run/media/admin/hdd2 0777 admin admin - -"
+    "d /run/media/admin/hdd1 0755 admin admin - -"
+    "d /run/media/admin/hdd2 0755 admin admin - -"
   ];
 
   swapDevices = [];
