@@ -17,7 +17,7 @@
   ## Basic
   BootLoader = "grub-mirror";
   DNS-Method = "NetworkManager";
-  KernelPackages = "linuxPackages_xanmod_stable";
+  KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
   StateVersion = "25.11";

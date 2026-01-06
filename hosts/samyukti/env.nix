@@ -17,7 +17,7 @@
   ## Basic
   BootLoader = "limine";
   DNS-Method = "unbound";
-  KernelPackages = "linuxPackages_lqx";
+  KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
   StateVersion = "25.11";
