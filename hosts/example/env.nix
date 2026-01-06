@@ -99,7 +99,7 @@
   # ----------------------------------------------------------------------------
   # See: https://search.nixos.org/options?show=boot.kernelPackages
   # See: https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
-  KernelPackages = "linuxPackages_xanmod_stable";
+  KernelPackages = "linuxPackages_xanmod";
 
   ## Localization
   # ----------------------------------------------------------------------------
