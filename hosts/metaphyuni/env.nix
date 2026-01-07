@@ -5,17 +5,17 @@
   GPU-AMD = false;
   GPU-Nvidia = false;
   GPU-Intel = false;
-  HotSpot-Use-Case = true;
-  ZFS-Networking-HostID = "60114255";
-  ZFS-Use-Case = true;
+  HotSpot-Use-Case = false;
+  ZFS-Networking-HostID = "";
+  ZFS-Use-Case = false;
 
   ## Software related
   Proxy-Provider = "throne";
-  QEMU-VM-Use-Case = true;
+  QEMU-VM-Use-Case = false;
 
   # Options
   ## Basic
-  BootLoader = "grub-mirror";
+  BootLoader = "limine";
   DNS-Method = "NetworkManager";
   KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
@@ -25,7 +25,7 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , 2560x1600@100, auto, 1.6";
+  MonitorSettings = "monitor = , 2560x1600@120, auto, 1.6";
   OutputSettings = "output * resolution 2560x1600@165Hz scale 1.6";
   ScaleLevel = "1.6";
   WM = "Hyprland";
