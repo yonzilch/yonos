@@ -6,6 +6,7 @@
 }: {
   imports =
     [
+      # ./disko.nix # For nixos-anywhere
       ./hardware.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules;

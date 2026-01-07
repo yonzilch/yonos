@@ -1,111 +1,50 @@
 _: {
   disko.devices = {
     disk = {
-      mirror1 = {
-        content = {
-          partitions = {
-            boot = {
-              size = "1M";
-              type = "EF02";
-              priority = 0;
-            };
-            ESP = {
-              size = "1G";
-              type = "EF00";
-              priority = 1;
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountOptions = ["nofail" "umask=0077"];
-                mountpoint = "/boot";
-              };
-            };
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "zroot";
-              };
-            };
-          };
-          type = "gpt";
-        };
+      "SSSTC_CL4-8D512_00233540017F" = {
         device = "/dev/disk/by-id/nvme-SSSTC_CL4-8D512_00233540017F";
         type = "disk";
-      };
-      mirror2 = {
         content = {
           partitions = {
             boot = {
+              attributes = [0];
+              priority = 0;
               size = "1M";
               type = "EF02";
-              priority = 0;
             };
-            ESP = {
-              size = "1G";
-              type = "EF00";
-              priority = 1;
+            esp = {
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountOptions = ["nofail" "umask=0077"];
-                mountpoint = "/boot-mirror";
+                mountOptions = ["umask=0077"];
+                mountpoint = "/boot";
               };
+              priority = 1;
+              size = "1G";
+              type = "EF00";
             };
-            zfs = {
-              size = "100%";
+            luks-root = {
               content = {
-                type = "zfs";
-                pool = "zroot";
+                content = {
+                  type = "filesystem";
+                  format = "f2fs";
+                  mountpoint = "/";
+                  extraArgs = [
+                    "-O"
+                    "compression,extra_attr,inode_checksum,sb_checksum"
+                  ];
+                  mountOptions = [
+                    "atgc,compress_algorithm=zstd:6,compress_chksum,gc_merge,lazytime,nodiscard"
+                  ];
+                };
+                name = "luks-root";
+                type = "luks";
               };
+              size = "100%";
             };
           };
           type = "gpt";
         };
-        device = "/dev/disk/by-id/nvme-SSSTC_CL4-8D512_002212400M02";
-        type = "disk";
-      };
-    };
-    zpool = {
-      zroot = {
-        datasets = {
-          home = {
-            mountpoint = "/home";
-            options."com.sun:auto-snapshot" = "true";
-            type = "zfs_fs";
-          };
-          nix = {
-            mountpoint = "/nix";
-            options."com.sun:auto-snapshot" = "false";
-            type = "zfs_fs";
-          };
-          persist = {
-            mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
-            type = "zfs_fs";
-          };
-          root = {
-            mountpoint = "/";
-            options = {
-              mountpoint = "legacy";
-              "com.sun:auto-snapshot" = "false";
-            };
-            type = "zfs_fs";
-          };
-        };
-        mode = "mirror";
-        options = {
-          ashift = "12";
-          compatibility = "grub2";
-        };
-        rootFsOptions = {
-          acltype = "posixacl";
-          atime = "off";
-          compression = "lz4";
-          mountpoint = "none";
-          xattr = "sa";
-        };
-        type = "zpool";
       };
     };
   };
