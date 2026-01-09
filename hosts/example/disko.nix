@@ -7,18 +7,18 @@ _: {
           partitions = {
             boot = {
               attributes = [0];
-              priority = 0;
+              priority = 1;
               size = "1M";
               type = "EF02";
             };
             esp = {
               content = {
-                type = "filesystem";
                 format = "vfat";
                 mountOptions = ["umask=0077"];
                 mountpoint = "/boot";
+                type = "filesystem";
               };
-              priority = 1;
+              priority = 2;
               size = "1G";
               type = "EF00";
             };
@@ -43,15 +43,15 @@ _: {
               size = "1M";
               type = "EF02";
             };
-            ESP = {
+            esp = {
               priority = 1;
               size = "1G";
               type = "EF00";
               content = {
-                type = "filesystem";
                 format = "vfat";
                 mountOptions = ["umask=0077"];
                 mountpoint = "/boot-mirror";
+                type = "filesystem";
               };
             };
             zfs = {
