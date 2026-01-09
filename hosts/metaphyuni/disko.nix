@@ -8,7 +8,7 @@ _: {
           partitions = {
             boot = {
               attributes = [0];
-              priority = 0;
+              priority = 1;
               size = "1M";
               type = "EF02";
             };
@@ -19,7 +19,7 @@ _: {
                 mountOptions = ["umask=0077"];
                 mountpoint = "/boot";
               };
-              priority = 1;
+              priority = 2;
               size = "1G";
               type = "EF00";
             };
