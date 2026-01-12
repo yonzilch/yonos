@@ -11,7 +11,7 @@
 
   ## Software related
   Proxy-Provider = "throne";
-  QEMU-VM-Use-Case = false;
+  QEMU-VM-Use-Case = true;
 
   # Options
   ## Basic
