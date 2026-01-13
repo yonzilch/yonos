@@ -149,6 +149,11 @@ bindsym Ctrl+Mod1+Return exec playerctl play-pause
 bindsym Ctrl+Mod1+Right exec playerctl next
 bindsym Ctrl+Mod1+Left exec playerctl previous
 
+# SwayOSD for Caps Lock, Num Lock and Scroll Lock
+bindsym --release Caps_Lock exec swayosd-client --caps-lock
+bindsym --release Num_Lock exec swayosd-client --num-lock
+bindsym --release Scroll_Lock exec swayosd-client --scroll-lock
+
 # Volume control
 bindsym XF86AudioRaiseVolume exec "swayosd-client --output-volume +2"
 bindsym XF86AudioLowerVolume exec "swayosd-client --output-volume -2"
