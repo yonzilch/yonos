@@ -191,6 +191,11 @@ binds {
     // moving the mouse or pressing any other key.
     Super+Shift+P { power-off-monitors; }
 
+    // SwayOSD for Caps Lock, Num Lock and Scroll Lock
+    Caps_Lock { spawn "swayosd-client" "--caps-lock"; }
+    Scroll_Lock { spawn "swayosd-client" "--scroll-lock"; }
+    Num_Lock { spawn "swayosd-client" "--num-lock"; }
+
     // Volume control
     XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-2"; }
     XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
