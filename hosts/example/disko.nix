@@ -74,6 +74,10 @@ _: {
           "root" = {
             mountpoint = "/";
             options = {
+              encryption = "aes-256-gcm";
+              keyformat = "passphrase";
+              keylocation = "prompt";
+              # keylocation = "file:///tmp/secret.key";
               mountpoint = "legacy";
               "com.sun:auto-snapshot" = "false";
             };
@@ -111,10 +115,6 @@ _: {
           acltype = "posixacl";
           atime = "off";
           compression = "zstd";
-          encryption = "aes-256-gcm";
-          keyformat = "passphrase";
-          keylocation = "prompt";
-          # keylocation = "file:///tmp/secret.key";
           mountpoint = "none";
           xattr = "sa";
         };
