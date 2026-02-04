@@ -1,33 +1,61 @@
 {
-  "assistant": {
-    "enabled": false,
-    "version": "2"
+  "disable_ai": true,
+  "collaboration_panel": {
+    "button": false,
+  },
+  "notification_panel": {
+    "button": false,
+  },
+  "project_panel": {
+    "entry_spacing": "standard",
+  },
+  "zoomed_padding": true,
+  "window_decorations": "client",
+  "tabs": {
+    "file_icons": false,
+    "git_status": true,
+  },
+  "tab_bar": {
+    "show": true,
+  },
+  "title_bar": {
+    "show_project_items": true,
+    "show_onboarding_banner": false,
+    "show_sign_in": false,
+    "show_user_menu": true,
+    "show_user_picture": false,
+    "show_menus": false,
+    "show_branch_icon": false,
+  },
+  "diagnostics": {
+    "inline": {
+      "min_column": 0,
+      "padding": 4,
+    },
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "buffer_line_height": "comfortable",
+  "buffer_font_size": 15.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "inline_code_actions": false,
+  "agent": {
+    "button": false,
+    "model_parameters": [],
   },
   "auto_install_extensions": {
     "catppucchin-icons": true,
     "catppuccin": true,
-    "nix": true
+    "nix": true,
   },
   "auto_update": false,
   "base_keymap": "VSCode",
   "features": {
-    "copilot": false,
-    "inline_completion_provider": "none"
+    "edit_prediction_provider": "none",
   },
-  "hour_format": "hour24",
-  "icon_theme": {
-    "dark": "Catppuccin Mocha",
-    "light": "Catppuccin Mocha",
-    "mode": "system"
-  },
+  "icon_theme": "Catppuccin Mocha",
   "load_direnv": "shell_hook",
-  "lsp": {
-    "nix": {
-      "binary": {
-        "path_lookup": true
-      }
-    }
-  },
   "show_whitespaces": "all",
   "terminal": {
     "alternate_scroll": "off",
@@ -37,12 +65,12 @@
     "detect_venv": {
       "on": {
         "activate_script": "default",
-        "directories": [".env", "env", ".venv", "venv"]
-      }
+        "directories": [".env", "env", ".venv", "venv"],
+      },
     },
     "dock": "bottom",
     "env": {
-      "TERM": "alacritty"
+      "TERM": "alacritty",
     },
     "font_family": "JetBrainsMono Nerd Font",
     "font_features": null,
@@ -52,14 +80,9 @@
     "shell": "system",
     "toolbar": {
       "breadcrumbs": false,
-      "title": true
     },
-    "working_directory": "current_project_directory"
+    "working_directory": "current_project_directory",
   },
-  "theme": {
-    "dark": "Catppuccin Mocha",
-    "light": "Catppuccin Mocha",
-    "mode": "system"
-  },
-  "vim_mode": false
+  "theme": "Catppuccin Mocha",
+  "vim_mode": false,
 }
