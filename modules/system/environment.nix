@@ -64,6 +64,7 @@ in {
     fuse.userAllowOther = true;
     git = {
       enable = true;
+      lfs.enable = true;
       package = pkgs.gitMinimal;
     };
     ssh.startAgent = true;
