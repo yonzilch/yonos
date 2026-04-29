@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit (import ../../hosts/${hostname}/env.nix) WM;
+  inherit (import ../../hosts/${hostname}/env.nix) GPU-Nvidia WM;
 in {
   services = {
     greetd = {
@@ -15,6 +15,8 @@ in {
           command =
             if WM == "niri"
             then "${pkgs.tuigreet}/bin/tuigreet -c niri-session -t --user-menu"
+            else if WM == "sway" && GPU-Nvidia
+            then "${pkgs.tuigreet}/bin/tuigreet -c \"sway --unsupported-gpu\" -t --user-menu"
             else "${pkgs.tuigreet}/bin/tuigreet -c ${WM} -t --user-menu";
         };
       };
