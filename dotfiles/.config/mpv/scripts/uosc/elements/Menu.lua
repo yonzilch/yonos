@@ -764,29 +764,7 @@ function Menu:navigate_by_offset(offset, immediate)
 	end
 end
 
-function Menu:paste()
-	local menu = self.current
-	local payload = get_clipboard()
-	if not payload then return end
-	if menu.on_paste then
-		local selected_item = menu.items and menu.selected_index and menu.items[menu.selected_index]
-		local actions = selected_item and selected_item.actions or menu.item_actions
-		local selected_action = actions and menu.action_index and actions[menu.action_index]
-		self:command_or_event(menu.on_paste, {payload, menu.id}, {
-			type = 'paste',
-			value = payload,
-			menu_id = menu.id,
-			selected_item = selected_item and {
-				index = menu.selected_index, value = selected_item.value, action = selected_action,
-			},
-		})
-	elseif menu.search then
-		self:search_query_update(menu.search.query .. payload)
-	elseif menu.search_style ~= 'disabled' then
-		self:search_start(menu.id)
-		self:search_query_update(payload, menu.id)
-	end
-end
+
 
 ---@param menu_id string
 ---@param no_select_first? boolean
@@ -1117,8 +1095,6 @@ function Menu:handle_shortcut(shortcut, info)
 		end
 	elseif key == 'mbtn_back' then
 		self:back()
-	elseif id == 'ctrl+v' then
-		self:paste()
 	else
 		self.callback(table_assign({}, shortcut, {
 			type = 'key',

@@ -102,7 +102,6 @@ defaults = {
 	chapter_ranges = 'openings:30abf964,endings:30abf964,ads:c54e4e80',
 	chapter_range_patterns = 'openings:オープニング;endings:エンディング',
 	languages = 'slang,en',
-	subtitles_directory = '~~/subtitles',
 	disable_elements = '',
 }
 options = table_copy(defaults)
@@ -174,8 +173,6 @@ local config_defaults = {
 }
 config = {
 	version = uosc_version,
-	open_subtitles_api_key = 'b0rd16N0bp7DETMpO4pYZwIqmQkZbYQr',
-	open_subtitles_agent = 'uosc v' .. uosc_version,
 	-- sets max rendering frequency in case the
 	-- native rendering frequency could not be detected
 	render_delay = 1 / 60,
@@ -442,12 +439,6 @@ require('lib/utils')
 require('lib/text')
 require('lib/ass')
 require('lib/menus')
-
--- Determine path to ziggy
-do
-	local bin = 'ziggy-' .. (state.platform == 'windows' and 'windows.exe' or state.platform)
-	config.ziggy_path = os.getenv('MPV_UOSC_ZIGGY') or join_path(mp.get_script_directory(), join_path('bin', bin))
-end
 
 --[[ STATE UPDATERS ]]
 
@@ -918,7 +909,6 @@ bind_command('keybinds', function()
 		open_command_menu({type = 'keybinds', items = get_keybinds_items(), search_style = 'palette'})
 	end
 end)
-bind_command('download-subtitles', open_subtitle_downloader)
 bind_command('load-subtitles', create_track_loader_menu_opener({
 	prop = 'sub',
 	title = t('Load subtitles'),
@@ -944,7 +934,6 @@ bind_command('subtitles', create_select_tracklist_type_menu_opener({
 	enable_prop = 'sub-visibility',
 	secondary = {prop = 'secondary-sid', icon = 'vertical_align_top', enable_prop = 'secondary-sub-visibility'},
 	load_command = 'script-binding uosc/load-subtitles',
-	download_command = 'script-binding uosc/download-subtitles',
 }))
 bind_command('audio', create_select_tracklist_type_menu_opener({
 	title = t('Audio'), type = 'audio', prop = 'aid', load_command = 'script-binding uosc/load-audio',
@@ -973,13 +962,7 @@ bind_command('playlist', create_self_updating_menu_opener({
 		return items
 	end,
 	on_activate = function(event) mp.commandv('set', 'playlist-pos-1', tostring(event.value)) end,
-	on_paste = function(event) mp.commandv('loadfile', tostring(event.value), 'append') end,
-	on_key = function(event)
-		if event.id == 'ctrl+c' and event.selected_item then
-			local payload = mp.get_property_native('playlist/' .. (event.selected_item.value - 1) .. '/filename')
-			set_clipboard(payload)
-		end
-	end,
+	on_key = function(event) end,
 	on_move = function(event)
 		local from, to = event.from_index, event.to_index
 		mp.commandv('playlist-move', tostring(from - 1), tostring(to - (to > from and 0 or 1)))
@@ -1110,29 +1093,6 @@ bind_command('audio-device', create_self_updating_menu_opener({
 bind_command('paste', function()
 	local has_playlist = mp.get_property_native('playlist-count') > 1
 	mp.commandv('script-binding', 'uosc/paste-to-' .. (has_playlist and 'playlist' or 'open'))
-end)
-bind_command('paste-to-open', function()
-	local payload = get_clipboard()
-	if payload then mp.commandv('loadfile', payload) end
-end)
-bind_command('paste-to-playlist', function()
-	-- If there's no file loaded, we use `paste-to-open`, which both opens and adds to playlist
-	if state.is_idle then
-		mp.commandv('script-binding', 'uosc/paste-to-open')
-	else
-		local payload = get_clipboard()
-		if payload then
-			mp.commandv('loadfile', payload, 'append')
-			mp.commandv('show-text', t('Added to playlist') .. ': ' .. payload, 3000)
-		end
-	end
-end)
-bind_command('copy-to-clipboard', function()
-	if state.path then
-		set_clipboard(state.path)
-	else
-		mp.commandv('show-text', t('Nothing to copy'), 3000)
-	end
 end)
 bind_command('open-config-directory', function()
 	local config_path = mp.command_native({'expand-path', '~~/mpv.conf'})

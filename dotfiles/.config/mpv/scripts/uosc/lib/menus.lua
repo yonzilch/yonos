@@ -201,7 +201,7 @@ function create_self_updating_menu_opener(opts)
 	end
 end
 
----@param opts {title: string; type: string; prop: string; enable_prop?: string; secondary?: {prop: string; icon: string; enable_prop?: string}; load_command: string; download_command?: string}
+---@param opts {title: string; type: string; prop: string; enable_prop?: string; secondary?: {prop: string; icon: string; enable_prop?: string}; load_command: string}
 function create_select_tracklist_type_menu_opener(opts)
 	local snd = opts.secondary
 	local function get_props()
@@ -218,9 +218,6 @@ function create_select_tracklist_type_menu_opener(opts)
 				italic = true,
 				hint = t('open file'),
 				value = '{load}',
-				actions = opts.download_command
-					and {{name = 'download', icon = 'language', label = t('Search online')}}
-					or nil,
 			}
 		end
 		if #items > 0 then
@@ -311,7 +308,7 @@ function create_select_tracklist_type_menu_opener(opts)
 	---@param event MenuEventActivate
 	local function handle_activate(event)
 		if event.value == '{load}' then
-			mp.command(event.action == 'download' and opts.download_command or opts.load_command)
+			mp.command(opts.load_command)
 		else
 			if snd and (event.action == 'as_secondary' or event.modifiers == 'shift') then
 				local _, snd_track_index = get_props()
@@ -548,8 +545,6 @@ function open_file_navigation_menu(directory_path, handle_activate, opts)
 				if selected_item then
 					activate(table_assign({}, selected_item, {type = 'activate'}), true)
 				end
-			elseif event.id == 'ctrl+c' and event.selected_item then
-				set_clipboard(event.selected_item.value)
 			end
 		elseif event.type == 'close' then
 			close()
@@ -881,255 +876,4 @@ function create_track_loader_menu_opener(opts)
 			type = menu_type, title = opts.title, allowed_types = opts.allowed_types,
 		})
 	end
-end
-
-function open_subtitle_downloader()
-	local menu_type = 'download-subtitles'
-	---@type Menu
-	local menu
-
-	if Menu:is_open(menu_type) then
-		Menu:close()
-		return
-	end
-
-	local search_suggestion, file_path, destination_directory = '', nil, nil
-	local credentials = {'--api-key', config.open_subtitles_api_key, '--agent', config.open_subtitles_agent}
-
-	if state.path then
-		if is_protocol(state.path) then
-			if not is_protocol(state.title) then search_suggestion = state.title end
-		else
-			local serialized_path = serialize_path(state.path)
-			if serialized_path then
-				search_suggestion = serialized_path.filename
-				file_path = state.path
-				destination_directory = serialized_path.dirname
-			end
-		end
-	end
-
-	local force_destination = options.subtitles_directory:sub(1, 1) == '!'
-	if force_destination or not destination_directory then
-		local subtitles_directory = options.subtitles_directory:sub(force_destination and 2 or 1)
-		destination_directory = mp.command_native({'expand-path', subtitles_directory})
-	end
-
-	local handle_download, handle_search
-
-	-- Checks if there an error, or data is invalid. If true, reports the error,
-	-- updates menu to inform about it, and returns true.
-	---@param error string|nil
-	---@param data any
-	---@param check_is_valid? fun(data: any):boolean
-	---@return boolean abort Whether the further response handling should be aborted.
-	local function should_abort(error, data, check_is_valid)
-		if error or not data or (not check_is_valid or not check_is_valid(data)) then
-			menu:update_items({
-				{
-					title = t('Something went wrong.'),
-					align = 'center',
-					muted = true,
-					italic = true,
-					selectable = false,
-				},
-				{
-					title = t('See console for details.'),
-					align = 'center',
-					muted = true,
-					italic = true,
-					selectable = false,
-				},
-			})
-			msg.error(error or ('Invalid response: ' .. (utils.format_json(data) or tostring(data))))
-			return true
-		end
-		return false
-	end
-
-	---@param data {kind: 'file', id: number}|{kind: 'page', query: string, page: number}
-	handle_download = function(data)
-		if data.kind == 'page' then
-			handle_search(data.query, data.page)
-			return
-		end
-
-		menu = Menu:open({
-			type = menu_type .. '-result',
-			search_style = 'disabled',
-			items = {{icon = 'spinner', align = 'center', selectable = false, muted = true}},
-		}, function(event)
-			if event.type == 'key' and event.key == 'enter' then
-				menu:close()
-			end
-		end)
-
-		local args = itable_join({'download-subtitles'}, credentials, {
-			'--file-id', tostring(data.id),
-			'--destination', destination_directory,
-		})
-
-		call_ziggy_async(args, function(error, data)
-			if not menu:is_alive() then return end
-			if should_abort(error, data, function(data) return type(data.file) == 'string' end) then return end
-
-			load_track('sub', data.file)
-
-			menu:update_items({
-				{
-					title = t('Subtitles loaded & enabled'),
-					bold = true,
-					icon = 'check',
-					selectable = false,
-				},
-				{
-					title = t('Remaining downloads today: %s', data.remaining .. '/' .. data.total),
-					italic = true,
-					muted = true,
-					icon = 'file_download',
-					selectable = false,
-				},
-				{
-					title = t('Resets in: %s', data.reset_time),
-					italic = true,
-					muted = true,
-					icon = 'schedule',
-					selectable = false,
-				},
-			})
-		end)
-	end
-
-	---@param query string
-	---@param page number|nil
-	handle_search = function(query, page)
-		if not menu:is_alive() then return end
-		page = math.max(1, type(page) == 'number' and round(page) or 1)
-
-		menu:update_items({{icon = 'spinner', align = 'center', selectable = false, muted = true}})
-
-		local args = itable_join({'search-subtitles'}, credentials)
-
-		local languages = itable_filter(get_languages(), function(lang) return lang:match('.json$') == nil end)
-		args[#args + 1] = '--languages'
-		args[#args + 1] = table.concat(table_keys(create_set(languages)), ',') -- deduplicates stuff like `en,eng,en`
-
-		args[#args + 1] = '--page'
-		args[#args + 1] = tostring(page)
-
-		if file_path then
-			args[#args + 1] = '--hash'
-			args[#args + 1] = file_path
-		end
-
-		if query and #query > 0 then
-			args[#args + 1] = '--query'
-			args[#args + 1] = query
-		end
-
-		call_ziggy_async(args, function(error, data)
-			if not menu:is_alive() then return end
-
-			local function check_is_valid(data)
-				return type(data.data) == 'table' and data.page and data.total_pages
-			end
-
-			if should_abort(error, data, check_is_valid) then return end
-
-			local subs = itable_filter(data.data, function(sub)
-				return sub and sub.attributes and sub.attributes.release and type(sub.attributes.files) == 'table' and
-					#sub.attributes.files > 0
-			end)
-			local items = itable_map(subs, function(sub)
-				local hints = {sub.attributes.language}
-				if sub.attributes.foreign_parts_only then hints[#hints + 1] = t('foreign parts only') end
-				if sub.attributes.hearing_impaired then hints[#hints + 1] = t('hearing impaired') end
-				local url = sub.attributes.url
-				return {
-					title = sub.attributes.release,
-					hint = table.concat(hints, ', '),
-					value = {kind = 'file', id = sub.attributes.files[1].file_id, url = url},
-					keep_open = true,
-					actions = url and
-						{{name = 'open_in_browser', icon = 'open_in_new', label = t('Open in browser') .. ' (shift)'}},
-				}
-			end)
-
-			if #items == 0 then
-				items = {
-					{title = t('no results'), align = 'center', muted = true, italic = true, selectable = false},
-				}
-			end
-
-			if data.page > 1 then
-				items[#items + 1] = {
-					title = t('Previous page'),
-					align = 'center',
-					bold = true,
-					italic = true,
-					icon = 'navigate_before',
-					keep_open = true,
-					value = {kind = 'page', query = query, page = data.page - 1},
-				}
-			end
-
-			if data.page < data.total_pages then
-				items[#items + 1] = {
-					title = t('Next page'),
-					align = 'center',
-					bold = true,
-					italic = true,
-					icon = 'navigate_next',
-					keep_open = true,
-					value = {kind = 'page', query = query, page = data.page + 1},
-				}
-			end
-
-			menu:update_items(items)
-		end)
-	end
-
-	local initial_items = {
-		{title = t('%s to search', 'enter'), align = 'center', muted = true, italic = true, selectable = false},
-	}
-
-	menu = Menu:open(
-		{
-			type = menu_type,
-			title = t('enter query'),
-			items = initial_items,
-			search_style = 'palette',
-			on_search = 'callback',
-			search_debounce = 'submit',
-			search_suggestion = search_suggestion,
-		},
-		function(event)
-			if event.type == 'activate' then
-				if event.action == 'open_in_browser' or event.modifiers == 'shift' then
-					local command = ({
-						windows = 'explorer',
-						linux = 'xdg-open',
-						darwin = 'open',
-					})[state.platform]
-					local url = event.value.url
-					mp.command_native_async({
-						name = 'subprocess',
-						capture_stderr = true,
-						capture_stdout = true,
-						playback_only = false,
-						args = {command, url},
-					}, function(success, result, error)
-						if not success then
-							local err_str = utils.to_string(error or result.stderr)
-							msg.error('Error trying to open url "' .. url .. '" in browser: ' .. err_str)
-						end
-					end)
-				elseif not event.action then
-					handle_download(event.value)
-				end
-			elseif event.type == 'search' then
-				handle_search(event.query)
-			end
-		end
-	)
 end
