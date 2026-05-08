@@ -1,4 +1,3 @@
-
 let dark_theme = {
     separator: white
     leading_trailing_space_bg: { attr: n }
@@ -121,6 +120,7 @@ let light_theme = {
     shape_vardecl: purple
     shape_raw_string: light_purple
 }
+
 $env.config = {
     show_banner: false
 
@@ -130,7 +130,7 @@ $env.config = {
     }
 
     rm: {
-        always_trash: false
+        always_trash: true
     }
 
     table: {
@@ -151,8 +151,7 @@ $env.config = {
         exit_code: false
         termination_signal: true
     }
-    datetime_format: {
-    }
+    datetime_format: {}
 
     explore: {
         status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" },
@@ -177,7 +176,7 @@ $env.config = {
         case_sensitive: false
         quick: true
         partial: true
-        algorithm: "prefix"
+        algorithm: "fuzzy"
         sort: "smart"
         external: {
             enable: true
@@ -211,7 +210,7 @@ $env.config = {
     }
     render_right_prompt_on_last_line: false
     use_kitty_protocol: false
-    highlight_resolved_externals: false
+    highlight_resolved_externals: true
     recursion_limit: 50
 
     plugins: {}
@@ -221,22 +220,73 @@ $env.config = {
             enabled: true
             stop_after: 10sec
         }
-        plugins: {
-        }
+        plugins: {}
     }
 
     hooks: {
-        pre_prompt: [{ null }]
-        pre_execution: [{ null }]
+        pre_execution: [{||
+                    $env.__CMD_TEXT = (commandline)
+                }]
+
+                pre_prompt: [{||
+                    if '__CMD_TEXT' not-in $env { return }
+
+                    let duration_ms = ($env.CMD_DURATION_MS | default "0" | into int)
+
+                    if $duration_ms > 10_000 {
+                        let raw_cmd = ($env.__CMD_TEXT | str trim)
+
+                        let base_cmd = ($raw_cmd | split row ' ' | first | path basename)
+
+                        let filter_cmds = [
+                            "ssh" "yazi" "sftp" "termscp" "zellij"
+                            "vim" "nvim" "vi" "nano" "micro" "emacs" "hx" "helix"
+                            "top" "htop" "btop" "top" "glances" "gotop"
+                            "lazygit" "gitui" "tig" "lazydocker" "k9s"
+                            "man" "less" "more"
+                            "nu" "bash" "zsh" "fish" "sh" "pwsh" "tmux" "screen"
+                            "sudo" "journalctl" "systemctl"
+                        ]
+
+                        let is_filtered = ($filter_cmds | any {|c| $base_cmd == $c})
+
+                        if not $is_filtered {
+                            let display_cmd = if ($raw_cmd | str length) > 60 {
+                                ($raw_cmd | str substring 0..<60) + "…"
+                            } else {
+                                $raw_cmd
+                            }
+
+                            let mins = ($duration_ms // 60_000)
+                            let secs = (($duration_ms mod 60_000) // 1_000)
+                            let ms   = ($duration_ms mod 1_000)
+                            let time_str = if $mins > 0 {
+                                $"($mins)m ($secs)s"
+                            } else if $secs > 0 {
+                                $"($secs)s ($ms)ms"
+                            } else {
+                                $"($ms)ms"
+                            }
+
+                            let title = $"Command spended: ($time_str)"
+                            let body  = $"($display_cmd)"
+
+                            do -i { ^notify-send --urgency low --expire-time 3000 $title $body }
+                        }
+                    }
+
+                    hide-env __CMD_TEXT
+                }]
+
         env_change: {
             PWD: [{|before, after|
                 if (which direnv | is-empty) {
                     return
                 }
-
                 direnv export json | from json | default {} | load-env
             }]
         }
+
         display_output: "if (term size).columns >= 100 { table -e } else { table }"
         command_not_found: { null }
     }
@@ -393,7 +443,7 @@ $env.config = {
             modifier: none
             keycode: escape
             mode: [emacs, vi_normal, vi_insert]
-            event: { send: esc }    # NOTE: does not appear to work
+            event: { send: esc }
         }
         {
             name: cancel_command
@@ -816,8 +866,9 @@ $env.config = {
 }
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
-atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+atuin init nu   | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
 alias j = just
+alias bat = cat
