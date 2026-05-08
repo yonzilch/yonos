@@ -1,12 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.file.".local/share/fcitx5/rime" = {
     force = true;
     recursive = true;
     source = pkgs.fetchFromGitHub {
-      hash = "sha256-GyiOlTr1Nw2ANTE7/fdyrPQkvRFWOyal3oAcDvsqF5A=";
+      hash = "sha256-hRtA1cYAQm7M+dPSThedqKogr8YMkP9WQFEZw5pdCbU=";
       owner = "iDvel";
       repo = "rime-ice";
-      tag = "2025.12.08";
+      tag = "2026.03.26";
     };
   };
 
