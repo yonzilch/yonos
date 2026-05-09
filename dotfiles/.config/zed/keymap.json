@@ -1,18 +1,28 @@
 [
   {
-    "context": "Editor",
+    "context": "Editor || Modal || Pane || Picker || ProjectPanel || OutlinePanel || Search || Terminal || TitleBar || Workspace",
     "bindings": {
+      "ctrl-alt-/": "workspace::ToggleBottomDock",
+      "ctrl-alt-\\": "workspace::ToggleLeftDock",
+      "ctrl-j": null,
       "ctrl-q": null,
-      "ctrl-/": "workspace::ToggleBottomDock",
-      "ctrl-\\": "workspace::ToggleLeftDock"
-    }
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-shift-w": null,
+    },
   },
   {
-    "context": "Workspace",
+    "context": "Terminal",
     "bindings": {
+      "ctrl-alt-/": "workspace::ToggleBottomDock",
+      "ctrl-alt-\\": "workspace::ToggleLeftDock",
+      "ctrl-alt-t": "workspace::NewTerminal",
+      "ctrl-alt-w": "pane::CloseActiveItem",
+      "ctrl-j": null,
       "ctrl-q": null,
-      "ctrl-/": "workspace::ToggleBottomDock",
-      "ctrl-\\": "workspace::ToggleLeftDock"
-    }
-  }
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-shift-w": null,
+    },
+  },
 ]
