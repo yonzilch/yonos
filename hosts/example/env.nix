@@ -96,9 +96,7 @@
   DNS-Method = "NetworkManager";
 
   ## Kernel Configuration
-  # ----------------------------------------------------------------------------
   # See: https://search.nixos.org/options?show=boot.kernelPackages
-  # See: https://www.nyx.chaotic.cx/#using-sched-ext-schedulers
   KernelPackages = "linuxPackages_xanmod";
 
   ## Localization
