@@ -1,3 +1,6 @@
+@default:
+    @just --list
+
 # Set current hostname
 hostname := `hostname`
 
