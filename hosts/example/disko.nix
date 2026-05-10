@@ -1,4 +1,5 @@
 # ZFS raid1 as root with encryption and zstd compression
+# see https://github.com/nix-community/disko/tree/master/example
 _: {
   disko.devices = {
     disk = {
@@ -106,10 +107,7 @@ _: {
           };
         };
         mode = "mirror";
-        options = {
-          ashift = "12";
-          compatibility = "grub2";
-        };
+        options.ashift = "12";
         postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot/root@blank$' || zfs snapshot zroot/root@blank";
         rootFsOptions = {
           acltype = "posixacl";
