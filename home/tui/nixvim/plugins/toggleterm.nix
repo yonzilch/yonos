@@ -80,7 +80,7 @@ _: {
                   border = "single",
                   height = function() return math.floor(vim.o.lines * 0.9) end,
                   width = function() return math.floor(vim.o.columns * 0.9) end,
-                  winblend = 20,
+                  winblend = 25,
                   title_pos = "center",
                 },
                 on_open = function(term)
@@ -104,6 +104,51 @@ _: {
           "t"
         ];
         options.desc = "Toggle gitui";
+      }
+      {
+        action.__raw = ''
+          function()
+            if _yazi_term and _yazi_term:is_open() then
+              _yazi_term:toggle()
+              return
+            end
+            local bufname = vim.api.nvim_buf_get_name(0)
+            local dir = vim.fn.isdirectory(bufname) == 1 and bufname or vim.fn.fnamemodify(bufname, ":h")
+            if dir == "" or vim.fn.isdirectory(dir) == 0 then
+              dir = vim.fn.getcwd()
+            end
+            local Terminal = require('toggleterm.terminal').Terminal
+            _yazi_term = Terminal:new({
+              cmd = "yazi",
+              dir = dir,
+              display_name = "yazi",
+              close_on_exit = true,
+              direction = "float",
+              hidden = true,
+              float_opts = {
+                border = "single",
+                height = function() return math.floor(vim.o.lines * 0.9) end,
+                width = function() return math.floor(vim.o.columns * 0.9) end,
+                winblend = 25,
+                title_pos = "center",
+              },
+              on_open = function(term)
+                vim.cmd("startinsert!")
+                vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = term.bufnr, silent = true })
+              end,
+              on_exit = function()
+                _yazi_term = nil
+              end,
+            })
+            _yazi_term:toggle()
+          end
+        '';
+        key = "<C-M-y>";
+        mode = [
+          "n"
+          "t"
+        ];
+        options.desc = "Toggle yazi";
       }
     ];
 
