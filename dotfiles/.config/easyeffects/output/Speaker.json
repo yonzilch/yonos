@@ -1,18 +1,33 @@
 {
-    "output": {
-        "blocklist": [],
-        "loudness#1": {
-            "bypass": false,
-            "clipping": false,
-            "clipping-range": 6.0,
-            "fft": "4096",
-            "input-gain": 0.0,
-            "output-gain": 10.0,
-            "std": "ISO226-2003",
-            "volume": 6.999999999999991
-        },
-        "plugins_order": [
-            "loudness#1"
-        ]
-    }
+  "output": {
+    "blocklist": [],
+    "limiter#0": {
+      "alr": false,
+      "attack": 5.0,
+      "bypass": false,
+      "dithering": "None",
+      "gain-boost": false,
+      "input-gain": 0.0,
+      "lookahead": 5.0,
+      "mode": "Herm Thin",
+      "output-gain": 0.0,
+      "oversampling": "None",
+      "release": 5.0,
+      "sidechain-preamp": 0.0,
+      "sidechain-type": "Internal",
+      "stereo-link": 100.0,
+      "threshold": -1.0
+    },
+    "loudness#0": {
+      "bypass": false,
+      "clipping": true,
+      "clipping-range": 6.0,
+      "fft": "4096",
+      "input-gain": 0.0,
+      "output-gain": 0.0,
+      "std": "ISO226-2003",
+      "volume": 2.0
+    },
+    "plugins_order": ["limiter#0", "loudness#0"]
+  }
 }
