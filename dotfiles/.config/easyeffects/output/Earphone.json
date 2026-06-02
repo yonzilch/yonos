@@ -1,13 +1,5 @@
 {
   "output": {
-    "bass_loudness#0": {
-      "bypass": false,
-      "input-gain": 0.0,
-      "link": -9.0,
-      "loudness": -3.0,
-      "output": -5.0,
-      "output-gain": -1.0
-    },
     "blocklist": [],
     "compressor#0": {
       "attack": 25.0,
@@ -183,6 +175,18 @@
       "stereo-link": 100.0,
       "threshold": -1.5
     },
+    "loudness#0": {
+      "bypass": false,
+      "clipping": true,
+      "clipping-range": 6.0,
+      "fft": "4096",
+      "iir-approximation": "Normal",
+      "input-gain": 0.0,
+      "mode": "IIR",
+      "output-gain": 0.0,
+      "std": "ISO226-2023",
+      "volume": -0.5
+    },
     "plugins_order": [
       "crossfeed#0",
       "deesser#0",
@@ -190,16 +194,16 @@
       "compressor#0",
       "exciter#0",
       "reverb#0",
-      "limiter#0",
-      "bass_loudness#0"
+      "loudness#0",
+      "limiter#0"
     ],
     "reverb#0": {
       "amount": 0.2,
       "bass-cut": 300.0,
       "bypass": false,
-      "decay-time": 0.5,
+      "decay-time": 0.4,
       "diffusion": 0.5,
-      "dry": 0.5,
+      "dry": 0.4,
       "hf-damp": 5000.0,
       "input-gain": 0.0,
       "output-gain": 0.0,
