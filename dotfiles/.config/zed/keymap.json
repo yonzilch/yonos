@@ -2,6 +2,8 @@
   {
     "context": "Editor || Modal || Pane || Picker || ProjectPanel || OutlinePanel || Search || Terminal || TitleBar || Workspace",
     "bindings": {
+      "alt-shift-\\": "workspace::ToggleBottomDock",
+      "alt-shift-f": "workspace::ToggleLeftDock",
       "ctrl-alt-/": "workspace::ToggleBottomDock",
       "ctrl-alt-\\": "workspace::ToggleLeftDock",
       "ctrl-j": null,
@@ -9,6 +11,19 @@
       "ctrl-tab": "pane::ActivateNextItem",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-shift-w": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-c": "editor::Copy",
+      "ctrl-shift-v": "editor::Paste",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "shift-r": "project_panel::Rename",
     },
   },
   {
