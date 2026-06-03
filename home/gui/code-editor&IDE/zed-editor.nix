@@ -14,6 +14,7 @@
         catppuccin = true;
         catppucchin-icons = true;
         nix = true;
+        tokyo-night = true;
       };
       auto_update = false;
       base_keymap = "VSCode";
@@ -65,7 +66,7 @@
         working_directory = "current_project_directory";
       };
       theme = {
-        dark = "Catppuccin Mocha";
+        dark = "Tokyo Night";
         light = "Catppuccin Mocha";
         mode = "system";
       };
