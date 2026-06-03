@@ -2,8 +2,10 @@
   {
     "context": "Editor || Modal || Pane || Picker || ProjectPanel || OutlinePanel || Search || Terminal || TitleBar || Workspace",
     "bindings": {
-      "alt-shift-\\": "workspace::ToggleBottomDock",
-      "alt-shift-f": "workspace::ToggleLeftDock",
+      "alt-shift-enter": "project_panel::Toggle",
+      "alt-shift-f": "editor::ToggleFocus",
+      "alt-shift-p": "project_panel::Toggle",
+      "alt-shift-t": "terminal_panel::Toggle",
       "ctrl-alt-/": "workspace::ToggleBottomDock",
       "ctrl-alt-\\": "workspace::ToggleLeftDock",
       "ctrl-j": null,
@@ -24,6 +26,7 @@
   {
     "context": "ProjectPanel",
     "bindings": {
+      "shift-e": "project_panel::Open",
       "shift-r": "project_panel::Rename",
     },
   },
