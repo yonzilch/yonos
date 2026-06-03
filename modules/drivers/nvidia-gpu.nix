@@ -8,6 +8,8 @@
 in
   with lib; {
     config = mkIf GPU-Nvidia {
+      # See https://wiki.nixos.org/wiki/NVIDIA
+      #
       # Because of unfree NVIDIA drivers, make nixpkgs allowUnfree.
       nixpkgs.config.allowUnfree = mkForce true;
       hardware.nvidia-container-toolkit.enable = true;
