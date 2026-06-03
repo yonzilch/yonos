@@ -20,7 +20,7 @@
   KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
-  StateVersion = "25.11";
+  StateVersion = "26.05";
   TimeSync-Method = "NTS";
   TimeZone = "Asia/Singapore";
 

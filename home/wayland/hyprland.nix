@@ -16,7 +16,7 @@ in
   with lib;
     mkIf (WM == "Hyprland") {
       home.packages = with pkgs; [
-        xorg.xprop
+        xprop
       ];
       wayland.windowManager.hyprland = {
         enable = true;

@@ -251,8 +251,8 @@ spawn-at-startup "fcitx5" "-d" "-r"
 spawn-at-startup "nm-applet"
 spawn-at-startup "sh" "-c" "dbus-update-activation-environment --systemd --all && systemctl --user stop niri-session.target && systemctl --user start niri-session.target"
 spawn-at-startup "swayosd-server"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "restore"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "restore"
 spawn-at-startup "waybar"
 
 

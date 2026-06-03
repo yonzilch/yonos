@@ -124,9 +124,9 @@
 
   ## System Version
   # ----------------------------------------------------------------------------
-  # NixOS state version - DO NOT CHANGE after initial installation
+  # NixOS state version
   # See: https://mynixos.com/nixpkgs/option/system.stateVersion
-  StateVersion = "25.11";
+  StateVersion = "26.05";
 
   # ============================================================================
   # Wayland/Display Options

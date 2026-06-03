@@ -12,11 +12,10 @@
     ;
 in
   with lib;
-    mkIf (WM == "sway")
-    {
+    mkIf (WM == "sway") {
       home.packages = with pkgs; [
         sway
-        xorg.xprop
+        xprop
       ];
       systemd.user.targets.sway-session = {
         Unit = {

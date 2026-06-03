@@ -15,18 +15,18 @@
 
   # Options
   ## Basic
-  BootLoader = "limine";
-  DNS-Method = "unbound";
+  BootLoader = "systemd-boot";
+  DNS-Method = "NetworkManager";
   KernelPackages = "linuxPackages_xanmod";
   KeyboardLayout = "us";
   Locale = "en_US.UTF-8";
-  StateVersion = "25.11";
+  StateVersion = "26.05";
   TimeSync-Method = "NTS";
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
   MonitorSettings = "monitor = , highres, auto, 2";
-  OutputSettings = "output * scale 2";
+  OutputSettings = "output * resolution 3840x2160@144Hz scale 2";
   ScaleLevel = "2";
   WM = "sway";
 }
