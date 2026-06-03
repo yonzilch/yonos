@@ -16,6 +16,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-alt-w": "pane::CloseActiveItem",
       "ctrl-shift-c": "editor::Copy",
       "ctrl-shift-v": "editor::Paste",
     },
