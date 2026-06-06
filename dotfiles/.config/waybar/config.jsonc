@@ -68,12 +68,13 @@
   },
 
   "hyprland/workspaces": {
+    "active-only": false,
     "all-outputs": true,
     "format": "{name}",
     "on-scroll-down": "hyprctl dispatch workspace e+1 1>/dev/null",
     "on-scroll-up": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "show-special": true,
     "sort-by-number": true,
-    "active-only": false,
   },
 
   "niri/workspaces": {

@@ -119,9 +119,9 @@ bindsym Mod4+Shift+9 move container to workspace number 9, workspace number 9
 bindsym Mod4+Shift+0 move container to workspace number 10, workspace number 10
 
 ### Special Workspace
-bindsym Mod4+grave workspace special
-bindsym Mod4+Ctrl+grave move container to workspace special
-bindsym Mod4+Shift+grave move container to workspace special, workspace special
+bindsym Mod4+grave workspace S
+bindsym Mod4+Ctrl+grave move container to workspace S
+bindsym Mod4+Shift+grave move container to workspace S, workspace S
 
 
 

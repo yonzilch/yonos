@@ -60,9 +60,9 @@ hl.bind("SUPER + SHIFT + mouse:275",  hl.dsp.window.move({ workspace = "e+1" }))
 hl.bind("SUPER + SHIFT + mouse:276",  hl.dsp.window.move({ workspace = "e-1" }))
 
 -- ── Special Workspace (scratchpad) ────────────────────────────────────────
-hl.bind("SUPER + Grave",         hl.dsp.workspace.toggle_special())
-hl.bind("SUPER + CTRL + Grave",  hl.dsp.window.move({ workspace = "special", silent = true }))
-hl.bind("SUPER + SHIFT + Grave", hl.dsp.window.move({ workspace = "special" }))
+hl.bind("SUPER + Grave",         hl.dsp.workspace.toggle_special("S"))
+hl.bind("SUPER + CTRL + Grave",  hl.dsp.window.move({ workspace = "S", silent = true }))
+hl.bind("SUPER + SHIFT + Grave", hl.dsp.window.move({ workspace = "S" }))
 
 -- ── Workspace Switching (Relative) ────────────────────────────────────────
 hl.bind("SUPER + CTRL + left",  hl.dsp.focus({ workspace = "-1" }))
