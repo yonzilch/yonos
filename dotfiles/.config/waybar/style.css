@@ -51,16 +51,22 @@ window > box {
     padding-right: 6px;
 }
 #workspaces button.active {
+    background-color: @surface1;
+    color: @base;
+}
+#workspaces button.focused {
+    background-color: @surface1;
+    color: @base;
+}
+#workspaces button.hover {
     background-color: @surface2;
     color: @base;
 }
 #workspaces button.urgent {
+    background-color: @flamingo;
     color: @base;
 }
-#workspaces button:hover {
-    background-color: @surface0;
-    color: @base;
-}
+
 tooltip {
     background: @mantle;
 }
