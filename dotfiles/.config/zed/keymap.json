@@ -26,8 +26,8 @@
   {
     "context": "ProjectPanel",
     "bindings": {
-      "shift-e": "project_panel::Open",
-      "shift-r": "project_panel::Rename",
+      "ctrl-shift-e": "project_panel::Open",
+      "ctrl-shift-r": "project_panel::Rename",
     },
   },
   {
