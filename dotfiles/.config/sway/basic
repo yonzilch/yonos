@@ -4,8 +4,8 @@ bar {
 }
 
 # Set inner/outer gaps
-gaps inner 2
-gaps outer 2
+gaps inner 0
+gaps outer 0
 
 # Hide titlebar on windows:
 default_border pixel 2
