@@ -52,7 +52,7 @@
     ];
   };
   fileSystems."/run/media/admin/hdd2" = {
-    device = "/dev/disk/by-id/ata-ST2000VX000-1ES164_W4Z317X9-part1";
+    device = "/dev/disk/by-id/ata-WDC_WD5000AAKX-08U6AA0_WD-WCC2EWF34806-part1";
     fsType = "exfat";
     options = [
       "nofail"
