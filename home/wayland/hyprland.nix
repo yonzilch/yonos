@@ -20,14 +20,6 @@ in
       ];
       wayland.windowManager.hyprland = {
         enable = true;
-        plugins = [
-          pkgs.hyprlandPlugins.hy3
-        ];
-        systemd = {
-          enable = true;
-          variables = ["--all"];
-        };
-        xwayland.enable = true;
         extraConfig = concatStrings [
           ''
             hl.monitor({${MonitorSettings}})
@@ -41,22 +33,22 @@ in
             require("hyprland.bind")
           ''
         ];
-        settings = mkIf GPU-Nvidia {
-          env = [
-            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-            "GBM_BACKEND,nvidia-drm"
-            "LIBVA_DRIVER_NAME,nvidia"
-            "NVD_BACKEND,direct"
-            "WLR_NO_HARDWARE_CURSORS,1"
-          ];
+        plugins = [pkgs.hyprlandPlugins.hy3];
+        settings.env = mkIf GPU-Nvidia [
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "GBM_BACKEND,nvidia-drm"
+          "LIBVA_DRIVER_NAME,nvidia"
+          "NVD_BACKEND,direct"
+          "WLR_NO_HARDWARE_CURSORS,1"
+        ];
+        systemd = {
+          enable = true;
+          variables = ["--all"];
         };
+        xwayland.enable = true;
       };
       xdg.portal = {
-        config = {
-          common = {
-            default = ["gtk"];
-          };
-        };
+        config.common.default = ["gtk"];
         extraPortals = [
           pkgs.xdg-desktop-portal-gtk
           pkgs.xdg-desktop-portal-hyprland
