@@ -5,6 +5,5 @@ exec_always nm-applet
 exec_always swayosd-server
 exec_always awww-daemon
 exec_always awww restore
-exec_always xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE $SCALE
 
 # exec sleep 1 && strawberry
