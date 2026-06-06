@@ -11,7 +11,7 @@
 
   ## Software related
   Proxy-Provider = "throne";
-  QEMU-VM-Use-Case = true;
+  QEMU-VM-Use-Case = false;
 
   # Options
   ## Basic
@@ -25,8 +25,8 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , highres, auto, 2";
+  MonitorSettings = ''output = "", mode = "highres", position = "auto", scale = 2'';
   OutputSettings = "output * resolution 3840x2160@144Hz scale 2";
   ScaleLevel = "2";
-  WM = "sway";
+  WM = "Hyprland";
 }

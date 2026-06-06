@@ -25,7 +25,7 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , 2560x1440@60, auto, 1.6";
+  MonitorSettings = ''output = "", mode = "2560x1600@60", position = "auto", scale = 1.6'';
   OutputSettings = "output * resolution 2560x1440@60Hz scale 1.6";
   ScaleLevel = "1.6";
   WM = "niri";

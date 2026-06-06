@@ -7,8 +7,8 @@
   inherit
     (import ../../hosts/${hostname}/env.nix)
     GPU-Nvidia
-    MonitorSettings
     KeyboardLayout
+    MonitorSettings
     ScaleLevel
     WM
     ;
@@ -30,10 +30,15 @@ in
         xwayland.enable = true;
         extraConfig = concatStrings [
           ''
-            ${MonitorSettings}
-            $KEYBOARDLAYOUT = ${KeyboardLayout}
-            $SCALE = ${ScaleLevel}
-            source = ~/.config/hypr/hyprland/*
+            hl.monitor({${MonitorSettings}})
+            hl.config({input = {kb_layout = "${KeyboardLayout}",}})
+            hl.exec_cmd(
+                "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c" ..
+                " -set _XWAYLAND_GLOBAL_OUTPUT_SCALE " .. ${ScaleLevel}
+            )
+            require("hyprland.autostart")
+            require("hyprland.basic")
+            require("hyprland.bind")
           ''
         ];
         settings = mkIf GPU-Nvidia {

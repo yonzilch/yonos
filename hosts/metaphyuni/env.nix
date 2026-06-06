@@ -25,7 +25,7 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = "monitor = , 2560x1600@120, auto, 1.6";
+  MonitorSettings = ''output = "", mode = "2560x1600@120", position = "auto", scale = 1.6'';
   OutputSettings = "output * resolution 2560x1600@165Hz scale 1.6";
   ScaleLevel = "1.6";
   WM = "Hyprland";
