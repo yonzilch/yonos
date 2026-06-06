@@ -16,7 +16,7 @@ bindsym Mod1+space exec fuzzel
 bindsym Mod4+e exec nemo
 
 ### Logout Menu
-bindsym Ctrl+Mod4+q exec wlogout
+bindsym Ctrl+Mod4+q exec wleave
 
 ### Terminal Emulator
 bindsym Mod4+t exec alacritty

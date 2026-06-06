@@ -29,7 +29,7 @@ hl.bind("CTRL + ALT + B",
 
 -- ── Quick Launch ──────────────────────────────────────────────────────────
 hl.bind("SUPER + E",              hl.dsp.exec_cmd("nemo"))
-hl.bind("CTRL + SUPER + Q",       hl.dsp.exec_cmd("wlogout"))
+hl.bind("CTRL + SUPER + Q",       hl.dsp.exec_cmd("wleave"))
 hl.bind("SUPER + T",              hl.dsp.exec_cmd("alacritty"))
 -- Screenshots
 hl.bind("SUPER + S",              hl.dsp.exec_cmd("sh ~/.config/waybar/scripts/Screenshot-Area.sh"))
