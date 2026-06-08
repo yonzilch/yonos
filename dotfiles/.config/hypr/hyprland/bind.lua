@@ -105,8 +105,8 @@ hl.bind("SUPER + mouse:276",  hl.dsp.focus({ workspace = "e-1" }))
 
 -- ── Tab focus actions
 -- By Alt + Tab
-hl.bind("ALT + Tab",          hy3.focus_tab({ direction = "l", mouse = "ignore", wrap = true }))
-hl.bind("ALT + SHIFT + Tab",  hy3.focus_tab({ direction = "r", mouse = "ignore", wrap = true }))
+hl.bind("ALT + Tab",          hy3.focus_tab({ direction = "r", mouse = "ignore", wrap = true }))
+hl.bind("ALT + SHIFT + Tab",  hy3.focus_tab({ direction = "l", mouse = "ignore", wrap = true }))
 -- By Mouse (non_consuming: does not consume the event)
 hl.bind("mouse_down",  hy3.focus_tab({ direction = "l", mouse = "require_hovered", wrap = true }),
     { non_consuming = true })
