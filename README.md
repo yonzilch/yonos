@@ -18,7 +18,7 @@ A Nix and Flakes❄️ based config set customized with Occam's razor
 
 Here it is:
 
-![yonos-2025-11-30](-img/yonos-2025-11-30.png)
+![yonos-2026-06-12](-img/yonos-2026-06-12.png)
 
 
 ## Document
