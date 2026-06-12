@@ -54,6 +54,7 @@
       mapleader = " ";
       maplocalleader = " ";
     };
+    nixpkgs.source = inputs.nixpkgs;
     performance = {
       combinePlugins.enable = true;
     };
