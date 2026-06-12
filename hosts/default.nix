@@ -13,6 +13,7 @@
     {
       home-manager = {
         extraSpecialArgs = {inherit hostname inputs username;};
+        useGlobalPkgs = true;
         users.${username} = import ../home;
       };
     }
