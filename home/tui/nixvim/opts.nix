@@ -1,16 +1,8 @@
-{pkgs, ...}: {
+_: {
   programs.nixvim = {
     opts = {
       breakindent = true;
-      clipboard = {
-        providers = {
-          wl-copy = {
-            enable = true;
-            package = pkgs.wl-clipboard-rs;
-          };
-        };
-        register = "unnamedplus";
-      };
+      clipboard = "unnamedplus";
       cmdheight = 2;
       cursorline = true;
       encoding = "utf-8";
