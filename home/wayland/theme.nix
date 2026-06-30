@@ -4,6 +4,8 @@
       emoji = ["Noto Color Emoji"];
       monospace = ["JetBrainsMono Nerd Font Mono"];
       sansSerif = ["Sarasa Gothic SC"];
+      # Intentional: map serif to Sarasa Gothic SC because I prefer a unified
+      # sans/gothic visual style and do not want serif CJK fallback in UI/browser.
       serif = ["Sarasa Gothic SC"];
     };
     enable = true;
@@ -43,6 +45,9 @@
       kde.enable = false;
       mpv.enable = false;
       nixvim.enable = false;
+      # Qt/Kvantum is themed manually via qt5ct/qt6ct.
+      # Disable Stylix Qt to avoid conflicts.
+      qt.enable = false;
       sway.enable = false;
       waybar.enable = false;
       yazi.enable = false;
