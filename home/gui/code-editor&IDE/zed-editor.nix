@@ -1,21 +1,21 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    nil
-    nixd
-    zed-editor
-  ];
-
+{ pkgs, ... }:
+{
   programs.zed-editor = {
     enable = true;
-    # package = pkgs.zed-editor;
+
+    extensions = [
+      "catppuccin"
+      "catppuccin-icons"
+      "nix"
+      "tokyo-night"
+    ];
+
+    extraPackages = with pkgs; [
+      nixd
+      nixfmt
+    ];
 
     userSettings = {
-      auto_install_extensions = {
-        catppuccin = true;
-        catppucchin-icons = true;
-        nix = true;
-        tokyo-night = true;
-      };
       auto_update = false;
       base_keymap = "VSCode";
       completions = {
@@ -30,8 +30,30 @@
         light = "Catppuccin Mocha";
         mode = "system";
       };
+      languages = {
+        Nix = {
+          language_servers = [
+            "nixd"
+          ];
+
+          formatter = {
+            external = {
+              command = "${pkgs.nixfmt}/bin/nixfmt";
+              arguments = [ ];
+            };
+          };
+
+          format_on_save = "on";
+          tab_size = 2;
+        };
+      };
       load_direnv = "shell_hook";
       lsp = {
+        nixd = {
+          binary = {
+            path = "${pkgs.nixd}/bin/nixd";
+          };
+        };
       };
       project_panel = {
         dock = "left";
@@ -54,7 +76,7 @@
           };
         };
         dock = "bottom";
-        font_family = "JetBrainsMono Nerd Font";
+        font_family = "JetBrainsMono Nerd Font Mono";
         font_features = null;
         font_size = 16;
         line_height = "comfortable";
