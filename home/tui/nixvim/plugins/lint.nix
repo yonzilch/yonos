@@ -1,4 +1,4 @@
-_: {
+{ ... }: {
   programs.nixvim = {
     plugins.lint = {
       autoCmd = {
@@ -18,7 +18,7 @@ _: {
       enable = true;
 
       lintersByFt = {
-        nix = ["nix"];
+        nix = [ "nix" ];
         markdown = [
           "markdownlint"
         ];

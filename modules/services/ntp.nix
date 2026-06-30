@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (import ../../hosts/${hostname}/env.nix) TimeSync-Method;
-in {
+in
+{
   services.ntpd-rs = {
     enable = true;
     settings = {

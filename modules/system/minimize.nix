@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; {
+{ lib, ... }:
+with lib;
+{
   # Minimize boot
   boot = {
     bcache.enable = mkForce false;
@@ -15,7 +16,7 @@ with lib; {
 
   # Minimize environment
   environment = {
-    defaultPackages = mkForce [];
+    defaultPackages = mkForce [ ];
   };
 
   # Disable unnecessary programs

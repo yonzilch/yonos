@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (import ../../hosts/${hostname}/env.nix) QEMU-VM-Use-Case;
-in {
+in
+{
   config = mkIf QEMU-VM-Use-Case {
     services = {
       spice-vdagentd.enable = true;

@@ -3,12 +3,12 @@
   pkgs,
   username,
   ...
-}: {
-  imports =
-    [
-      ./hardware.nix
-    ]
-    ++ lib.filesystem.listFilesRecursive ../../modules;
+}:
+{
+  imports = [
+    ./hardware.nix
+  ]
+  ++ lib.filesystem.listFilesRecursive ../../modules;
 
   # Define users
   users = {

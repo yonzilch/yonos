@@ -3,13 +3,13 @@
   pkgs,
   username,
   ...
-}: {
-  imports =
-    [
-      ./disko.nix
-      ./hardware.nix
-    ]
-    ++ lib.filesystem.listFilesRecursive ../../modules;
+}:
+{
+  imports = [
+    ./disko.nix
+    ./hardware.nix
+  ]
+  ++ lib.filesystem.listFilesRecursive ../../modules;
 
   users = {
     users.root = {

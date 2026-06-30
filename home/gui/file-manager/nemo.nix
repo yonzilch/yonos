@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   dconf.settings = {
     "org/nemo/preferences" = {
       "date-font-choice" = "no-mono";

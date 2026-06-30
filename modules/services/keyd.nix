@@ -1,4 +1,4 @@
-_: {
+{ ... }: {
   environment.etc."/keyd/default.conf" = {
     mode = "0600";
     text = ''

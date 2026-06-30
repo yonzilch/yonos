@@ -3,7 +3,8 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -16,11 +17,12 @@
     "uas"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."luks-b25a930d-cdb4-40bc-8e88-43b33f1539b7".device = "/dev/disk/by-uuid/b25a930d-cdb4-40bc-8e88-43b33f1539b7";
+  boot.initrd.luks.devices."luks-b25a930d-cdb4-40bc-8e88-43b33f1539b7".device =
+    "/dev/disk/by-uuid/b25a930d-cdb4-40bc-8e88-43b33f1539b7";
 
   fileSystems."/" = {
     device = "/dev/mapper/luks-b25a930d-cdb4-40bc-8e88-43b33f1539b7";
@@ -67,7 +69,7 @@
     "d /run/media/admin/hdd2 0755 admin admin - -"
   ];
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

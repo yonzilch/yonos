@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (import ../../hosts/${hostname}/env.nix) DNS-Method;
-in {
+in
+{
   environment.etc."resolv.conf" = mkIf (DNS-Method == "unbound") {
     mode = "0644";
     text = ''
@@ -24,10 +26,7 @@ in {
       "::1"
     ];
     networkmanager = {
-      dns =
-        if DNS-Method == "unbound"
-        then "none"
-        else "default";
+      dns = if DNS-Method == "unbound" then "none" else "default";
       enable = true;
     };
     resolvconf.enable = DNS-Method != "unbound";

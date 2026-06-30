@@ -1,4 +1,4 @@
-_: {
+{ ... }: {
   programs.nixvim = {
     autoGroups = {
       "kickstart-lsp-attach" = {

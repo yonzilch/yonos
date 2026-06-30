@@ -1,4 +1,4 @@
-_: {
+{ ... }: {
   disko.devices = {
     disk = {
       "SSSTC_CL4-8D512_00233540017F" = {
@@ -7,7 +7,7 @@ _: {
         content = {
           partitions = {
             boot = {
-              attributes = [0];
+              attributes = [ 0 ];
               priority = 1;
               size = "1M";
               type = "EF02";
@@ -16,7 +16,7 @@ _: {
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountOptions = ["umask=0077"];
+                mountOptions = [ "umask=0077" ];
                 mountpoint = "/boot";
               };
               priority = 2;

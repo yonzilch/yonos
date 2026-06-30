@@ -1,13 +1,13 @@
 # ZFS raid1 as root with encryption and zstd compression
 # see https://github.com/nix-community/disko/tree/master/example
-_: {
+{ ... }: {
   disko.devices = {
     disk = {
       mirror1 = {
         content = {
           partitions = {
             boot = {
-              attributes = [0];
+              attributes = [ 0 ];
               priority = 1;
               size = "1M";
               type = "EF02";
@@ -15,7 +15,7 @@ _: {
             esp = {
               content = {
                 format = "vfat";
-                mountOptions = ["umask=0077"];
+                mountOptions = [ "umask=0077" ];
                 mountpoint = "/boot";
                 type = "filesystem";
               };
@@ -50,7 +50,7 @@ _: {
               type = "EF00";
               content = {
                 format = "vfat";
-                mountOptions = ["umask=0077"];
+                mountOptions = [ "umask=0077" ];
                 mountpoint = "/boot-mirror";
                 type = "filesystem";
               };

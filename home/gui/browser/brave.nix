@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.chromium = {
     commandLineArgs = [
       "--password-store=basic"

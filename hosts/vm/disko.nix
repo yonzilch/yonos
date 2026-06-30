@@ -1,4 +1,4 @@
-_: {
+{ ... }: {
   disko.devices = {
     disk = {
       main = {
@@ -19,7 +19,7 @@ _: {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["nofail"];
+                mountOptions = [ "nofail" ];
               };
             };
             zfs = {

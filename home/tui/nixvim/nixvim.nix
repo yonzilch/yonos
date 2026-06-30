@@ -1,5 +1,5 @@
-{inputs, ...}: {
-  imports = [inputs.nixvim.homeModules.nixvim];
+{ inputs, ... }: {
+  imports = [ inputs.nixvim.homeModules.nixvim ];
   programs.nixvim = {
     colorschemes = {
       catppuccin = {
@@ -21,17 +21,17 @@
                 background = true;
               };
               underlines = {
-                errors = ["underline"];
-                hints = ["underline"];
-                information = ["underline"];
-                warnings = ["underline"];
+                errors = [ "underline" ];
+                hints = [ "underline" ];
+                information = [ "underline" ];
+                warnings = [ "underline" ];
               };
               virtual_text = {
-                errors = ["italic"];
-                hints = ["italic"];
-                information = ["italic"];
-                ok = ["italic"];
-                warnings = ["italic"];
+                errors = [ "italic" ];
+                hints = [ "italic" ];
+                information = [ "italic" ];
+                ok = [ "italic" ];
+                warnings = [ "italic" ];
               };
             };
             neotree = true;

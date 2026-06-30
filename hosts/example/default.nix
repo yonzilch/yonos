@@ -3,13 +3,13 @@
   pkgs,
   username,
   ...
-}: {
-  imports =
-    [
-      # ./disko.nix # For nixos-anywhere
-      ./hardware.nix
-    ]
-    ++ lib.filesystem.listFilesRecursive ../../modules;
+}:
+{
+  imports = [
+    # ./disko.nix # For nixos-anywhere
+    ./hardware.nix
+  ]
+  ++ lib.filesystem.listFilesRecursive ../../modules;
 
   # Define users
   # If use nixos-anywhere to install, hashedPassword should be declared before installation

@@ -43,10 +43,9 @@ username := `whoami`
   sudo nix-store --verify --check-contents --repair
 
 @format:
-  # Use alejandra and deadnix to format code
+  # Use deadnix and nixfmt to format Nix code
   deadnix -e
-  alejandra .
-
+  find . -type f -name '*.nix' -exec nixfmt {} +
 
 @gc:
   # Do garbage-clean (remove unused packages, etc)

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.nixvim = {
     extraPackages = with pkgs; [
       stylua
@@ -21,7 +21,7 @@
           end
         '';
         formatters_by_ft = {
-          lua = ["stylua"];
+          lua = [ "stylua" ];
         };
       };
     };
