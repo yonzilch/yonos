@@ -13,7 +13,7 @@
         browser = [ "brave-browser.desktop" ];
         editor = [ "dev.zed.Zed.desktop" ];
         filemanager = [ "nemo.desktop" ];
-        image-viewer = [ "oculante.desktop" ];
+        image-viewer = [ "org.nomacs.ImageLounge.desktop" ];
         media-player = [ "mpv.desktop" ];
       in
       {
