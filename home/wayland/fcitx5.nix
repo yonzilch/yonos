@@ -3,10 +3,10 @@
     force = true;
     recursive = true;
     source = pkgs.fetchFromGitHub {
-      hash = "sha256-hRtA1cYAQm7M+dPSThedqKogr8YMkP9WQFEZw5pdCbU=";
-      owner = "iDvel";
-      repo = "rime-ice";
-      tag = "2026.03.26";
+      hash = "sha256-1yxbLuVcCqgHGS14AecbVL7AQFGC/wbFO7US3Onz/R0=";
+      owner = "gaboolic";
+      repo = "rime-frost";
+      tag = "1.0.4";
     };
   };
 
