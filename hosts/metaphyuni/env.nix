@@ -25,8 +25,11 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = ''output = "", mode = "2560x1600@120", position = "auto", scale = 1.6'';
+  MonitorSettings = ''
+    hl.monitor({output = "eDP-1", mode = "2560x1600@120", position = "1920x0", scale = 1.6})
+    hl.monitor({output = "DP-1", mode = "3840x2560@120", position = "0x0", scale = 2})
+  '';
   OutputSettings = "output * resolution 2560x1600@165Hz scale 1.6";
-  ScaleLevel = "1.6";
+  ScaleLevel = "2";
   WM = "Hyprland";
 }

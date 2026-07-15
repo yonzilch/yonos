@@ -22,7 +22,7 @@ mkIf (WM == "Hyprland") {
     enable = true;
     extraConfig = concatStrings [
       ''
-        hl.monitor({${MonitorSettings}})
+        ${MonitorSettings}
         hl.config({input = {kb_layout = "${KeyboardLayout}",}})
         hl.exec_cmd(
             "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c" ..

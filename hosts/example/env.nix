@@ -141,8 +141,10 @@
   # ----------------------------------------------------------------------------
   # Monitor settings for Hyprland
   # See: https://wiki.hyprland.org/Configuring/Monitors
-  MonitorSettings = ''output = "", mode = "preferred", position = "auto", scale = auto'';
-
+  MonitorSettings = ''
+    hl.monitor({output = "", mode = "preferred", position = "auto", scale = auto})
+    -- hl.monitor({output = "DP-1", mode = "3840x2560@120", position = "0x0", scale = 2})
+  '';
   # Output settings for sway
   # See: https://github.com/swaywm/sway/wiki#display-configuration
   OutputSettings = "output * scale 2";

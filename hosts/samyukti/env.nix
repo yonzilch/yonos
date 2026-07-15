@@ -25,7 +25,7 @@
   TimeZone = "Asia/Singapore";
 
   ## Wayland related
-  MonitorSettings = ''output = "", mode = "highres", position = "auto", scale = 2'';
+  MonitorSettings = ''hl.monitor({output = "", mode = "highres", position = "auto", scale = 2})'';
   OutputSettings = "output * resolution 3840x2160@144Hz scale 2";
   ScaleLevel = "2";
   WM = "sway";
