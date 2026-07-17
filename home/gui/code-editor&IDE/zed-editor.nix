@@ -65,7 +65,7 @@
           initialization_options = {
             formatting = {
               command = [
-                "${pkgs.nixfmt}/bin/nixfmt"
+                "${pkgs.nixfmt-rs}/bin/nixfmt-rs"
               ];
             };
           };
