@@ -53,6 +53,22 @@ readonly userName="$(id -un)"
 printf 'Primary username: %s\n' "$userName"
 print_separator
 
+# Detect the time zone configured on the current system.
+detectedTimeZone="$(
+  timedatectl show \
+    --property=Timezone \
+    --value
+)"
+
+if [[ -z "$detectedTimeZone" || "$detectedTimeZone" == "n/a" ]]; then
+  printf '%s\n' \
+    'Unable to detect the current system time zone.' >&2
+  exit 1
+fi
+
+printf 'Detected time zone: %s\n' "$detectedTimeZone"
+print_separator
+
 # Validate the host template before creating a new configuration.
 if [[ ! -d "$TEMPLATE_DIRECTORY" ]]; then
   printf 'Host template does not exist: %s\n' \
@@ -79,10 +95,25 @@ print_separator
 read -r -p 'Enter hostname ' hostName
 hostName="${hostName:-nixos}"
 
+read -r -p "Enter time zone [${detectedTimeZone}]: " timeZone
+timeZone="${timeZone:-$detectedTimeZone}"
+
 # Linux hostnames should use lowercase letters, digits, and hyphens.
 if [a-z0-9-]{0,61}[a-z0-9]?$ ]]; then
   printf '%s\n' \
     'Invalid hostname. Use lowercase letters, digits, and internal hyphens.' >&2
+  exit 1
+fi
+
+# Validate the selected time zone against the system time zone database.
+#
+# Do not use grep -q here. With pipefail enabled, grep -q may terminate
+# before timedatectl finishes writing and cause a false pipeline failure.
+if ! timedatectl list-timezones |
+  grep -Fx -- "$timeZone" >/dev/null; then
+  printf 'Invalid time zone: %s\n' "$timeZone" >&2
+  printf '%s\n' \
+    'Run "timedatectl list-timezones" to list valid time zones.' >&2
   exit 1
 fi
 
@@ -98,6 +129,7 @@ fi
 
 printf 'Creating host configuration: %s\n' "$hostName"
 printf 'Configuring primary user: %s\n' "$userName"
+printf 'Configuring time zone: %s\n' "$timeZone"
 print_separator
 
 mkdir -- "$hostDirectory"
@@ -112,9 +144,23 @@ if ! grep -Eq \
   exit 1
 fi
 
+# Ensure that the host template declares TimeZone.
+if ! grep -Eq \
+  '^[[:space:]]*TimeZone[[:space:]]*=' \
+  "$hostEnvironment"; then
+  printf 'TimeZone is not declared in template: %s\n' \
+    "$hostEnvironment" >&2
+  exit 1
+fi
+
 # Set the primary username in the new host environment.
 sed -i -E \
   "s|^([[:space:]]*Username[[:space:]]*=[[:space:]]*)\"[^\"]*\";|\1\"${userName}\";|" \
+  "$hostEnvironment"
+
+# Set the time zone in the new host environment.
+sed -i -E \
+  "s|^([[:space:]]*TimeZone[[:space:]]*=[[:space:]]*)\"[^\"]*\";|\1\"${timeZone}\";|" \
   "$hostEnvironment"
 
 # Verify that the username replacement succeeded.
@@ -126,15 +172,24 @@ if ! grep -Eq \
   exit 1
 fi
 
+# Verify that the time zone replacement succeeded.
+if ! grep -Eq \
+  "^[[:space:]]*TimeZone[[:space:]]*=[[:space:]]*\"${timeZone}\";" \
+  "$hostEnvironment"; then
+  printf 'Failed to set TimeZone in: %s\n' \
+    "$hostEnvironment" >&2
+  exit 1
+fi
+
 # Generate the host-specific hardware configuration.
 nixos-generate-config \
   --show-hardware-config \
-  > "${hostDirectory}/hardware.nix"
+  >"${hostDirectory}/hardware.nix"
 
 # A Git-backed flake cannot see untracked host files.
 git add -- "$hostDirectory"
 
-# Verify that the dynamically generated configuration exists.
+# Verify that the dynamically generated host configuration exists.
 evaluatedHostName="$(
   nix eval \
     --extra-experimental-features 'nix-command flakes' \
@@ -162,8 +217,23 @@ if [[ "$evaluatedUserName" != "$userName" ]]; then
   exit 1
 fi
 
+# Verify that NixOS receives the time zone from env.nix.
+evaluatedTimeZone="$(
+  nix eval \
+    --extra-experimental-features 'nix-command flakes' \
+    --raw \
+    ".#nixosConfigurations.${hostName}.config.time.timeZone"
+)"
+
+if [[ "$evaluatedTimeZone" != "$timeZone" ]]; then
+  printf 'Time zone verification failed: expected "%s", received "%s".\n' \
+    "$timeZone" "$evaluatedTimeZone" >&2
+  exit 1
+fi
+
 printf 'Verified hostname: %s\n' "$evaluatedHostName"
 printf 'Verified username: %s\n' "$evaluatedUserName"
+printf 'Verified time zone: %s\n' "$evaluatedTimeZone"
 printf '%s\n' \
   'The configuration passed evaluation and is ready to build.'
 printf '%s\n' \
