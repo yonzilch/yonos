@@ -12,7 +12,8 @@
 
     extraPackages = with pkgs; [
       nixd
-      nixfmt
+      nixfmt-rs
+      package-version-server
     ];
 
     userSettings = {
