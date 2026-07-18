@@ -23,6 +23,7 @@
   StateVersion = "26.05";
   TimeSync-Method = "NTS";
   TimeZone = "Asia/Singapore";
+  Username = "admin";
 
   ## Wayland related
   MonitorSettings = ''hl.monitor({output = "", mode = "2560x1600@60", position = "auto", scale = 1.6})'';

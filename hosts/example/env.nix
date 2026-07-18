@@ -109,6 +109,12 @@
   # See: https://docs.moodle.org/405/en/Table_of_locales
   Locale = "en_US.UTF-8";
 
+  ## System Version
+  # ----------------------------------------------------------------------------
+  # NixOS state version
+  # See: https://mynixos.com/nixpkgs/option/system.stateVersion
+  StateVersion = "26.05";
+
   # Time zone
   # See: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TimeZone = "Asia/Singapore";
@@ -122,11 +128,10 @@
   # See: https://github.com/pendulum-project/ntpd-rs
   TimeSync-Method = "Plain";
 
-  ## System Version
+  ## User Configuration
   # ----------------------------------------------------------------------------
-  # NixOS state version
-  # See: https://mynixos.com/nixpkgs/option/system.stateVersion
-  StateVersion = "26.05";
+  # Primary user managed by NixOS and Home Manager
+  Username = "admin";
 
   # ============================================================================
   # Wayland/Display Options

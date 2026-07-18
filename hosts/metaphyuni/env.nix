@@ -23,6 +23,7 @@
   StateVersion = "26.05";
   TimeSync-Method = "NTS";
   TimeZone = "Asia/Singapore";
+  Username = "admin";
 
   ## Wayland related
   MonitorSettings = ''

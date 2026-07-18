@@ -6,14 +6,15 @@
 }:
 {
   imports = with inputs; [
-    ./${hostname}
     daeuniverse.nixosModules.daed
     disko.nixosModules.disko
     stylix.nixosModules.stylix
     home-manager.nixosModules.home-manager
     {
       home-manager = {
-        extraSpecialArgs = { inherit hostname inputs username; };
+        extraSpecialArgs = {
+          inherit hostname inputs username;
+        };
         useGlobalPkgs = true;
         users.${username} = import ../home;
       };
