@@ -31,6 +31,7 @@ hl.bind("CTRL + ALT + B",
 hl.bind("SUPER + E",              hl.dsp.exec_cmd("nemo"))
 hl.bind("CTRL + SUPER + Q",       hl.dsp.exec_cmd("wleave"))
 hl.bind("SUPER + T",              hl.dsp.exec_cmd("alacritty"))
+hl.bind("SUPER + SHIFT + C",      hl.dsp.exec_cmd("hyprpicker --autocopy"))
 -- Screenshots
 hl.bind("SUPER + S",              hl.dsp.exec_cmd("sh ~/.config/waybar/scripts/Screenshot-Area.sh"))
 hl.bind("SUPER + ALT + S",        hl.dsp.exec_cmd("sh ~/.config/waybar/scripts/Screenshot-Fullscreen.sh"))

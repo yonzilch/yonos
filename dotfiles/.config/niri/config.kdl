@@ -54,6 +54,7 @@ binds {
     Super+E { spawn "nemo"; }
     Ctrl+Super+Q { spawn "wleave"; }
     Super+T { spawn "alacritty"; }
+    Super+Shift+C { spawn "hyprpicker --autocopy"; }
     Super+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
     Super+Ctrl+Alt+Print { screenshot-screen; }

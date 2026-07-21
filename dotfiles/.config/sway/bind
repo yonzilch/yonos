@@ -21,6 +21,9 @@ bindsym Ctrl+Mod4+q exec wleave
 ### Terminal Emulator
 bindsym Mod4+t exec alacritty
 
+### Color picker
+bindsym Mod4+Shift+c exec hyprpicker --autocopy
+
 ## Screenshoter
 ### Area Mode
 bindsym Mod4+s exec sh ~/.config/waybar/scripts/Screenshot-Area.sh
