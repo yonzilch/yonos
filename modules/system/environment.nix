@@ -64,6 +64,7 @@ in
   programs = {
     dconf.enable = true;
     fuse.userAllowOther = true;
+    nix-ld.enable = true;
     git = {
       enable = true;
       lfs.enable = true;
