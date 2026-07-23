@@ -33,7 +33,9 @@ For personal reasons, I am unable to dedicate the time and effort required to cr
 ```
 nix-shell -p git
 
-git clone https://github.com/yonzilch/yonos.git && cd yonos
+git clone https://github.com/yonzilch/yonos.git
+
+cd yonos
 
 bash install.sh
 
